@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SequenceChange" load_steps=2 format=3 uid="uid://b3fndesn408xw"]
+
+[ext_resource type="Script" uid="uid://b77ywsgsoffqu" path="res://Production/Components/Rhythm/SequenceChange.cs" id="1_nb0y6"]
+
+[resource]
+script = ExtResource("1_nb0y6")
+_sequence = PackedInt32Array(0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0)
+bars = 12
+timeSignature = 8
+metadata/_custom_type_script = "uid://b77ywsgsoffqu"

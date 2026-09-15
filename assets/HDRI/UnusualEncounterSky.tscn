@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0eawod4hydjh"]
+
+[ext_resource type="Environment" uid="uid://vji5ig0fpgi3" path="res://Production/ArchivedLevels/Enviro/UnusualEncounterWorldEnv.tres" id="1_qm4yv"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_plaw6"]
+dof_blur_far_distance = 109.96
+dof_blur_far_transition = 51.35
+dof_blur_near_distance = 2.6
+dof_blur_amount = 0.04
+
+[node name="Sky" type="Node3D" unique_id=237558979]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1306356209]
+transform = Transform3D(-0.9444605, 0.23028947, 0.23443586, 0.029643724, -0.6507753, 0.7586922, 0.32728308, 0.7235044, 0.60780525, -2, 0, 0)
+light_color = Color(0.4451946, 0.24915603, 0.26782134, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D" unique_id=803441218]
+environment = ExtResource("1_qm4yv")
+camera_attributes = SubResource("CameraAttributesPractical_plaw6")

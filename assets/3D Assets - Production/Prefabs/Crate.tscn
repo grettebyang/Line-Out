@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://w0ceg63blrs4"]
+
+[ext_resource type="Script" uid="uid://owf1xyu0u8tk" path="res://Production/Components/Rhythm/Obstacle.cs" id="1_7utux"]
+[ext_resource type="Material" uid="uid://bk21ibyr707ce" path="res://assets/3D Assets - Production/Imports/Crate/Materials/M_Crate.tres" id="1_nljmm"]
+[ext_resource type="ArrayMesh" uid="uid://pm8y15cl3vua" path="res://assets/3D Assets - Production/Imports/Crate/Meshes/Crate_LOW.obj" id="2_7utux"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hwt0"]
+size = Vector3(2.7302246, 1.4617767, 1.6054688)
+
+[node name="Crate" type="Node3D" unique_id=1022080447]
+
+[node name="CrashPivot" type="Node3D" parent="." unique_id=285340672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Crate" type="StaticBody3D" parent="CrashPivot" unique_id=607968958 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+script = ExtResource("1_7utux")
+_collider = NodePath("Crate_Collision")
+_crashPivot = NodePath("..")
+
+[node name="Crate_Mesh" type="MeshInstance3D" parent="CrashPivot/Crate" unique_id=1400090059]
+transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, 0, 0, 0)
+material_override = ExtResource("1_nljmm")
+mesh = ExtResource("2_7utux")
+
+[node name="Crate_Collision" type="CollisionShape3D" parent="CrashPivot/Crate" unique_id=1852110290]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0043796375, 0.53632116, 0.015625)
+shape = SubResource("BoxShape3D_0hwt0")

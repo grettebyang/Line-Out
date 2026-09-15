@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr48wn0s3vkqy"]
+
+[ext_resource type="Script" uid="uid://bw8u3jjxaxiiw" path="res://prototype/Adam/multiplayer/multiplayer.gd" id="1_hx1pk"]
+
+[node name="Multiscene" type="CanvasLayer" node_paths=PackedStringArray("host", "join")]
+script = ExtResource("1_hx1pk")
+host = NodePath("HostBtn")
+join = NodePath("JoinBtn")
+
+[node name="HostBtn" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 20.0
+offset_right = 335.0
+offset_bottom = 213.0
+text = "Host"
+
+[node name="JoinBtn" type="Button" parent="."]
+offset_left = 419.0
+offset_top = 27.0
+offset_right = 763.0
+offset_bottom = 217.0
+text = "Join"
+
+[node name="LobbyID" type="LineEdit" parent="."]
+offset_left = 144.0
+offset_top = 271.0
+offset_right = 550.0
+offset_bottom = 302.0

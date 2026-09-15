@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://v16lle843pqf"]
+
+[ext_resource type="Texture2D" uid="uid://4xhlnr2uhhv6" path="res://Production/Components/UI/Generics/SpritePrimitives/Circle.png" id="1_elnle"]
+[ext_resource type="Texture2D" uid="uid://bqekkwch8ny4y" path="res://Production/Components/UI/HUD/Sprites/TimerOutline.png" id="2_qdn6a"]
+
+[node name="BottomActionButton" type="Control" unique_id=1250984195]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 192.0
+offset_bottom = 192.0
+
+[node name="Filled" type="TextureRect" parent="." unique_id=1533011442]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 128.0
+offset_bottom = 192.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_elnle")
+
+[node name="Hollow" type="TextureRect" parent="." unique_id=1485331716]
+layout_mode = 1
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 192.0
+offset_bottom = 128.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_qdn6a")
+expand_mode = 1
+
+[node name="Hollow2" type="TextureRect" parent="." unique_id=800952808]
+layout_mode = 1
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 128.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_qdn6a")
+expand_mode = 1
+
+[node name="Hollow3" type="TextureRect" parent="." unique_id=1311950159]
+layout_mode = 1
+offset_left = 64.0
+offset_right = 128.0
+offset_bottom = 64.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_qdn6a")
+expand_mode = 1

@@ -1,0 +1,559 @@
+[gd_scene format=3 uid="uid://rnaypoxa00um"]
+
+[ext_resource type="Script" uid="uid://jts0dmcq2aso" path="res://Production/Components/UI/MainMenu/Scripts/WinScreen.cs" id="1_wen0r"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="2_hmy40"]
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="3_1q4xr"]
+[ext_resource type="Texture2D" uid="uid://crua663en3pck" path="res://Production/Components/UI/HUD/Icons/IconPepparKakor.png" id="4_ulb6k"]
+[ext_resource type="PackedScene" uid="uid://bt744k5h2hlc1" path="res://Production/Components/UI/Prefabs/Buttons/CursorButton.tscn" id="5_v50hw"]
+[ext_resource type="PackedScene" uid="uid://b8gjs7jta3m6o" path="res://Production/Components/UI/TempScoreboard/TempScoreboardUINarrow.tscn" id="6_v50hw"]
+
+[sub_resource type="Animation" id="Animation_hmy40"]
+resource_name = "Appear"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Holder/VTitle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 130), Vector2(0, 130)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Holder/VSelection:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Holder:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.482968, 1),
+"update": 0,
+"values": [Vector2(510, 380), Vector2(510, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Holder:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Overlay:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(2.46229, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Holder/Scoreboard:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Holder/Scoreboard:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(446, 14), Vector2(446, 14), Vector2(940, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_ulb6k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Holder/VTitle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 74)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Holder/VSelection:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Holder/VSelection:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Holder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 254)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Holder:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Overlay:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Holder/Scoreboard:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Holder/Scoreboard:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(446, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_1q4xr"]
+resource_name = "ShowSelection"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Holder/VTitle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.482968),
+"update": 0,
+"values": [Vector2(0, 130)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Holder/VSelection:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Holder/VSelection:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1.36604, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Holder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(510, 160)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Holder:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ulb6k"]
+_data = {
+&"Appear": SubResource("Animation_hmy40"),
+&"RESET": SubResource("Animation_ulb6k"),
+&"ShowSelection": SubResource("Animation_1q4xr")
+}
+
+[sub_resource type="Gradient" id="Gradient_fdsoe"]
+offsets = PackedFloat32Array(0, 0.141956, 1)
+colors = PackedColorArray(0.796078, 0.796078, 0.627451, 1, 0.894148, 0.894148, 0.776441, 1, 1, 1, 0.937255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wen0r"]
+gradient = SubResource("Gradient_fdsoe")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_ulb6k"]
+offsets = PackedFloat32Array(0.982188, 1)
+colors = PackedColorArray(0.156863, 0.141176, 0.584314, 0.25098, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fdsoe"]
+gradient = SubResource("Gradient_ulb6k")
+fill_to = Vector2(0, 1)
+
+[node name="WinScreen" type="Control" unique_id=59293065 node_paths=PackedStringArray("_lblTitle", "_lblTime", "_lblBestTime", "_lblNextTime", "_ratingHolder", "_animator", "_waitTimer", "_scoreboardUI", "_btnSaveScore", "_btnNextLevel", "_mainButtonsContainer")]
+z_index = 10
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_wen0r")
+_lblTitle = NodePath("Holder/VTitle/Label")
+_lblTime = NodePath("Holder/VTitle/LblTime")
+_lblBestTime = NodePath("Holder/VTitle/LblBestTime")
+_lblNextTime = NodePath("Holder/VTitle/LblNextTime")
+_ratingHolder = NodePath("Holder/VTitle/MarginContainer3/Control/HRating")
+_animator = NodePath("AnimationPlayer")
+_waitTimer = NodePath("Timer")
+_scoreboardUI = NodePath("Holder/Scoreboard")
+_btnSaveScore = NodePath("Holder/VSelection/SaveScore")
+_btnNextLevel = NodePath("Holder/VSelection/NextLevel")
+_mainButtonsContainer = NodePath("Holder/VSelection")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1486814174]
+libraries/ = SubResource("AnimationLibrary_ulb6k")
+
+[node name="Timer" type="Timer" parent="." unique_id=1327204105]
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=322896315]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.866667, 0.862745, 0.643137, 0.501961)
+
+[node name="Holder" type="TextureRect" parent="." unique_id=1278099600]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -826.0
+offset_right = -60.0
+offset_bottom = 100.99878
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(0, 250)
+pivot_offset_ratio = Vector2(0.5, 0)
+texture = SubResource("GradientTexture2D_wen0r")
+
+[node name="Border" type="ColorRect" parent="Holder" unique_id=1366684721]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="Shadow" type="TextureRect" parent="Holder" unique_id=1694229888]
+z_index = -2
+layout_mode = 1
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 904.0
+offset_bottom = 761.0
+texture = SubResource("GradientTexture2D_fdsoe")
+
+[node name="VTitle" type="VBoxContainer" parent="Holder" unique_id=2106845802]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -389.4994
+offset_bottom = 13.50061
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(800, 0)
+
+[node name="Label" type="Label" parent="Holder/VTitle" unique_id=1634905125]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_hmy40")
+theme_override_font_sizes/font_size = 48
+text = "Level finished!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Holder/VTitle" unique_id=2097236756]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Line" type="ColorRect" parent="Holder/VTitle" unique_id=1744101781]
+custom_minimum_size = Vector2(200, 3)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="MarginContainer2" type="MarginContainer" parent="Holder/VTitle" unique_id=510674560]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="LblTime" type="Label" parent="Holder/VTitle" unique_id=833950904]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.521569, 0.431373, 0.337255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_1q4xr")
+theme_override_font_sizes/font_size = 40
+text = "Time: 00:00.00"
+horizontal_alignment = 1
+
+[node name="LblBestTime" type="Label" parent="Holder/VTitle" unique_id=407292643]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.521569, 0.431373, 0.337255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_1q4xr")
+theme_override_font_sizes/font_size = 28
+text = "Best time: 00:00.00"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="Holder/VTitle" unique_id=1018431787]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+
+[node name="Control" type="Control" parent="Holder/VTitle/MarginContainer3" unique_id=2043271824]
+layout_mode = 2
+
+[node name="HRatingBackground" type="HBoxContainer" parent="Holder/VTitle/MarginContainer3/Control" unique_id=1407372802]
+layout_mode = 0
+offset_left = 398.0
+offset_top = -33.0
+offset_right = 502.0
+offset_bottom = -1.0
+size_flags_horizontal = 4
+
+[node name="Star1" type="TextureRect" parent="Holder/VTitle/MarginContainer3/Control/HRatingBackground" unique_id=753648106]
+modulate = Color(0.521569, 0.396078, 0.266667, 0.392157)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ulb6k")
+expand_mode = 1
+
+[node name="Star2" type="TextureRect" parent="Holder/VTitle/MarginContainer3/Control/HRatingBackground" unique_id=1625039177]
+modulate = Color(0.521569, 0.396078, 0.266667, 0.392157)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ulb6k")
+expand_mode = 1
+
+[node name="Star3" type="TextureRect" parent="Holder/VTitle/MarginContainer3/Control/HRatingBackground" unique_id=70716428]
+modulate = Color(0.521569, 0.396078, 0.266667, 0.392157)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ulb6k")
+expand_mode = 1
+
+[node name="HRating" type="HBoxContainer" parent="Holder/VTitle/MarginContainer3/Control" unique_id=1141883785]
+layout_mode = 0
+offset_left = 398.0
+offset_top = -33.0
+offset_right = 502.0
+offset_bottom = -1.0
+size_flags_horizontal = 4
+
+[node name="Star1" type="TextureRect" parent="Holder/VTitle/MarginContainer3/Control/HRating" unique_id=590049533]
+visible = false
+modulate = Color(0.522463, 0.396165, 0.267178, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ulb6k")
+expand_mode = 1
+
+[node name="Star2" type="TextureRect" parent="Holder/VTitle/MarginContainer3/Control/HRating" unique_id=1875059272]
+visible = false
+modulate = Color(0.522463, 0.396165, 0.267178, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ulb6k")
+expand_mode = 1
+
+[node name="Star3" type="TextureRect" parent="Holder/VTitle/MarginContainer3/Control/HRating" unique_id=946264008]
+visible = false
+modulate = Color(0.522463, 0.396165, 0.267178, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_ulb6k")
+expand_mode = 1
+
+[node name="LblNextTime" type="Label" parent="Holder/VTitle" unique_id=487173162]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.521569, 0.431373, 0.337255, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_1q4xr")
+theme_override_font_sizes/font_size = 28
+text = "Next star time: 00:00.00"
+horizontal_alignment = 1
+
+[node name="VSelection" type="VBoxContainer" parent="Holder" unique_id=874298198]
+layout_mode = 0
+offset_top = 493.0
+offset_right = 900.0
+offset_bottom = 855.0
+pivot_offset = Vector2(800, 0)
+
+[node name="SaveScore" parent="Holder/VSelection" unique_id=271175958 instance=ExtResource("5_v50hw")]
+process_mode = 4
+layout_mode = 2
+
+[node name="Text" parent="Holder/VSelection/SaveScore" index="3" unique_id=418465982]
+theme_override_font_sizes/font_size = 40
+text = "Save Score"
+
+[node name="Restart" parent="Holder/VSelection" unique_id=731189466 instance=ExtResource("5_v50hw")]
+process_mode = 4
+layout_mode = 2
+
+[node name="Text" parent="Holder/VSelection/Restart" index="3" unique_id=418465982]
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="NextLevel" parent="Holder/VSelection" unique_id=968279546 instance=ExtResource("5_v50hw")]
+process_mode = 4
+layout_mode = 2
+
+[node name="Text" parent="Holder/VSelection/NextLevel" index="3" unique_id=418465982]
+theme_override_font_sizes/font_size = 40
+text = "Next Level"
+
+[node name="MainMenu" parent="Holder/VSelection" unique_id=408406542 instance=ExtResource("5_v50hw")]
+process_mode = 4
+layout_mode = 2
+
+[node name="Text" parent="Holder/VSelection/MainMenu" index="3" unique_id=418465982]
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
+[node name="Scoreboard" parent="Holder" unique_id=730160835 instance=ExtResource("6_v50hw")]
+z_index = -3
+layout_mode = 1
+offset_left = 446.0
+offset_top = 14.0
+offset_right = 446.00037
+offset_bottom = 14.0
+
+[connection signal="Pressed" from="Holder/VSelection/SaveScore" to="." method="OnSaveScoreButtonPresed"]
+[connection signal="Pressed" from="Holder/VSelection/Restart" to="." method="OnRestartButtonPresed"]
+[connection signal="Pressed" from="Holder/VSelection/NextLevel" to="." method="OnNextLevelPressed"]
+[connection signal="Pressed" from="Holder/VSelection/MainMenu" to="." method="OnToMainMenuPressed"]
+
+[editable path="Holder/VSelection/SaveScore"]
+[editable path="Holder/VSelection/Restart"]
+[editable path="Holder/VSelection/NextLevel"]
+[editable path="Holder/VSelection/MainMenu"]

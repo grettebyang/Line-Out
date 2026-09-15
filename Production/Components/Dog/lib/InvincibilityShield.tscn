@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://clfjf8vekfonc"]
+
+[ext_resource type="Script" uid="uid://bxk6ji4nmxrp" path="res://Production/Components/Dog/lib/InvincibilityShield.cs" id="1_epnpb"]
+[ext_resource type="AudioStream" uid="uid://bwq8x4md0xam5" path="res://assets/AudioAssets/ShieldHit.wav" id="2_fqupe"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sfc7g"]
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfc7g"]
+transparency = 1
+albedo_color = Color(1, 0.84313726, 0.44313726, 0.5411765)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ce8sd"]
+material = SubResource("StandardMaterial3D_sfc7g")
+radius = 2.0
+height = 4.0
+
+[node name="InvincibilityShield" type="Area3D" unique_id=758575829 node_paths=PackedStringArray("_hitSound")]
+collision_layer = 257
+collision_mask = 289
+script = ExtResource("1_epnpb")
+_hitSound = NodePath("HitSound")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=62778747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.002864, 0)
+shape = SubResource("SphereShape3D_sfc7g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1774887599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.002864, 0)
+mesh = SubResource("SphereMesh_ce8sd")
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="." unique_id=1157370566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.002864, 0)
+stream = ExtResource("2_fqupe")
+bus = &"SFX"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

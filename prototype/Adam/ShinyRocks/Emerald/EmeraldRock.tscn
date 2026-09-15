@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj3x61rcddwhd"]
+
+[ext_resource type="Script" uid="uid://cc7ff3tqpjm2l" path="res://prototype/Adam/ShinyRocks/Emerald/EmeraldRock.cs" id="1_h0tb3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e5ajs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iadqq"]
+emission_enabled = true
+
+[node name="RockSceneBase2" type="Node3D" node_paths=PackedStringArray("_rockModel")]
+script = ExtResource("1_h0tb3")
+_rockColor = Color(0, 0.744571, 3.85046e-07, 0)
+_rockLightColor = Color(1, 0.994067, 0.994056, 0)
+_rockModel = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e5ajs")
+surface_material_override/0 = SubResource("StandardMaterial3D_iadqq")

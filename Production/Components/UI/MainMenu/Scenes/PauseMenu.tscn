@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://duvrwpehn8y4w"]
+
+[ext_resource type="Script" uid="uid://cd3eatchbhpo6" path="res://Production/Components/UI/MainMenu/Scripts/PauseMenu.cs" id="1_apx04"]
+[ext_resource type="Script" uid="uid://c1o4338v3shvh" path="res://Production/Components/UI/MainMenu/Scripts/SubmenuBase.cs" id="2_apx04"]
+[ext_resource type="PackedScene" uid="uid://cley1231oy5y0" path="res://Production/Components/UI/Prefabs/Buttons/CursorMenuButton.tscn" id="3_cpexu"]
+[ext_resource type="PackedScene" uid="uid://3stbk02mu7bc" path="res://Production/Components/UI/MainMenu/Scenes/SettingsMenu.tscn" id="4_apx04"]
+[ext_resource type="PackedScene" uid="uid://bvy28lnokmuy2" path="res://Production/Components/UI/MainMenu/Scenes/HintButtonLine.tscn" id="6_ucedu"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="7_o4bun"]
+[ext_resource type="PackedScene" uid="uid://pnva2tyrect8" path="res://Production/Components/UI/MainMenu/Scenes/h_back_hold.tscn" id="8_38skv"]
+
+[sub_resource type="Gradient" id="Gradient_d04cp"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.705882, 0.701961, 0.572549, 1, 0.811885, 0.809214, 0.734769, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_apx04"]
+gradient = SubResource("Gradient_d04cp")
+width = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="PauseMenu" type="Control" unique_id=335502164 node_paths=PackedStringArray("_settingsMenu", "_mainSelection", "_backButton", "_backButtonHold", "_confirmButton")]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_apx04")
+_settingsMenu = NodePath("SettingsMenu")
+_mainSelection = NodePath("Card/MainSelection")
+_backButton = NodePath("HintButtons/MarginContainer/HBack")
+_backButtonHold = NodePath("HintButtons/MarginContainer/HBackHold")
+_confirmButton = NodePath("HintButtons/MarginContainer/HAccept")
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1529800393]
+z_index = -5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.866667, 0.862745, 0.643137, 0.501961)
+
+[node name="Card" type="TextureRect" parent="." unique_id=1181332045]
+z_index = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_apx04")
+
+[node name="Outline" type="ColorRect" parent="Card" unique_id=966718204]
+z_index = -1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 504.0
+grow_vertical = 2
+color = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="Label" type="Label" parent="Card" unique_id=738500954]
+layout_mode = 1
+offset_top = 220.0
+offset_right = 500.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_font_sizes/font_size = 80
+text = "Line Out"
+horizontal_alignment = 1
+
+[node name="Line" type="ColorRect" parent="Card" unique_id=1889693030]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -200.0
+offset_right = 99.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="MainSelection" type="VBoxContainer" parent="Card" unique_id=1263648292 node_paths=PackedStringArray("_mainButtonsContainer")]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -140.0
+offset_bottom = 410.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_apx04")
+_mainButtonsContainer = NodePath(".")
+
+[node name="Continue" parent="Card/MainSelection" unique_id=271175958 instance=ExtResource("3_cpexu")]
+layout_mode = 2
+
+[node name="Text" parent="Card/MainSelection/Continue" index="3" unique_id=418465982]
+text = "Continue"
+
+[node name="RespawnDogs" parent="Card/MainSelection" unique_id=2071890345 instance=ExtResource("3_cpexu")]
+layout_mode = 2
+
+[node name="Text" parent="Card/MainSelection/RespawnDogs" index="3" unique_id=418465982]
+text = "Respawn Dogs"
+
+[node name="Restart" parent="Card/MainSelection" unique_id=1174491580 instance=ExtResource("3_cpexu")]
+layout_mode = 2
+
+[node name="Text" parent="Card/MainSelection/Restart" index="3" unique_id=418465982]
+text = "Restart"
+
+[node name="Settings" parent="Card/MainSelection" unique_id=235721718 instance=ExtResource("3_cpexu")]
+layout_mode = 2
+
+[node name="Text" parent="Card/MainSelection/Settings" index="3" unique_id=418465982]
+text = "Settings"
+
+[node name="Quit" parent="Card/MainSelection" unique_id=1192486302 instance=ExtResource("3_cpexu")]
+layout_mode = 2
+
+[node name="Text" parent="Card/MainSelection/Quit" index="3" unique_id=418465982]
+text = "Quit"
+
+[node name="SettingsMenu" parent="." unique_id=1727127316 instance=ExtResource("4_apx04")]
+visible = false
+z_index = 2
+layout_mode = 1
+_confirmHintButtonVisible = true
+
+[node name="HintButtons" parent="." unique_id=488136015 instance=ExtResource("6_ucedu")]
+z_index = 10
+layout_mode = 1
+
+[node name="MarginContainer" parent="HintButtons" index="0"]
+offset_top = -23.0
+offset_bottom = -23.0
+
+[node name="HBack" parent="HintButtons/MarginContainer" index="0"]
+visible = false
+
+[node name="Label" parent="HintButtons/MarginContainer/HBack" index="2"]
+theme = ExtResource("7_o4bun")
+theme_override_colors/font_outline_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_constants/outline_size = 8
+
+[node name="HBackHold" parent="HintButtons/MarginContainer" index="1" unique_id=2037745341 instance=ExtResource("8_38skv")]
+visible = false
+layout_mode = 2
+
+[node name="Label" parent="HintButtons/MarginContainer/HAccept" index="0"]
+theme_override_colors/font_outline_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_constants/outline_size = 8
+
+[connection signal="Pressed" from="Card/MainSelection/Continue" to="." method="OnContinue"]
+[connection signal="Pressed" from="Card/MainSelection/RespawnDogs" to="." method="OnRespawnDogs"]
+[connection signal="Pressed" from="Card/MainSelection/Restart" to="." method="OnRestart"]
+[connection signal="Pressed" from="Card/MainSelection/Settings" to="." method="OnSettings"]
+[connection signal="Pressed" from="Card/MainSelection/Quit" to="." method="OnQuit"]
+
+[editable path="Card/MainSelection/Continue"]
+[editable path="Card/MainSelection/RespawnDogs"]
+[editable path="Card/MainSelection/Restart"]
+[editable path="Card/MainSelection/Settings"]
+[editable path="Card/MainSelection/Quit"]
+[editable path="HintButtons"]

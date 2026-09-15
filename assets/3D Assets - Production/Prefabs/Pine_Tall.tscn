@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ce2lmus8q3c72"]
+
+[ext_resource type="Script" uid="uid://owf1xyu0u8tk" path="res://Production/Components/Rhythm/Obstacle.cs" id="1_ohx7c"]
+[ext_resource type="Material" uid="uid://b1iq1joku2dcb" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineTrunk.tres" id="1_x10vf"]
+[ext_resource type="ArrayMesh" uid="uid://7gu32wp1ltni" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineTrunk.obj" id="2_ohx7c"]
+[ext_resource type="Material" uid="uid://dav8cpowc8u01" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineFoliage.tres" id="3_0f3g4"]
+[ext_resource type="ArrayMesh" uid="uid://lgbvpcf15doa" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineFoliage.obj" id="4_jsw3p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5w00n"]
+radius = 0.71
+height = 7.636138
+
+[node name="PineTall" type="Node3D" unique_id=1120882023]
+
+[node name="CrashPivot" type="Node3D" parent="." unique_id=36394515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Pine_Tall" type="StaticBody3D" parent="CrashPivot" unique_id=593924608 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+script = ExtResource("1_ohx7c")
+_collider = NodePath("PineCollision")
+_crashPivot = NodePath("..")
+
+[node name="PineCollision" type="CollisionShape3D" parent="CrashPivot/Pine_Tall" unique_id=733685823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12078428, 3.2444503, -0.04313755)
+shape = SubResource("CapsuleShape3D_5w00n")
+
+[node name="PineTrunkMesh" type="MeshInstance3D" parent="CrashPivot/Pine_Tall" unique_id=1076090265]
+transform = Transform3D(1.105, 0, 0, 0, 1.62, 0, 0, 0, 1.105, 0, 0.030189753, 0)
+material_override = ExtResource("1_x10vf")
+mesh = ExtResource("2_ohx7c")
+
+[node name="PineFoliageMesh" type="MeshInstance3D" parent="CrashPivot/Pine_Tall/PineTrunkMesh" unique_id=1151124597]
+transform = Transform3D(0.35421342, 0, 0.8327766, 0, 0.617284, 0, -0.8327766, 0, 0.35421342, 0.09369224, 1.3288009, 0.13272989)
+material_override = ExtResource("3_0f3g4")
+mesh = ExtResource("4_jsw3p")
+skeleton = NodePath("../..")

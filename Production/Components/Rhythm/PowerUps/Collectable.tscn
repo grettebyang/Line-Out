@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://o578868np83h"]
+
+[ext_resource type="Script" uid="uid://b0el4r4wicohj" path="res://Production/Components/Rhythm/PowerUps/Collectable.cs" id="1_lfikk"]
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="2_6qrk3"]
+[ext_resource type="ArrayMesh" uid="uid://c0jyruigc3vmm" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/Meat.obj" id="3_b2kea"]
+[ext_resource type="ArrayMesh" uid="uid://ckvx7rx1nlgwa" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/SaffronBun.obj" id="4_0pkp0"]
+[ext_resource type="ArrayMesh" uid="uid://durw2xa564t48" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/CinnamonBun.obj" id="5_fu3we"]
+[ext_resource type="PackedScene" uid="uid://kd3cyw1err1" path="res://Production/Components/Rhythm/PowerUps/under_shadow.tscn" id="5_pthqb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kcwqv"]
+radius = 1.0
+
+[node name="Collectable" type="Area3D" unique_id=975097025]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_lfikk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1612033112]
+shape = SubResource("SphereShape3D_kcwqv")
+
+[node name="Boost" type="MeshInstance3D" parent="." unique_id=1721866558]
+transform = Transform3D(0.53179735, -0.37375343, 0, 0.37375343, 0.53179735, 0, 0, 0, 0.65, 0.025144458, 0, 0)
+material_override = ExtResource("2_6qrk3")
+cast_shadow = 0
+mesh = ExtResource("3_b2kea")
+skeleton = NodePath("")
+
+[node name="Hover" type="MeshInstance3D" parent="." unique_id=2006596047]
+transform = Transform3D(0.2179077, -0.54624605, -0.04723819, 0.53491807, 0.22296052, -0.11068575, 0.120328695, -0.0019479339, 0.57759607, 0.07185531, -0.02335018, 0.016282976)
+material_override = ExtResource("2_6qrk3")
+cast_shadow = 0
+mesh = ExtResource("4_0pkp0")
+skeleton = NodePath("")
+
+[node name="Shield" type="MeshInstance3D" parent="." unique_id=62267619]
+transform = Transform3D(0.5895677, 0.11139998, 0, -0.11139998, 0.5895677, 0, 0, 0, 0.6, 0, -0.09406912, 0)
+material_override = ExtResource("2_6qrk3")
+cast_shadow = 0
+mesh = ExtResource("5_fu3we")
+skeleton = NodePath("")
+
+[node name="Shadow" parent="." unique_id=663439416 instance=ExtResource("5_pthqb")]

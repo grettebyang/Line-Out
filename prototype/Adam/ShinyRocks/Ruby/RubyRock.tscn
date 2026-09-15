@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmkohc1tm1v4"]
+
+[ext_resource type="Script" uid="uid://c8l3h7rqfoomt" path="res://prototype/Adam/ShinyRocks/Ruby/RubyRock.cs" id="1_b6q0n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_e5ajs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iadqq"]
+emission_enabled = true
+
+[node name="RockSceneBase" type="Node3D"]
+script = ExtResource("1_b6q0n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_e5ajs")
+surface_material_override/0 = SubResource("StandardMaterial3D_iadqq")

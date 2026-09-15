@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dgprc10epjy03"]
+
+[ext_resource type="Script" uid="uid://bkhneenvs0no" path="res://prototype/Grette/Avalanche/LevelAvalanche.cs" id="1_ivkpf"]
+[ext_resource type="AudioStream" uid="uid://ccxkik1kogy58" path="res://assets/AudioAssets/Traps/Avalanche/AvalancheSFX.wav" id="2_nvyn7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvyn7"]
+size = Vector3(91.23465, 1028.9473, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivkpf"]
+albedo_color = Color(0.6891471, 0.90093964, 0.9999998, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nvyn7"]
+material = SubResource("StandardMaterial3D_ivkpf")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fuwnv"]
+size = Vector3(73.220505, 22.250957, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o3t8t"]
+size = Vector3(12.855, 10.41, 1)
+
+[node name="LevelAvalanche" type="Node3D" unique_id=1497577447 node_paths=PackedStringArray("_avalancheField", "_avalancheRumble")]
+script = ExtResource("1_ivkpf")
+_avalancheField = NodePath("Avalanche")
+_speed = 0.05
+_avalancheRumble = NodePath("Avalanche/AvalancheRumble")
+
+[node name="Avalanche" type="Area3D" parent="." unique_id=1960724437]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Avalanche" unique_id=774685255]
+shape = SubResource("BoxShape3D_nvyn7")
+debug_color = Color(3.080368e-06, 0.79536545, 0.92264664, 0.54901963)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Avalanche/CollisionShape3D" unique_id=31609018]
+transform = Transform3D(12.905, 0, 0, 0, 32.35, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_nvyn7")
+skeleton = NodePath("../..")
+
+[node name="AvalancheRumble" type="AudioStreamPlayer3D" parent="Avalanche" unique_id=1458553863]
+stream = ExtResource("2_nvyn7")
+bus = &"SFX"
+
+[node name="AvalancheTrigger" type="Area3D" parent="." unique_id=1089829550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.850418)
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AvalancheTrigger" unique_id=737157202]
+shape = SubResource("BoxShape3D_fuwnv")
+debug_color = Color(1, 0.48260063, 0.7241168, 0.44705883)
+
+[node name="EndTrigger" type="Area3D" parent="." unique_id=1056676027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 43.06724)
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndTrigger" unique_id=1273918940]
+shape = SubResource("BoxShape3D_o3t8t")
+debug_color = Color(0, 0.91376495, 0, 0.41960785)
+
+[connection signal="body_entered" from="Avalanche" to="." method="OnAvalancheBodyEntered"]
+[connection signal="body_entered" from="AvalancheTrigger" to="." method="OnBodyEntered"]
+[connection signal="area_entered" from="EndTrigger" to="." method="OnAreaEntered"]

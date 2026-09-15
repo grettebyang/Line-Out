@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://us642onl53xh"]
+
+[ext_resource type="Texture2D" uid="uid://bas21q4k7arr0" path="res://assets/3D Assets - Production/Imports/Dog_TEMP/Materials/Textures/DOg_Temp_initialShadingGroup_LightGrey.png" id="1_i27jm"]
+
+[resource]
+albedo_texture = ExtResource("1_i27jm")
+normal_enabled = true

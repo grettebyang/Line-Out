@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://domulxk3mp2wy"]
+
+[ext_resource type="Script" uid="uid://d0jegq5in70by" path="res://prototype/Adam/TreeFall/TreeFall.cs" id="1_in8kx"]
+[ext_resource type="AudioStream" uid="uid://csgche64hmdkq" path="res://assets/AudioAssets/Traps/Tree/TreeFallingShortenedSFX.wav" id="2_7j8rh"]
+[ext_resource type="Script" uid="uid://c3xcupkk01yb2" path="res://prototype/Adam/TreeFall/FallingTree.cs" id="3_3klh7"]
+[ext_resource type="Material" uid="uid://b1iq1joku2dcb" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineTrunk.tres" id="3_a3lsa"]
+[ext_resource type="ArrayMesh" uid="uid://7gu32wp1ltni" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineTrunk.obj" id="4_3klh7"]
+[ext_resource type="Material" uid="uid://dav8cpowc8u01" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineFoliage.tres" id="5_aviaq"]
+[ext_resource type="ArrayMesh" uid="uid://lgbvpcf15doa" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineFoliage.obj" id="6_7j8rh"]
+[ext_resource type="Material" uid="uid://bkgujo0jsjyiu" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_Pine_Snow.tres" id="8_7j8rh"]
+[ext_resource type="ArrayMesh" uid="uid://ck2deu6c14ube" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/Pine_Snow.obj" id="9_dt48o"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6esrd"]
+radius = 21.4369
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3klh7"]
+bounce = 0.15
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7j8rh"]
+size = Vector3(1, 6.238495, 1)
+
+[node name="TreeFall" type="Node3D" unique_id=709610825 node_paths=PackedStringArray("treeRB", "sfx", "targetFall")]
+script = ExtResource("1_in8kx")
+treeRB = NodePath("CrashPivot/RigidBody3D")
+sfx = NodePath("TreeFallingSFX")
+fallForce = 720
+targetFall = NodePath("FallTarget")
+forceIterations = 1
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1834009909]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1838115611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19997, 0)
+shape = SubResource("SphereShape3D_6esrd")
+
+[node name="FallTarget" type="Node3D" parent="." unique_id=1517538147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.645985)
+
+[node name="TreeFallingSFX" type="AudioStreamPlayer3D" parent="." unique_id=1552575530]
+stream = ExtResource("2_7j8rh")
+volume_db = 7.792
+bus = &"SFX"
+
+[node name="CrashPivot" type="Node3D" parent="." unique_id=1813715303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="CrashPivot" unique_id=1494688136 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+axis_lock_angular_y = true
+mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_3klh7")
+script = ExtResource("3_3klh7")
+_collider = NodePath("PineCollision")
+_crashPivot = NodePath("..")
+
+[node name="PineCollision" type="CollisionShape3D" parent="CrashPivot/RigidBody3D" unique_id=733685823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12078428, 2.7717535, -0.04313755)
+shape = SubResource("BoxShape3D_7j8rh")
+
+[node name="PineTrunkMesh" type="MeshInstance3D" parent="CrashPivot/RigidBody3D" unique_id=1076090265]
+transform = Transform3D(1.105, 0, 0, 0, 1.62, 0, 0, 0, 1.105, 0, 0.030189753, 0)
+material_override = ExtResource("3_a3lsa")
+mesh = ExtResource("4_3klh7")
+skeleton = NodePath("")
+
+[node name="PineFoliageMesh" type="MeshInstance3D" parent="CrashPivot/RigidBody3D/PineTrunkMesh" unique_id=1151124597]
+transform = Transform3D(0.35421342, 0, 0.8327766, 0, 0.617284, 0, -0.8327766, 0, 0.35421342, 0.09369224, 1.3288009, 0.13272989)
+material_override = ExtResource("5_aviaq")
+mesh = ExtResource("6_7j8rh")
+skeleton = NodePath("")
+
+[node name="PineSnow" type="MeshInstance3D" parent="CrashPivot/RigidBody3D/PineTrunkMesh/PineFoliageMesh" unique_id=284070561]
+transform = Transform3D(0.9992056, 0, 0.039852764, 0, 1, 0, -0.039852764, 0, 0.9992056, -0.018465161, 0.029557943, 0)
+material_override = ExtResource("8_7j8rh")
+mesh = ExtResource("9_dt48o")
+skeleton = NodePath("../../..")
+
+[connection signal="body_entered" from="Area3D" to="." method="BodyEntered"]
+[connection signal="finished" from="TreeFallingSFX" to="." method="OnSFXFinished"]

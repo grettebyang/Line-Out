@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://boicv82c8t5fi"]
+
+[ext_resource type="Texture2D" uid="uid://bvqwvs4swj86h" path="res://assets/3D Assets - Production/Imports/Stump/Materials/Textures/Stump_Snow/Stump_Snow_LOW_lambert2_BaseColor.png" id="1_a4saf"]
+[ext_resource type="Texture2D" uid="uid://hlvpv6d05akw" path="res://assets/3D Assets - Production/Imports/Stump/Materials/Textures/Stump_Snow/Stump_Snow_LOW_lambert2_Normal.png" id="2_0xaab"]
+
+[resource]
+albedo_texture = ExtResource("1_a4saf")
+normal_enabled = true
+normal_texture = ExtResource("2_0xaab")

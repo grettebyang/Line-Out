@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5erjglkl3dyp"
+path="res://.godot/imported/DogSleddingLiveMix1.wav-140fb33c40a5af3df279b7011a5c3ca0.sample"
+
+[deps]
+
+source_file="res://assets/AudioAssets/Music/Old Music/DogSleddingLiveMix1.wav"
+dest_files=["res://.godot/imported/DogSleddingLiveMix1.wav-140fb33c40a5af3df279b7011a5c3ca0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

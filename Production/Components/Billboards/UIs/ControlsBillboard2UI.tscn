@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://c66s1v8uwmxal"]
+
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="1_di8ux"]
+[ext_resource type="PackedScene" uid="uid://bsuufsm5266p4" path="res://Production/Components/UI/ControllerIcons/LeftStick.tscn" id="4_rq5wv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsdgx"]
+font = ExtResource("1_di8ux")
+font_size = 110
+
+[node name="ControlsBillboard" type="Node" unique_id=1809285552]
+
+[node name="Background" type="ColorRect" parent="." unique_id=626049514]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label3" type="Label" parent="." unique_id=1018498616]
+anchors_preset = -1
+anchor_left = -0.091000006
+anchor_top = 0.651
+anchor_right = 1.065
+anchor_bottom = 0.919
+offset_left = 177.72002
+offset_top = -608.08
+offset_right = -46.80005
+offset_bottom = 0.47998047
+grow_horizontal = 2
+grow_vertical = 2
+text = "Right stick                  to look around!  "
+label_settings = SubResource("LabelSettings_nsdgx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftStick" parent="Label3" unique_id=2008061810 instance=ExtResource("4_rq5wv")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.44000003
+anchor_top = 0.5
+anchor_right = 0.44000003
+anchor_bottom = 0.5
+offset_left = -0.6270752
+offset_top = 5.924988
+offset_right = -0.6270752
+offset_bottom = 5.924988
+scale = Vector2(0.665, 0.665)

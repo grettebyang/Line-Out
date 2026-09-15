@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgnsmxpuoxvrt"]
+
+[ext_resource type="Script" uid="uid://c6p3lppyo6jyc" path="res://Production/Components/Rhythm/PowerupGauge.cs" id="1_3ixls"]
+
+[node name="PowerupGauge" type="ProgressBar"]
+visible = false
+offset_right = 216.0
+offset_bottom = 53.0
+script = ExtResource("1_3ixls")

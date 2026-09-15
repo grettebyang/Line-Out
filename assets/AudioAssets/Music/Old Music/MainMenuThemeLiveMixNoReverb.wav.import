@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dp806n0h2hbcs"
+path="res://.godot/imported/MainMenuThemeLiveMixNoReverb.wav-37d07cc0e441bda81d5d04062c9dbd9e.sample"
+
+[deps]
+
+source_file="res://assets/AudioAssets/Music/Old Music/MainMenuThemeLiveMixNoReverb.wav"
+dest_files=["res://.godot/imported/MainMenuThemeLiveMixNoReverb.wav-37d07cc0e441bda81d5d04062c9dbd9e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

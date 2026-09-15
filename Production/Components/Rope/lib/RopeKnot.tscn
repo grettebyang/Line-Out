@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd2h3ucvkefl"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_awi21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cgj76"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="RopeKnot" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_awi21")
+surface_material_override/0 = SubResource("StandardMaterial3D_cgj76")

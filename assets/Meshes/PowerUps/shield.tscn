@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ddcmxbqtn8kfj"]
+
+[ext_resource type="PackedScene" uid="uid://ebssmnhjyxrj" path="res://assets/FOOD/GLB format/muffin.glb" id="1_frkv5"]
+
+[node name="Shield" unique_id=1233185489 instance=ExtResource("1_frkv5")]
+cast_shadow = 0
+
+[node name="muffin" parent="." index="0" unique_id=33138319]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.225, 0)

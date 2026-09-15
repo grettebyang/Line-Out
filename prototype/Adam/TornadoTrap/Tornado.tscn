@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cqwcasqae6v6w"]
+
+[ext_resource type="Script" uid="uid://cm5u0iomdgp38" path="res://prototype/Adam/TornadoTrap/Tornado.cs" id="1_xjnb1"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_kmmbt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ld2ew"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.886275)
+
+[node name="Tornado" type="Node3D" unique_id=77840479 node_paths=PackedStringArray("_tornadoMesh")]
+script = ExtResource("1_xjnb1")
+_tornadoSize = Vector3(5, 5, 5)
+_tornadoMesh = NodePath("MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1304913656]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("CylinderMesh_kmmbt")
+surface_material_override/0 = SubResource("StandardMaterial3D_ld2ew")

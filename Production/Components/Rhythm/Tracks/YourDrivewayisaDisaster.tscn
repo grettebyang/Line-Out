@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d0omch43q6bot"]
+
+[ext_resource type="AudioStream" uid="uid://c81obmi30u6rt" path="res://assets/AudioAssets/Music/YourDrivewayisaDisaster.wav" id="1_v7uqg"]
+[ext_resource type="Script" uid="uid://bujs1blav5c8n" path="res://Production/Components/Rhythm/Soundtrack.cs" id="2_6m2aa"]
+[ext_resource type="Resource" uid="uid://cxr3yk2b76q8b" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence1(easier).tres" id="3_q2h2a"]
+[ext_resource type="Resource" uid="uid://c48q2qf0t0dpq" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence2.tres" id="4_elluf"]
+[ext_resource type="Resource" uid="uid://bh3od0kbnqif" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence3.tres" id="5_yp203"]
+[ext_resource type="Resource" uid="uid://0qngwdll8uu7" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence4.tres" id="6_0nsnj"]
+
+[node name="YourDrivewayisaDisaster" type="AudioStreamPlayer" unique_id=512394520]
+stream = ExtResource("1_v7uqg")
+bus = &"Music"
+script = ExtResource("2_6m2aa")
+bpm = 360
+_tsTop = 8
+_totalBars = 40
+_TimeSignatureChanges = Array[Object]([])
+_SequenceChanges = Array[Object]([ExtResource("3_q2h2a"), ExtResource("4_elluf"), ExtResource("5_yp203"), ExtResource("6_0nsnj")])

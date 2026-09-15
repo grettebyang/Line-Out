@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bbe5lt1lchc0w"]
+
+[ext_resource type="Texture2D" uid="uid://bnqo15ewqjpr8" path="res://assets/3D Assets - Production/Imports/House_Small/Materials/Textures/House_Small_LOW_lambert1SG_Brown.png" id="1_lx325"]
+[ext_resource type="Texture2D" uid="uid://dgumbmi8qe5p" path="res://assets/3D Assets - Production/Imports/House_Small/Materials/Textures/House_Small_LOW_lambert1SG_Normal.png" id="2_xn117"]
+[ext_resource type="Texture2D" uid="uid://dpun08ehg4b1f" path="res://assets/3D Assets - Production/Imports/House_Small/Materials/Textures/House_Small_LOW_lambert1SG_Roughness.png" id="3_xn117"]
+
+[resource]
+albedo_texture = ExtResource("1_lx325")
+roughness_texture = ExtResource("3_xn117")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_xn117")

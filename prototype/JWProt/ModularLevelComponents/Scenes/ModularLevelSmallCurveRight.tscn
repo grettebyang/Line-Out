@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=4 uid="uid://7wlwvmqm2myj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31nwa"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fmfcr"]
+_surfaces = [{
+"aabb": AABB(-6.0578, -1, -7, 14.1156, 2, 14),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AABFJP//AAAAAAAA/////wAARSQAAAAAAAD/////AAAAALnbAAD//wAAudv/////AAD//wAAAAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rjm2b"]
+resource_name = "ModularLevelSmallCurveRight_Cube_008"
+_surfaces = [{
+"aabb": AABB(-6.0578, -1, -7, 14.1156, 2, 14),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAP8f/3//X/8//1//f/8f/z//n/9//9//P//f/3//n/8/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_31nwa"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//vthFJP//AAC+2AAA/////77YRSQAAAAAvthFJAAAAAD///////8AAP//RST//wAA/////wAAAAD/////AAAAABPSudv/////E9L/////AAAT0rnbAAD//xPSudsAAP///78AAP//////v7nb//////+/AAAAAP///79FJAAAAAD/v7nbAAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////9FJP//AAD//7nb////////W9Nb01vTW9Nb01vTW9Nb0/+//7//v/+//7//v/+//7+YKJgomCiYKJgomCiYKJgo/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_fmfcr")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_e01fs"]
+data = PackedVector3Array(-6.0578, -1, 7, -4.0579, 1, -7, -6.0578, 1, 7, -6.0578, -1, 7, -4.0579, -1, -7, -4.0579, 1, -7, -4.0579, -1, -7, 8.0578, 1, -7, -4.0579, 1, -7, -4.0579, -1, -7, 8.0578, -1, -7, 8.0578, 1, -7, 8.0578, -1, -7, 6.0577, 1, 7, 8.0578, 1, -7, 8.0578, -1, -7, 6.0577, -1, 7, 6.0577, 1, 7, 6.0577, -1, 7, -6.0578, 1, 7, 6.0577, 1, 7, 6.0577, -1, 7, -6.0578, -1, 7, -6.0578, 1, 7, -4.0579, -1, -7, 6.0577, -1, 7, 8.0578, -1, -7, -4.0579, -1, -7, -6.0578, -1, 7, 6.0577, -1, 7, 8.0578, 1, -7, -6.0578, 1, 7, -4.0579, 1, -7, 8.0578, 1, -7, 6.0577, 1, 7, -6.0578, 1, 7)
+
+[node name="ModularLevelSmallCurveRight" type="Node3D"]
+
+[node name="SmallCurveRight" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, 0, 0, 0)
+mesh = SubResource("ArrayMesh_rjm2b")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SmallCurveRight"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SmallCurveRight/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_e01fs")

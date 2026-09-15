@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b1rmd3b2ifprp"]
+
+[ext_resource type="Material" uid="uid://danbk6ul24alv" path="res://assets/3D Assets - Production/Imports/Rocks/Materials/M_Rocks.tres" id="1_ujede"]
+[ext_resource type="ArrayMesh" uid="uid://d0k2nsofyu0fp" path="res://assets/3D Assets - Production/Imports/Rocks/Meshes/Rock4.obj" id="2_r2vpa"]
+[ext_resource type="Material" uid="uid://dm3kii6yu6nq2" path="res://assets/3D Assets - Production/Imports/Rocks/Materials/M_Rocks_Snow.tres" id="3_ra8md"]
+[ext_resource type="ArrayMesh" uid="uid://pgp2ysi2ur3i" path="res://assets/3D Assets - Production/Imports/Rocks/Meshes/Rock2_Snow.obj" id="4_knpop"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ac3v2"]
+size = Vector3(1.73236, 2.02722, 1)
+
+[node name="Rock4_Snow" type="StaticBody3D" unique_id=729481181]
+
+[node name="Rock4Collision" type="CollisionShape3D" parent="." unique_id=1270620251]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0108337, 2.66809e-12, -6.10352e-05)
+shape = SubResource("BoxShape3D_ac3v2")
+
+[node name="Rock4Mesh" type="MeshInstance3D" parent="." unique_id=1162848160]
+material_override = ExtResource("1_ujede")
+mesh = ExtResource("2_r2vpa")
+
+[node name="Rock2Snow" type="MeshInstance3D" parent="." unique_id=1878110012]
+material_override = ExtResource("3_ra8md")
+mesh = ExtResource("4_knpop")

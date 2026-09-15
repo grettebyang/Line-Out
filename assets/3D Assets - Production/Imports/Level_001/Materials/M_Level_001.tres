@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4w78qgtv7iks"]
+
+[ext_resource type="Texture2D" uid="uid://crsxpmkgcniai" path="res://assets/3D Assets - Production/Imports/Level_001/Materials/Textures/Level1Map_LOW_Level1_LOW_BaseColor.png" id="1_27j5c"]
+[ext_resource type="Texture2D" uid="uid://dhaodf6242bf5" path="res://assets/3D Assets - Production/Imports/Level_001/Materials/Textures/Level1Map_LOW_Level1_LOW_Normal.png" id="2_4con4"]
+[ext_resource type="Texture2D" uid="uid://dwh83quiow660" path="res://assets/3D Assets - Production/Imports/Level_001/Materials/Textures/Level1Map_LOW_Level1_LOW_Roughness.png" id="3_4con4"]
+
+[resource]
+albedo_texture = ExtResource("1_27j5c")
+roughness_texture = ExtResource("3_4con4")
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("2_4con4")

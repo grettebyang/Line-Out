@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bk21ibyr707ce"]
+
+[ext_resource type="Texture2D" uid="uid://beequ4nr2srjb" path="res://assets/3D Assets - Production/Imports/Crate/Materials/Textures/Crate_LOW_initialShadingGroup_BaseColor.png" id="1_ycesf"]
+[ext_resource type="Texture2D" uid="uid://d3rdeu5nufwu2" path="res://assets/3D Assets - Production/Imports/Crate/Materials/Textures/Crate_LOW_initialShadingGroup_Normal.png" id="2_pt4yo"]
+[ext_resource type="Texture2D" uid="uid://bow8qv2netqyr" path="res://assets/3D Assets - Production/Imports/Crate/Materials/Textures/Crate_LOW_initialShadingGroup_Roughness.png" id="3_vubks"]
+
+[resource]
+albedo_texture = ExtResource("1_ycesf")
+roughness_texture = ExtResource("3_vubks")
+normal_enabled = true
+normal_texture = ExtResource("2_pt4yo")

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bytnyvj24ms4k"]
+
+[ext_resource type="Texture2D" uid="uid://c6f2iogixnhp" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Materials/Textures/initialShadingGroup_Base_color.png" id="1_p1uiw"]
+[ext_resource type="Texture2D" uid="uid://dwfnvnv3aq4ow" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Materials/Textures/initialShadingGroup_Normal_DirectX.png" id="2_d8uf4"]
+[ext_resource type="Texture2D" uid="uid://c0qhx8xf14en6" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Materials/Textures/initialShadingGroup_Roughness.png" id="3_q3q1h"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_p1uiw")
+roughness_texture = ExtResource("3_q3q1h")
+normal_enabled = true
+normal_texture = ExtResource("2_d8uf4")

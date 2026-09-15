@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="InputSystemPreset" format=3 uid="uid://pdt6qi8sgqti"]
+
+[ext_resource type="Script" uid="uid://cotbjx0fa0owr" path="res://Production/Components/InputSystem/Scripts/InputSystemPreset.cs" id="1_lv0ad"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_lv0ad"]
+device = -1
+keycode = 4194325
+
+[sub_resource type="InputEventKey" id="InputEventKey_tqqjh"]
+device = -1
+keycode = 4194308
+
+[sub_resource type="InputEventKey" id="InputEventKey_5vyty"]
+resource_name = "confirm"
+device = -1
+keycode = 4194325
+
+[sub_resource type="InputEventKey" id="InputEventKey_w86v4"]
+resource_name = "front"
+device = -1
+keycode = 4194322
+
+[sub_resource type="InputEventKey" id="InputEventKey_kfu7d"]
+resource_name = "back"
+device = -1
+keycode = 4194320
+
+[sub_resource type="InputEventKey" id="InputEventKey_ntlwh"]
+resource_name = "left"
+device = -1
+keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_7bk8h"]
+resource_name = "right"
+device = -1
+keycode = 4194321
+
+[sub_resource type="InputEventKey" id="InputEventKey_lxwsa"]
+resource_name = "jump"
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_rxsax"]
+resource_name = "trigger"
+device = -1
+keycode = 4194328
+
+[sub_resource type="InputEventKey" id="InputEventKey_rj678"]
+resource_name = "A"
+device = -1
+keycode = 4194325
+
+[sub_resource type="InputEventKey" id="InputEventKey_s328d"]
+resource_name = "Y"
+device = -1
+keycode = 4194328
+
+[sub_resource type="InputEventKey" id="InputEventKey_w24el"]
+resource_name = "pause"
+device = -1
+keycode = 80
+unicode = 112
+
+[resource]
+script = ExtResource("1_lv0ad")
+_eventActivate = SubResource("InputEventKey_lv0ad")
+_eventDeactivate = SubResource("InputEventKey_tqqjh")
+_inputsPlayerMovemenet = Array[InputEvent]([SubResource("InputEventKey_w86v4"), SubResource("InputEventKey_kfu7d"), SubResource("InputEventKey_ntlwh"), SubResource("InputEventKey_7bk8h"), SubResource("InputEventKey_lxwsa"), SubResource("InputEventKey_rxsax")])
+_inputsRythmEvent = Array[InputEvent]([SubResource("InputEventKey_rj678"), SubResource("InputEventKey_s328d")])
+_inputsMenu = Array[InputEvent]([SubResource("InputEventKey_5vyty")])
+_inputsUniversal = Array[InputEvent]([SubResource("InputEventKey_w24el")])
+metadata/_custom_type_script = "uid://cotbjx0fa0owr"

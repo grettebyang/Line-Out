@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bxqpelupoy42p"
+path="res://.godot/imported/CakeBox.obj-de7852053a0c41a2fce2ca1f82fd835b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CakeBox.obj-de7852053a0c41a2fce2ca1f82fd835b.mesh"]
+
+source_file="res://assets/3D Assets - Production/Imports/FikaBoxes/Meshes/CakeBox.obj"
+dest_files=["res://.godot/imported/CakeBox.obj-de7852053a0c41a2fce2ca1f82fd835b.mesh", "res://.godot/imported/CakeBox.obj-de7852053a0c41a2fce2ca1f82fd835b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

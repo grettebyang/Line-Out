@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b0mwl1hss6ujx"]
+
+[ext_resource type="Texture2D" uid="uid://ddnbvttulwxgp" path="res://assets/3D Assets - Production/Imports/IceBridge/Materials/Textures/IceBridge_LOW_initialShadingGroup_BaseColor.png" id="1_kf52a"]
+[ext_resource type="Texture2D" uid="uid://cn7g6nm65vec8" path="res://assets/3D Assets - Production/Imports/IceBridge/Materials/Textures/IceBridge_LOW_initialShadingGroup_Normal.png" id="2_chn1c"]
+[ext_resource type="Texture2D" uid="uid://6kdqvmxsbwff" path="res://assets/3D Assets - Production/Imports/IceBridge/Materials/Textures/IceBridge_LOW_initialShadingGroup_Roughness.png" id="3_klc32"]
+
+[resource]
+albedo_texture = ExtResource("1_kf52a")
+roughness_texture = ExtResource("3_klc32")
+normal_enabled = true
+normal_texture = ExtResource("2_chn1c")

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://qxkqgxo6c1bb"]
+
+[ext_resource type="Script" uid="uid://c16ers80p2q3q" path="res://prototype/JWProt/TestObstacles/RollingSnowball.cs" id="1_77xpo"]
+[ext_resource type="AudioStream" uid="uid://bydpkywre6ilr" path="res://assets/AudioAssets/RollingSnowball/SnowballRolling.wav" id="2_ykbbo"]
+[ext_resource type="AudioStream" uid="uid://cuky8dd86jd3a" path="res://assets/AudioAssets/RollingSnowball/SnowballHit.wav" id="3_sji8x"]
+[ext_resource type="PackedScene" uid="uid://mey1odpldy2m" path="res://assets/3D Assets - Production/Prefabs/Snowball_Large.tscn" id="4_8y0ha"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_77xpo"]
+radius = 2.0
+
+[node name="RollingSnowball" type="RigidBody3D" unique_id=1476694593 node_paths=PackedStringArray("_rollingSound", "_hitSound", "_collider", "_crashPivot")]
+collision_layer = 7
+collision_mask = 7
+mass = 200.0
+inertia = Vector3(15, 15, 15)
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_77xpo")
+_rollingSound = NodePath("RollingSound")
+_hitSound = NodePath("HitSound")
+_collider = NodePath("Collider")
+_crashPivot = NodePath(".")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=452009635]
+shape = SubResource("SphereShape3D_77xpo")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=586694744]
+spring_length = 4.0
+
+[node name="RollingSound" type="AudioStreamPlayer3D" parent="." unique_id=473385378]
+stream = ExtResource("2_ykbbo")
+bus = &"SFX"
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="." unique_id=1468260908]
+stream = ExtResource("3_sji8x")
+bus = &"SFX"
+
+[node name="SnowballLarge" parent="." unique_id=1850164651 instance=ExtResource("4_8y0ha")]

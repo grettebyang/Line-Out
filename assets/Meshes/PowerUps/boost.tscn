@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://df36jvvyowcny"]
+
+[ext_resource type="PackedScene" uid="uid://dx7kx25b5yd7x" path="res://assets/FOOD/GLB format/cup-coffee.glb" id="1_o1m0v"]
+
+[node name="Boost" unique_id=270040087 instance=ExtResource("1_o1m0v")]
+cast_shadow = 0
+
+[node name="cup-coffee" parent="." index="0" unique_id=260625253]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 0, -0.225, 0)
+cast_shadow = 0

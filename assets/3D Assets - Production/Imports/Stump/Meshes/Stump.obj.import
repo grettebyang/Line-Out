@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bdho2kct6ajc7"
+path="res://.godot/imported/Stump.obj-7da0155c22fb34bd559a515cc3d55173.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stump.obj-7da0155c22fb34bd559a515cc3d55173.mesh"]
+
+source_file="res://assets/3D Assets - Production/Imports/Stump/Meshes/Stump.obj"
+dest_files=["res://.godot/imported/Stump.obj-7da0155c22fb34bd559a515cc3d55173.mesh", "res://.godot/imported/Stump.obj-7da0155c22fb34bd559a515cc3d55173.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

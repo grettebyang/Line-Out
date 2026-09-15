@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dxolp7qhnlx45"]
+
+[ext_resource type="Texture2D" uid="uid://bxc3qduk2gjeq" path="res://assets/Textures/MeshSpecificTextures/Stopwatch/stopwatch_Material.001_BaseColor.png" id="1_h71oe"]
+[ext_resource type="Texture2D" uid="uid://bcuu2wo8stb1i" path="res://assets/Textures/MeshSpecificTextures/Stopwatch/stopwatch_Material.001_Metallic.png" id="2_4vb0n"]
+[ext_resource type="Texture2D" uid="uid://daoulh5sng3tr" path="res://assets/Textures/MeshSpecificTextures/Stopwatch/stopwatch_Material.001_Normal.png" id="3_w8cys"]
+[ext_resource type="Texture2D" uid="uid://doukp4iep5b02" path="res://assets/Textures/MeshSpecificTextures/Stopwatch/stopwatch_Material.001_Roughness.png" id="4_f0vse"]
+
+[resource]
+albedo_texture = ExtResource("1_h71oe")
+metallic = 1.0
+metallic_texture = ExtResource("2_4vb0n")
+roughness_texture = ExtResource("4_f0vse")
+normal_enabled = true
+normal_texture = ExtResource("3_w8cys")

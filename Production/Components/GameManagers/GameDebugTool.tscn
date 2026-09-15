@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwgqiivrhmd4m"]
+
+[ext_resource type="Script" uid="uid://c7slw5jvk65m2" path="res://Production/Components/GameManagers/Scripts/GameDebugTool.cs" id="1_k6g8p"]
+
+[node name="GameDebugTool" type="Node" node_paths=PackedStringArray("_canvas", "_lblLevelId", "_lblFps")]
+script = ExtResource("1_k6g8p")
+_canvas = NodePath("Canvas")
+_lblLevelId = NodePath("Canvas/ColorRect/VBoxContainer/LblLevelId")
+_lblFps = NodePath("Canvas/ColorRect/VBoxContainer/LblFps")
+
+[node name="Canvas" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1740.0
+offset_bottom = -880.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Canvas"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.196078)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblLevelId" type="Label" parent="Canvas/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Level: ..."
+
+[node name="LblFps" type="Label" parent="Canvas/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "FPS: ..."

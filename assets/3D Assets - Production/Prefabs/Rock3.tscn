@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ct3qnmxo6wo48"]
+
+[ext_resource type="Material" uid="uid://danbk6ul24alv" path="res://assets/3D Assets - Production/Imports/Rocks/Materials/M_Rocks.tres" id="1_bn3k6"]
+[ext_resource type="ArrayMesh" uid="uid://dij0hgd4gjchr" path="res://assets/3D Assets - Production/Imports/Rocks/Meshes/Rock3.obj" id="2_2p5sj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1q4yt"]
+radius = 0.757
+height = 1.58
+
+[node name="Rock3" type="StaticBody3D" unique_id=550607435]
+
+[node name="Rock3Collision" type="CollisionShape3D" parent="." unique_id=1043754123]
+shape = SubResource("CapsuleShape3D_1q4yt")
+
+[node name="Rock3Mesh" type="MeshInstance3D" parent="." unique_id=1739056443]
+material_override = ExtResource("1_bn3k6")
+mesh = ExtResource("2_2p5sj")

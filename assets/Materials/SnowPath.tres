@@ -1,0 +1,80 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b03q7v7v50os3"]
+
+[ext_resource type="Shader" uid="uid://c8guqgiw6hkn3" path="res://assets/Shaders/texblend.gdshader" id="1_u8xxe"]
+[ext_resource type="Texture2D" uid="uid://bj4kmgs6ight6" path="res://assets/Textures/Snow/Snow_A.png" id="2_vnkgg"]
+[ext_resource type="Texture2D" uid="uid://j1qicsxvsufp" path="res://assets/Textures/Snow/SnowNormal.tres" id="4_vnkgg"]
+
+[sub_resource type="Gradient" id="Gradient_f48xq"]
+colors = PackedColorArray(0.973535, 0.973535, 0.973535, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vnkgg"]
+noise_type = 2
+cellular_distance_function = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_87bup"]
+noise = SubResource("FastNoiseLite_vnkgg")
+color_ramp = SubResource("Gradient_f48xq")
+seamless = true
+normalize = false
+
+[sub_resource type="Gradient" id="Gradient_el8x2"]
+offsets = PackedFloat32Array(0, 0.838028)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87bup"]
+noise_type = 3
+frequency = 0.0021
+fractal_type = 2
+fractal_lacunarity = 2.7
+fractal_weighted_strength = 0.95
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_el8x2"]
+noise = SubResource("FastNoiseLite_87bup")
+color_ramp = SubResource("Gradient_el8x2")
+seamless = true
+normalize = false
+bump_strength = 9.6
+
+[sub_resource type="Gradient" id="Gradient_xbwk0"]
+offsets = PackedFloat32Array(0, 0.450704, 1)
+colors = PackedColorArray(0.306923, 0.306923, 0.306923, 1, 0.462291, 0.462291, 0.462291, 1, 0.625597, 0.625597, 0.625597, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nnl8r"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w4wwn"]
+noise = SubResource("FastNoiseLite_nnl8r")
+color_ramp = SubResource("Gradient_xbwk0")
+seamless = true
+
+[sub_resource type="Gradient" id="Gradient_qyt0c"]
+colors = PackedColorArray(1, 0.482185, 0.264894, 1, 1, 0.588345, 0.425987, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jkpy3"]
+noise_type = 4
+frequency = 0.255
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wc8hx"]
+noise = SubResource("FastNoiseLite_jkpy3")
+color_ramp = SubResource("Gradient_qyt0c")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_u8xxe")
+shader_parameter/texture_albedo_a = ExtResource("2_vnkgg")
+shader_parameter/texture_normal_a = ExtResource("4_vnkgg")
+shader_parameter/texture_albedo_b = SubResource("NoiseTexture2D_87bup")
+shader_parameter/texture_orm_b = SubResource("NoiseTexture2D_wc8hx")
+shader_parameter/texture_normal_b = SubResource("NoiseTexture2D_w4wwn")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_el8x2")
+shader_parameter/albedo_a = Color(0.286275, 0.223529, 0.0705882, 1)
+shader_parameter/albedo_b = Color(1, 1, 1, 1)
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/blend_threshold = 0.1
+shader_parameter/blend_noise_intensity = 0.3
+shader_parameter/blend_noise_scale = 10.0
+shader_parameter/blend_softness = 0.17
+shader_parameter/blend_transition_color = Color(1, 1, 1, 0)

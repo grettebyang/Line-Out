@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://cytls676n6wk4"]
+
+[ext_resource type="Script" uid="uid://bfew8ak6kb6oi" path="res://Production/Components/UI/ControllersActivator/Scripts/ControllersActivatorUI.cs" id="1_h22ej"]
+[ext_resource type="AudioStream" uid="uid://d2l4hbauhk4lw" path="res://Production/Components/UI/Prefabs/Sounds/switch10.ogg" id="2_kqu5w"]
+[ext_resource type="AudioStream" uid="uid://755ew6jiw70v" path="res://Production/Components/UI/Prefabs/Sounds/chop.ogg" id="3_k02io"]
+[ext_resource type="AudioStream" uid="uid://c487ooy3pc56e" path="res://Production/Components/UI/Prefabs/Sounds/bookFlip3.ogg" id="4_mur7k"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="5_18s4f"]
+[ext_resource type="PackedScene" uid="uid://dsme3p8klgtmb" path="res://Production/Components/UI/Prefabs/Buttons/HintButton.tscn" id="6_ou3mx"]
+[ext_resource type="PackedScene" uid="uid://uvnocwncdwql" path="res://Production/Components/UI/ControllersActivator/Layouts/ControllerActivatorTile.tscn" id="8_ynaks"]
+
+[sub_resource type="Gradient" id="Gradient_k1h2j"]
+offsets = PackedFloat32Array(0, 0.141956, 1)
+colors = PackedColorArray(0.796078, 0.796078, 0.627451, 1, 0.894148, 0.894148, 0.776441, 1, 1, 1, 0.937255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k1h2j"]
+gradient = SubResource("Gradient_k1h2j")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_3p88l"]
+offsets = PackedFloat32Array(0, 0.982188, 1)
+colors = PackedColorArray(0.156863, 0.141176, 0.584314, 0.25098, 0.156863, 0.141176, 0.584314, 0.25098, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a0i0j"]
+gradient = SubResource("Gradient_3p88l")
+fill_to = Vector2(0, 1)
+
+[node name="ControllerActivatorUI" type="Control" unique_id=32748181 node_paths=PackedStringArray("_tilesHolder", "_tickPlayer", "_confirmAudioPlayer", "_activateAudioPlayer", "_declineAudioPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 60)
+script = ExtResource("1_h22ej")
+_preventClosing = true
+_tilesHolder = NodePath("ControllersHolder/VBoxContainer/TileHolder")
+_tickPlayer = NodePath("TickPlayer")
+_confirmAudioPlayer = NodePath("ConfirmPlayer")
+_activateAudioPlayer = NodePath("ActivatePlayer")
+_declineAudioPlayer = NodePath("DeclinePlayer")
+
+[node name="TickPlayer" type="AudioStreamPlayer" parent="." unique_id=1464994243]
+stream = ExtResource("2_kqu5w")
+bus = &"SFX"
+
+[node name="ConfirmPlayer" type="AudioStreamPlayer" parent="." unique_id=1079158354]
+stream = ExtResource("2_kqu5w")
+bus = &"SFX"
+
+[node name="ActivatePlayer" type="AudioStreamPlayer" parent="." unique_id=2081848299]
+stream = ExtResource("3_k02io")
+bus = &"SFX"
+
+[node name="DeclinePlayer" type="AudioStreamPlayer" parent="." unique_id=1584951139]
+stream = ExtResource("4_mur7k")
+bus = &"SFX"
+
+[node name="ControllersHolder" type="TextureRect" parent="." unique_id=1700482681]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_right = 350.0
+offset_bottom = 249.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+texture = SubResource("GradientTexture2D_k1h2j")
+
+[node name="Shadow" type="TextureRect" parent="ControllersHolder" unique_id=1012136373]
+z_index = -2
+layout_mode = 0
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 703.0
+offset_bottom = 202.0
+texture = SubResource("GradientTexture2D_a0i0j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ControllersHolder" unique_id=1131006213]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -406.0
+offset_top = -70.5
+offset_right = 406.0
+offset_bottom = 89.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TileHolder" type="HBoxContainer" parent="ControllersHolder/VBoxContainer" unique_id=217432447]
+layout_mode = 2
+alignment = 1
+
+[node name="ControllerActivatorTile" parent="ControllersHolder/VBoxContainer/TileHolder" unique_id=532647632 instance=ExtResource("8_ynaks")]
+layout_mode = 2
+
+[node name="ControllerActivatorTile2" parent="ControllersHolder/VBoxContainer/TileHolder" unique_id=500546919 instance=ExtResource("8_ynaks")]
+layout_mode = 2
+
+[node name="ControllerActivatorTile3" parent="ControllersHolder/VBoxContainer/TileHolder" unique_id=235284631 instance=ExtResource("8_ynaks")]
+layout_mode = 2
+
+[node name="ControllerActivatorTile4" parent="ControllersHolder/VBoxContainer/TileHolder" unique_id=346859604 instance=ExtResource("8_ynaks")]
+layout_mode = 2
+
+[node name="HintButtons" type="Control" parent="." unique_id=372957799]
+visible = false
+anchors_preset = 0
+offset_left = 1472.0
+offset_top = 240.0
+offset_right = 1512.0
+offset_bottom = 280.0
+
+[node name="HJoin" type="HBoxContainer" parent="HintButtons" unique_id=501013809]
+layout_mode = 0
+offset_right = 161.0
+offset_bottom = 62.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HintButtonBack" parent="HintButtons/HJoin" unique_id=702394080 instance=ExtResource("6_ou3mx")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Y"
+
+[node name="MarginContainer" type="MarginContainer" parent="HintButtons/HJoin" unique_id=1582193267]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="HintButtons/HJoin" unique_id=4784256]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_18s4f")
+theme_override_font_sizes/font_size = 24
+text = "Activate"
+
+[node name="HDeactivate" type="HBoxContainer" parent="HintButtons" unique_id=161737266]
+layout_mode = 0
+offset_left = 211.0
+offset_right = 399.0
+offset_bottom = 62.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HintButtonBack" parent="HintButtons/HDeactivate" unique_id=1734127385 instance=ExtResource("6_ou3mx")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[node name="MarginContainer" type="MarginContainer" parent="HintButtons/HDeactivate" unique_id=1883046134]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="HintButtons/HDeactivate" unique_id=313564035]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("5_18s4f")
+theme_override_font_sizes/font_size = 24
+text = "Deactivate"

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://1ti66mib33in"]
+
+[ext_resource type="AudioStream" uid="uid://8megbbrtgif4" path="res://assets/AudioAssets/Music/Lapland'sFikaDeliveryDogs.wav" id="1_7papa"]
+[ext_resource type="Script" uid="uid://bujs1blav5c8n" path="res://Production/Components/Rhythm/Soundtrack.cs" id="2_t7te1"]
+[ext_resource type="Resource" uid="uid://khc0beg4enro" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence1.tres" id="3_cocgn"]
+[ext_resource type="Resource" uid="uid://c48q2qf0t0dpq" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence2.tres" id="4_v6srv"]
+[ext_resource type="Resource" uid="uid://bh3od0kbnqif" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence3.tres" id="5_qcbnr"]
+[ext_resource type="Resource" uid="uid://0qngwdll8uu7" path="res://Production/Components/Rhythm/Sequences/Your Driveway is a Disaster/YourDrivewayIsADisasterSequence4.tres" id="6_k33ft"]
+
+[node name="Lapland\'sFikaDeliveryDogs" type="AudioStreamPlayer" unique_id=512394520]
+stream = ExtResource("1_7papa")
+bus = &"Music"
+script = ExtResource("2_t7te1")
+bpm = 300
+_tsTop = 8
+_totalBars = 40
+_TimeSignatureChanges = Array[Object]([])
+_SequenceChanges = Array[Object]([ExtResource("3_cocgn"), ExtResource("4_v6srv"), ExtResource("5_qcbnr"), ExtResource("6_k33ft")])

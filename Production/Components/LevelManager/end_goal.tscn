@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bojanuwxbvpgl"]
+
+[ext_resource type="Script" uid="uid://bep1xrjeyqooe" path="res://Production/LevelScenes/EndGoal.cs" id="1_bxcp0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ofedr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_585g5"]
+
+[node name="EndGoal" type="Area3D"]
+script = ExtResource("1_bxcp0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("BoxShape3D_ofedr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("BoxMesh_585g5")

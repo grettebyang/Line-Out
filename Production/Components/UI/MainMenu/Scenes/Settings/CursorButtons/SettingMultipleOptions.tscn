@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dxuacg3l44m8j"]
+
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="1_3ykd0"]
+[ext_resource type="PackedScene" uid="uid://bai3dwhp2u8qe" path="res://Production/Components/UI/Prefabs/Buttons/SettingsLeftRightOption.tscn" id="2_3ykd0"]
+
+[node name="Setting" type="Control" unique_id=845889204]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.59300005
+offset_bottom = -0.44006348
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="Description" type="Label" parent="." unique_id=1100555297]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.047000002
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_right = 892.76
+theme = ExtResource("1_3ykd0")
+theme_override_colors/font_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+theme_override_font_sizes/font_size = 40
+text = "Setting"
+vertical_alignment = 1
+
+[node name="SettingsLeftRightOption" parent="." unique_id=1892225640 instance=ExtResource("2_3ykd0")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.95300007
+offset_left = -243.76013
+offset_right = -90.0
+offset_bottom = 0.0
+grow_horizontal = 0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://7j5qs52ac2j3"]
+
+[ext_resource type="PackedScene" uid="uid://rnaypoxa00um" path="res://Production/Components/UI/MainMenu/Scenes/WinScreen.tscn" id="1_xnytm"]
+[ext_resource type="Script" uid="uid://cen68a07b26a4" path="res://Production/Components/UI/MainMenu/Scripts/FailScreen.cs" id="2_clegt"]
+
+[node name="FailScreen" node_paths=PackedStringArray("_lblTitle") instance=ExtResource("1_xnytm")]
+script = ExtResource("2_clegt")
+_lblTitle = NodePath("Holder/VTitle/Label")
+_skipShowDelay = true
+
+[node name="Label" parent="Holder/VTitle" index="0"]
+theme_override_colors/font_color = Color(0.862745, 0.415686, 0.415686, 1)
+text = "Level failed!"
+
+[node name="LblTime" parent="Holder/VTitle" index="2"]
+visible = false

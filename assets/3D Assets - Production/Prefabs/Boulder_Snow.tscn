@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://fgt70tk6hoaf"]
+
+[ext_resource type="Material" uid="uid://dfvigakf2nel8" path="res://assets/3D Assets - Production/Imports/Boulder/Materials/M_Boulder.tres" id="1_s7nm2"]
+[ext_resource type="ArrayMesh" uid="uid://cxikt88s0e8j8" path="res://assets/3D Assets - Production/Imports/Boulder/Meshes/Boulder.obj" id="2_wm6mt"]
+[ext_resource type="Material" uid="uid://ct563gtit04j3" path="res://assets/3D Assets - Production/Imports/Boulder/Materials/M_Boulder_Snow.tres" id="3_kdpis"]
+[ext_resource type="ArrayMesh" uid="uid://ceoli5hnmr1hk" path="res://assets/3D Assets - Production/Imports/Boulder/Meshes/Boulder_Snow.obj" id="4_l00t2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2uysq"]
+radius = 2.45292
+height = 4.90584
+
+[node name="Boulder_Snow" type="StaticBody3D" unique_id=1087145151]
+
+[node name="BoulderCollision" type="CollisionShape3D" parent="." unique_id=330452270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116921, 1.17896, -0.297176)
+shape = SubResource("CapsuleShape3D_2uysq")
+
+[node name="BoulderMesh" type="MeshInstance3D" parent="." unique_id=587040684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08153, 0)
+material_override = ExtResource("1_s7nm2")
+mesh = ExtResource("2_wm6mt")
+
+[node name="BoulderSnow" type="MeshInstance3D" parent="." unique_id=186725781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03520441, 1.0377395, -0.03414917)
+material_override = ExtResource("3_kdpis")
+mesh = ExtResource("4_l00t2")

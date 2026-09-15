@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cq66w6xe03nil"]
+
+[ext_resource type="Material" uid="uid://b0l86nwyp81xo" path="res://assets/3D Assets - Production/Imports/FlagPost/Materials/M_FlagPost_CheckPoint.tres" id="1_cn8lw"]
+[ext_resource type="ArrayMesh" uid="uid://dmj54hqawy1eh" path="res://assets/3D Assets - Production/Imports/FlagPost/Meshes/FlagPost_LOW.obj" id="2_05a45"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j8gjr"]
+radius = 0.5473633
+height = 15.744141
+
+[node name="FlagPost_CheckPoint" type="StaticBody3D" unique_id=569694916]
+
+[node name="FlagPost_Mesh" type="MeshInstance3D" parent="." unique_id=226038742]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+material_override = ExtResource("1_cn8lw")
+mesh = ExtResource("2_05a45")
+
+[node name="FlagPost_Collision" type="CollisionShape3D" parent="." unique_id=1017629583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.0859375, -0.06573105)
+shape = SubResource("CapsuleShape3D_j8gjr")

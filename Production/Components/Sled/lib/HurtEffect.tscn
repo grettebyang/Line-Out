@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp34hqpmuhrxq"]
+
+[ext_resource type="Script" uid="uid://dyfpk3ao5d2xk" path="res://Production/Components/Sled/lib/HurtEffect.cs" id="1_jpmv6"]
+[ext_resource type="Texture2D" uid="uid://brcjkycerknw5" path="res://Production/Components/Sled/lib/hurt.png" id="2_i7rc7"]
+
+[node name="HurtScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jpmv6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_i7rc7")
+expand_mode = 1

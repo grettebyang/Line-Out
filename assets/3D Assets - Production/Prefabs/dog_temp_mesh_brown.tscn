@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cboet03pnv4ay"]
+
+[ext_resource type="Material" uid="uid://piyupnxbimaj" path="res://assets/3D Assets - Production/Imports/Dog_TEMP/Materials/M_DogTEMP_Chocolate.tres" id="1_4ry2e"]
+[ext_resource type="ArrayMesh" uid="uid://ba3hhoo3n84nh" path="res://assets/3D Assets - Production/Imports/Dog_TEMP/Meshes/DOg_Temp.obj" id="2_wcm3j"]
+
+[node name="DogTEMP_Mesh" type="MeshInstance3D" unique_id=742429684]
+material_override = ExtResource("1_4ry2e")
+mesh = ExtResource("2_wcm3j")

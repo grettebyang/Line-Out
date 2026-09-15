@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://dof3id5qcc05p"]
+
+[ext_resource type="Script" uid="uid://b0el4r4wicohj" path="res://Production/Components/Rhythm/PowerUps/Collectable.cs" id="1_fsr3h"]
+[ext_resource type="PackedScene" uid="uid://pm8ag053h8ck" path="res://Production/Components/Rhythm/PowerUps/StopWatch.tscn" id="2_6wr1h"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kcwqv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sayll"]
+albedo_color = Color(0.909804, 0.768627, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fins2"]
+size = Vector2(0.01, 0.01)
+
+[node name="Collectable" type="Area3D"]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_fsr3h")
+_col = Color(1, 0.716667, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kcwqv")
+
+[node name="Clocklol" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_sayll")
+mesh = SubResource("QuadMesh_fins2")
+
+[node name="StopWatchh" parent="Clocklol" instance=ExtResource("2_6wr1h")]

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dp1vug1uu3b2"]
+
+[ext_resource type="PackedScene" uid="uid://27h0m30c1lvu" path="res://Production/Components/Billboards/UIs/rhythmbillboard4UI.tscn" id="1_mmj2e"]
+[ext_resource type="Script" uid="uid://cof0ebo4d7l3f" path="res://Production/Components/Billboards/Scripts/Billboard.cs" id="2_u0t07"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mb4f"]
+resource_local_to_scene = true
+transparency = 1
+disable_fog = true
+albedo_color = Color(0, 0, 0, 0.9019608)
+emission_enabled = true
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_85716"]
+material = SubResource("StandardMaterial3D_6mb4f")
+
+[node name="RhythmBillboard3" type="Node3D" unique_id=847228028]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1896755210]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1920, 1080)
+size_2d_override = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="RhythmUI" parent="SubViewport" unique_id=194289698 instance=ExtResource("1_mmj2e")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=96692173 node_paths=PackedStringArray("viewport")]
+transform = Transform3D(9.6, 0, 0, 0, 5.4, 0, 0, 0, 1, 0, 0, 0)
+visibility_range_end = 25.0
+visibility_range_end_margin = 3.0
+visibility_range_fade_mode = 1
+mesh = SubResource("QuadMesh_85716")
+script = ExtResource("2_u0t07")
+viewport = NodePath("../SubViewport")

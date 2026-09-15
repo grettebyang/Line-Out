@@ -1,0 +1,145 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgd013ito3fog"]
+
+[ext_resource type="Script" uid="uid://cig7bsg005qxc" path="res://Production/Components/UI/HUD/Scripts/HUDMessage.cs" id="1_qatvx"]
+[ext_resource type="FontFile" uid="uid://cel42owa3483s" path="res://Production/Fonts/Onest/Onest-VariableFont_wght.ttf" id="2_lns2x"]
+
+[sub_resource type="Gradient" id="Gradient_fdsoe"]
+offsets = PackedFloat32Array(0, 0.141956, 1)
+colors = PackedColorArray(0.796078, 0.796078, 0.627451, 1, 0.894148, 0.894148, 0.776441, 1, 1, 1, 0.937255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vh3qp"]
+gradient = SubResource("Gradient_fdsoe")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_hmy40"]
+offsets = PackedFloat32Array(0.982188, 1)
+colors = PackedColorArray(0.156863, 0.141176, 0.584314, 0.25098, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lns2x"]
+gradient = SubResource("Gradient_hmy40")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Animation" id="Animation_vh3qp"]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.533333),
+"transitions": PackedFloat32Array(1, 5, 1),
+"update": 0,
+"values": [Vector2(560, 0), Vector2(560, 10), Vector2(560, -274)]
+}
+
+[sub_resource type="Animation" id="Animation_lns2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(560, -274)]
+}
+
+[sub_resource type="Animation" id="Animation_rrkwq"]
+resource_name = "Show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MessageHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.733333),
+"transitions": PackedFloat32Array(0.3, 1, 1),
+"update": 0,
+"values": [Vector2(560, -274), Vector2(560, 10), Vector2(560, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ffn7"]
+_data = {
+&"Hide": SubResource("Animation_vh3qp"),
+&"RESET": SubResource("Animation_lns2x"),
+&"Show": SubResource("Animation_rrkwq")
+}
+
+[node name="HudMessages" type="Control" node_paths=PackedStringArray("_messageHolder", "_lblMessage", "_animator")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qatvx")
+_messageHolder = NodePath("MessageHolder")
+_lblMessage = NodePath("MessageHolder/Label")
+_animator = NodePath("AnimationPlayer")
+_colorMessage = Color(0.443137, 0.317647, 0.176471, 1)
+_colorWarning = Color(0.69218, 0.140178, 0.191836, 1)
+_colorPositive = Color(0.394899, 0.576132, 0.216137, 1)
+
+[node name="MessageHolder" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = -274.0
+offset_right = 400.0
+offset_bottom = -23.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_vh3qp")
+
+[node name="Label" type="Label" parent="MessageHolder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -50.0
+offset_right = 349.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.443137, 0.317647, 0.176471, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_lns2x")
+theme_override_font_sizes/font_size = 30
+text = "Checkpoint reached - Travel time: 00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Shadow" type="TextureRect" parent="MessageHolder"]
+z_index = -2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -402.0
+offset_top = -252.0
+offset_right = 402.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_lns2x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2ffn7")
+}

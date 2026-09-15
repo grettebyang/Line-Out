@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dng3k115m8lnc"]
+
+[ext_resource type="PackedScene" uid="uid://4h60rmfcnb4h" path="res://assets/FOOD/GLB format/whole-ham.glb" id="1_48uqu"]
+
+[node name="Meat" unique_id=25431047 instance=ExtResource("1_48uqu")]
+cast_shadow = 0
+
+[node name="whole-ham" parent="." index="0" unique_id=1304035144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.185, 0)
+cast_shadow = 0

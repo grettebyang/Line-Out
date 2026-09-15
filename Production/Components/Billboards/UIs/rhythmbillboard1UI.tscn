@@ -1,0 +1,419 @@
+[gd_scene format=3 uid="uid://cmworwie76mc3"]
+
+[ext_resource type="Script" uid="uid://iwvjgm20o6fb" path="res://Production/Components/Billboards/Scripts/Rhythmbillboard1ui.cs" id="1_l6qxi"]
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="2_y66xp"]
+[ext_resource type="PackedScene" uid="uid://bov2cjp5glup2" path="res://Production/Components/Rhythm/center_circle.tscn" id="3_07gst"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="4_2b3q3"]
+[ext_resource type="PackedScene" uid="uid://bdd7uppxvx72n" path="res://Production/Components/UI/ControllerIcons/RightActionButton.tscn" id="4_t1l0o"]
+[ext_resource type="Texture2D" uid="uid://byqnt7y3vkhdk" path="res://Production/Components/UI/HUD/Icons/ControllerActivator/JoinMarker.png" id="5_e7crw"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="6_kgxiv"]
+[ext_resource type="PackedScene" uid="uid://bpxtdeyjpvtlb" path="res://Production/Components/Rhythm/circle_prompt.tscn" id="7_30abn"]
+[ext_resource type="StyleBox" uid="uid://bvticjotcefix" path="res://Production/Components/UI/Prefabs/RhythmUI/RhytmBarStyle.tres" id="8_kgxiv"]
+[ext_resource type="StyleBox" uid="uid://er31cb8tamhc" path="res://Production/Components/UI/Prefabs/RhythmUI/RhytmBarStyleFill.tres" id="9_30abn"]
+[ext_resource type="Script" uid="uid://cappascatw00x" path="res://Production/Components/Rhythm/InitialBeatIndicator.cs" id="11_of0uk"]
+[ext_resource type="PackedScene" uid="uid://cw7mp12216shk" path="res://Production/Components/Rhythm/initial_beat_indicator.tscn" id="12_hpe21"]
+[ext_resource type="Script" uid="uid://cj4fkhnlt53e8" path="res://Production/Components/Rhythm/BarkToTrigger.cs" id="13_30abn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1l0o"]
+font = ExtResource("2_y66xp")
+font_size = 76
+
+[sub_resource type="Shader" id="Shader_xcxd5"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable.mono's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix,unshaded;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}	UV /= vec2(h_frames, v_frames);
+	UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtgo8"]
+shader = SubResource("Shader_xcxd5")
+shader_parameter/particles_anim_h_frames = 1
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3go2"]
+font = ExtResource("4_2b3q3")
+font_size = 48
+shadow_size = 2
+shadow_color = Color(0, 0.0823529, 0.54902, 0.501961)
+shadow_offset = Vector2(0, 2)
+
+[node name="RhythmUI" type="Node" unique_id=194289698 node_paths=PackedStringArray("Rings", "_accuracyMeter", "_background", "_initialText", "_countdownText", "_initialIndicators", "_center", "_collectiveFeedback", "_barkTriggerText", "_hikeText", "_collectiveFeedbackSymbols", "_barkTrigger", "_backgroundCue", "_beatCue")]
+script = ExtResource("1_l6qxi")
+Rings = [NodePath("Rings/CirclePrompt"), NodePath("Rings/CirclePrompt2"), NodePath("Rings/CirclePrompt3")]
+_accuracyMeter = NodePath("CenterCircle/InnerCircle/AccuracyMeter")
+_background = NodePath("Background")
+_initialText = NodePath("Label2")
+_countdownText = NodePath("Label2")
+_initialIndicators = NodePath("InitialEventIndicator")
+_center = NodePath("CenterCircle")
+_collectiveFeedback = NodePath("CollectiveFeedback")
+_barkTriggerText = NodePath("Label2")
+_hikeText = NodePath("Label2")
+_collectiveFeedbackSymbols = NodePath("CenterCircle/CollectiveFeedbackSymbols")
+_barkTrigger = NodePath("RhythmEventBarkTrigger")
+_backgroundCue = NodePath("CenterCircle/BackgroundCue")
+_beatCue = NodePath("CenterCircle/InnerCircle/BeatCue")
+_inputHighlightColor = Color(0.11372549, 0.20392157, 0.43137255, 0.8235294)
+_wrongInputHighlightColor = Color(0.4745098, 0, 0, 0.8235294)
+_innerCircleSelfModulate = Color(0.22745098, 0.36862746, 0.70980394, 1)
+
+[node name="Background" type="ColorRect" parent="." unique_id=1261063262]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=265744559]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -604.5
+offset_top = 140.63
+offset_right = 604.5
+offset_bottom = 427.63
+grow_horizontal = 2
+text = "Bark to the rhythm of the music, 
+when the blue rings are within the yellow ring"
+label_settings = SubResource("LabelSettings_t1l0o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterCircle" parent="." unique_id=1919117319 instance=ExtResource("3_07gst")]
+anchors_preset = -1
+anchor_top = 0.85
+anchor_bottom = 0.85
+offset_top = -198.0
+offset_bottom = -198.0
+scale = Vector2(0.325, 0.325)
+
+[node name="BackgroundCue" parent="CenterCircle" index="0" unique_id=1192449575]
+visible = false
+
+[node name="OuterRingCircle" parent="CenterCircle" index="1" unique_id=511422046]
+material = SubResource("ShaderMaterial_wtgo8")
+
+[node name="InnerCircle" parent="CenterCircle" index="2" unique_id=1397980963]
+material = SubResource("ShaderMaterial_wtgo8")
+
+[node name="AccuracyMeter" parent="CenterCircle/InnerCircle" index="0" unique_id=507347954 node_paths=PackedStringArray("_finalFeedback")]
+_finalFeedback = NodePath("../../../Label2")
+
+[node name="Cover" parent="CenterCircle/InnerCircle" index="1" unique_id=112517882]
+z_index = -1
+material = SubResource("ShaderMaterial_wtgo8")
+
+[node name="CircleFilled" parent="CenterCircle" index="3" unique_id=1979329275]
+material = SubResource("ShaderMaterial_wtgo8")
+
+[node name="Label" parent="CenterCircle" index="5" unique_id=2076829010]
+text = ""
+
+[node name="RightActionButton" parent="CenterCircle/Label" index="0" unique_id=1250984195 instance=ExtResource("4_t1l0o")]
+modulate = Color(1, 1, 1, 0.7647059)
+z_index = 11
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.00018
+offset_top = -96.00018
+offset_right = 95.99982
+offset_bottom = 95.99982
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.58, 2.58)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="CollectiveFeedbackSymbols" type="Control" parent="CenterCircle" unique_id=149182052]
+visible = false
+z_index = 9
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Missed" type="TextureRect" parent="CenterCircle/CollectiveFeedbackSymbols" unique_id=1643685239]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.785, 5.785)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_e7crw")
+
+[node name="Label" type="Label" parent="CenterCircle/CollectiveFeedbackSymbols/Missed" unique_id=1979947387]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 121.0
+offset_right = 99.0
+offset_bottom = 152.0
+theme = ExtResource("6_kgxiv")
+text = "Missed!"
+horizontal_alignment = 3
+vertical_alignment = 3
+
+[node name="OK" type="TextureRect" parent="CenterCircle/CollectiveFeedbackSymbols" unique_id=765510551]
+modulate = Color(1, 1, 0.42352942, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.785, 5.785)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_e7crw")
+
+[node name="Label2" type="Label" parent="CenterCircle/CollectiveFeedbackSymbols/OK" unique_id=79953221]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 123.0
+offset_right = 82.0
+offset_bottom = 154.0
+theme = ExtResource("6_kgxiv")
+text = "OK"
+
+[node name="Good" type="TextureRect" parent="CenterCircle/CollectiveFeedbackSymbols" unique_id=2107611052]
+modulate = Color(0.46666667, 1, 0.3647059, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.785, 5.785)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_e7crw")
+
+[node name="Label3" type="Label" parent="CenterCircle/CollectiveFeedbackSymbols/Good" unique_id=1957611630]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 121.0
+offset_right = 105.0
+offset_bottom = 152.0
+theme = ExtResource("6_kgxiv")
+text = "Good!"
+
+[node name="Great" type="TextureRect" parent="CenterCircle/CollectiveFeedbackSymbols" unique_id=881752941]
+modulate = Color(0.32156864, 0.8117647, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.785, 5.785)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_e7crw")
+
+[node name="Label4" type="Label" parent="CenterCircle/CollectiveFeedbackSymbols/Great" unique_id=1508353222]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 125.0
+offset_right = 103.0
+offset_bottom = 156.0
+theme = ExtResource("6_kgxiv")
+text = "Great!"
+
+[node name="Perfect" type="TextureRect" parent="CenterCircle/CollectiveFeedbackSymbols" unique_id=1249670626]
+modulate = Color(0.8235294, 0.38431373, 0.8392157, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(5.785, 5.785)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_e7crw")
+
+[node name="Label5" type="Label" parent="CenterCircle/CollectiveFeedbackSymbols/Perfect" unique_id=538432063]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 122.0
+offset_right = 97.0
+offset_bottom = 153.0
+theme = ExtResource("6_kgxiv")
+text = "Perfect!"
+
+[node name="CollectiveFeedback" type="Label" parent="." unique_id=2096265227]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.2709961
+offset_top = -31.0
+offset_right = 0.7290039
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_x3go2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rings" type="Control" parent="." unique_id=1453301723]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 180.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="CirclePrompt" parent="Rings" unique_id=1338825814 instance=ExtResource("7_30abn")]
+z_as_relative = false
+layout_mode = 1
+scale = Vector2(0.325, 0.325)
+initialScale = Vector2(0.325, 0.325)
+
+[node name="CirclePrompt2" parent="Rings" unique_id=882950417 instance=ExtResource("7_30abn")]
+z_as_relative = false
+layout_mode = 1
+scale = Vector2(0.325, 0.325)
+initialScale = Vector2(0.325, 0.325)
+
+[node name="CirclePrompt3" parent="Rings" unique_id=1269075036 instance=ExtResource("7_30abn")]
+z_as_relative = false
+layout_mode = 1
+scale = Vector2(0.325, 0.325)
+initialScale = Vector2(0.325, 0.325)
+
+[node name="Label2" type="Label" parent="." unique_id=1292968968]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AccuracyMeter" type="ProgressBar" parent="." unique_id=49793247]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 180.0
+offset_right = 170.0
+offset_bottom = 200.0
+grow_horizontal = 2
+scale = Vector2(1.085, 1.085)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = ExtResource("8_kgxiv")
+theme_override_styles/fill = ExtResource("9_30abn")
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="InitialEventIndicator" type="Control" parent="." unique_id=1022757067]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -100.0
+offset_right = 20.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_of0uk")
+
+[node name="InitialBeatIndicator" parent="InitialEventIndicator" unique_id=413283905 instance=ExtResource("12_hpe21")]
+layout_mode = 1
+offset_left = -150.0
+offset_right = -150.0
+
+[node name="InitialBeatIndicator2" parent="InitialEventIndicator" unique_id=804408572 instance=ExtResource("12_hpe21")]
+layout_mode = 1
+offset_left = -50.0
+offset_right = -50.0
+
+[node name="InitialBeatIndicator3" parent="InitialEventIndicator" unique_id=575169130 instance=ExtResource("12_hpe21")]
+layout_mode = 1
+offset_left = 50.0
+offset_right = 50.0
+
+[node name="InitialBeatIndicator4" parent="InitialEventIndicator" unique_id=8030320 instance=ExtResource("12_hpe21")]
+layout_mode = 1
+offset_left = 150.0
+offset_right = 150.0
+
+[node name="RhythmEventBarkTrigger" type="Control" parent="." unique_id=120813389]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 300.0
+offset_right = 20.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("13_30abn")
+
+[editable path="CenterCircle"]

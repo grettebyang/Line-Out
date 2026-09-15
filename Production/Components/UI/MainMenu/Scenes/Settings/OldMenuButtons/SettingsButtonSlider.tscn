@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ff13x65hlxsp"]
+
+[ext_resource type="PackedScene" uid="uid://bpolru6rakpe5" path="res://Production/Components/UI/MainMenu/Scenes/Settings/OldMenuButtons/SettingsButtonBase.tscn" id="1_v82e6"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="2_72wf3"]
+[ext_resource type="Script" uid="uid://cwf1twmhg20qs" path="res://Production/Components/UI/MainMenu/Scenes/Settings/Scripts/SettingsSlider.cs" id="3_r4hnb"]
+
+[node name="Button" unique_id=1217566776 instance=ExtResource("1_v82e6")]
+
+[node name="Slider" type="HSlider" parent="ValueHolder" index="0" unique_id=1325654980 node_paths=PackedStringArray("parentButton")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+theme = ExtResource("2_72wf3")
+value = 50.0
+script = ExtResource("3_r4hnb")
+parentButton = NodePath("../..")

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dcxm1abeuykrn"]
+
+[ext_resource type="Texture2D" uid="uid://i7einybokxi6" path="res://assets/3D Assets - Production/Imports/Sled/Materials/Textures/Sled_LOW_lambert7SG_BaseColor.png" id="1_g86e0"]
+[ext_resource type="Texture2D" uid="uid://be2nlq3r7uu74" path="res://assets/3D Assets - Production/Imports/Sled/Materials/Textures/Sled_LOW_lambert7SG_Metallic.png" id="2_lg4nm"]
+[ext_resource type="Texture2D" uid="uid://b80e40hsjrii6" path="res://assets/3D Assets - Production/Imports/Sled/Materials/Textures/Sled_LOW_lambert7SG_Normal.png" id="3_0545v"]
+[ext_resource type="Texture2D" uid="uid://clx82lhp4bjxv" path="res://assets/3D Assets - Production/Imports/Sled/Materials/Textures/Sled_LOW_lambert7SG_Roughness.png" id="4_ra3pj"]
+
+[resource]
+albedo_texture = ExtResource("1_g86e0")
+metallic = 1.0
+metallic_texture = ExtResource("2_lg4nm")
+roughness_texture = ExtResource("4_ra3pj")
+normal_enabled = true
+normal_texture = ExtResource("3_0545v")

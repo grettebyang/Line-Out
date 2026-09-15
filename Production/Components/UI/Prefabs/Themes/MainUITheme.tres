@@ -1,0 +1,69 @@
+[gd_resource type="Theme" format=3 uid="uid://fn4k2utf8sjg"]
+
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="1_8iccg"]
+[ext_resource type="StyleBox" uid="uid://bowi78qdi4ayn" path="res://Production/Components/UI/Prefabs/Themes/ButtonHovered.tres" id="1_c0ry1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_segd5"]
+bg_color = Color(0.231044, 0.367424, 0.620847, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0x1v"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 91.0
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqpq1"]
+bg_color = Color(0.521569, 0.431373, 0.337255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2t20"]
+bg_color = Color(0.831232, 0.825765, 0.765553, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vor4x"]
+bg_color = Color(0.717647, 0.705882, 0.627451, 1)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iccg"]
+bg_color = Color(0.71883, 0.708066, 0.627172, 1)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[resource]
+default_font = ExtResource("1_8iccg")
+AcceptDialog/fonts/title_font = ExtResource("1_8iccg")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_segd5")
+Button/colors/character_icon_hover_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+Button/colors/font_color = Color(0.235294, 0.368627, 0.709804, 1)
+Button/colors/font_disabled_color = Color(0.48545375, 0.48545375, 0.48545375, 1)
+Button/colors/font_focus_color = Color(0.835294, 0.639216, 0.321569, 1)
+Button/colors/font_hover_color = Color(0.835294, 0.639216, 0.321569, 1)
+Button/colors/icon_hover_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+Button/font_sizes/font_size = 40
+Button/styles/focus = ExtResource("1_c0ry1")
+Button/styles/hover = ExtResource("1_c0ry1")
+Button/styles/normal = SubResource("StyleBoxFlat_y0x1v")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_iqpq1")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/fonts/font = ExtResource("1_8iccg")
+LineEdit/colors/font_color = Color(0.521569, 0.431373, 0.337255, 1)
+LineEdit/colors/font_placeholder_color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+LineEdit/font_sizes/font_size = 30
+LineEdit/styles/focus = SubResource("StyleBoxFlat_m2t20")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_vor4x")
+TextEdit/font_sizes/font_size = 30
+TextEdit/styles/normal = SubResource("StyleBoxFlat_8iccg")

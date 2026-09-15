@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c6is7gwodtebt"]
+
+[ext_resource type="Material" uid="uid://b0mwl1hss6ujx" path="res://assets/3D Assets - Production/Imports/IceBridge/Materials/M_IceBridge.tres" id="1_3qjso"]
+[ext_resource type="ArrayMesh" uid="uid://dk8uj6rsnyekb" path="res://assets/3D Assets - Production/Imports/IceBridge/Meshes/IceBridge_LOW.obj" id="2_48158"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3qjso"]
+points = PackedVector3Array(-27.385418, 7.782205, -49.013794, 23.940948, 13.469962, 39.039722, 21.641754, 9.634606, -58.42235, -5.965143, -21.222645, -56.206863, -19.675964, -17.301815, 41.69307, -9.299403, 22.288843, 36.07631, 21.45113, -7.5093307, 35.828888, 8.721931, 22.121328, -54.117146, 21.45113, -11.425365, -46.42914, -27.508419, 6.194397, 39.730164, -16.171825, 23.563196, -9.219803, -25.548962, -9.469745, -42.503326, 7.740309, -17.301815, 29.94017, -5.8026237, 6.072579, -69.283226, 14.082694, 23.879915, 32.020203, 3.553888, 9.809006, 50.64632, 25.37004, 17.947296, 27.989532, -16.608498, 18.730253, -52.883373, 16.515984, -8.804584, -59.351772, -24.334082, 4.183675, -59.350117, -3.8496542, 25.72784, -11.009765, 25.37004, -1.6328807, 33.853714, -13.22367, 15.369634, 48.517033, -27.508419, -3.593295, 35.81662, -29.473244, 8.154812, -38.589783, -20.03748, 18.549423, 35.7361, -11.838141, -21.222645, -50.34268, 23.410587, -7.5093307, -46.42914, 17.962793, 16.905039, -58.343105, 3.556465, -8.90658, 45.057346, -13.258663, 4.189338, 50.57072, 5.4056587, 2.3299944, -68.88372)
+
+[node name="IceBridge" type="StaticBody3D" unique_id=179306122]
+collision_layer = 0
+collision_mask = 6
+
+[node name="IceBridge_Mesh" type="MeshInstance3D" parent="." unique_id=270344515]
+material_override = ExtResource("1_3qjso")
+mesh = ExtResource("2_48158")
+
+[node name="IceBridge_Collision" type="CollisionShape3D" parent="." unique_id=479681133]
+shape = SubResource("ConvexPolygonShape3D_3qjso")

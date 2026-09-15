@@ -1,0 +1,556 @@
+[gd_scene format=3 uid="uid://b0sspgdxim522"]
+
+[ext_resource type="Script" uid="uid://cg0vcgub55fd1" path="res://Production/Components/UI/HUD/Scripts/TrackHUD.cs" id="1_hu77s"]
+[ext_resource type="Texture2D" uid="uid://jtxbog1dgeqv" path="res://Production/Components/UI/HUD/Icons/Pickups/IconMeat.png" id="2_16sdt"]
+[ext_resource type="PackedScene" uid="uid://bp34hqpmuhrxq" path="res://Production/Components/Sled/lib/HurtEffect.tscn" id="2_i8mi4"]
+[ext_resource type="Texture2D" uid="uid://2aduoxva6lbf" path="res://Production/Components/UI/HUD/Icons/CupIcon.png" id="2_o3aql"]
+[ext_resource type="Texture2D" uid="uid://c3smq7ojpo5r8" path="res://Production/Components/UI/HUD/Icons/Pickups/IconCinnamonBun.png" id="3_dxd75"]
+[ext_resource type="Texture2D" uid="uid://cu1qw8jd74oln" path="res://Production/Components/UI/HUD/Icons/CupIconFillTilted.png" id="3_o3aql"]
+[ext_resource type="Texture2D" uid="uid://db2nstppqbr0n" path="res://Production/Components/UI/HUD/Icons/Pickups/IconSaffronBun.png" id="4_okdsb"]
+[ext_resource type="Texture2D" uid="uid://4xhlnr2uhhv6" path="res://Production/Components/UI/Generics/SpritePrimitives/Circle.png" id="5_wsqid"]
+[ext_resource type="Texture2D" uid="uid://c3rjgf10euv0s" path="res://Production/Components/UI/HUD/Icons/PointArrow.png" id="6_q50yo"]
+[ext_resource type="FontFile" uid="uid://c3nk26c4mmvxy" path="res://Production/Fonts/Onest/static/Onest-SemiBold.ttf" id="7_a5q1o"]
+[ext_resource type="PackedScene" uid="uid://rnaypoxa00um" path="res://Production/Components/UI/MainMenu/Scenes/WinScreen.tscn" id="8_q50yo"]
+[ext_resource type="PackedScene" uid="uid://7j5qs52ac2j3" path="res://Production/Components/UI/MainMenu/Scenes/FailScreen.tscn" id="9_2x3d3"]
+[ext_resource type="Texture2D" uid="uid://bqekkwch8ny4y" path="res://Production/Components/UI/HUD/Sprites/TimerOutline.png" id="9_knrx4"]
+[ext_resource type="Texture2D" uid="uid://bm7jgifh6v7in" path="res://Production/Components/UI/HUD/Sprites/TimerFill.png" id="10_4jmuo"]
+[ext_resource type="PackedScene" uid="uid://duvrwpehn8y4w" path="res://Production/Components/UI/MainMenu/Scenes/PauseMenu.tscn" id="10_yysqa"]
+[ext_resource type="PackedScene" uid="uid://cgd013ito3fog" path="res://Production/Components/UI/HUD/Scenes/HUDMessages.tscn" id="14_hse43"]
+[ext_resource type="PackedScene" uid="uid://tg5vmv4nyp3" path="res://Production/Components/UI/HUD/Tags/PlayerTagsHUD.tscn" id="16_a5q1o"]
+[ext_resource type="PackedScene" uid="uid://xtmbfhhxrdra" path="res://Production/Components/UI/HUD/Scenes/HUDEffects.tscn" id="17_gg0s3"]
+
+[sub_resource type="Animation" id="Animation_yysqa"]
+resource_name = "HPDmg"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftSide/PackageStateHolder:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.193616, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftSide/PackageStateHolder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.233333, 0.333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0349066, -0.0523599, 0.0523599, -0.0349066, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_c82uo"]
+resource_name = "HPHeal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftSide/PackageStateHolder:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.199912, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_br18p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftSide/PackageStateHolder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LeftSide/PackageStateHolder:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TimerHolder:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimerHolder:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-160, -260)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TimerHolder:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_2g7dy"]
+resource_name = "TimeLow"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimerHolder:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.102317, 0.206209, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hse43"]
+resource_name = "TimeStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TimerHolder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.26666668, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(860, -300), Vector2(860, -320), Vector2(860, -150), Vector2(860, -160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TimerHolder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.266667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2g7dy"]
+_data = {
+&"HPDmg": SubResource("Animation_yysqa"),
+&"HPHeal": SubResource("Animation_c82uo"),
+&"RESET": SubResource("Animation_br18p"),
+&"TimeLow": SubResource("Animation_2g7dy"),
+&"TimeStart": SubResource("Animation_hse43")
+}
+
+[sub_resource type="Gradient" id="Gradient_wsqid"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.796078, 0.796078, 0.627451, 1, 0.894148, 0.894148, 0.776441, 1, 1, 1, 0.937255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j8rl6"]
+gradient = SubResource("Gradient_wsqid")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_q50yo"]
+offsets = PackedFloat32Array(0.982188, 1)
+colors = PackedColorArray(0.156863, 0.141176, 0.584314, 0.25098, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o3aql"]
+gradient = SubResource("Gradient_q50yo")
+fill_to = Vector2(0, 1)
+
+[node name="TrackHud" type="CanvasLayer" unique_id=294494964 node_paths=PackedStringArray("_lblTimer", "_packageStateHolder", "_packageHpBar", "_packageHpBarValue", "_powerupHolders", "_compass", "_directionArrow", "_timerHolder", "_timerProgress", "_timerProgressSecondary", "_bestTimeHolder", "_bestTimeData", "_HPAnimator", "_TimerAnimator")]
+script = ExtResource("1_hu77s")
+_lblTimer = NodePath("TimerHolder/LblTimer")
+_packageStateHolder = NodePath("LeftSide/PackageStateHolder")
+_packageHpBar = NodePath("LeftSide/PackageStateHolder/PackageHP/PackageHPBar")
+_packageHpBarValue = NodePath("LeftSide/PackageStateHolder/LblPackageHP")
+_powerupHolders = NodePath("RightSide/PowerupHolders")
+_compass = NodePath("TimerHolder/Compass")
+_directionArrow = NodePath("TimerHolder/Compass/DirectionArrow")
+_timerHolder = NodePath("TimerHolder")
+_timerProgress = NodePath("TimerHolder/TimerProgress/TimerProgressBar")
+_timerProgressSecondary = NodePath("TimerHolder/TimerProgress/TimerProgressBarSec2")
+_bestTimeHolder = NodePath("TimerHolder/BestTimerHolder")
+_bestTimeData = NodePath("TimerHolder/BestTimerHolder/LblBestTimeData")
+_colorBlue = Color(0.235294, 0.368627, 0.709804, 1)
+_colorRed = Color(0.862745, 0.415686, 0.415686, 1)
+_colorBrown = Color(0.521569, 0.431373, 0.337255, 1)
+_HPAnimator = NodePath("HPAnimator")
+_TimerAnimator = NodePath("TimerAnimator")
+_iconCoffee = ExtResource("2_16sdt")
+_iconCupcake = ExtResource("3_dxd75")
+_iconSugarcane = ExtResource("4_okdsb")
+
+[node name="HPAnimator" type="AnimationPlayer" parent="." unique_id=1907550969]
+libraries/ = SubResource("AnimationLibrary_2g7dy")
+
+[node name="TimerAnimator" type="AnimationPlayer" parent="." unique_id=1354004340]
+libraries/ = SubResource("AnimationLibrary_2g7dy")
+
+[node name="LeftSide" type="Control" parent="." unique_id=1677195797]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="PackageStateHolder" type="TextureRect" parent="LeftSide" unique_id=1674144526]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -262.0
+offset_right = 160.0
+offset_bottom = -82.0
+grow_vertical = 0
+pivot_offset = Vector2(80, 80)
+texture = SubResource("GradientTexture2D_j8rl6")
+
+[node name="Shadow" type="TextureRect" parent="LeftSide/PackageStateHolder" unique_id=1214808114]
+z_index = -1
+layout_mode = 0
+offset_left = -5.0
+offset_top = -3.0
+offset_right = 163.0
+offset_bottom = 187.0
+texture = SubResource("GradientTexture2D_o3aql")
+
+[node name="PackageHP" type="TextureRect" parent="LeftSide/PackageStateHolder" unique_id=986451594]
+self_modulate = Color(0.235294, 0.368627, 0.709804, 1)
+layout_mode = 0
+offset_left = 45.0
+offset_top = 10.0
+offset_right = 208.0
+offset_bottom = 213.0
+rotation = 0.261799
+scale = Vector2(0.648359, 0.648359)
+texture = ExtResource("2_o3aql")
+
+[node name="PackageHPBar" type="TextureProgressBar" parent="LeftSide/PackageStateHolder/PackageHP" unique_id=369237622]
+layout_mode = 0
+offset_left = 30.1207
+offset_top = 101.373
+offset_right = 106.121
+offset_bottom = 197.373
+rotation = -0.279253
+scale = Vector2(1.26561, 1.06881)
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("3_o3aql")
+texture_over = ExtResource("3_o3aql")
+texture_progress = ExtResource("3_o3aql")
+tint_under = Color(0.443137, 0.317647, 0.176471, 0.25098)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="LblPackageHP" type="Label" parent="LeftSide/PackageStateHolder" unique_id=1382211219]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -55.0
+offset_right = -7.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.443137, 0.317647, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_fonts/font = ExtResource("7_a5q1o")
+theme_override_font_sizes/font_size = 42
+text = "100"
+horizontal_alignment = 2
+
+[node name="RightSide" type="Control" parent="." unique_id=382838486]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PowerupHolders" type="Control" parent="RightSide" unique_id=1966307195]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HurtScreen" parent="." unique_id=494643092 instance=ExtResource("2_i8mi4")]
+visible = false
+z_index = 10
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="WinScreen" parent="." unique_id=1915374596 instance=ExtResource("8_q50yo")]
+visible = false
+anchors_preset = 15
+
+[node name="FailScreen" parent="." unique_id=2010044427 instance=ExtResource("9_2x3d3")]
+visible = false
+anchors_preset = 15
+
+[node name="PauseMenu" parent="." unique_id=978828503 instance=ExtResource("10_yysqa")]
+visible = false
+z_index = 100
+
+[node name="HudMessages" parent="." unique_id=1615018124 instance=ExtResource("14_hse43")]
+z_index = 2
+
+[node name="PlayerTagsHud" parent="." unique_id=779599186 instance=ExtResource("16_a5q1o")]
+
+[node name="HUDEffects" parent="." unique_id=927816869 instance=ExtResource("17_gg0s3")]
+
+[node name="TimerHolder" type="TextureRect" parent="." unique_id=2130721694]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1120.0
+offset_top = -260.0
+offset_right = -920.00024
+offset_bottom = -29.997375
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(100, 115)
+texture = SubResource("GradientTexture2D_j8rl6")
+
+[node name="LblTimer" type="Label" parent="TimerHolder" unique_id=1927114845]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.5
+offset_top = -58.0
+offset_right = 90.5
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.235294, 0.368627, 0.709804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_fonts/font = ExtResource("7_a5q1o")
+theme_override_font_sizes/font_size = 40
+text = "00:00.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shadow" type="TextureRect" parent="TimerHolder" unique_id=1579415940]
+z_index = -1
+layout_mode = 0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 208.0
+offset_bottom = 238.0
+texture = SubResource("GradientTexture2D_o3aql")
+
+[node name="TimerProgress" type="TextureRect" parent="TimerHolder" unique_id=1343803510]
+visible = false
+self_modulate = Color(0.235294, 0.368627, 0.709804, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -123.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.648359, 0.648359)
+pivot_offset = Vector2(100, 100)
+texture = ExtResource("9_knrx4")
+
+[node name="TimerProgressBar" type="TextureProgressBar" parent="TimerHolder/TimerProgress" unique_id=192351277]
+visible = false
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+pivot_offset = Vector2(100, 100)
+max_value = 60.0
+value = 30.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("10_4jmuo")
+texture_over = ExtResource("10_4jmuo")
+texture_progress = ExtResource("10_4jmuo")
+tint_under = Color(0.443137, 0.317647, 0.176471, 0)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="TimerProgressBarSec2" type="TextureProgressBar" parent="TimerHolder/TimerProgress" unique_id=1447221992]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+pivot_offset = Vector2(100, 100)
+max_value = 60.0
+value = 30.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("10_4jmuo")
+texture_over = ExtResource("10_4jmuo")
+texture_progress = ExtResource("10_4jmuo")
+tint_under = Color(0.443137, 0.317647, 0.176471, 0)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(0.235294, 0.368627, 0.709804, 1)
+
+[node name="Compass" type="Control" parent="TimerHolder" unique_id=930711250]
+visible = false
+anchors_preset = 0
+offset_left = 22.0
+offset_top = 12.0
+offset_right = 180.0
+offset_bottom = 171.0
+
+[node name="DirectionArrow" type="TextureRect" parent="TimerHolder/Compass" unique_id=490979314]
+self_modulate = Color(0.443137, 0.317647, 0.176471, 1)
+layout_mode = 0
+offset_left = 60.0
+offset_top = -19.0
+offset_right = 100.0
+offset_bottom = 133.0
+scale = Vector2(0.777452, 0.777452)
+pivot_offset = Vector2(20, 100)
+texture = ExtResource("6_q50yo")
+
+[node name="ArrowCenter" type="TextureRect" parent="TimerHolder/Compass" unique_id=2052313375]
+self_modulate = Color(0.235294, 0.368627, 0.709804, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_wsqid")
+expand_mode = 1
+
+[node name="BestTimerHolder" type="TextureRect" parent="TimerHolder" unique_id=2115371999]
+z_index = -1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.05788
+offset_top = -4.555435
+offset_right = 88.05711
+offset_bottom = 68.4447
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_j8rl6")
+
+[node name="LblBestTime" type="Label" parent="TimerHolder/BestTimerHolder" unique_id=1739144711]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -68.0
+offset_right = 91.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.443137, 0.317647, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_fonts/font = ExtResource("7_a5q1o")
+theme_override_font_sizes/font_size = 20
+text = "Best time"
+horizontal_alignment = 1
+
+[node name="LblBestTimeData" type="Label" parent="TimerHolder/BestTimerHolder" unique_id=55476828]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -40.0
+offset_right = 91.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.235294, 0.368627, 0.709804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_fonts/font = ExtResource("7_a5q1o")
+theme_override_font_sizes/font_size = 28
+text = "00:00.00"
+horizontal_alignment = 1
+
+[node name="Shadow" type="TextureRect" parent="TimerHolder/BestTimerHolder" unique_id=2133466111]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -38.0
+offset_right = 92.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_o3aql")

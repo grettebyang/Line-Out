@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dp2in2ehv5aew"]
+
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="1_qrlj0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsdgx"]
+font = ExtResource("1_qrlj0")
+font_size = 145
+
+[node name="PickupsBillboard" type="Node" unique_id=1809285552]
+
+[node name="Background" type="ColorRect" parent="." unique_id=626049514]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1255583313]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1176.0
+offset_top = -272.0
+offset_right = 1168.0
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Powerups give you 
+special abilities   "
+label_settings = SubResource("LabelSettings_nsdgx")
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dap2r527jmetp"]
+
+[ext_resource type="Script" uid="uid://b0el4r4wicohj" path="res://Production/Components/Rhythm/PowerUps/Collectable.cs" id="1_lqqla"]
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="2_h7fbn"]
+[ext_resource type="ArrayMesh" uid="uid://dnbcdieeq551g" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/Coffee.obj" id="3_1rbji"]
+[ext_resource type="PackedScene" uid="uid://kd3cyw1err1" path="res://Production/Components/Rhythm/PowerUps/under_shadow.tscn" id="3_bpgy4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kcwqv"]
+radius = 1.0
+
+[node name="Refill" type="Area3D" unique_id=1376899984]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_lqqla")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1315715172]
+shape = SubResource("SphereShape3D_kcwqv")
+
+[node name="Coffee" type="MeshInstance3D" parent="." unique_id=910497310]
+transform = Transform3D(0.54043704, 0.102116644, 0, -0.102116644, 0.54043704, 0, 0, 0, 0.55, -0.078228615, -0.4291368, 0)
+material_override = ExtResource("2_h7fbn")
+cast_shadow = 0
+mesh = ExtResource("3_1rbji")
+skeleton = NodePath("")
+
+[node name="Shadow" parent="." unique_id=663439416 instance=ExtResource("3_bpgy4")]

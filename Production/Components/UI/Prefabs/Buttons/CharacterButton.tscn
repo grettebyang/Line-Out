@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://c43alwbpup2ce"]
+
+[ext_resource type="Script" uid="uid://bl3t2dwnqt7xw" path="res://Production/Components/UI/Prefabs/Buttons/CharacterButton.cs" id="1_le8ji"]
+[ext_resource type="AudioStream" uid="uid://d2l4hbauhk4lw" path="res://Production/Components/UI/Prefabs/Sounds/switch10.ogg" id="2_kghv0"]
+[ext_resource type="AudioStream" uid="uid://roy43cagutq6" path="res://Production/Components/UI/Prefabs/Sounds/switch11.ogg" id="3_br7wt"]
+[ext_resource type="Texture2D" uid="uid://bs7fy0y6bjwhj" path="res://Production/Components/UI/DogPortraits/DarkGrey.png" id="4_kghv0"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="4_t0fg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tle1k"]
+size = Vector2(199, 92)
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_tle1k"]
+
+[node name="CursorButton" type="Control" unique_id=271175958 node_paths=PackedStringArray("_portrait", "_audioPlayer", "_hover", "_collisionShape", "_texture", "_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 240.0
+offset_bottom = 288.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_le8ji")
+_portrait = NodePath("Card/Portrait")
+_audioPlayer = NodePath("SoundPlayer")
+_soundFocus = ExtResource("2_kghv0")
+_soundClick = ExtResource("3_br7wt")
+_hover = NodePath("Card/Hover")
+_collisionShape = NodePath("Area2D/CollisionShape2D")
+_texture = NodePath("Card")
+_text = NodePath("Text")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1415885389]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=138778056]
+shape = SubResource("RectangleShape2D_tle1k")
+
+[node name="Card" type="TextureRect" parent="." unique_id=1049578636]
+z_index = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="ColorRect" parent="Card" unique_id=2084409731]
+visible = false
+modulate = Color(1, 1, 1, 0.5882353)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_t0fg4")
+color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+
+[node name="Portrait" type="TextureRect" parent="Card" unique_id=1961575890]
+z_index = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31151575
+anchor_top = 0.09375
+anchor_right = 0.68848425
+anchor_bottom = 0.73600006
+offset_left = -53.0
+offset_right = 53.0
+offset_bottom = 0.07199097
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_kghv0")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Outline" type="ColorRect" parent="." unique_id=120799130]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0.443137, 0.317647, 0.176471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="." unique_id=418465982]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.934
+anchor_right = 0.93600005
+anchor_bottom = 1.0
+offset_left = 0.007499695
+offset_top = -58.992004
+offset_right = -0.007507324
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_t0fg4")
+theme_override_colors/font_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+theme_override_font_sizes/font_size = 31
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=323350086]
+process_mode = 3
+stream = SubResource("AudioStreamWAV_tle1k")
+bus = &"SFX"
+
+[connection signal="item_rect_changed" from="." to="." method="ResizeCollisionShape"]
+[connection signal="resized" from="." to="." method="ResizeCollisionShape"]
+[connection signal="body_entered" from="Area2D" to="." method="OnFocus"]
+[connection signal="body_exited" from="Area2D" to="." method="ExitFocus"]

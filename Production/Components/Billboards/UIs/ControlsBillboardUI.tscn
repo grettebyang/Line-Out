@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://it4mffrsa5sg"]
+
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="1_ix27h"]
+[ext_resource type="PackedScene" uid="uid://bdd7uppxvx72n" path="res://Production/Components/UI/ControllerIcons/RightActionButton.tscn" id="2_ac5nu"]
+[ext_resource type="PackedScene" uid="uid://v16lle843pqf" path="res://Production/Components/UI/ControllerIcons/BottomActionButton.tscn" id="3_ac5nu"]
+[ext_resource type="PackedScene" uid="uid://bsuufsm5266p4" path="res://Production/Components/UI/ControllerIcons/LeftStick.tscn" id="4_nsdgx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nsdgx"]
+font = ExtResource("1_ix27h")
+font_size = 110
+
+[node name="ControlsBillboard" type="Node" unique_id=1809285552]
+
+[node name="Background" type="ColorRect" parent="." unique_id=626049514]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1255583313]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1064.0
+offset_top = -472.0
+offset_right = 1104.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press                  to bark!                   "
+label_settings = SubResource("LabelSettings_nsdgx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightActionButton" parent="Label" unique_id=1250984195 instance=ExtResource("2_ac5nu")]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 13.0
+offset_right = 659.0
+offset_bottom = 13.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Label2" type="Label" parent="." unique_id=516609834]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = -151.0
+offset_right = 1647.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press                  to jump!                   "
+label_settings = SubResource("LabelSettings_nsdgx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomActionButton" parent="Label2" unique_id=1552784124 instance=ExtResource("3_ac5nu")]
+layout_mode = 0
+offset_left = 673.0
+offset_top = 14.0
+offset_right = 865.0
+offset_bottom = 206.0
+scale = Vector2(1.5, 1.5)
+
+[node name="Label3" type="Label" parent="." unique_id=1018498616]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1134.0
+offset_top = 163.0
+offset_right = 1085.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Left stick                  to move!  "
+label_settings = SubResource("LabelSettings_nsdgx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftStick" parent="Label3" unique_id=2008061810 instance=ExtResource("4_nsdgx")]
+layout_mode = 0
+offset_left = 1083.0
+offset_top = 148.00006
+offset_right = 1083.0
+offset_bottom = 148.00006
+scale = Vector2(0.665, 0.665)

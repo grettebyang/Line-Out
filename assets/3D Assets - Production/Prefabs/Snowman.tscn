@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://di7exgxdrshlt"]
+
+[ext_resource type="Material" uid="uid://b3hiipwo7ut55" path="res://assets/3D Assets - Production/Imports/SnowIce/Materials/M_SnowIce.tres" id="1_kh252"]
+[ext_resource type="ArrayMesh" uid="uid://ca8mjhbs1tdtc" path="res://assets/3D Assets - Production/Imports/SnowIce/Meshes/Snowman.obj" id="5_m8dtp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6ykev"]
+radius = 0.5571289
+height = 2.334961
+
+[node name="Snowman" type="StaticBody3D" unique_id=1850164651]
+
+[node name="Snowman_Mesh" type="MeshInstance3D" parent="." unique_id=1987648140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1920929e-07, 0)
+material_override = ExtResource("1_kh252")
+mesh = ExtResource("5_m8dtp")
+
+[node name="Snowman_Collision" type="CollisionShape3D" parent="." unique_id=2067556359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0678711, 0)
+shape = SubResource("CapsuleShape3D_6ykev")

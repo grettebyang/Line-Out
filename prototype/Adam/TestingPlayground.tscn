@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://bur12u32br441"]
+
+[ext_resource type="Script" uid="uid://rj52ikio8yi4" path="res://Production/Components/LevelManager/LevelManager.cs" id="1_vi0k3"]
+[ext_resource type="PackedScene" uid="uid://bp34hqpmuhrxq" path="res://Production/Components/Sled/lib/HurtEffect.tscn" id="2_2w5du"]
+[ext_resource type="PackedScene" uid="uid://35feky2e4ule" path="res://Production/Components/UI/ControllersActivator/Layouts/ControllerActivatorUI.tscn" id="3_3rkxj"]
+[ext_resource type="PackedScene" uid="uid://chjqkj65nu2b1" path="res://Production/Components/Multiplayer/NetworkManager.tscn" id="3_gkpqc"]
+[ext_resource type="PackedScene" uid="uid://b0sspgdxim522" path="res://Production/Components/UI/HUD/Scenes/TrackHUD.tscn" id="4_1o82j"]
+[ext_resource type="PackedScene" uid="uid://3hry2327s1cv" path="res://Production/Components/Sled/lib/Sled.tscn" id="5_6ojj4"]
+[ext_resource type="PackedScene" uid="uid://4xtdsvvidhmk" path="res://Production/Components/Checkpoints/Scenes/CheckpointManager.tscn" id="6_kvw8f"]
+[ext_resource type="PackedScene" uid="uid://dq2i16n6d0p3x" path="res://prototype/JWProt/TestObstacles/Revoler.tscn" id="7_eyj30"]
+[ext_resource type="PackedScene" uid="uid://cuo5khkseci6p" path="res://prototype/Adam/Fantrap/FanTrap.tscn" id="9_huwxh"]
+[ext_resource type="PackedScene" uid="uid://domulxk3mp2wy" path="res://prototype/Adam/TreeFall/TreeFall.tscn" id="10_34yq6"]
+[ext_resource type="PackedScene" uid="uid://c8pafp0c6w6nr" path="res://prototype/Adam/bonktrap/BonkTrap.tscn" id="11_8kuvi"]
+[ext_resource type="PackedScene" uid="uid://bcy6uod5pcajg" path="res://prototype/Adam/Icicle/Icicle.tscn" id="11_gkpqc"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2wm7c"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2wm7c"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wm7c"]
+albedo_color = Color(0.452695, 0.242717, 9.62615e-08, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_slwix"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8kuvi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gkpqc"]
+
+[node name="TestingPlayground" type="Node3D" unique_id=1579816440 node_paths=PackedStringArray("_sled", "_checkpointManager")]
+script = ExtResource("1_vi0k3")
+_sled = NodePath("Sled")
+DamageEffectScene = ExtResource("2_2w5du")
+_checkpointManager = NodePath("CheckpointManager")
+
+[node name="NetworkManager" parent="." unique_id=2025772493 instance=ExtResource("3_gkpqc")]
+
+[node name="UI" type="Control" parent="." unique_id=1709913950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerActivatorUI" parent="UI" unique_id=1830863223 instance=ExtResource("3_3rkxj")]
+layout_mode = 1
+
+[node name="TrackHud" parent="UI" unique_id=400414092 instance=ExtResource("4_1o82j")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=758098049]
+transform = Transform3D(38.9927, 0, 0, 0, 38.9927, 0, 0, 0, 38.9927, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2wm7c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1853641659]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=140121790]
+shape = SubResource("ConcavePolygonShape3D_2wm7c")
+
+[node name="Sled" parent="." unique_id=1842989182 instance=ExtResource("5_6ojj4")]
+transform = Transform3D(0.999879, 0, 0.0156196, 0, 1, 0, -0.01562, 0, 0.999878, 27.1092, 0.779284, -24.8306)
+SledMass = 80
+_dmgPerSpeed = 12.0
+_dmgCap = 30.0
+
+[node name="BasicSled" parent="Sled" index="1" unique_id=1184220153]
+transform = Transform3D(-0.300001, 0, -4.52988e-08, 0, 0.3, 0, 4.52988e-08, 0, -0.300001, 0, -0.0749889, 0)
+
+[node name="MainCam" parent="Sled" index="4" unique_id=1963084598]
+_shakeMultiplayer = 4.0
+_shakeSpeed = 1.2
+
+[node name="LeftCollision" parent="Sled" index="7" unique_id=752580054]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.3, 0.2, -0.5)
+
+[node name="RightCollision" parent="Sled" index="8" unique_id=1602187532]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.3, 0.2, -0.5)
+
+[node name="FikaPackage" parent="Sled" index="14" unique_id=492474789]
+mass = 0.001
+
+[node name="SledHitThingParticles" parent="Sled/VFX" parent_id_path=PackedInt32Array(1842989182, 504676395) index="4" unique_id=2135288165]
+material_override = SubResource("StandardMaterial3D_2wm7c")
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+draw_pass_1 = SubResource("SphereMesh_slwix")
+
+[node name="SledHitThingParticles2" parent="Sled/VFX" parent_id_path=PackedInt32Array(1842989182, 504676395) index="5" unique_id=327293242]
+amount = 6
+
+[node name="CheckpointManager" parent="." unique_id=881657197 instance=ExtResource("6_kvw8f")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=381663757]
+transform = Transform3D(0.0533991, 0.322895, 0.944927, -0.998573, 0.0172669, 0.0505304, 0, -0.946277, 0.323356, 0, 3.01267, 0)
+
+[node name="Revolver" parent="." unique_id=1343821183 instance=ExtResource("7_eyj30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4653, 4, -0.547462)
+
+[node name="FanTrap" parent="." unique_id=1565188547 instance=ExtResource("9_huwxh")]
+transform = Transform3D(0.00630413, 0, 0.699972, 0, 0.7, 0, -0.699972, 0, 0.00630413, 33.7955, -2.23183, 18.3469)
+_rotationSpeed = 12.0
+_fanForce = 1000.0
+_fanFOV = 45.0
+
+[node name="FanTrap2" parent="." unique_id=1817502083 instance=ExtResource("9_huwxh")]
+transform = Transform3D(-0.0376478, 0, -0.698987, 0, 0.7, 0, 0.698987, 0, -0.0376478, -5.24246, -2.36709, 33.6095)
+_rotationSpeed = 25.0
+_fanFOV = 45.0
+
+[node name="FanTrap3" parent="." unique_id=1516060550 instance=ExtResource("9_huwxh")]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 21.3058, 0.631217, 15.1717)
+_fanFOV = 45.0
+_maxDistance = 30.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1441290382]
+transform = Transform3D(16, 0, 0, 0, 15.1464, 5.15625, 0, -5.15625, 15.1464, 25.7512, -5.12757, -3.78962)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1217641444]
+shape = SubResource("BoxShape3D_8kuvi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1712223306]
+mesh = SubResource("BoxMesh_gkpqc")
+
+[node name="BonkTrap" parent="." unique_id=1750277859 instance=ExtResource("11_8kuvi")]
+transform = Transform3D(0.45865, 0, 0.888617, 0, 1, 0, -0.888617, 0, 0.45865, 10.9919, 0, -8.92885)
+
+[node name="TreeFall" parent="." unique_id=1805385658 instance=ExtResource("10_34yq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.4357, 0.188657, -26.12)
+
+[node name="TreeFall2" parent="." unique_id=1304740001 instance=ExtResource("10_34yq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9466, 0.188657, -16.5638)
+
+[node name="TreeFall3" parent="." unique_id=2040541659 instance=ExtResource("10_34yq6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.63, 0.188657, -5.45522)
+
+[node name="Icicle" parent="." unique_id=70031473 instance=ExtResource("11_gkpqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.69144, 0, -18.8719)
+
+[node name="Icicle4" parent="." unique_id=645595588 instance=ExtResource("11_gkpqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.60008, -0.0545034, -27.0271)
+
+[node name="Icicle2" parent="." unique_id=583347276 instance=ExtResource("11_gkpqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83245, 0, -16.9047)
+
+[node name="Icicle4" parent="Icicle2" unique_id=1996267051 instance=ExtResource("11_gkpqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.36126, -0.0545034, -5.91821)
+
+[node name="Icicle2" parent="Icicle2" unique_id=2102841374 instance=ExtResource("11_gkpqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.12868, 0, -3.99204)
+
+[node name="Icicle3" parent="Icicle2" unique_id=1245247635 instance=ExtResource("11_gkpqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69322, 0, -9.44125)
+
+[node name="Icicle3" parent="." unique_id=1251034216 instance=ExtResource("11_gkpqc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04408, 0, -25.0501)
+
+[editable path="Sled"]
+[editable path="Sled/MainCam"]

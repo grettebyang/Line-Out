@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ceslx78qtyi4t"]
+
+[ext_resource type="Material" uid="uid://dfvigakf2nel8" path="res://assets/3D Assets - Production/Imports/Boulder/Materials/M_Boulder.tres" id="1_lo7bl"]
+[ext_resource type="ArrayMesh" uid="uid://cxikt88s0e8j8" path="res://assets/3D Assets - Production/Imports/Boulder/Meshes/Boulder.obj" id="2_yksfx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2uysq"]
+radius = 2.45292
+height = 4.90584
+
+[node name="Boulder" type="StaticBody3D" unique_id=1087145151]
+
+[node name="BoulderCollision" type="CollisionShape3D" parent="." unique_id=330452270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116921, 1.17896, -0.297176)
+shape = SubResource("CapsuleShape3D_2uysq")
+
+[node name="BoulderMesh" type="MeshInstance3D" parent="." unique_id=587040684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08153, 0)
+material_override = ExtResource("1_lo7bl")
+mesh = ExtResource("2_yksfx")

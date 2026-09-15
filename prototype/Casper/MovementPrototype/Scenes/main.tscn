@@ -1,0 +1,124 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7tt12khreq14"]
+
+[ext_resource type="Shader" uid="uid://xcmdy3eidkbq" path="res://prototype/Casper/MovementPrototype/Shaders/GROUND_S.gdshader" id="1_nxg5t"]
+[ext_resource type="PackedScene" uid="uid://04tt6hlxs61c" path="res://Production/Components/InputSystem/InputSystem.tscn" id="5_8u101"]
+[ext_resource type="Script" uid="uid://bb3a4n71iv5bo" path="res://prototype/Casper/SystemManager/Scripts/SystemManager.cs" id="7_ak5po"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jeory"]
+size = Vector3(40, 2, 200)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ox3t5"]
+render_priority = 0
+shader = ExtResource("1_nxg5t")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e5lwq"]
+size = Vector3(40, 2, 200)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ox3t5"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ox3t5"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8u101"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8u101"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="SystemFont" id="SystemFont_ak5po"]
+
+[sub_resource type="Theme" id="Theme_asich"]
+default_font = SubResource("SystemFont_ak5po")
+
+[sub_resource type="SystemFont" id="SystemFont_qm33j"]
+
+[sub_resource type="Theme" id="Theme_ak5po"]
+default_font = SubResource("SystemFont_qm33j")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.761719, 0.647907, 0, -0.647907, 0.761719, 0, 3.53149, 5.03589)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.87401, 0.485908, 0, -0.485908, 0.87401, 0, 3.07557, 4.26058)
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="World"]
+
+[node name="Mesh" type="MeshInstance3D" parent="World/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -90)
+mesh = SubResource("BoxMesh_jeory")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ox3t5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -90)
+shape = SubResource("BoxShape3D_e5lwq")
+
+[node name="Ramp" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.872982, -0.487753, 0, 0.487753, 0.872982, 0, -0.703915, -29.781)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ramp"]
+transform = Transform3D(10, 0, 0, 0, 9.90476, 1.37687, 0, -1.37687, 9.90476, 0, -2.38088, 1.33025)
+mesh = SubResource("BoxMesh_ox3t5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ramp"]
+transform = Transform3D(10, 0, 0, 0, 9.90476, 1.37687, 0, -1.37687, 9.90476, 0, -2.38088, 1.33025)
+shape = SubResource("ConcavePolygonShape3D_ox3t5")
+
+[node name="Pillar" type="StaticBody3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.81105, -82.379)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Pillar"]
+transform = Transform3D(1.76513, 0, 0, 0, 11.9704, -1.24859e-07, 0, 5.70791e-07, 2.61848, -0.632688, 6.98263, -4.36864)
+mesh = SubResource("BoxMesh_8u101")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Pillar"]
+transform = Transform3D(1.76513, 0, 0, 0, 11.9704, -1.24859e-07, 0, 5.70791e-07, 2.61848, -0.632688, 6.98263, -4.36864)
+shape = SubResource("ConcavePolygonShape3D_8u101")
+
+[node name="InputSystem" parent="." instance=ExtResource("5_8u101")]
+
+[node name="DogSledManager" type="Node" parent="."]
+
+[node name="DogParent" type="Node" parent="."]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 1000.0
+offset_bottom = 1000.0
+theme = SubResource("Theme_asich")
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1000, 1000)
+render_target_update_mode = 4
+
+[node name="SessionTime" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_right = 47.0
+offset_bottom = 23.0
+theme = SubResource("Theme_ak5po")
+theme_override_font_sizes/font_size = 60
+text = "Session Time: "
+
+[node name="LapTime" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_top = 80.0
+offset_right = 394.0
+offset_bottom = 190.0
+theme = SubResource("Theme_ak5po")
+theme_override_font_sizes/font_size = 60
+text = "Lap Time: "
+
+[node name="LapCount" type="Label" parent="SubViewportContainer/SubViewport"]
+offset_top = 160.0
+offset_right = 436.0
+offset_bottom = 270.0
+theme = SubResource("Theme_ak5po")
+theme_override_font_sizes/font_size = 60
+text = "Lap Count: "
+
+[node name="SystemManager" type="Node" parent="." node_paths=PackedStringArray("SubViewportContainer")]
+script = ExtResource("7_ak5po")
+SubViewportContainer = NodePath("../SubViewportContainer")

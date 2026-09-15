@@ -1,0 +1,128 @@
+[gd_resource type="Resource" script_class="InputSystemPreset" format=3 uid="uid://b42fnak6c5x3m"]
+
+[ext_resource type="Script" uid="uid://cotbjx0fa0owr" path="res://Production/Components/InputSystem/Scripts/InputSystemPreset.cs" id="1_12q6v"]
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_12q6v"]
+button_index = 3
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_bc5d2"]
+button_index = 2
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ft40x"]
+resource_name = "north"
+axis = 1
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_2lpf2"]
+resource_name = "south"
+axis = 1
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_tpwj8"]
+resource_name = "west"
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_jswvb"]
+resource_name = "east"
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_oyefn"]
+resource_name = "confirm"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_ytle1"]
+resource_name = "return"
+button_index = 1
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_12q6v"]
+resource_name = "front"
+axis = 1
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_bc5d2"]
+resource_name = "back"
+axis = 1
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_wqsrw"]
+resource_name = "West"
+button_index = 4
+pressed = true
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_5uvj7"]
+resource_name = "left"
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_dtsdm"]
+resource_name = "right"
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_5uvj7"]
+resource_name = "A"
+button_index = 1
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_tpwj8"]
+resource_name = "mute"
+button_index = 4
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_jswvb"]
+resource_name = "trigger"
+button_index = 3
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_4i4l3"]
+resource_name = "jump"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_g6ani"]
+resource_name = "confirm"
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_1jucd"]
+resource_name = "bark"
+button_index = 1
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_4i4l3"]
+resource_name = "r_left"
+axis = 2
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_ytle1"]
+resource_name = "r_right"
+axis = 2
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_g6ani"]
+resource_name = "r_back"
+axis = 3
+axis_value = 1.0
+
+[sub_resource type="InputEventJoypadMotion" id="InputEventJoypadMotion_oyefn"]
+resource_name = "r_front"
+axis = 3
+axis_value = -1.0
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_dtsdm"]
+resource_name = "bark"
+button_index = 1
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_ft40x"]
+resource_name = "X"
+button_index = 2
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_2lpf2"]
+resource_name = "Y"
+button_index = 3
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_3hetx"]
+resource_name = "pause"
+button_index = 6
+
+[resource]
+script = ExtResource("1_12q6v")
+_eventActivate = SubResource("InputEventJoypadButton_12q6v")
+_eventDeactivate = SubResource("InputEventJoypadButton_bc5d2")
+_inputsPlayerMovemenet = Array[InputEvent]([SubResource("InputEventJoypadMotion_12q6v"), SubResource("InputEventJoypadMotion_bc5d2"), SubResource("InputEventJoypadButton_wqsrw"), SubResource("InputEventJoypadMotion_5uvj7"), SubResource("InputEventJoypadMotion_dtsdm"), SubResource("InputEventJoypadButton_5uvj7"), SubResource("InputEventJoypadButton_tpwj8"), SubResource("InputEventJoypadButton_jswvb"), SubResource("InputEventJoypadButton_4i4l3"), SubResource("InputEventJoypadButton_g6ani"), SubResource("InputEventJoypadButton_1jucd"), SubResource("InputEventJoypadMotion_4i4l3"), SubResource("InputEventJoypadMotion_ytle1"), SubResource("InputEventJoypadMotion_g6ani"), SubResource("InputEventJoypadMotion_oyefn")])
+_inputsRythmEvent = Array[InputEvent]([SubResource("InputEventJoypadButton_5uvj7"), SubResource("InputEventJoypadButton_dtsdm"), SubResource("InputEventJoypadButton_ft40x"), SubResource("InputEventJoypadButton_2lpf2")])
+_inputsMenu = Array[InputEvent]([SubResource("InputEventJoypadMotion_ft40x"), SubResource("InputEventJoypadMotion_2lpf2"), SubResource("InputEventJoypadMotion_tpwj8"), SubResource("InputEventJoypadMotion_jswvb"), SubResource("InputEventJoypadButton_oyefn"), SubResource("InputEventJoypadButton_ytle1")])
+_inputsUniversal = Array[InputEvent]([SubResource("InputEventJoypadButton_3hetx")])
+metadata/_custom_type_script = "uid://cotbjx0fa0owr"

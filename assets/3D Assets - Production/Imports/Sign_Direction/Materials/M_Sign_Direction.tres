@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dv767r16njdva"]
+
+[ext_resource type="Texture2D" uid="uid://dmmuu1h0m1uxt" path="res://assets/3D Assets - Production/Imports/Sign_Direction/Materials/Sign/Sign_LOW_lambert1SG_BaseColor.png" id="1_waa6o"]
+[ext_resource type="Texture2D" uid="uid://4pgi4mo53i3b" path="res://assets/3D Assets - Production/Imports/Sign_Direction/Materials/Sign/Sign_LOW_lambert1SG_Metallic.png" id="2_2ru7a"]
+[ext_resource type="Texture2D" uid="uid://cvt733o70owfq" path="res://assets/3D Assets - Production/Imports/Sign_Direction/Materials/Sign/Sign_LOW_lambert1SG_Normal.png" id="3_lhftm"]
+[ext_resource type="Texture2D" uid="uid://8q45c2uf65e4" path="res://assets/3D Assets - Production/Imports/Sign_Direction/Materials/Sign/Sign_LOW_lambert1SG_Roughness.png" id="4_reum8"]
+
+[resource]
+albedo_texture = ExtResource("1_waa6o")
+metallic = 1.0
+metallic_texture = ExtResource("2_2ru7a")
+roughness_texture = ExtResource("4_reum8")
+normal_enabled = true
+normal_texture = ExtResource("3_lhftm")

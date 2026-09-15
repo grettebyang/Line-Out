@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://v4tcexdptiw5"]
+
+[ext_resource type="Material" uid="uid://cya5o58jgheat" path="res://assets/3D Assets - Production/Imports/Stump/Materials/M_Stump.tres" id="1_11r15"]
+[ext_resource type="ArrayMesh" uid="uid://bdho2kct6ajc7" path="res://assets/3D Assets - Production/Imports/Stump/Meshes/Stump.obj" id="2_dryjr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qybow"]
+height = 1.032
+
+[node name="Stump" type="StaticBody3D" unique_id=1434279815]
+
+[node name="StumpCollision" type="CollisionShape3D" parent="." unique_id=495259983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10576749, 0.16048992, 0)
+shape = SubResource("CylinderShape3D_qybow")
+
+[node name="StumpMesh" type="MeshInstance3D" parent="." unique_id=1254633599]
+material_override = ExtResource("1_11r15")
+mesh = ExtResource("2_dryjr")

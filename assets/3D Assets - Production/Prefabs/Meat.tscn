@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dcmmg50cs77tw"]
+
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="1_d2tjl"]
+[ext_resource type="ArrayMesh" uid="uid://c0jyruigc3vmm" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/Meat.obj" id="4_litn3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rora2"]
+size = Vector3(1.2524414, 0.45318604, 0.5640869)
+
+[node name="Meat" type="StaticBody3D" unique_id=1124401289]
+
+[node name="Meat_Collision" type="CollisionShape3D" parent="." unique_id=1749792215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0041503906, 0.050247192, 0.0032348633)
+shape = SubResource("BoxShape3D_rora2")
+
+[node name="Meat_Mesh" type="MeshInstance3D" parent="." unique_id=1721866558]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+material_override = ExtResource("1_d2tjl")
+mesh = ExtResource("4_litn3")

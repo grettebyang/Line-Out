@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://csfnado0rmnd3"]
+
+[ext_resource type="Script" uid="uid://dqx5mo5vt4jwg" path="res://Production/Components/Dog/lib/Bark.cs" id="1_ae0sb"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_ae0sb"]
+
+[node name="Bark" type="AudioStreamPlayer3D" unique_id=1118900291]
+stream = SubResource("AudioStreamWAV_ae0sb")
+bus = &"SFX"
+script = ExtResource("1_ae0sb")

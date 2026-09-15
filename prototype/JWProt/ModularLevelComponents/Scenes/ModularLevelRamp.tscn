@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=4 uid="uid://cbc7o30mbi28c"]
+
+[ext_resource type="PackedScene" uid="uid://dkpmd0dij2n42" path="res://prototype/JWProt/TestObstacles/SpeedArea.tscn" id="1_swhml"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ar5l"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_v06re"]
+_surfaces = [{
+"aabb": AABB(-2.63803, -0.56159, -1.6671, 5.27606, 1.68477, 5.0013),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgAEAAAAAwAFAAEAAgABAAUAAAAFAAMAAgAFAAQAAAAEAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("AAAAAAAAAAD/////AAAAAAAA//8AAAAA//8AAAAAAAAAAAAA//8AAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1c084"]
+resource_name = "ModularLevelRamp_Cube_005"
+_surfaces = [{
+"aabb": AABB(-2.63803, -0.56159, -1.6671, 5.27606, 1.68477, 5.0013),
+"attribute_data": PackedByteArray("/1//v/+f/3//n/+//1//f/9f/3//X/8//5//f/8f/3//X/8//1//f/8f/z//n/+//1////9f/78AAP//AAD//wAA//8AAP//"),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABwAIAAkABwAKAAgACwAMAA0ADgAPABAADgARAA8A"),
+"material": SubResource("StandardMaterial3D_6ar5l"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 18,
+"vertex_data": PackedByteArray("AAAAAAAA////////AAD//wAA//8AAP////8AAAAA/////wAAAABU1f//AAD//1TV/////wAAVNUAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////vwAA//8AAFTVAAAAAP//VNUAAAAAAABU1QAA//8AADxN//8AAP//PE0AAAAA//88Tf////8AADxN/7//v/+//7//v/+//7//v6oqqiqqKqoqqiqqKgAA/38AAP9/AAD/fwAA/39U1VTVVNVU1VTVVNX///9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_v06re")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4405"]
+albedo_color = Color(0.446174, 0.274646, 0.163626, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v4405"]
+data = PackedVector3Array(-2.638, -0.5616, -1.6671, 2.638, 1.1232, -1.6671, -2.638, 1.1232, -1.6671, -2.638, -0.5616, -1.6671, 2.638, -0.5616, -1.6671, 2.638, 1.1232, -1.6671, 2.638, -0.5616, -1.6671, 2.638, -0.5616, 3.3342, 2.638, 1.1232, -1.6671, -2.638, -0.5616, -1.6671, 2.638, -0.5616, 3.3342, 2.638, -0.5616, -1.6671, -2.638, -0.5616, -1.6671, -2.638, -0.5616, 3.3342, 2.638, -0.5616, 3.3342, -2.638, 1.1232, -1.6671, -2.638, -0.5616, 3.3342, -2.638, -0.5616, -1.6671, -2.638, 1.1232, -1.6671, 2.638, -0.5616, 3.3342, -2.638, -0.5616, 3.3342, -2.638, 1.1232, -1.6671, 2.638, 1.1232, -1.6671, 2.638, -0.5616, 3.3342)
+
+[node name="ModularLevelRamp" type="Node3D"]
+
+[node name="Ramp" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_1c084")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_v4405")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ramp"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_v4405")
+
+[node name="SpeedArea" parent="Ramp" instance=ExtResource("1_swhml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.920245, 1.0456)
+_speedMulitplayer = 3.0
+_effectDuration = 0.5
+_airDuration = 1.5
+
+[node name="CollisionShape3D" parent="Ramp/SpeedArea/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.99998, 0, 0, 0, 0.99998, 0.0159881, 0.117479, 0.340027)
+
+[editable path="Ramp/SpeedArea"]

@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://krssdgbaf21a"]
+
+[ext_resource type="PackedScene" uid="uid://connhkhsspl25" path="res://assets/holidayset/GLB format/cabin-window-b.glb" id="1_c04c0"]
+[ext_resource type="PackedScene" uid="uid://c37d5h0ipkcv7" path="res://assets/holidayset/GLB format/cabin-wall.glb" id="2_wsrvj"]
+[ext_resource type="PackedScene" uid="uid://dy862i4p5bd5g" path="res://assets/holidayset/GLB format/cabin-corner.glb" id="3_w363s"]
+[ext_resource type="PackedScene" uid="uid://bws2ox861o207" path="res://assets/holidayset/GLB format/cabin-door-rotate.glb" id="4_kdddv"]
+[ext_resource type="PackedScene" uid="uid://ddmiqfljq6d43" path="res://assets/holidayset/GLB format/cabin-roof-chimney.glb" id="5_aubub"]
+[ext_resource type="PackedScene" uid="uid://ccqlik7b145jr" path="res://assets/holidayset/GLB format/cabin-wall-roof-center.glb" id="7_3nskh"]
+[ext_resource type="PackedScene" uid="uid://qh4xhjj3kfbl" path="res://assets/holidayset/GLB format/cabin-roof.glb" id="8_q472j"]
+[ext_resource type="PackedScene" uid="uid://b8widuejk6ysg" path="res://assets/holidayset/GLB format/cabin-corner-bottom.glb" id="9_fwu04"]
+[ext_resource type="PackedScene" uid="uid://c8ngkjhk2lv33" path="res://assets/holidayset/GLB format/floor-wood.glb" id="10_w363s"]
+[ext_resource type="PackedScene" uid="uid://ddeshu3s1mv02" path="res://assets/holidayset/GLB format/snow-pile.glb" id="11_aubub"]
+[ext_resource type="PackedScene" uid="uid://dkb0cujsm7qii" path="res://assets/holidayset/GLB format/snow-flat.glb" id="11_kdddv"]
+[ext_resource type="PackedScene" uid="uid://dx0n8obbhvu4k" path="res://assets/holidayset/GLB format/cabin-roof-snow-point.glb" id="12_ty5ce"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kdddv"]
+size = Vector3(4.06158, 3.14893, 2.97546)
+
+[node name="CheckpointHut" type="Node3D"]
+
+[node name="cabin-window-b2" parent="." instance=ExtResource("1_c04c0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.655216)
+
+[node name="cabin-window-b3" parent="." instance=ExtResource("1_c04c0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0.655216)
+
+[node name="cabin-window-b4" parent="." instance=ExtResource("1_c04c0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.470595)
+
+[node name="cabin-window-b5" parent="." instance=ExtResource("1_c04c0")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, -0.470595)
+
+[node name="cabin-wall2" parent="." instance=ExtResource("2_wsrvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.47039)
+
+[node name="cabin-wall3" parent="." instance=ExtResource("2_wsrvj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0.655986)
+
+[node name="cabin-wall4" parent="." instance=ExtResource("2_wsrvj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.94769, 0, 0.509063)
+
+[node name="cabin-wall6" parent="." instance=ExtResource("2_wsrvj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.975907, 0, 0.509063)
+
+[node name="cabin-wall5" parent="." instance=ExtResource("2_wsrvj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.94769, 0, -0.490937)
+
+[node name="cabin-corner2" parent="." instance=ExtResource("3_w363s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.977, 0, 0.503853)
+
+[node name="cabin-corner4" parent="." instance=ExtResource("3_w363s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15467, 0, 0.503853)
+
+[node name="cabin-corner5" parent="." instance=ExtResource("3_w363s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15467, 0, -1.44752)
+
+[node name="cabin-corner3" parent="." instance=ExtResource("3_w363s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.977, 0, -1.49615)
+
+[node name="cabin-door-rotate2" parent="." instance=ExtResource("4_kdddv")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -0.026567, 0, -0.305053)
+
+[node name="cabin-roof-chimney2" parent="." instance=ExtResource("5_aubub")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.638324, 1.00999, 0.65469)
+
+[node name="cabin-wall-roof-center2" parent="." instance=ExtResource("7_3nskh")]
+transform = Transform3D(-9.45235e-08, 0, 1, 0, 1.07046, 0, -2.16244, 0, -4.37114e-08, -0.00244153, 0.98061, 0.0461135)
+
+[node name="cabin-wall-roof-center3" parent="." instance=ExtResource("7_3nskh")]
+transform = Transform3D(-9.45235e-08, 0, 1, 0, 1.07046, 0, -2.16244, 0, -4.37114e-08, -2.96589, 0.98061, 0.0461135)
+
+[node name="cabin-roof2" parent="." instance=ExtResource("8_q472j")]
+transform = Transform3D(0.271672, -0.113927, 0, 0.113927, 0.271672, 0, 0, 0, 1.52109, 0.925664, 0.687532, 0.142242)
+
+[node name="cabin-corner-bottom2" parent="." instance=ExtResource("9_fwu04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50582, -0.147279, 0.337957)
+
+[node name="cabin-corner-bottom3" parent="." instance=ExtResource("9_fwu04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5034, -0.144541, -1.18899)
+
+[node name="floor-wood2" parent="." instance=ExtResource("10_w363s")]
+transform = Transform3D(4.84597, 0, 0, 0, 1, 0, 0, 0, 1, -1.05478, -0.045304, 1.0708)
+
+[node name="floor-wood3" parent="." instance=ExtResource("10_w363s")]
+transform = Transform3D(4.84597, 0, 0, 0, 1, 0, 0, 0, 1, -1.05478, -0.045304, 0.0760251)
+
+[node name="floor-wood4" parent="." instance=ExtResource("10_w363s")]
+transform = Transform3D(4.84597, 0, 0, 0, 1, 0, 0, 0, 1, -1.05478, -0.0453039, -0.921294)
+
+[node name="snow-flat2" parent="." instance=ExtResource("11_kdddv")]
+transform = Transform3D(3.62266, 0, 0, 0, 8.0223, 0, 0, 0, 3.62266, -0.896646, -0.829311, -0.864014)
+
+[node name="snow-flat3" parent="." instance=ExtResource("11_kdddv")]
+transform = Transform3D(3.62266, 0, 0, 0, 8.0223, 0, 0, 0, 5.5968, -0.896646, -0.829311, 0.273414)
+
+[node name="snow-pile2" parent="." instance=ExtResource("11_aubub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.69711, -0.0855516, 1.40752)
+
+[node name="cabin-roof-snow-point2" parent="." instance=ExtResource("12_ty5ce")]
+transform = Transform3D(-8.86904e-08, 0, 2.405, 0, 1.119, 0, -2.029, 0, -1.05126e-07, -1.01743, 0.931938, 0.0448103)
+
+[node name="snow-flat4" parent="." instance=ExtResource("11_kdddv")]
+transform = Transform3D(0.296063, 0.396828, 0.868835, -0.127995, 0.917893, -0.375619, -0.946554, 0, 0.322547, 0.480541, 1.02837, 0.0836343)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.637543, 1.07446, 0.0761108)
+shape = SubResource("BoxShape3D_kdddv")

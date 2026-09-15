@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bpxtdeyjpvtlb"]
+
+[ext_resource type="Script" uid="uid://ccnycrgyea72t" path="res://Production/Components/Rhythm/CirclePrompt.cs" id="1_3fs62"]
+[ext_resource type="Texture2D" uid="uid://db7otfpxxx5k0" path="res://Production/Components/UI/Prefabs/RhythmUI/RhythmCircleRingBlue.png" id="2_0oi4x"]
+
+[node name="CirclePrompt" type="Control" unique_id=218940744]
+z_index = 13
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.85
+anchor_right = 0.5
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+script = ExtResource("1_3fs62")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=121886613]
+texture = ExtResource("2_0oi4x")

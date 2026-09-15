@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://04tt6hlxs61c"]
+
+[ext_resource type="Script" uid="uid://cxxxpeax8fjch" path="res://Production/Components/InputSystem/Scripts/InputSystem.cs" id="1_0m637"]
+[ext_resource type="Script" uid="uid://bppw7cu7yu8ew" path="res://Production/Components/InputSystem/Scripts/InputSystemController.cs" id="2_fksi8"]
+[ext_resource type="Resource" uid="uid://c6k63bylvh2mh" path="res://Production/Components/InputSystem/Presets/ISPreset_Keyboard0.tres" id="4_f0bsp"]
+[ext_resource type="Resource" uid="uid://b42fnak6c5x3m" path="res://Production/Components/InputSystem/Presets/ISPreset_Gamepad.tres" id="4_fksi8"]
+[ext_resource type="Resource" uid="uid://pdt6qi8sgqti" path="res://Production/Components/InputSystem/Presets/ISPreset_Keyboard1.tres" id="5_0m637"]
+
+[node name="InputSystem" type="Node" unique_id=766007549 node_paths=PackedStringArray("_keyboardSchemes", "_gamepadScheme", "_contollersContainer")]
+script = ExtResource("1_0m637")
+_devModeActive = false
+_keyboardSchemes = [NodePath("Schemes/SchemeKeyboard0"), NodePath("Schemes/SchemeKeyboard1")]
+_gamepadScheme = NodePath("Schemes/SchemeGamepad")
+_contollersContainer = NodePath("Controllers")
+
+[node name="Subsystems" type="Node" parent="." unique_id=275399166]
+
+[node name="Schemes" type="Node" parent="." unique_id=1067157757]
+
+[node name="SchemeGamepad" type="Node" parent="Schemes" unique_id=1824032363]
+script = ExtResource("2_fksi8")
+_deviceType = 1
+_preset = ExtResource("4_fksi8")
+
+[node name="SchemeKeyboard0" type="Node" parent="Schemes" unique_id=2121824773]
+script = ExtResource("2_fksi8")
+_preset = ExtResource("4_f0bsp")
+
+[node name="SchemeKeyboard1" type="Node" parent="Schemes" unique_id=724512906]
+script = ExtResource("2_fksi8")
+_preset = ExtResource("5_0m637")
+
+[node name="Controllers" type="Node" parent="." unique_id=1041405391]

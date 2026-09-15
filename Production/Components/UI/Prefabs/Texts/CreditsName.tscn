@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://hllnjosojgq3"]
+
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="1_endm5"]
+
+[node name="CreditsName" type="Label"]
+offset_right = 145.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(0.521569, 0.431373, 0.337255, 1)
+theme_override_fonts/font = ExtResource("1_endm5")
+theme_override_font_sizes/font_size = 40
+text = "Name"

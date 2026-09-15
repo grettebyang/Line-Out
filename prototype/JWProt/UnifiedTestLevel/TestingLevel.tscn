@@ -1,0 +1,308 @@
+[gd_scene format=3 uid="uid://og14d3favaxe"]
+
+[ext_resource type="Script" uid="uid://rj52ikio8yi4" path="res://Production/Components/LevelManager/LevelManager.cs" id="1_w48x1"]
+[ext_resource type="PackedScene" uid="uid://bp34hqpmuhrxq" path="res://Production/Components/Sled/lib/HurtEffect.tscn" id="2_uurrh"]
+[ext_resource type="PackedScene" uid="uid://3hry2327s1cv" path="res://Production/Components/Sled/lib/Sled.tscn" id="4_1ov35"]
+[ext_resource type="Script" uid="uid://b136qlmikxqnk" path="res://prototype/JWProt/UnifiedTestLevel/TestingLevel.cs" id="4_uurrh"]
+[ext_resource type="PackedScene" uid="uid://db1x8d72tbx8t" path="res://prototype/JWProt/UnifiedTestLevel/TestCaseBase.tscn" id="6_w48x1"]
+[ext_resource type="PackedScene" uid="uid://cw4kly7vp7hvd" path="res://Production/Components/Traps/BearTrap.tscn" id="7_1ov35"]
+[ext_resource type="PackedScene" uid="uid://0g6h1qjj7f51" path="res://assets/HDRI/DefaultSky.tscn" id="8_oleiq"]
+[ext_resource type="PackedScene" uid="uid://dcb3uim0god4" path="res://prototype/JWProt/TestObstacles/BreakableObstacle.tscn" id="9_etggo"]
+[ext_resource type="PackedScene" uid="uid://cbc7o30mbi28c" path="res://prototype/JWProt/ModularLevelComponents/Scenes/ModularLevelRamp.tscn" id="9_r31s2"]
+[ext_resource type="PackedScene" uid="uid://chqbrqidppt5b" path="res://prototype/JWProt/TestObstacles/MudPuddle.tscn" id="9_xel4f"]
+[ext_resource type="PackedScene" uid="uid://o578868np83h" path="res://Production/Components/Rhythm/PowerUps/Collectable.tscn" id="10_ft0cw"]
+[ext_resource type="PackedScene" uid="uid://s0iycm3knoxr" path="res://prototype/JWProt/TestObstacles/AvalancheArea.tscn" id="10_npxge"]
+[ext_resource type="PackedScene" uid="uid://cug6h1kkwxil3" path="res://prototype/JWProt/TestObstacles/ThinIce.tscn" id="10_tar1s"]
+[ext_resource type="PackedScene" uid="uid://qxkqgxo6c1bb" path="res://prototype/JWProt/TestObstacles/RollingSnowball.tscn" id="11_p5xdo"]
+[ext_resource type="PackedScene" uid="uid://do185ecx0ajkt" path="res://prototype/JWProt/ModularLevelComponents/Models/ModularLevelRock.glb" id="11_x74b0"]
+[ext_resource type="PackedScene" uid="uid://dl4b7f2pv4oy0" path="res://prototype/JWProt/TestObstacles/Gate.tscn" id="12_rpca6"]
+[ext_resource type="Script" uid="uid://ca1446e615f3y" path="res://prototype/JWProt/UnifiedTestLevel/TestLevelCase.cs" id="17_tar1s"]
+[ext_resource type="PackedScene" uid="uid://cqwcasqae6v6w" path="res://prototype/Adam/TornadoTrap/Tornado.tscn" id="18_p5xdo"]
+[ext_resource type="PackedScene" uid="uid://lttm102lnb0k" path="res://prototype/Adam/TornadoTrap/TornadoV2.tscn" id="19_khqo5"]
+[ext_resource type="PackedScene" uid="uid://bik1w8i3maurd" path="res://prototype/Adam/Maps/Map3Blockout/Map3Blockout.tscn" id="20_3un8v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oleiq"]
+albedo_color = Color(0.452695, 0.242717, 9.62615e-08, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_uurrh"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1ov35"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oleiq"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w48x1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1ov35"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tar1s"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tar1s"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="TestingLevel" type="Node3D" unique_id=709121051 node_paths=PackedStringArray("_sled")]
+script = ExtResource("1_w48x1")
+_sled = NodePath("Sled")
+DamageEffectScene = ExtResource("2_uurrh")
+
+[node name="DefaultSky" parent="." unique_id=711806476 instance=ExtResource("8_oleiq")]
+
+[node name="TestLevelUI" type="Control" parent="." unique_id=1367304923]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CaseName" type="Label" parent="TestLevelUI" unique_id=1871486329]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
+text = "Case: ..."
+
+[node name="Sled" parent="." unique_id=452218595 instance=ExtResource("4_1ov35")]
+transform = Transform3D(0.906198, 0, -0.422856, 0, 1, 0, 0.422856, 0, 0.906197, 25.8924, 2.05546, -24.0041)
+SledMass = 80
+_dmgPerSpeed = 12.0
+_dmgCap = 30.0
+
+[node name="BasicSled" parent="Sled" index="1" unique_id=1184220153]
+transform = Transform3D(-0.300001, 0, -4.52988e-08, 0, 0.3, 0, 4.52988e-08, 0, -0.300001, 0, -0.0749889, 0)
+
+[node name="MainCam" parent="Sled" index="4" unique_id=1963084598]
+_shakeMultiplayer = 4.0
+_shakeSpeed = 1.2
+
+[node name="LeftCollision" parent="Sled" index="7" unique_id=752580054]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.3, 0.2, -0.5)
+
+[node name="RightCollision" parent="Sled" index="8" unique_id=1602187532]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.3, 0.2, -0.5)
+
+[node name="FikaPackage" parent="Sled" index="14" unique_id=492474789]
+mass = 0.001
+
+[node name="SledHitThingParticles" parent="Sled/VFX" parent_id_path=PackedInt32Array(452218595, 504676395) index="4" unique_id=2135288165]
+material_override = SubResource("StandardMaterial3D_oleiq")
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+draw_pass_1 = SubResource("SphereMesh_uurrh")
+
+[node name="SledHitThingParticles2" parent="Sled/VFX" parent_id_path=PackedInt32Array(452218595, 504676395) index="5" unique_id=327293242]
+amount = 6
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=879152385]
+transform = Transform3D(0.0533991, 0.322895, 0.944927, -0.998573, 0.0172669, 0.0505304, 0, -0.946277, 0.323356, 0, 3.01267, 0)
+
+[node name="Cases" type="Node3D" parent="." unique_id=1911405792 node_paths=PackedStringArray("_uiCaseName")]
+script = ExtResource("4_uurrh")
+_uiCaseName = NodePath("../TestLevelUI/CaseName")
+
+[node name="Case_Movement" parent="Cases" unique_id=2009426697 instance=ExtResource("6_w48x1")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/Case_Movement" unique_id=660426394]
+transform = Transform3D(8.90722, 0, 0, 0, 38.9927, 0, 0, 0, 22.0217, 0, 0, 16.6454)
+mesh = SubResource("PlaneMesh_1ov35")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/Case_Movement/MeshInstance3D" unique_id=266913347]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/Case_Movement/MeshInstance3D/StaticBody3D" unique_id=1999782772]
+shape = SubResource("ConcavePolygonShape3D_oleiq")
+
+[node name="MudPuddle" parent="Cases/Case_Movement" unique_id=859636482 instance=ExtResource("9_xel4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.78144, 0.0693576, 9.49769)
+
+[node name="MudPuddle2" parent="Cases/Case_Movement" unique_id=1411023592 instance=ExtResource("9_xel4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17109, 0.0693576, 14.9082)
+
+[node name="MudPuddle3" parent="Cases/Case_Movement" unique_id=1661669980 instance=ExtResource("9_xel4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.901716, 0.0693576, 23.063)
+
+[node name="ThinIce" parent="Cases/Case_Movement" unique_id=1807571343 instance=ExtResource("10_tar1s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.35181, 0.0179444, 9.05655)
+
+[node name="Snowball" parent="Cases" unique_id=297622785 instance=ExtResource("6_w48x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.899, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/Snowball" unique_id=1208257101]
+transform = Transform3D(8.90722, 0, 0, 0, 38.9927, 0, 0, 0, 22.0217, 0, 0, 16.6454)
+mesh = SubResource("PlaneMesh_1ov35")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/Snowball/MeshInstance3D" unique_id=1240655238]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/Snowball/MeshInstance3D/StaticBody3D" unique_id=221473790]
+shape = SubResource("ConcavePolygonShape3D_oleiq")
+
+[node name="RollingSnowball" parent="Cases/Snowball" unique_id=790160066 instance=ExtResource("11_p5xdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92062, 2, 30.1514)
+_direction = Vector3(0, 0, -1)
+_power = 3.0
+
+[node name="Avalanche" parent="Cases" unique_id=1769076618 instance=ExtResource("6_w48x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1036, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/Avalanche" unique_id=1345510395]
+transform = Transform3D(8.90722, 0, 0, 0, 38.9927, 0, 0, 0, 22.0217, 0, 0, 16.6454)
+mesh = SubResource("PlaneMesh_1ov35")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/Avalanche/MeshInstance3D" unique_id=1639212991]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/Avalanche/MeshInstance3D/StaticBody3D" unique_id=1742201437]
+shape = SubResource("ConcavePolygonShape3D_oleiq")
+
+[node name="Avalanche" parent="Cases/Avalanche" unique_id=389581122 instance=ExtResource("10_npxge")]
+transform = Transform3D(-0.0946645, 0, 0.995509, 0, 1, 0, -0.995509, 0, -0.0946645, -0.33757, 0.5, 16.4776)
+_trapDelay = 2.0
+
+[node name="ModularLevelRock" parent="Cases/Avalanche" unique_id=1129551015 instance=ExtResource("11_x74b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.81445, 0, 21.3441)
+
+[node name="ModularLevelRock2" parent="Cases/Avalanche" unique_id=1481640119 instance=ExtResource("11_x74b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7212, 0.0910387, 16.0465)
+
+[node name="ModularLevelRock3" parent="Cases/Avalanche" unique_id=606752798 instance=ExtResource("11_x74b0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7309, 0.0910387, 25.9466)
+
+[node name="Ramp" parent="Cases" unique_id=1131150045 instance=ExtResource("6_w48x1")]
+transform = Transform3D(1.31046, 0, 0, 0, 1.31046, 0, 0, 0, 1.31046, -75.7437, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/Ramp" unique_id=1422221108]
+transform = Transform3D(8.90722, 0, 0, 0, 38.9927, 0, 0, 0, 75.8427, 0, 0, 21.6353)
+mesh = SubResource("PlaneMesh_1ov35")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/Ramp/MeshInstance3D" unique_id=1543182509]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/Ramp/MeshInstance3D/StaticBody3D" unique_id=1312630880]
+shape = SubResource("ConcavePolygonShape3D_oleiq")
+
+[node name="ModularLevelRamp" parent="Cases/Ramp" unique_id=1434025473 instance=ExtResource("9_r31s2")]
+transform = Transform3D(-0.763091, 0, 6.67115e-08, 0, 0.763091, 0, -6.67115e-08, 0, -0.763091, 0.88945, 0.428544, 7.99155)
+
+[node name="ModularLevelRamp2" parent="Cases/Ramp" unique_id=1801496661 instance=ExtResource("9_r31s2")]
+transform = Transform3D(-0.76309, 0, 6.67115e-08, 0, 0.76309, 0, -6.67115e-08, 0, -0.76309, 0.88945, 0.428544, 50.9043)
+
+[node name="BreakableObstacle" parent="Cases" unique_id=1343018616 instance=ExtResource("6_w48x1")]
+transform = Transform3D(1.31046, 0, 0, 0, 1.31046, 0, 0, 0, 1.31046, -21.3821, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/BreakableObstacle" unique_id=1882303630]
+transform = Transform3D(8.90722, 0, 0, 0, 38.9927, 0, 0, 0, 22.0217, 0, 0, 16.6454)
+mesh = SubResource("PlaneMesh_1ov35")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/BreakableObstacle/MeshInstance3D" unique_id=1864808907]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/BreakableObstacle/MeshInstance3D/StaticBody3D" unique_id=1880454952]
+shape = SubResource("ConcavePolygonShape3D_oleiq")
+
+[node name="BreakableObstacle" parent="Cases/BreakableObstacle" unique_id=1553100215 instance=ExtResource("9_etggo")]
+transform = Transform3D(0.763092, 0, 0, 0, 0.763092, 0, 0, 0, 0.763092, 0.0941525, -0.0954349, 10.5294)
+
+[node name="BreakableObstacle2" parent="Cases/BreakableObstacle" unique_id=1113317868 instance=ExtResource("9_etggo")]
+transform = Transform3D(0.763092, 0, 0, 0, 0.763092, 0, 0, 0, 0.763092, -0.396118, -0.0954349, 20.4192)
+
+[node name="BreakableObstacle3" parent="Cases/BreakableObstacle" unique_id=33428445 instance=ExtResource("9_etggo")]
+transform = Transform3D(0.763092, 0, 0, 0, 0.763092, 0, 0, 0, 0.763092, 0.00798225, -0.0954339, 29.0856)
+
+[node name="Collectable14" parent="Cases/BreakableObstacle" unique_id=1445989 instance=ExtResource("10_ft0cw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.15178)
+
+[node name="Gate" parent="Cases" unique_id=770638692 instance=ExtResource("6_w48x1")]
+transform = Transform3D(1.31046, 0, 0, 0, 1.31046, 0, 0, 0, 1.31046, -46.6732, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/Gate" unique_id=1846685002]
+transform = Transform3D(8.90722, 0, 0, 0, 38.9927, 0, 0, 0, 22.0217, 0, 0, 16.6454)
+mesh = SubResource("PlaneMesh_1ov35")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/Gate/MeshInstance3D" unique_id=766564987]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/Gate/MeshInstance3D/StaticBody3D" unique_id=1426108609]
+shape = SubResource("ConcavePolygonShape3D_oleiq")
+
+[node name="Gate2" parent="Cases/Gate" unique_id=1481710828 instance=ExtResource("12_rpca6")]
+transform = Transform3D(-0.76309, 0, -6.67115e-08, 0, 0.76309, 0, 6.67115e-08, 0, -0.76309, 0.454086, 0.0988646, 27.4342)
+
+[node name="Case_Trap" parent="Cases" unique_id=455187110 instance=ExtResource("6_w48x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4277, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/Case_Trap" unique_id=2034981667]
+transform = Transform3D(4.75777, 0, 0, 0, 38.9927, 0, 0, 0, 20.2807, 0, 0, 16.4893)
+mesh = SubResource("PlaneMesh_w48x1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/Case_Trap/MeshInstance3D" unique_id=1413967800]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/Case_Trap/MeshInstance3D/StaticBody3D" unique_id=870473958]
+shape = SubResource("ConcavePolygonShape3D_1ov35")
+
+[node name="BearTrap" parent="Cases/Case_Trap" unique_id=903144233 instance=ExtResource("7_1ov35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168395, -0.0895168, 9.64451)
+
+[node name="TornadoV1" type="Node3D" parent="Cases" unique_id=1781805231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -108.09914, 0, 25.428684)
+script = ExtResource("17_tar1s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/TornadoV1" unique_id=1330279548]
+transform = Transform3D(13.707463, 0, 0, 0, 1, 0, 0, 0, 42.45744, 0, 0, 9.77364)
+mesh = SubResource("PlaneMesh_tar1s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/TornadoV1/MeshInstance3D" unique_id=1228113214]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/TornadoV1/MeshInstance3D/StaticBody3D" unique_id=1049616755]
+shape = SubResource("ConcavePolygonShape3D_tar1s")
+
+[node name="TornadoScene" parent="Cases/TornadoV1" unique_id=1111547397 instance=ExtResource("18_p5xdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01696, 38.0042)
+upforce = 2100.0
+
+[node name="TornadoV2" type="Node3D" parent="Cases" unique_id=782506156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.94044, 0, 25.590134)
+script = ExtResource("17_tar1s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cases/TornadoV2" unique_id=534847223]
+transform = Transform3D(13.707463, 0, 0, 0, 1, 0, 0, 0, 42.45744, 0, 0, 9.77364)
+mesh = SubResource("PlaneMesh_tar1s")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cases/TornadoV2/MeshInstance3D" unique_id=1505575311]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cases/TornadoV2/MeshInstance3D/StaticBody3D" unique_id=164098242]
+shape = SubResource("ConcavePolygonShape3D_tar1s")
+
+[node name="TornadoScene" parent="Cases/TornadoV2" unique_id=1713758612 node_paths=PackedStringArray("endpointA", "endpointB") instance=ExtResource("19_khqo5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.764404, 9.540314, 42.34836)
+upforce = 2100.0
+suctionForce = 1800.0
+flungFromCenterDistance = 1.5
+endpointA = NodePath("TornadoEndPointA")
+endpointB = NodePath("TornadoEndPointB")
+
+[node name="BaseMesh" parent="Cases/TornadoV2/TornadoScene" index="0" unique_id=1928292335]
+transform = Transform3D(5, 0, 0, 0, 4, 0, 0, 0, 5, 0.4905548, -7.8883195, 0)
+
+[node name="TornadoEndPointA" type="Node3D" parent="Cases/TornadoV2/TornadoScene" unique_id=65236325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.73636, 0, 71.13417)
+top_level = true
+
+[node name="TornadoEndPointB" type="Node3D" parent="Cases/TornadoV2/TornadoScene" unique_id=1691609588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.89876, 0, 70.91293)
+top_level = true
+
+[node name="Map3" parent="Cases" unique_id=94462723 instance=ExtResource("6_w48x1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, -226.11787, 126.91291, 32.8512)
+
+[node name="Map3Blockout" parent="Cases/Map3" unique_id=406119424 instance=ExtResource("20_3un8v")]
+
+[editable path="Sled"]
+[editable path="Sled/MainCam"]
+[editable path="Cases/Case_Movement"]
+[editable path="Cases/Snowball"]
+[editable path="Cases/Avalanche"]
+[editable path="Cases/Ramp"]
+[editable path="Cases/BreakableObstacle"]
+[editable path="Cases/Gate"]
+[editable path="Cases/Case_Trap"]
+[editable path="Cases/TornadoV2/TornadoScene"]
+[editable path="Cases/Map3"]

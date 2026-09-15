@@ -1,0 +1,41 @@
+[gd_resource type="Environment" format=3 uid="uid://cotklklmx0j40"]
+
+[ext_resource type="Texture2D" uid="uid://b3gsnwtwhl1sk" path="res://assets/HDRI/wasteland_clouds_puresky_2k.hdr" id="1_0fl6s"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_plaw6"]
+panorama = ExtResource("1_0fl6s")
+energy_multiplier = 0.1
+
+[sub_resource type="Sky" id="Sky_05dlw"]
+sky_material = SubResource("PanoramaSkyMaterial_plaw6")
+radiance_size = 2
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_05dlw")
+ambient_light_source = 3
+ambient_light_color = Color(0.618011, 0.814769, 0.968982, 1)
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 0.5
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 1.2
+ssr_enabled = true
+ssao_enabled = true
+sdfgi_cascades = 6
+sdfgi_min_cell_size = 0.014648389
+sdfgi_y_scale = 0
+sdfgi_energy = 1.355
+sdfgi_probe_bias = 37.76
+fog_light_energy = 3.4
+fog_aerial_perspective = 0.759
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.011
+volumetric_fog_albedo = Color(0.876662, 0.395064, 0.464309, 1)
+volumetric_fog_emission = Color(0.382046, 0.601831, 0.748313, 1)
+volumetric_fog_emission_energy = 1.25
+volumetric_fog_length = 28.5
+volumetric_fog_ambient_inject = 0.4
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.1

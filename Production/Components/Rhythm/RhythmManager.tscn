@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://wwxxliixw61v"]
+
+[ext_resource type="Script" uid="uid://bc65mv4vqrrpt" path="res://Production/Components/Rhythm/RhythmManager.cs" id="1_x2dbk"]
+[ext_resource type="Script" uid="uid://itx06rbfsjjr" path="res://Production/Components/Rhythm/PowerUps/Boost.cs" id="6_avrqn"]
+[ext_resource type="Script" uid="uid://d0av4se0pqv66" path="res://Production/Components/Rhythm/PowerUps/Hover.cs" id="8_81fdl"]
+[ext_resource type="Script" uid="uid://c7c2fu7vf34v1" path="res://Production/Components/Rhythm/PowerUps/Invincibility.cs" id="9_p51yy"]
+[ext_resource type="AudioStream" uid="uid://5kitbbmkcfk8" path="res://assets/AudioAssets/RhythmSuccessFeedback/RhythmGreat.wav" id="11_1l7gp"]
+[ext_resource type="AudioStream" uid="uid://bb5ro2k1e3ns5" path="res://assets/AudioAssets/Powerups/Swoosh.wav" id="11_h54xh"]
+[ext_resource type="PackedScene" uid="uid://ccwv5l3foj52t" path="res://Production/Components/Rhythm/Tracks/SoundtrackCollection.tscn" id="12_xaka2"]
+[ext_resource type="AudioStream" uid="uid://b31rp1uq7bq4r" path="res://assets/AudioAssets/Powerups/SleighBells.wav" id="13_xf185"]
+[ext_resource type="AudioStream" uid="uid://ymc140nnmajk" path="res://assets/AudioAssets/Powerups/ShieldActivateSound.wav" id="15_5g4pa"]
+[ext_resource type="PackedScene" uid="uid://n0j840jxyv7j" path="res://Production/Components/Rhythm/rhythm_ui.tscn" id="16_cv1j1"]
+[ext_resource type="Script" uid="uid://b24tlo81d25kp" path="res://Production/Components/Rhythm/EventFeedbackPlayer.cs" id="19_xf185"]
+[ext_resource type="AudioStream" uid="uid://dwcjf88dyyib2" path="res://assets/AudioAssets/Music/Varsågod.wav" id="20_xf185"]
+
+[node name="RhythmManager" type="Node" unique_id=1286440019 node_paths=PackedStringArray("_soundtrack", "_eventFeedbackSound", "_goalReachedMusic", "_rhythmUI", "_soundtrackCollection")]
+script = ExtResource("1_x2dbk")
+_timeCushion = 250.0
+_soundtrack = NodePath("SoundtrackCollection/Lapland\'sFikaDeliveryDogs")
+_eventFeedbackSound = NodePath("EventFeedbackPlayer")
+_goalReachedMusic = NodePath("GoalReachedMusic")
+_rhythmUI = NodePath("RhythmUI")
+_soundtrackCollection = NodePath("SoundtrackCollection")
+
+[node name="RhythmUI" parent="." unique_id=1990722959 instance=ExtResource("16_cv1j1")]
+layer = 0
+
+[node name="Powerups" type="Node" parent="." unique_id=126987939]
+
+[node name="Boost" type="Node" parent="Powerups" unique_id=1546912867 node_paths=PackedStringArray("_powerupSound")]
+script = ExtResource("6_avrqn")
+_speed = 1.75
+_powerupSound = NodePath("PowerupAudioPlayer")
+
+[node name="PowerupAudioPlayer" type="AudioStreamPlayer" parent="Powerups/Boost" unique_id=772702156]
+stream = ExtResource("11_h54xh")
+bus = &"SFX"
+
+[node name="Hover" type="Node" parent="Powerups" unique_id=217064353 node_paths=PackedStringArray("_powerupSound")]
+script = ExtResource("8_81fdl")
+_powerupSound = NodePath("PowerupAudioPlayer2")
+
+[node name="PowerupAudioPlayer2" type="AudioStreamPlayer" parent="Powerups/Hover" unique_id=1050940729]
+stream = ExtResource("13_xf185")
+bus = &"SFX"
+
+[node name="Invincibility" type="Node" parent="Powerups" unique_id=418115500 node_paths=PackedStringArray("_powerupSound")]
+script = ExtResource("9_p51yy")
+_powerupSound = NodePath("PowerupAudioPlayer3")
+
+[node name="PowerupAudioPlayer3" type="AudioStreamPlayer" parent="Powerups/Invincibility" unique_id=159025708]
+stream = ExtResource("15_5g4pa")
+bus = &"SFX"
+
+[node name="EventFeedbackPlayer" type="AudioStreamPlayer" parent="." unique_id=1125132980]
+stream = ExtResource("11_1l7gp")
+volume_db = 6.77
+bus = &"SFX"
+script = ExtResource("19_xf185")
+
+[node name="GoalReachedMusic" type="AudioStreamPlayer" parent="." unique_id=880894580]
+stream = ExtResource("20_xf185")
+bus = &"Music"
+
+[node name="SoundtrackCollection" parent="." unique_id=1188081523 instance=ExtResource("12_xaka2")]
+
+[editable path="SoundtrackCollection"]

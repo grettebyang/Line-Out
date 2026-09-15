@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cqsnn3o2p8v28"]
+
+[ext_resource type="AudioStream" uid="uid://ca8i3fn6fx73c" path="res://assets/AudioAssets/Music/NotTooSweetMIDI.wav" id="1_a3eao"]
+[ext_resource type="Script" uid="uid://bujs1blav5c8n" path="res://Production/Components/Rhythm/Soundtrack.cs" id="1_n6d8y"]
+[ext_resource type="Resource" uid="uid://cxuogbbgegp6l" path="res://Production/Components/Rhythm/Sequences/Not Too Sweet/NotTooSweetSequence1.tres" id="3_1vf11"]
+[ext_resource type="Resource" uid="uid://b3fndesn408xw" path="res://Production/Components/Rhythm/Sequences/Not Too Sweet/NotTooSweetSequence2.tres" id="4_qcpgn"]
+[ext_resource type="Resource" uid="uid://l0133k1bndh8" path="res://Production/Components/Rhythm/Sequences/Not Too Sweet/NotTooSweetSequence3.tres" id="5_t1ggg"]
+
+[node name="NotTooSweet" type="AudioStreamPlayer" unique_id=226438461]
+stream = ExtResource("1_a3eao")
+bus = &"Music"
+script = ExtResource("1_n6d8y")
+bpm = 360
+_tsTop = 8
+_totalBars = 44
+_TimeSignatureChanges = Array[Object]([])
+_SequenceChanges = Array[Object]([ExtResource("3_1vf11"), ExtResource("4_qcpgn"), ExtResource("5_t1ggg")])

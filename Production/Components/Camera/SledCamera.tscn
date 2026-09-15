@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2ceadqi7hg8a"]
+
+[ext_resource type="Script" uid="uid://cf5dcrffe5jbn" path="res://Production/Components/Camera/lib/CameraFollow.cs" id="1_pcjae"]
+
+[node name="SledCamera" type="Camera3D"]
+script = ExtResource("1_pcjae")

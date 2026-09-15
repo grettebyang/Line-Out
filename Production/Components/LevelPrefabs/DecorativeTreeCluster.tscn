@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cknghm7c5f4yl"]
+
+[ext_resource type="PackedScene" uid="uid://byotdf6egl3c7" path="res://assets/3D Assets - Production/Prefabs/Pine_Tall_Snow.tscn" id="1_yiool"]
+[ext_resource type="PackedScene" uid="uid://cmfecchgth3ul" path="res://assets/3D Assets - Production/Prefabs/Pine.tscn" id="2_x8ue3"]
+[ext_resource type="PackedScene" uid="uid://cbs7gf0yk8oqg" path="res://assets/3D Assets - Production/Prefabs/Pine_Fat.tscn" id="3_opfsf"]
+[ext_resource type="PackedScene" uid="uid://dykamowla40y8" path="res://assets/3D Assets - Production/Prefabs/Pine_Snow.tscn" id="4_7cf0s"]
+[ext_resource type="PackedScene" uid="uid://ce2lmus8q3c72" path="res://assets/3D Assets - Production/Prefabs/Pine_Tall.tscn" id="5_4tevi"]
+[ext_resource type="PackedScene" uid="uid://df02h27rjpy12" path="res://assets/3D Assets - Production/Prefabs/Pine_Fat_Snow.tscn" id="6_ty2ch"]
+
+[node name="TreeCluster1" type="Node3D" unique_id=795879377]
+process_mode = 4
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1496922808]
+
+[node name="Pine_Tall_Snow" parent="Node3D" unique_id=593924608 instance=ExtResource("1_yiool")]
+transform = Transform3D(-0.8068345, 0.06282597, -0.58742726, 0.052304074, 0.9980211, 0.03489949, 0.5884574, -0.002566723, -0.8085241, 6.1018095, 5.9604645e-08, 7.1201396)
+
+[node name="Pine_Tall_Snow2" parent="Node3D" unique_id=1447935762 instance=ExtResource("1_yiool")]
+transform = Transform3D(0.86424977, -0.059564434, -0.49952412, 0.043577872, 0.99809736, -0.043619387, 0.5011719, 0.015929852, 0.8652011, -5.903743, 0, 7.886281)
+
+[node name="Pine" parent="Node3D" unique_id=1727617208 instance=ExtResource("2_x8ue3")]
+transform = Transform3D(0.2564503, 0.09544811, -0.96183306, -0.13891351, 0.988421, 0.06104854, 0.95652294, 0.11795569, 0.2667399, 0, 0, 6.403857)
+
+[node name="Pine_Fat" parent="Node3D" unique_id=775214073 instance=ExtResource("3_opfsf")]
+transform = Transform3D(0.98878634, -0.055770945, -0.13853239, 0.06943533, 0.9929715, 0.09584575, 0.1322133, -0.10439001, 0.9857091, -8.247459, 0, 0)
+
+[node name="Pine_Tall_Snow3" parent="Node3D" unique_id=1176256845 instance=ExtResource("1_yiool")]
+transform = Transform3D(-0.9823906, -0.044173025, 0.18154213, -0.060816236, 0.9943366, -0.08715574, -0.17666404, -0.09666168, -0.97951335, -13.626806, 0, 4.623517)
+
+[node name="Pine_Snow" parent="Node3D" unique_id=644693195 instance=ExtResource("4_7cf0s")]
+transform = Transform3D(0.5727359, 0.13877255, -0.80790824, -0.1648214, 0.9849339, 0.05233596, 0.8029991, 0.10318589, 0.5869797, 5.2317276, 0, 0)
+
+[node name="Pine_Tall" parent="Node3D" unique_id=2009417839 instance=ExtResource("5_4tevi")]
+transform = Transform3D(0.31634948, -0.09406636, 0.94396746, -0.06923652, 0.9901284, 0.12186935, -0.94611275, -0.10391033, 0.30671376, 0, 0, 0)
+
+[node name="Pine_Fat_Snow" parent="Node3D" unique_id=808780074 instance=ExtResource("6_ty2ch")]
+transform = Transform3D(0.9860961, 0.056209594, 0.15638088, -0.061027624, 0.9977928, 0.02617695, -0.1545643, -0.035356544, 0.9873499, 3.276554, 0, -4.9075003)

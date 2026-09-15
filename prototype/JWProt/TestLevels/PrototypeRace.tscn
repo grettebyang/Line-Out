@@ -1,0 +1,526 @@
+[gd_scene load_steps=30 format=3 uid="uid://c6p4eu67y3inc"]
+
+[ext_resource type="Script" uid="uid://rj52ikio8yi4" path="res://Production/Components/LevelManager/LevelManager.cs" id="1_p2hi4"]
+[ext_resource type="PackedScene" uid="uid://bp34hqpmuhrxq" path="res://Production/Components/Sled/lib/HurtEffect.tscn" id="2_1fsxf"]
+[ext_resource type="PackedScene" uid="uid://35feky2e4ule" path="res://Production/Components/UI/ControllersActivator/Layouts/ControllerActivatorUI.tscn" id="2_vpwlf"]
+[ext_resource type="PackedScene" uid="uid://b0sspgdxim522" path="res://Production/Components/UI/HUD/Scenes/TrackHUD.tscn" id="3_h5y37"]
+[ext_resource type="PackedScene" uid="uid://3hry2327s1cv" path="res://Production/Components/Sled/lib/Sled.tscn" id="4_k853e"]
+[ext_resource type="PackedScene" uid="uid://4xtdsvvidhmk" path="res://Production/Components/Checkpoints/Scenes/CheckpointManager.tscn" id="5_jj2i7"]
+[ext_resource type="PackedScene" uid="uid://lkmyugda37bi" path="res://Production/Components/Checkpoints/Scenes/Checkpoint.tscn" id="6_w6id1"]
+[ext_resource type="Script" uid="uid://ciko7o8tfpg43" path="res://Production/Components/LevelManager/LevelSegments/LevelSegmentsManager.cs" id="7_h5y37"]
+[ext_resource type="Script" uid="uid://coite1p4rp7lv" path="res://Production/Components/LevelManager/LevelSegments/LevelSegment.cs" id="8_k853e"]
+[ext_resource type="PackedScene" uid="uid://blmqxbih5a3kk" path="res://prototype/JWProt/TestObstacles/SpeedWind.tscn" id="9_k853e"]
+[ext_resource type="PackedScene" uid="uid://0g6h1qjj7f51" path="res://assets/HDRI/DefaultSky.tscn" id="10_jj2i7"]
+[ext_resource type="PackedScene" uid="uid://o578868np83h" path="res://Production/Components/Rhythm/PowerUps/Collectable.tscn" id="11_w6id1"]
+[ext_resource type="PackedScene" uid="uid://cbc7o30mbi28c" path="res://prototype/JWProt/ModularLevelComponents/Scenes/ModularLevelRamp.tscn" id="11_xuuoa"]
+[ext_resource type="PackedScene" uid="uid://cw4kly7vp7hvd" path="res://Production/Components/Traps/BearTrap.tscn" id="12_1fsxf"]
+[ext_resource type="PackedScene" uid="uid://5g3r7yec5uh1" path="res://prototype/JWProt/ModularLevelComponents/Scenes/ModularLevelRock.tscn" id="13_fdb6y"]
+[ext_resource type="PackedScene" uid="uid://bxdtjdbu2lt1a" path="res://prototype/JWProt/TestObstacles/Blocker.tscn" id="15_fdb6y"]
+[ext_resource type="PackedScene" uid="uid://dcb3uim0god4" path="res://prototype/JWProt/TestObstacles/BreakableObstacle.tscn" id="15_j0qb3"]
+[ext_resource type="PackedScene" uid="uid://dl4b7f2pv4oy0" path="res://prototype/JWProt/TestObstacles/Gate.tscn" id="16_00n1w"]
+[ext_resource type="PackedScene" uid="uid://cjcicq2ltjm6k" path="res://prototype/JWProt/NPC/NPC_Hawk.tscn" id="16_73tid"]
+[ext_resource type="Script" uid="uid://cdu5atljc8x1i" path="res://prototype/JWProt/TestLevels/ProtSongOverride.cs" id="18_j0qb3"]
+[ext_resource type="AudioStream" uid="uid://riutahftmm2e" path="res://assets/AudioAssets/Music/HouseBlendMIDI.wav" id="19_i5cql"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymiyw"]
+albedo_color = Color(0.452695, 0.242717, 9.62615e-08, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_1a2m6"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="Curve3D" id="Curve3D_xuuoa"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.117552, 0, -0.013176, 0, 0, 0, 0, 0, 0, 60.5002, 0.00349426, 0.00035882, 0, 0, 0, 0, 0, 0, 99.382, 0.433184, -19.4607, 0, 0, 0, 0, 0, 0, 132.78, 0.307327, -9.66351, 0, 0, 0, 0, 0, 0, 160.904, 0.307373, -23.4166, 0, 0, 0, 0, 0, 0, 161.746, 0.307373, -63.8484, 0, 0, 0, 0, 0, 0, 128.712, 0.307373, -76.6451, 0, 0, 0, 0, 0, 0, 123.369, 0.307373, -85.2489, 0, 0, 0, 0, 0, 0, 137.853, 0.307373, -91.9404, 0, 0, 0, 0, 0, 0, 155.367, 0.307373, -96.5554, 0, 0, 0, 0, 0, 0, 167.535, 0.307373, -132.706, 0, 0, 0, 0, 0, 0, 200.379, 0.307373, -126.209, 0, 0, 0, 0, 0, 0, 229.336, 0.307373, -135.368, 0, 0, 0, 0, 0, 0, 241.937, 0.307373, -123.038, 0, 0, 0, 0, 0, 0, 250.58, 0.307373, -110.756, 0, 0, 0, 0, 0, 0, 251.49, 0.307373, -97.336, 0, 0, 0, 0, 0, 0, 249.438, 0.307373, -60.8847, 0, 0, 0, 0, 0, 0, 276.382, 0.307373, -32.6782, 0, 0, 0, 0, 0, 0, 298.694, 0.307373, -27.2052, 0, 0, 0, 0, 0, 0, 332.795, 0.307373, -31.8362, 0, 0, 0, 0, 0, 0, 353.424, 0.307373, -50.3599),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 21
+
+[sub_resource type="BoxMesh" id="BoxMesh_p2hi4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vpwlf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_73tid"]
+size = Vector3(52.0162, 28.4301, 13.0273)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am2fd"]
+albedo_color = Color(0.937401, 0.356066, 0.382049, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6yegu"]
+material = SubResource("StandardMaterial3D_am2fd")
+
+[node name="PrototypeRace" type="Node3D" node_paths=PackedStringArray("_sled", "_endGoal", "Collectables", "_checkpointManager")]
+script = ExtResource("1_p2hi4")
+_levelTime = 300.0
+_respawnTime = 1.0
+_sled = NodePath("Sled")
+_endGoal = NodePath("EndGoal")
+Collectables = NodePath("Powerups")
+DamageEffectScene = ExtResource("2_1fsxf")
+_checkpointManager = NodePath("CheckpointManager")
+
+[node name="DefaultSky" parent="." instance=ExtResource("10_jj2i7")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerActivatorUI" parent="UI" instance=ExtResource("2_vpwlf")]
+layout_mode = 1
+
+[node name="TrackHud" parent="UI" instance=ExtResource("3_h5y37")]
+
+[node name="Sled" parent="." instance=ExtResource("4_k853e")]
+transform = Transform3D(0.0416141, 0, 0.999134, 0, 1, 0, -0.999135, 0, 0.0416145, 11.4989, 0.739739, -4.65482)
+SledMass = 80
+_dmgPerSpeed = 12.0
+_dmgCap = 30.0
+
+[node name="BasicSled" parent="Sled" index="1"]
+transform = Transform3D(-0.300001, 0, -4.52988e-08, 0, 0.3, 0, 4.52988e-08, 0, -0.300001, 0, -0.0749889, 0)
+
+[node name="MainCam" parent="Sled" index="4"]
+_shakeMultiplayer = 4.0
+_shakeSpeed = 1.2
+
+[node name="LeftCollision" parent="Sled" index="7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.3, 0.2, -0.5)
+
+[node name="RightCollision" parent="Sled" index="8"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.3, 0.2, -0.5)
+
+[node name="FikaPackage" parent="Sled" index="14"]
+mass = 0.001
+
+[node name="SledHitThingParticles" parent="Sled/VFX" index="4"]
+material_override = SubResource("StandardMaterial3D_ymiyw")
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+draw_pass_1 = SubResource("SphereMesh_1a2m6")
+
+[node name="SledHitThingParticles2" parent="Sled/VFX" index="5"]
+amount = 6
+
+[node name="CheckpointManager" parent="." node_paths=PackedStringArray("InitialCheckpoint") instance=ExtResource("5_jj2i7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.880581, 0, -1.91973)
+InitialCheckpoint = NodePath("Checkpoint")
+
+[node name="Checkpoint" parent="CheckpointManager" instance=ExtResource("6_w6id1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.99743, 0.649215, -3.92939)
+
+[node name="Pole" parent="CheckpointManager/Checkpoint/Models" index="2"]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -2.58378, 1.20498, 2.95656)
+
+[node name="Fireplace" parent="CheckpointManager/Checkpoint/Models" index="3"]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -0.422577, -0.0480804, 2.60997)
+
+[node name="cabin-corner4" parent="CheckpointManager/Checkpoint/Models/Fireplace" index="2"]
+transform = Transform3D(-0.139692, 0.255613, -0.0358487, 0.115118, 0.098182, 0.251486, 0.231022, 0.105638, -0.146992, -0.376953, 0.0169678, 0.257898)
+
+[node name="PassedEffects" parent="CheckpointManager/Checkpoint/Models" index="4"]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -1.99556, 0, -0.791588)
+
+[node name="Flag" parent="CheckpointManager/Checkpoint/Models/PassedEffects" index="0"]
+transform = Transform3D(0.026921, 0, 0, 0, 0.581344, 0, 9.31323e-10, 0, 1.09734, -1.07613, 3.10814, -3.61904)
+
+[node name="CheckpointHut" parent="CheckpointManager/Checkpoint/Models" index="5"]
+transform = Transform3D(0.561896, 0, 0.827208, 0, 1, 0, -0.827208, 0, 0.561896, -0.390717, 0, 4.41089)
+
+[node name="Roof" parent="CheckpointManager/Checkpoint/Models" index="6"]
+transform = Transform3D(0.999013, -0.0442801, -0.00354412, 0.0442801, 0.986288, 0.158979, -0.00354409, -0.158979, 0.987276, 0.283051, -0.577858, -3.17514)
+
+[node name="Checkpoint2" parent="CheckpointManager" instance=ExtResource("6_w6id1")]
+transform = Transform3D(-0.0408817, 0, 0.999164, 0, 1, 0, -0.999164, 0, -0.0408817, 152.326, 0.649217, -48.048)
+
+[node name="Pole" parent="CheckpointManager/Checkpoint2/Models" index="2"]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -2.58378, 1.20498, 2.95656)
+
+[node name="Fireplace" parent="CheckpointManager/Checkpoint2/Models" index="3"]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -0.422577, -0.0480804, 2.60997)
+
+[node name="cabin-corner4" parent="CheckpointManager/Checkpoint2/Models/Fireplace" index="2"]
+transform = Transform3D(-0.139692, 0.255613, -0.0358487, 0.115118, 0.098182, 0.251486, 0.231022, 0.105638, -0.146992, -0.376953, 0.0169678, 0.257898)
+
+[node name="PassedEffects" parent="CheckpointManager/Checkpoint2/Models" index="4"]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -1.99556, 0, -0.791588)
+
+[node name="Flag" parent="CheckpointManager/Checkpoint2/Models/PassedEffects" index="0"]
+transform = Transform3D(0.026921, 0, 0, 0, 0.581344, 0, 9.31323e-10, 0, 1.09734, -1.07613, 3.10814, -3.61904)
+
+[node name="CheckpointHut" parent="CheckpointManager/Checkpoint2/Models" index="5"]
+transform = Transform3D(0.561896, 0, 0.827208, 0, 1, 0, -0.827208, 0, 0.561896, -0.390717, 0, 4.41089)
+
+[node name="Roof" parent="CheckpointManager/Checkpoint2/Models" index="6"]
+transform = Transform3D(0.999013, -0.0442801, -0.00354412, 0.0442801, 0.986288, 0.158979, -0.00354409, -0.158979, 0.987276, 0.283051, -0.577858, -3.17514)
+
+[node name="RespawnPoint" parent="CheckpointManager/Checkpoint2" index="2"]
+transform = Transform3D(0.079938, 0, 0.9968, 0, 1, 0, -0.9968, 0, 0.079938, -10.3327, -0.011, -0.187071)
+
+[node name="Checkpoint3" parent="CheckpointManager" instance=ExtResource("6_w6id1")]
+transform = Transform3D(0.298874, 0, -0.954292, 0, 1, 0, 0.954292, 0, 0.298874, 259.514, 0.649217, -96.9916)
+
+[node name="Pole" parent="CheckpointManager/Checkpoint3/Models" index="2"]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -2.58378, 1.20498, 2.95656)
+
+[node name="Fireplace" parent="CheckpointManager/Checkpoint3/Models" index="3"]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -0.422577, -0.0480804, 2.60997)
+
+[node name="cabin-corner4" parent="CheckpointManager/Checkpoint3/Models/Fireplace" index="2"]
+transform = Transform3D(-0.139692, 0.255613, -0.0358487, 0.115118, 0.098182, 0.251486, 0.231022, 0.105638, -0.146992, -0.376953, 0.0169678, 0.257898)
+
+[node name="PassedEffects" parent="CheckpointManager/Checkpoint3/Models" index="4"]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -1.99556, 0, -0.791588)
+
+[node name="Flag" parent="CheckpointManager/Checkpoint3/Models/PassedEffects" index="0"]
+transform = Transform3D(0.026921, 0, 0, 0, 0.581344, 0, 9.31323e-10, 0, 1.09734, -1.07613, 3.10814, -3.61904)
+
+[node name="CheckpointHut" parent="CheckpointManager/Checkpoint3/Models" index="5"]
+transform = Transform3D(0.561896, 0, 0.827208, 0, 1, 0, -0.827208, 0, 0.561896, -0.390717, 0, 4.41089)
+
+[node name="Roof" parent="CheckpointManager/Checkpoint3/Models" index="6"]
+transform = Transform3D(0.999013, -0.0442801, -0.00354412, 0.0442801, 0.986288, 0.158979, -0.00354409, -0.158979, 0.987276, 0.283051, -0.577858, -3.17514)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.923946)
+curve = SubResource("Curve3D_xuuoa")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+use_collision = true
+polygon = PackedVector2Array(0, 0, -0.00190175, 0.0918313, 0.998495, 0.0910025, 1, 0, -15, 0, 0, 0.1, 0.37, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(8.10568, 0, 0, 0, 1, 0, 0, 0, 24.261, 142.151, -0.122099, -79.7476)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_p2hi4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_vpwlf")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(-2.89814, 0, -50.9262, 0, 1, 0, 11.1597, 0, -13.2254, 226.465, -0.0805254, -123.766)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_p2hi4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_vpwlf")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(-6.00293, 0, -69.6754, 0, 1, 0, 12.7125, 0, -32.9012, 293.936, -0.205051, -51.9185)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("BoxMesh_p2hi4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_vpwlf")
+
+[node name="LevelSegments" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.58784, 0, -6.73475)
+script = ExtResource("7_h5y37")
+revealFront = 3
+
+[node name="Segment0" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7279, 0, 1.55155)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 12.19)
+
+[node name="SpeedWind" parent="LevelSegments/Segment0" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0200874, 0, 0.999798, 0, 1, 0, -0.999798, 0, 0.0200874, -10.2037, 0.0667276, 1.78497)
+
+[node name="SpeedWind2" parent="LevelSegments/Segment0" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0200874, 0, 0.999798, 0, 1, 0, -0.999798, 0, 0.0200874, -7.09536, 0.0667276, 1.94889)
+
+[node name="SpeedWind3" parent="LevelSegments/Segment0" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0200874, 0, 0.999798, 0, 1, 0, -0.999798, 0, 0.0200874, -3.82556, 0.0667276, 1.98181)
+
+[node name="SpeedWind4" parent="LevelSegments/Segment0" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0200874, 0, 0.999798, 0, 1, 0, -0.999798, 0, 0.0200874, -0.410742, 0.0667276, 1.98181)
+
+[node name="SpeedWind5" parent="LevelSegments/Segment0" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0200874, 0, 0.999798, 0, 1, 0, -0.999798, 0, 0.0200874, 3.54154, 0.0667276, 1.98181)
+
+[node name="SpeedWind6" parent="LevelSegments/Segment0" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0200874, 0, 0.999798, 0, 1, 0, -0.999798, 0, 0.0200874, 7.299, 0.0667276, 1.98181)
+
+[node name="Segment1" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(0.89038, 0, 0.455219, 0, 1, 0, -0.455219, 0, 0.89038, 71.7166, 0, -9.95399)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 12.19)
+
+[node name="ModularLevelRamp" parent="LevelSegments/Segment1" instance=ExtResource("11_xuuoa")]
+transform = Transform3D(-0.0583655, 0, -0.998295, 0, 1, 0, 0.998295, 0, -0.0583655, -8.80301, 0.750537, -0.8503)
+
+[node name="BearTrap" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98337, 0.312673, 0.829672)
+
+[node name="BearTrap3" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.476128, 0.312673, 6.4299)
+
+[node name="BearTrap7" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.452347, 0.312673, 2.90469)
+
+[node name="BearTrap4" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.11489, 0.312673, 4.64918)
+
+[node name="BearTrap5" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.36289, 0.312673, 2.45649)
+
+[node name="BearTrap8" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.45755, 0.312673, 6.77946)
+
+[node name="BearTrap6" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.57394, 0.312673, 5.33729)
+
+[node name="BearTrap2" parent="LevelSegments/Segment1" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.46359, 0.312671, -1.56726)
+
+[node name="ModularLevelRock" parent="LevelSegments/Segment1" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(0.0012742, 0, 0.999999, 0, 1, 0, -0.999999, 0, 0.0012742, -8.49142, 1.21028, -5.98459)
+
+[node name="Segment2" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(0.999989, 0, 0.00472984, 0, 1, 0, -0.00472984, 0, 0.999989, 123.78, 0, -12.8603)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 12.19)
+
+[node name="ModularLevelRock2" parent="LevelSegments/Segment2" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(0.321505, 0, 1.13075, 0, 1.17557, 0, -1.13075, 0, 0.321505, -8.31309, 1.21027, 10.0863)
+
+[node name="ModularLevelRock3" parent="LevelSegments/Segment2" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(-0.823514, 0, 0.838921, 0, 1.17557, 0, -0.838921, 0, -0.823514, -5.61729, 1.21027, -4.87755)
+
+[node name="BreakableObstacle" parent="LevelSegments/Segment2" instance=ExtResource("15_j0qb3")]
+transform = Transform3D(-0.113793, 0, -0.993504, 0, 1, 0, 0.993504, 0, -0.113793, -7.0473, 0.392639, 0.950968)
+
+[node name="BreakableObstacle2" parent="LevelSegments/Segment2" instance=ExtResource("15_j0qb3")]
+transform = Transform3D(-0.174851, 0, -0.984595, 0, 1, 0, 0.984595, 0, -0.174851, -7.56081, 0.392639, 4.51949)
+
+[node name="ModularLevelRock4" parent="LevelSegments/Segment2" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(-1.11894, 0, 0.360479, 0, 1.17557, 0, -0.360479, 0, -1.11894, 9.86082, 1.21027, -7.93395)
+
+[node name="ModularLevelRock5" parent="LevelSegments/Segment2" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(-1.17379, 0, 0.0647206, 0, 1.17557, 0, -0.0647206, 0, -1.17379, 17.8086, 1.21027, 4.19478)
+
+[node name="Gate" parent="LevelSegments/Segment2" instance=ExtResource("16_00n1w")]
+transform = Transform3D(0.451033, 0, -0.892507, 0, 1, 0, 0.892507, 0, 0.451033, 12.9437, 0.50946, -1.68765)
+
+[node name="Segment3" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(-0.151899, 0, 0.988396, 0, 1, 0, -0.988396, 0, -0.151899, 143.584, 0, -42.5838)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 12.19)
+
+[node name="Hawk" parent="LevelSegments/Segment3" instance=ExtResource("16_73tid")]
+transform = Transform3D(-0.151899, 0, -0.988396, 0, 1, 0, 0.988396, 0, -0.151899, -11.9644, 14.5564, -0.611969)
+
+[node name="Segment4" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(0.113793, 0, 0.993505, 0, 1, 0, -0.993505, 0, 0.113793, 120.094, 0, -75.8465)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 32.66)
+
+[node name="SpeedWind" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.993715, 0, 0.111937, 0, 1, 0, -0.111937, 0, 0.993715, -9.85179, 0.377901, 13.7625)
+
+[node name="SpeedWind2" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.993715, 0, 0.111937, 0, 1, 0, -0.111937, 0, 0.993715, -5.95804, 0.377901, 13.3711)
+
+[node name="SpeedWind3" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.993715, 0, 0.111937, 0, 1, 0, -0.111937, 0, 0.993715, -0.782753, 0.377901, 12.8443)
+
+[node name="SpeedWind4" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.993715, 0, 0.111937, 0, 1, 0, -0.111937, 0, 0.993715, 5.5597, 0.377901, 12.1678)
+
+[node name="SpeedWind5" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(-0.103643, 0, -0.994614, 0, 1, 0, 0.994614, 0, -0.103643, -9.24691, -0.0389872, 3.46216)
+
+[node name="SpeedWind6" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.647334, 0, 0.762205, 0, 1, 0, -0.762205, 0, 0.647334, -16.2564, -0.0389872, -1.33975)
+
+[node name="SpeedWind7" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.71358, 0, 0.700573, 0, 1, 0, -0.700573, 0, 0.71358, -14.7736, -0.0389872, -5.81563)
+
+[node name="SpeedWind8" parent="LevelSegments/Segment4" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.166614, 0, -0.986021, 0, 1, 0, 0.986021, 0, 0.166614, -7.00949, -0.0389881, -2.47081)
+
+[node name="ModularLevelRamp" parent="LevelSegments/Segment4" instance=ExtResource("11_xuuoa")]
+transform = Transform3D(-0.549372, 0, -0.835577, 0, 1, 0, 0.835577, 0, -0.549372, 4.21313, 0.97228, -6.02229)
+
+[node name="ModularLevelRock" parent="LevelSegments/Segment4" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(0.113793, 0, -0.993504, 0, 1, 0, 0.993504, 0, 0.113793, -18.9978, 1.36329, -6.27887)
+
+[node name="ModularLevelRock2" parent="LevelSegments/Segment4" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(0.431613, 0, -0.902058, 0, 1, 0, 0.902058, 0, 0.431613, -13.5254, 1.36329, -10.1577)
+
+[node name="ModularLevelRock3" parent="LevelSegments/Segment4" instance=ExtResource("13_fdb6y")]
+transform = Transform3D(0.431613, 0, -0.902058, 0, 1, 0, 0.902058, 0, 0.431613, -19.7065, 1.36329, 0.729042)
+
+[node name="BreakableObstacle" parent="LevelSegments/Segment4" instance=ExtResource("15_j0qb3")]
+transform = Transform3D(0.113793, 0, -0.993504, 0, 1, 0, 0.993504, 0, 0.113793, 6.7523, 0.377901, 9.99898)
+
+[node name="BreakableObstacle2" parent="LevelSegments/Segment4" instance=ExtResource("15_j0qb3")]
+transform = Transform3D(0.113793, 0, -0.993504, 0, 1, 0, 0.993504, 0, 0.113793, -0.109535, 0.377901, 10.5115)
+
+[node name="BreakableObstacle3" parent="LevelSegments/Segment4" instance=ExtResource("15_j0qb3")]
+transform = Transform3D(0.113793, 0, -0.993504, 0, 1, 0, 0.993504, 0, 0.113793, -6.80516, 0.377901, 11.3313)
+
+[node name="Segment5" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(0.273053, 0, 0.961999, 0, 1, 0, -0.961999, 0, 0.273053, 145.839, -3.8147e-06, -113.398)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 12.19)
+
+[node name="Hawk" parent="LevelSegments/Segment5" instance=ExtResource("16_73tid")]
+transform = Transform3D(0.273053, 0, -0.961999, 0, 1, 0, 0.961999, 0, 0.273053, -13.0928, 12.7543, -0.367455)
+
+[node name="Hawk2" parent="LevelSegments/Segment5" instance=ExtResource("16_73tid")]
+transform = Transform3D(0.273053, 0, -0.961999, 0, 1, 0, 0.961999, 0, 0.273053, -4.96469, 12.7543, 4.70441)
+
+[node name="BearTrap" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8733, 0.312673, 3.05034)
+
+[node name="BearTrap2" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72864, 0.312673, -1.40132)
+
+[node name="BearTrap3" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56149, 0.312673, 4.2131)
+
+[node name="BearTrap4" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91652, 0.312673, -0.0232697)
+
+[node name="BearTrap5" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25134, 0.312673, 4.95125)
+
+[node name="BearTrap6" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.52997, 0.312673, 7.88576)
+
+[node name="BearTrap7" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.32478, 0.312673, 7.40361)
+
+[node name="BearTrap8" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.048, 0.312673, -3.49551)
+
+[node name="BearTrap9" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.72276, 0.312673, -3.19528)
+
+[node name="BearTrap10" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.395508, 0.312673, -5.08713)
+
+[node name="BearTrap11" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.026, 0.312673, 6.04085)
+
+[node name="BearTrap12" parent="LevelSegments/Segment5" instance=ExtResource("12_1fsxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9715, 0.312673, -0.393112)
+
+[node name="SpeedWind" parent="LevelSegments/Segment5" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.988499, 0, -0.151226, 0, 1, 0, 0.151226, 0, 0.988499, -16.233, 0.331873, -5.4295)
+
+[node name="SpeedWind7" parent="LevelSegments/Segment5" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.827247, 0, 0.561838, 0, 1, 0, -0.561838, 0, 0.827247, -10.2063, 0.331873, -4.99171)
+
+[node name="SpeedWind6" parent="LevelSegments/Segment5" instance=ExtResource("9_k853e")]
+transform = Transform3D(-0.958143, 0, -0.286291, 0, 1, 0, 0.286291, 0, -0.958143, -11.9705, 0.331873, 5.36208)
+
+[node name="SpeedWind2" parent="LevelSegments/Segment5" instance=ExtResource("9_k853e")]
+transform = Transform3D(-0.454162, 0, 0.890919, 0, 1, 0, -0.890919, 0, -0.454162, -7.75131, 0.331873, 4.99539)
+
+[node name="SpeedWind3" parent="LevelSegments/Segment5" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.993339, 0, 0.115232, 0, 1, 0, -0.115232, 0, 0.993339, 3.5434, 0.331873, -5.87086)
+
+[node name="SpeedWind4" parent="LevelSegments/Segment5" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0879204, 0, 0.996127, 0, 1, 0, -0.996127, 0, 0.0879204, 8.53033, 0.331873, 0.532059)
+
+[node name="SpeedWind5" parent="LevelSegments/Segment5" instance=ExtResource("9_k853e")]
+transform = Transform3D(0.0879204, 0, 0.996127, 0, 1, 0, -0.996127, 0, 0.0879204, 8.33618, 0.331873, 2.59041)
+
+[node name="Blocker" parent="LevelSegments/Segment5" instance=ExtResource("15_fdb6y")]
+transform = Transform3D(0.273053, 0, -0.961999, 0, 1, 0, 0.961999, 0, 0.273053, 14.664, 0.366208, 1.14987)
+
+[node name="Blocker2" parent="LevelSegments/Segment5" instance=ExtResource("15_fdb6y")]
+transform = Transform3D(-0.466016, 0, -0.884776, 0, 1, 0, 0.884776, 0, -0.466016, 14.1982, 0.366207, 3.91147)
+
+[node name="Segment6" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(0.982235, 0, -0.187656, 0, 1, 0, 0.187656, 0, 0.982235, 178.617, -3.8147e-06, -127.889)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 12.19)
+
+[node name="Node3D" type="Node3D" parent="LevelSegments/Segment6"]
+
+[node name="SpeedWind" parent="LevelSegments/Segment6" instance=ExtResource("9_k853e")]
+transform = Transform3D(-0.0268228, 0, 0.99964, 0, 1, 0, -0.99964, 0, -0.0268228, -18.2259, 0.379722, 1.43341)
+
+[node name="SpeedWind3" parent="LevelSegments/Segment6" instance=ExtResource("9_k853e")]
+transform = Transform3D(-0.0268228, 0, 0.99964, 0, 1, 0, -0.99964, 0, -0.0268228, -14.7318, 0.379722, 1.35455)
+
+[node name="SpeedWind5" parent="LevelSegments/Segment6" instance=ExtResource("9_k853e")]
+transform = Transform3D(-0.0268228, 0, 0.99964, 0, 1, 0, -0.99964, 0, -0.0268228, -10.9898, 0.379722, 1.26904)
+
+[node name="SpeedWind7" parent="LevelSegments/Segment6" instance=ExtResource("9_k853e")]
+transform = Transform3D(-0.0268227, 0, 0.99964, 0, 1, 0, -0.99964, 0, -0.0268227, -7.85214, 0.379722, 1.15839)
+
+[node name="ModularLevelRamp" parent="LevelSegments/Segment6" instance=ExtResource("11_xuuoa")]
+transform = Transform3D(0.0365219, 0, -0.999333, 0, 1, 0, 0.999333, 0, 0.0365219, -1.21436, 0.944998, 0.274658)
+
+[node name="Segment7" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(0.964068, 0, -0.265657, 0, 1, 0, 0.265657, 0, 0.964068, 222.224, -3.8147e-06, -126.355)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 32.66)
+
+[node name="Segment8" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(-0.0118504, 0, -0.99993, 0, 1, 0, 0.99993, 0, -0.0118504, 245.432, 3.35005, -88.7541)
+script = ExtResource("8_k853e")
+size = Vector3(39.265, 1, 12.19)
+
+[node name="Segment9" type="Node3D" parent="LevelSegments"]
+transform = Transform3D(0.884019, 0, -0.467452, 0, 1, 0, 0.467452, 0, 0.884019, 280.414, -7.62939e-06, -42.935)
+script = ExtResource("8_k853e")
+size = Vector3(75.495, 1, 32.66)
+
+[node name="Powerups" type="Node3D" parent="."]
+
+[node name="Collectable14" parent="Powerups" instance=ExtResource("11_w6id1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.3121, 1.43493, -22.1578)
+
+[node name="EndGoal" type="Area3D" parent="."]
+transform = Transform3D(0.0126358, 0, -0.99992, 0, 1, 0, 0.99992, 0, 0.0126358, 225.866, 10.3166, -181.624)
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndGoal"]
+transform = Transform3D(0.980326, 0, -0.197384, 0, 1, 0, 0.197384, 0, 0.980326, 48.7152, -3.54356, 23.4951)
+shape = SubResource("BoxShape3D_73tid")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EndGoal"]
+transform = Transform3D(4.22324, 0, -1.3411e-07, 0, 6.68541, 0, 1.3411e-07, 0, 4.22324, 25.5671, -1.096, 18.1681)
+mesh = SubResource("CylinderMesh_6yegu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="EndGoal"]
+transform = Transform3D(4.22324, 0, -1.15484e-07, 0, 6.68541, 0, 1.15484e-07, 0, 4.22324, 67.9261, -3.11874, 26.7724)
+mesh = SubResource("CylinderMesh_6yegu")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("18_j0qb3")
+soundtrack = ExtResource("19_i5cql")
+
+[connection signal="body_entered" from="EndGoal" to="." method="OnEndGoalEntered"]
+
+[editable path="Sled"]
+[editable path="Sled/MainCam"]
+[editable path="CheckpointManager/Checkpoint"]
+[editable path="CheckpointManager/Checkpoint2"]
+[editable path="CheckpointManager/Checkpoint3"]

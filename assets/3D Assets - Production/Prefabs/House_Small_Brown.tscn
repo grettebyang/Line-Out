@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dye4wicbsviq"]
+
+[ext_resource type="Material" uid="uid://bbe5lt1lchc0w" path="res://assets/3D Assets - Production/Imports/House_Small/Materials/M_House_Brown.tres" id="1_eh8f3"]
+[ext_resource type="ArrayMesh" uid="uid://bs0t3654lv6ja" path="res://assets/3D Assets - Production/Imports/House_Small/Meshes/House_Small_LOW.obj" id="2_phjuc"]
+[ext_resource type="PackedScene" uid="uid://dvw115q8dtu1d" path="res://assets/3D Assets - Production/Prefabs/FlagPost_Goal.tscn" id="3_phjuc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cd3n4"]
+size = Vector3(6.886, 6.32, 5.45)
+
+[node name="House_Small_Brown" type="StaticBody3D" unique_id=690832385]
+
+[node name="House_Small_Collision" type="CollisionShape3D" parent="." unique_id=625784082]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5338125, 0)
+shape = SubResource("BoxShape3D_cd3n4")
+
+[node name="House_Small_Mesh" type="MeshInstance3D" parent="." unique_id=2105044220]
+material_override = ExtResource("1_eh8f3")
+mesh = ExtResource("2_phjuc")
+
+[node name="FlagPost_Goal" parent="." unique_id=569694916 instance=ExtResource("3_phjuc")]
+transform = Transform3D(-0.09885084, 0, 0.9951023, 0, 1, 0, -0.9951023, 0, -0.09885084, -8.225586, 0, 7.278063)
+
+[node name="FlagPost_Goal2" parent="." unique_id=711157236 instance=ExtResource("3_phjuc")]
+transform = Transform3D(-0.03519593, 0, -0.9993804, 0, 1, 0, 0.9993804, 0, -0.03519593, 8.583359, 0, 7.278063)

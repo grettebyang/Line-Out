@@ -1,0 +1,36 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://cvkxl6aixddei"]
+
+[ext_resource type="Shader" uid="uid://c8guqgiw6hkn3" path="res://assets/Shaders/texblend.gdshader" id="1_fynir"]
+[ext_resource type="Texture2D" uid="uid://bj4kmgs6ight6" path="res://assets/Textures/Snow/Snow_A.png" id="2_1encw"]
+[ext_resource type="Texture2D" uid="uid://d0stlt31wh20d" path="res://assets/Textures/Snow/snow_01_color_2k.png" id="3_q7flg"]
+[ext_resource type="Texture2D" uid="uid://j1qicsxvsufp" path="res://assets/Textures/Snow/SnowNormal.tres" id="4_4a12u"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87bup"]
+frequency = 0.0025
+fractal_type = 2
+fractal_lacunarity = 2.7
+fractal_weighted_strength = 0.95
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_el8x2"]
+seamless = true
+noise = SubResource("FastNoiseLite_87bup")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_fynir")
+shader_parameter/texture_albedo_a = ExtResource("2_1encw")
+shader_parameter/texture_normal_a = ExtResource("4_4a12u")
+shader_parameter/texture_albedo_b = ExtResource("3_q7flg")
+shader_parameter/texture_normal_b = ExtResource("4_4a12u")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_el8x2")
+shader_parameter/albedo_a = Color(0.0801364, 0.397721, 0.210254, 1)
+shader_parameter/albedo_b = Color(1, 1, 1, 1)
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/blend_threshold = 0.1
+shader_parameter/blend_noise_intensity = 0.3
+shader_parameter/blend_noise_scale = 10.0
+shader_parameter/blend_softness = 0.17
+shader_parameter/blend_transition_color = Color(1, 1, 1, 0)

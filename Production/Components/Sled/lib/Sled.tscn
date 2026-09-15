@@ -1,0 +1,330 @@
+[gd_scene format=3 uid="uid://3hry2327s1cv"]
+
+[ext_resource type="Script" uid="uid://kng2b486j8w0" path="res://Production/Components/Sled/lib/DogSled.cs" id="1_ubaau"]
+[ext_resource type="PackedScene" uid="uid://clb2l43ge4205" path="res://Production/Components/Rope/RopeScene.tscn" id="2_uygyw"]
+[ext_resource type="Script" uid="uid://bcvtyn8c307rn" path="res://Production/Components/Dog/lib/RopePivot.cs" id="4_qle6l"]
+[ext_resource type="PackedScene" uid="uid://dvdu1skcensys" path="res://Production/Components/Dog/lib/DogSpawner.tscn" id="5_xu6g3"]
+[ext_resource type="Script" uid="uid://2317vak02w5e" path="res://Production/Components/Dog/lib/ISDogSpawner.cs" id="6_s356o"]
+[ext_resource type="PackedScene" uid="uid://bbfw02rjo8ua6" path="res://Production/Components/Dog/lib/ProdDog.tscn" id="7_4r651"]
+[ext_resource type="PackedScene" uid="uid://cgrx8gyjanyab" path="res://Production/Components/Camera/Camera.tscn" id="7_xu6g3"]
+[ext_resource type="PackedScene" uid="uid://b2l82qrqaekog" path="res://Production/Components/SledPackage/Scenes/PackageCarrier.tscn" id="9_4r651"]
+[ext_resource type="AudioStream" uid="uid://dfh26180bfx04" path="res://assets/AudioAssets/Sled/SledSlide.wav" id="11_i6aj8"]
+[ext_resource type="AudioStream" uid="uid://8x15b1kw1lbn" path="res://assets/AudioAssets/Sled/SledBump.wav" id="12_2cm8h"]
+[ext_resource type="AudioStream" uid="uid://c4sg66wwqdgnx" path="res://assets/AudioAssets/MiscFeedback/FailSound.wav" id="13_8cupe"]
+[ext_resource type="PackedScene" uid="uid://cmh6sv4jdrpmr" path="res://Production/Components/SledPackage/Scenes/FikaPackage.tscn" id="13_i6aj8"]
+[ext_resource type="PackedScene" uid="uid://d08gk3lvtm7q8" path="res://Production/Components/SledPackage/Scenes/CoffeePackage.tscn" id="16_3w54l"]
+[ext_resource type="Texture2D" uid="uid://ebem2jy24k8r" path="res://assets/Textures/waterdrop.png" id="16_nvnid"]
+[ext_resource type="PackedScene" uid="uid://jgy5x62bf5yk" path="res://Production/Components/Rhythm/PowerUps/SledHover.tscn" id="17_3w54l"]
+[ext_resource type="PackedScene" uid="uid://w2fabjufbi22" path="res://assets/3D Assets - Production/Prefabs/Sled.tscn" id="17_8gayo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xu6g3"]
+
+[sub_resource type="Curve" id="Curve_4r651"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.872917, 0), -3.60509, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4r651"]
+radius = 0.40625
+height = 4.1193914
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_54hkl"]
+size = Vector3(0.6188965, 0.8115845, 2.388977)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4r651"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.00784314)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qle6l"]
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_4r651"]
+shape = 0
+size = 0.1
+sections = 8
+section_length = 0.02
+section_segments = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvnid"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.00784314)
+albedo_texture = ExtResource("16_nvnid")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3w54l"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.00784314)
+albedo_texture = ExtResource("16_nvnid")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8gayo"]
+albedo_color = Color(0.623354, 0.342793, 3.85046e-07, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="Curve" id="Curve_nvnid"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_54hkl"]
+curve = SubResource("Curve_nvnid")
+
+[sub_resource type="Curve" id="Curve_8gayo"]
+_data = [Vector2(0, 0.409091), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_nvnid"]
+curve = SubResource("Curve_8gayo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iw627"]
+particle_flag_align_y = true
+angular_velocity_curve = SubResource("CurveTexture_54hkl")
+radial_velocity_min = 4.99998
+radial_velocity_max = 4.99998
+gravity = Vector3(0, 1, 0)
+scale_min = 0.2
+scale_max = 0.7
+scale_curve = SubResource("CurveTexture_nvnid")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nxqqs"]
+top_radius = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54hkl"]
+albedo_color = Color(0.612484, 0.336418, 5.77569e-07, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_ofgfh"]
+radius = 0.05
+radial_steps = 4
+section_length = 0.1
+
+[node name="Sled" type="RigidBody3D" unique_id=147876148 node_paths=PackedStringArray("DogSpawner", "_camera", "SledPivot", "_sledHitSound", "_sledSlidingAudio", "_packageCarrier", "LeftTrackParticles", "RightTrackParticles", "IceLeftTrackParticles", "IceRightTrackParticles", "SledHitThingParticles", "SledHitThingParticles2")]
+collision_layer = 524546
+collision_mask = 524591
+mass = 80.0
+physics_material_override = SubResource("PhysicsMaterial_xu6g3")
+gravity_scale = 1.6
+script = ExtResource("1_ubaau")
+DogSpawner = NodePath("DogSpawner")
+_camera = NodePath("MainCam")
+SledPivot = NodePath("SledPivot")
+RopeScene = ExtResource("2_uygyw")
+SledMass = 80
+SledMaxSpeed = 6.0
+ropePullPower = 12.0
+BaseFriction = 0.85
+_sledHitSound = NodePath("Sounds/HitSound")
+_sledSlidingAudio = NodePath("Sounds/SlidingSound")
+_packageCarrier = NodePath("PackageCarrier")
+_minimalDmgSpeed = 3.0
+_dmgPerSpeed = 4.0
+_dmgCap = 16.0
+_ingnoreDmgDelay = 1.0
+LeftTrackParticles = NodePath("VFX/LeftSledParticles")
+RightTrackParticles = NodePath("VFX/RightSledParticles")
+IceLeftTrackParticles = NodePath("VFX/IceLeftSledParticles2")
+IceRightTrackParticles = NodePath("VFX/IceRightSledParticles2")
+SledHitThingParticles = NodePath("VFX/SledHitThingParticles")
+SledHitThingParticles2 = NodePath("VFX/SledHitThingParticles2")
+
+[node name="Sled" parent="." unique_id=1523469162 instance=ExtResource("17_8gayo")]
+transform = Transform3D(-0.9999999, -1.5257378e-09, -8.7409454e-08, 0, 0.9998477, -0.017452404, 8.742277e-08, -0.017452406, -0.99984765, 0, 0, 0)
+
+[node name="SledPivot" type="Node3D" parent="." unique_id=1431834653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44571143, 0.23905742)
+script = ExtResource("4_qle6l")
+
+[node name="DogSpawner" parent="." unique_id=898992146 node_paths=PackedStringArray("sledReference") instance=ExtResource("5_xu6g3")]
+script = ExtResource("6_s356o")
+sledReference = NodePath("..")
+_dogCharacterScene = ExtResource("7_4r651")
+
+[node name="MainCam" parent="." unique_id=1963084598 node_paths=PackedStringArray("_followPoint", "_sledPivot", "_sledCamera", "_sled", "dogSpawnerReference") instance=ExtResource("7_xu6g3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+top_level = true
+_followPoint = NodePath("../CamPivot")
+_sledPivot = NodePath("../CamPivot")
+_sledCamera = NodePath("LeftRightPivot/UpDownPivot/SledCamera")
+_sled = NodePath("..")
+dogSpawnerReference = NodePath("../DogSpawner")
+_backMovement = SubResource("Curve_4r651")
+cameraAnimationDistanceUp = 30.0
+_shakeMultiplayer = 2.0
+_shakeSpeed = 2.0
+
+[node name="LeftRightPivot" parent="MainCam" index="1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="UpDownPivot" parent="MainCam/LeftRightPivot" index="0"]
+transform = Transform3D(-1, -3.83045e-08, 7.85844e-08, 0, 0.898901, 0.438152, -8.74228e-08, 0.438152, -0.898901, 0, 0, 0)
+
+[node name="SledCamera" parent="MainCam/LeftRightPivot/UpDownPivot" index="2"]
+transform = Transform3D(1, 3.55271e-15, -7.10543e-15, 0, 1, 2.98023e-08, 7.10543e-15, -2.98023e-08, 1, -2.84217e-14, 1.19209e-07, 4)
+
+[node name="CamPivot" type="Node3D" parent="." unique_id=705209780]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0.00139761, 0.6, -1.49395)
+
+[node name="PackageCarrier" parent="." unique_id=2075072033 node_paths=PackedStringArray("_fikaPackage", "_coffeePackage") instance=ExtResource("9_4r651")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.547684, -0.506173)
+_fikaPackage = NodePath("../FikaPackages/FikaPackage")
+_coffeePackage = NodePath("../FikaPackages/CoffeePackage")
+
+[node name="LeftCollision" type="CollisionShape3D" parent="." unique_id=752580054]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, -0.7, 0.4, -1.225)
+shape = SubResource("CapsuleShape3D_4r651")
+
+[node name="RightCollision" type="CollisionShape3D" parent="." unique_id=1602187532]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0.7, 0.4, -1.225)
+shape = SubResource("CapsuleShape3D_4r651")
+
+[node name="BoxCollider" type="CollisionShape3D" parent="." unique_id=1691756319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00061035156, 0.662936, -0.8784485)
+shape = SubResource("BoxShape3D_54hkl")
+
+[node name="VFX" type="Node3D" parent="." unique_id=504676395]
+
+[node name="LeftSledParticles" type="GPUParticles3D" parent="VFX" unique_id=1147281995]
+transform = Transform3D(1.2, 0, 0, 0, -5.2453668e-08, 1.2, 0, -1.2, -5.2453668e-08, 0.84733015, -0.0243484, -1.17315)
+material_override = SubResource("StandardMaterial3D_4r651")
+amount = 600
+lifetime = 4.0
+preprocess = 1.0
+randomness = 1.0
+fixed_fps = 240
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_qle6l")
+draw_passes = 2
+draw_pass_1 = SubResource("RibbonTrailMesh_4r651")
+draw_pass_2 = null
+
+[node name="RightSledParticles" type="GPUParticles3D" parent="VFX" unique_id=1401242386]
+transform = Transform3D(1.2, 0, 0, 0, -5.2453668e-08, 1.2, 0, -1.2, -5.2453668e-08, -0.83845866, -0.0243484, -1.23556)
+material_override = SubResource("StandardMaterial3D_4r651")
+amount = 600
+lifetime = 4.0
+preprocess = 1.0
+randomness = 1.0
+fixed_fps = 240
+trail_enabled = true
+trail_lifetime = 0.1
+process_material = SubResource("ParticleProcessMaterial_qle6l")
+draw_passes = 2
+draw_pass_1 = SubResource("RibbonTrailMesh_4r651")
+draw_pass_2 = null
+
+[node name="IceLeftSledParticles2" type="GPUParticles3D" parent="VFX" unique_id=23376723]
+transform = Transform3D(1.2, 0, 0, 0, -5.2453668e-08, 1.2, 0, -1.2, -5.2453668e-08, 0.84733015, -0.0243484, -1.06996)
+material_override = SubResource("StandardMaterial3D_nvnid")
+emitting = false
+amount = 250
+lifetime = 4.0
+fixed_fps = 60
+interpolate = false
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_qle6l")
+draw_passes = 2
+draw_pass_1 = SubResource("RibbonTrailMesh_4r651")
+draw_pass_2 = null
+
+[node name="IceRightSledParticles2" type="GPUParticles3D" parent="VFX" unique_id=407553546]
+transform = Transform3D(1.2, 0, 0, 0, -5.2453668e-08, 1.2, 0, -1.2, -5.2453668e-08, -0.83845866, -0.0243484, -1.13237)
+material_override = SubResource("StandardMaterial3D_3w54l")
+emitting = false
+amount = 250
+lifetime = 4.0
+fixed_fps = 60
+interpolate = false
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_qle6l")
+draw_passes = 2
+draw_pass_1 = SubResource("RibbonTrailMesh_4r651")
+draw_pass_2 = null
+
+[node name="SledHitThingParticles" type="GPUParticles3D" parent="VFX" unique_id=2135288165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321431, 0.551421)
+material_override = SubResource("StandardMaterial3D_8gayo")
+emitting = false
+amount = 12
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_iw627")
+draw_pass_1 = SubResource("CylinderMesh_nxqqs")
+
+[node name="SledHitThingParticles2" type="GPUParticles3D" parent="VFX" unique_id=327293242]
+transform = Transform3D(0.90633, 0, 0.422571, 0, 1, 0, -0.422571, 0, 0.90633, 0, 0.321431, 0.551421)
+material_override = SubResource("StandardMaterial3D_54hkl")
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_iw627")
+draw_pass_1 = SubResource("TubeTrailMesh_ofgfh")
+
+[node name="BoostEffect" parent="VFX" unique_id=720069648 instance=ExtResource("17_3w54l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0600969, -1.04855)
+
+[node name="FikaPackages" type="Node3D" parent="." unique_id=1074052668]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41937965, -1.951)
+
+[node name="CoffeePackageJoint" type="Generic6DOFJoint3D" parent="FikaPackages" unique_id=1316370796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.008069813, 0.4992193)
+node_a = NodePath("../..")
+node_b = NodePath("../CoffeePackage")
+linear_limit_x/upper_distance = 0.1
+linear_limit_x/softness = 2.0
+linear_limit_y/upper_distance = 0.1
+linear_limit_y/softness = 2.0
+linear_limit_z/upper_distance = 0.03
+linear_limit_z/softness = 2.0
+
+[node name="CoffeePackage" parent="FikaPackages" unique_id=1609258719 instance=ExtResource("16_3w54l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.56029797)
+mass = 10.0
+
+[node name="FikaPackageJoint" type="Generic6DOFJoint3D" parent="FikaPackages" unique_id=88149962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.236004e-05, -0.00031220913, 1.6763611)
+node_a = NodePath("../..")
+node_b = NodePath("../FikaPackage")
+linear_limit_x/upper_distance = 0.12
+linear_limit_x/softness = 2.0
+linear_limit_y/upper_distance = 0.12
+linear_limit_y/softness = 2.0
+linear_limit_z/upper_distance = 0.06
+linear_limit_z/softness = 2.0
+linear_spring_x/stiffness = 1.0
+linear_spring_x/damping = 5.0
+linear_spring_y/stiffness = 1.0
+linear_spring_z/stiffness = 1.0
+linear_spring_z/damping = 5.0
+
+[node name="FikaPackage" parent="FikaPackages" unique_id=492474789 instance=ExtResource("13_i6aj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.024494171, 1.5735126)
+mass = 7.0
+_health = 100
+
+[node name="SpotLight3D" type="SpotLight3D" parent="FikaPackages/FikaPackage" unique_id=763981551]
+transform = Transform3D(1, 0, 0, 0, 0.19428578, 0.980945, 0, -0.980945, 0.19428578, 0, 1.0880485, 0.05537501)
+light_energy = 0.702
+spot_range = 7.559
+
+[node name="Sounds" type="Node3D" parent="." unique_id=435894000]
+
+[node name="SlidingSound" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1845659870]
+stream = ExtResource("11_i6aj8")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="HitSound" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1930428002]
+stream = ExtResource("12_2cm8h")
+bus = &"SFX"
+
+[node name="FailSound" type="AudioStreamPlayer3D" parent="Sounds" unique_id=564404821]
+stream = ExtResource("13_8cupe")
+bus = &"SFX"
+
+[editable path="MainCam"]

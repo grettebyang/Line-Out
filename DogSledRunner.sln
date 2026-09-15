@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogSledRunner", "DogSledRunner.csproj", "{CC2BDDEF-7CB9-4C25-91C0-97CBD7BF3FAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC2BDDEF-7CB9-4C25-91C0-97CBD7BF3FAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2BDDEF-7CB9-4C25-91C0-97CBD7BF3FAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2BDDEF-7CB9-4C25-91C0-97CBD7BF3FAA}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{CC2BDDEF-7CB9-4C25-91C0-97CBD7BF3FAA}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{CC2BDDEF-7CB9-4C25-91C0-97CBD7BF3FAA}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{CC2BDDEF-7CB9-4C25-91C0-97CBD7BF3FAA}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

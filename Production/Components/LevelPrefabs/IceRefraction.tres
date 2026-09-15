@@ -1,0 +1,42 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c462x152eyhpo"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ca6cy"]
+noise_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 1.275
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xff33"]
+noise = SubResource("FastNoiseLite_ca6cy")
+seamless = true
+as_normal_map = true
+bump_strength = 2.6
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_n1l38"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bhtnx"]
+noise = SubResource("FastNoiseLite_n1l38")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_15yrl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_prs1i"]
+noise = SubResource("FastNoiseLite_15yrl")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_a4dlu"]
+frequency = 0.0735
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kp5bo"]
+noise = SubResource("FastNoiseLite_a4dlu")
+
+[resource]
+albedo_color = Color(0.270903, 0.56477, 0.754774, 0.87451)
+roughness = 0.63
+roughness_texture = SubResource("NoiseTexture2D_prs1i")
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_xff33")
+subsurf_scatter_strength = 0.35
+subsurf_scatter_texture = SubResource("NoiseTexture2D_kp5bo")
+refraction_enabled = true
+refraction_scale = 0.39
+refraction_texture = SubResource("NoiseTexture2D_bhtnx")

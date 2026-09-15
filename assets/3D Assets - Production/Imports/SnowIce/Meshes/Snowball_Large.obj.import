@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dqt4pgibtrp7u"
+path="res://.godot/imported/Snowball_Large.obj-130fd1cc88eec18d47e152116f363020.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Snowball_Large.obj-130fd1cc88eec18d47e152116f363020.mesh"]
+
+source_file="res://assets/3D Assets - Production/Imports/SnowIce/Meshes/Snowball_Large.obj"
+dest_files=["res://.godot/imported/Snowball_Large.obj-130fd1cc88eec18d47e152116f363020.mesh", "res://.godot/imported/Snowball_Large.obj-130fd1cc88eec18d47e152116f363020.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

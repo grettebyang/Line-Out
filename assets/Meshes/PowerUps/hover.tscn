@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cq53dns31oaqj"]
+
+[ext_resource type="PackedScene" uid="uid://bpg0lirlmljjl" path="res://assets/holidayset/GLB format/candy-cane-red.glb" id="1_rtuci"]
+
+[node name="Hover" unique_id=567336514 instance=ExtResource("1_rtuci")]
+
+[node name="candy-cane-red" parent="." index="0" unique_id=960658028]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.05584702, -0.42, 0)
+cast_shadow = 0

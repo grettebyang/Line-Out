@@ -1,0 +1,285 @@
+[gd_scene format=3 uid="uid://uvnocwncdwql"]
+
+[ext_resource type="Script" uid="uid://d0lob1cs45ot3" path="res://Production/Components/UI/ControllersActivator/Scripts/ControllersActivatorTileUI.cs" id="1_qeeir"]
+[ext_resource type="Texture2D" uid="uid://dxsivbty7jq8f" path="res://Production/Components/UI/HUD/Icons/ControllerActivator/JoinRing.png" id="2_15asd"]
+[ext_resource type="Texture2D" uid="uid://4xhlnr2uhhv6" path="res://Production/Components/UI/Generics/SpritePrimitives/Circle.png" id="3_5ocns"]
+[ext_resource type="Texture2D" uid="uid://byqnt7y3vkhdk" path="res://Production/Components/UI/HUD/Icons/ControllerActivator/JoinMarker.png" id="4_1kp3n"]
+[ext_resource type="Texture2D" uid="uid://iqv36hflhhd3" path="res://Production/Components/UI/MainMenu/Sprites/JoinRing.png" id="4_8bwej"]
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="4_o8av7"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="7_8bwej"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1kp3n"]
+blend_mode = 1
+light_mode = 1
+
+[node name="ControllerActivatorTile" type="Control" unique_id=1865987644 node_paths=PackedStringArray("_parentModulate", "_lblName", "_joinHint", "_faceDisconnected", "_faceJoin", "_faceConfirm", "_faceActive")]
+custom_minimum_size = Vector2(160, 126)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1440.0
+offset_bottom = -774.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qeeir")
+_parentModulate = NodePath("ModulateParent")
+_lblName = NodePath("ModulateParent/LblName")
+_joinHint = NodePath("Hint")
+_faceDisconnected = NodePath("ModulateParent/Disconnected")
+_faceJoin = NodePath("ModulateParent/Join")
+_faceConfirm = NodePath("ModulateParent/Confirm")
+_faceActive = NodePath("ModulateParent/Active")
+
+[node name="ModulateParent" type="Control" parent="." unique_id=923387725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LblName" type="Label" parent="ModulateParent" unique_id=333029992]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_top = -44.0
+offset_right = 39.0
+offset_bottom = 1.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_o8av7")
+theme_override_font_sizes/font_size = 24
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="Join" type="Control" parent="ModulateParent" unique_id=1167840179]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Circle" type="TextureRect" parent="ModulateParent/Join" unique_id=1304834690]
+visible = false
+modulate = Color(1, 1, 1, 0.0784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -63.0
+offset_right = 63.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_15asd")
+
+[node name="Center" type="TextureRect" parent="ModulateParent/Join" unique_id=1458597122]
+visible = false
+modulate = Color(1, 1, 1, 0.0784314)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -63.0
+offset_right = 63.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_8bwej")
+
+[node name="Label" type="Label" parent="ModulateParent/Join" unique_id=1090509758]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 1.0
+offset_right = 20.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_o8av7")
+theme_override_font_sizes/font_size = 24
+text = "Join"
+horizontal_alignment = 1
+
+[node name="Confirm" type="Control" parent="ModulateParent" unique_id=748391732]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Circle" type="TextureRect" parent="ModulateParent/Confirm" unique_id=1301946088]
+modulate = Color(1, 1, 1, 0.501961)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -63.0
+offset_right = 63.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_15asd")
+
+[node name="Label" type="Label" parent="ModulateParent/Confirm" unique_id=1326943535]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -3.0
+offset_right = 39.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_o8av7")
+theme_override_font_sizes/font_size = 24
+text = "Confirm"
+horizontal_alignment = 1
+
+[node name="Active" type="Control" parent="ModulateParent" unique_id=1500772454]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Circle" type="TextureRect" parent="ModulateParent/Active" unique_id=2070354658]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -63.0
+offset_right = 63.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_15asd")
+
+[node name="Mark" type="TextureRect" parent="ModulateParent/Active" unique_id=264797781]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1kp3n")
+
+[node name="Disconnected" type="Control" parent="ModulateParent" unique_id=1831630654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Circle" type="TextureRect" parent="ModulateParent/Disconnected" unique_id=1919754735]
+modulate = Color(0, 0, 0, 0.5019608)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -63.0
+offset_right = 63.0
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_15asd")
+
+[node name="Label" type="Label" parent="ModulateParent/Disconnected" unique_id=2050029848]
+modulate = Color(0, 0, 0, 0.5019608)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.416
+anchor_top = 0.34300002
+anchor_right = 0.58400005
+anchor_bottom = 0.66300005
+offset_left = -0.18000793
+offset_top = 8.041992
+offset_right = 0.17996216
+offset_bottom = -10.878021
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/line_spacing = -11
+theme_override_fonts/font = ExtResource("4_o8av7")
+theme_override_font_sizes/font_size = 24
+text = "Connect
+Device"
+horizontal_alignment = 1
+
+[node name="Hint" type="TextureRect" parent="." unique_id=1520196021]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -56.0
+offset_right = 32.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5ocns")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Hint" unique_id=458933816]
+modulate = Color(1, 1, 0.937255, 1)
+z_index = 1
+material = SubResource("CanvasItemMaterial_1kp3n")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -23.5
+offset_right = 16.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0.443137, 0.317647, 0.176471, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_8bwej")
+theme_override_font_sizes/font_size = 34
+text = "Y"
+horizontal_alignment = 1
+vertical_alignment = 1

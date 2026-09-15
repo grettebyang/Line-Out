@@ -1,0 +1,51 @@
+[gd_resource type="ShaderMaterial" load_steps=10 format=3 uid="uid://bspffqto4qy8y"]
+
+[ext_resource type="Shader" uid="uid://c8guqgiw6hkn3" path="res://assets/Shaders/texblend.gdshader" id="1_yjhdl"]
+[ext_resource type="Texture2D" uid="uid://bj4kmgs6ight6" path="res://assets/Textures/Snow/Snow_A.png" id="2_hevlb"]
+[ext_resource type="Texture2D" uid="uid://d0stlt31wh20d" path="res://assets/Textures/Snow/snow_01_color_2k.png" id="3_6x3nk"]
+[ext_resource type="Texture2D" uid="uid://j1qicsxvsufp" path="res://assets/Textures/Snow/SnowNormal.tres" id="4_7fkjb"]
+
+[sub_resource type="Gradient" id="Gradient_yjhdl"]
+offsets = PackedFloat32Array(0, 0.787037)
+colors = PackedColorArray(1, 1, 1, 1, 0.557582, 0.557582, 0.557582, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_87bup"]
+noise_type = 0
+frequency = 0.0017
+fractal_type = 2
+fractal_lacunarity = 2.7
+fractal_weighted_strength = 0.95
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_el8x2"]
+seamless = true
+bump_strength = 9.6
+color_ramp = SubResource("Gradient_yjhdl")
+noise = SubResource("FastNoiseLite_87bup")
+
+[sub_resource type="Gradient" id="Gradient_hevlb"]
+offsets = PackedFloat32Array(0.486624)
+colors = PackedColorArray(0.707967, 0.707967, 0.707966, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6x3nk"]
+gradient = SubResource("Gradient_hevlb")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yjhdl")
+shader_parameter/texture_albedo_a = ExtResource("2_hevlb")
+shader_parameter/texture_normal_a = ExtResource("4_7fkjb")
+shader_parameter/texture_albedo_b = ExtResource("3_6x3nk")
+shader_parameter/texture_orm_b = SubResource("GradientTexture1D_6x3nk")
+shader_parameter/texture_normal_b = ExtResource("4_7fkjb")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_el8x2")
+shader_parameter/albedo_a = Color(0.152941, 0.164706, 0.309804, 1)
+shader_parameter/albedo_b = Color(1, 1, 1, 1)
+shader_parameter/normal_scale = 1.0
+shader_parameter/ao_light_affect = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/blend_threshold = 0.1
+shader_parameter/blend_noise_intensity = 0.3
+shader_parameter/blend_noise_scale = 10.0
+shader_parameter/blend_softness = 0.17
+shader_parameter/blend_transition_color = Color(1, 1, 1, 0)

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://danbk6ul24alv"]
+
+[ext_resource type="Texture2D" uid="uid://bou5sien22fq3" path="res://assets/3D Assets - Production/Imports/Rocks/Materials/Textures/Rocks_LOW_standardSurface1_BaseColor.png" id="1_g6y82"]
+[ext_resource type="Texture2D" uid="uid://bs3bu2nsk5m1n" path="res://assets/3D Assets - Production/Imports/Rocks/Materials/Textures/Rocks_LOW_standardSurface1_Normal.png" id="2_uc4cu"]
+
+[resource]
+albedo_texture = ExtResource("1_g6y82")
+normal_enabled = true
+normal_texture = ExtResource("2_uc4cu")

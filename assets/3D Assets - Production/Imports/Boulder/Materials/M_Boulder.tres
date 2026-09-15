@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dfvigakf2nel8"]
+
+[ext_resource type="Texture2D" uid="uid://cnruhqm5cqedm" path="res://assets/3D Assets - Production/Imports/Boulder/Materials/Textures/Boulder_Main/Boulder_LOW_standardSurface1_BaseColor.png" id="1_7gjek"]
+[ext_resource type="Texture2D" uid="uid://b5m100w35l84m" path="res://assets/3D Assets - Production/Imports/Boulder/Materials/Textures/Boulder_Main/Boulder_LOW_standardSurface1_Normal.png" id="2_6gyeg"]
+
+[resource]
+albedo_texture = ExtResource("1_7gjek")
+normal_enabled = true
+normal_texture = ExtResource("2_6gyeg")

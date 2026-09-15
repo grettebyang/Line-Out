@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://byotdf6egl3c7"]
+
+[ext_resource type="Material" uid="uid://b1iq1joku2dcb" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineTrunk.tres" id="1_qspn5"]
+[ext_resource type="Script" uid="uid://owf1xyu0u8tk" path="res://Production/Components/Rhythm/Obstacle.cs" id="1_yrbi6"]
+[ext_resource type="ArrayMesh" uid="uid://7gu32wp1ltni" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineTrunk.obj" id="2_yrbi6"]
+[ext_resource type="Material" uid="uid://dav8cpowc8u01" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineFoliage.tres" id="3_hg6r4"]
+[ext_resource type="ArrayMesh" uid="uid://lgbvpcf15doa" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineFoliage.obj" id="4_1nais"]
+[ext_resource type="Material" uid="uid://bkgujo0jsjyiu" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_Pine_Snow.tres" id="5_m7p4k"]
+[ext_resource type="ArrayMesh" uid="uid://ck2deu6c14ube" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/Pine_Snow.obj" id="6_b4g2g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5w00n"]
+radius = 0.71
+height = 7.766021
+
+[node name="Pine_Tall_Snow" type="StaticBody3D" unique_id=593924608 node_paths=PackedStringArray("_collider")]
+collision_layer = 3
+script = ExtResource("1_yrbi6")
+_collider = NodePath("PineCollision")
+
+[node name="PineCollision" type="CollisionShape3D" parent="." unique_id=733685823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12078428, 3.179509, -0.04313755)
+shape = SubResource("CapsuleShape3D_5w00n")
+
+[node name="PineTrunkMesh" type="MeshInstance3D" parent="." unique_id=1076090265]
+transform = Transform3D(1.105, 0, 0, 0, 1.62, 0, 0, 0, 1.105, 0, 0.030189753, 0)
+material_override = ExtResource("1_qspn5")
+mesh = ExtResource("2_yrbi6")
+
+[node name="PineFoliageMesh" type="MeshInstance3D" parent="PineTrunkMesh" unique_id=1151124597]
+transform = Transform3D(0.35421342, 0, 0.8327766, 0, 0.617284, 0, -0.8327766, 0, 0.35421342, 0.09369224, 1.3288009, 0.13272989)
+material_override = ExtResource("3_hg6r4")
+mesh = ExtResource("4_1nais")
+skeleton = NodePath("../..")
+
+[node name="PineSnow" type="MeshInstance3D" parent="PineTrunkMesh/PineFoliageMesh" unique_id=1985811146]
+transform = Transform3D(0.9992056, 0, 0.039852764, 0, 1, 0, -0.039852764, 0, 0.9992056, -0.018465161, 0.029557943, 0)
+material_override = ExtResource("5_m7p4k")
+mesh = ExtResource("6_b4g2g")
+skeleton = NodePath("../../..")

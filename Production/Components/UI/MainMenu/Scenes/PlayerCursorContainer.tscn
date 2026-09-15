@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dvgm6831k4g24"]
+
+[ext_resource type="Script" uid="uid://c6xpojmllghhd" path="res://Production/Components/UI/MainMenu/Scripts/PlayerCurserContainer.cs" id="1_b7lmu"]
+
+[node name="CursorContainer" type="CanvasLayer" unique_id=806117625]
+layer = 3
+
+[node name="PlayerCursorContainer" type="Control" parent="." unique_id=2043662602]
+z_index = 12
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b7lmu")

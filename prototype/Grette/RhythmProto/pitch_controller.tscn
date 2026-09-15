@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhgvy13f3tn72"]
+
+[ext_resource type="Script" uid="uid://bn47itl0ikq8s" path="res://prototype/Grette/RhythmProto/PitchController.cs" id="1_hoseq"]
+
+[node name="PitchController" type="Control"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hoseq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_left = -26.0
+offset_top = -29.0
+offset_right = 27.0
+offset_bottom = 28.0
+color = Color(0.630274, 0.825744, 0.701476, 1)

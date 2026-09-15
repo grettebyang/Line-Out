@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://chqbrqidppt5b"]
+
+[ext_resource type="Script" uid="uid://omqm48v0p0j7" path="res://prototype/JWProt/TestObstacles/MudPuddle.cs" id="1_pn0nu"]
+[ext_resource type="AudioStream" uid="uid://bh750chb0mvmu" path="res://assets/AudioAssets/Traps/MudPuddle/MudPuddleFootsteps.wav" id="2_6a3d2"]
+[ext_resource type="AudioStream" uid="uid://bbqln3enmkxsj" path="res://assets/AudioAssets/Traps/MudPuddle/MudSplashMoreSplatter.wav" id="3_6a3d2"]
+[ext_resource type="Material" uid="uid://pif5wuhdlkv4" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Materials/M_MudMushrooms.tres" id="3_cxj72"]
+[ext_resource type="ArrayMesh" uid="uid://bgrwhush6rhye" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Meshes/Mud.obj" id="4_djtbe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2tqtt"]
+size = Vector3(4.927002, 1, 4.81981)
+
+[node name="MudPuddle" type="Node3D" unique_id=1484955980 node_paths=PackedStringArray("_area", "_sfx")]
+script = ExtResource("1_pn0nu")
+_area = NodePath("Area3D")
+_sfx = NodePath("AudioStreamPlayer")
+_mudRunningSound = ExtResource("2_6a3d2")
+_targetSpeed = 3.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=508323440]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1084624840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036254883, 0, 0.01689279)
+shape = SubResource("BoxShape3D_2tqtt")
+
+[node name="Mud_Mesh" type="MeshInstance3D" parent="Area3D" unique_id=1766988546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.104683876)
+material_override = ExtResource("3_cxj72")
+mesh = ExtResource("4_djtbe")
+skeleton = NodePath("")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1976708592]
+stream = ExtResource("3_6a3d2")
+bus = &"SFX"

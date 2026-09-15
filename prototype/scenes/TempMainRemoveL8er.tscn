@@ -1,0 +1,199 @@
+[gd_scene load_steps=19 format=3 uid="uid://cpfhtjuce22kb"]
+
+[ext_resource type="PackedScene" path="res://prototype/James/prototype_scripts_hazard/Scripts/Sled.tscn" id="1_s8h2u"]
+[ext_resource type="PackedScene" uid="uid://o578868np83h" path="res://Production/Components/Rhythm/PowerUps/Collectable.tscn" id="3_2eslu"]
+[ext_resource type="Script" uid="uid://k2tyapjyvdn5" path="res://prototype/scripts/Dog.cs" id="3_vvppu"]
+[ext_resource type="Script" uid="uid://bc65mv4vqrrpt" path="res://Production/Components/Rhythm/RhythmManager.cs" id="4_aynyx"]
+[ext_resource type="Script" uid="uid://c6p3lppyo6jyc" path="res://Production/Components/Rhythm/PowerupGauge.cs" id="5_lo0g4"]
+[ext_resource type="PackedScene" uid="uid://bov2cjp5glup2" path="res://Production/Components/Rhythm/center_circle.tscn" id="5_r088k"]
+[ext_resource type="Script" path="res://Production/Components/Rhythm/Boost.cs" id="6_lo0g4"]
+[ext_resource type="AudioStream" uid="uid://cj0wjwb64xpoc" path="res://assets/AudioAssets/Music/Old Music/MainMenuOldWithDrum.wav" id="6_ycvf0"]
+[ext_resource type="Script" uid="uid://dbplgy6ea1xm7" path="res://Production/Components/Rhythm/Boost2.cs" id="8_4st6b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1wvob"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s8h2u"]
+albedo_color = Color(1.54018e-06, 0.537719, 0.540424, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_s8h2u"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7j7du"]
+friction = 0.9
+bounce = 0.5
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vvppu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7j7du"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vvppu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ibex1"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_if787"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="TempMainRemoveL8Er" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 0.201598, -0.879971, 0, 0.00192822, 92.0019, 0, -0.114631, 0)
+mesh = SubResource("BoxMesh_1wvob")
+surface_material_override/0 = SubResource("StandardMaterial3D_s8h2u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_s8h2u")
+
+[node name="Sled" parent="."]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0679958, 0.394915, -4.6914)
+mass = 150.0
+physics_material_override = SubResource("PhysicsMaterial_7j7du")
+script = null
+
+[node name="Pivot" type="Node3D" parent="Sled"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.00494)
+
+[node name="Dog" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.610804, 2.54904)
+physics_material_override = SubResource("PhysicsMaterial_vvppu")
+lock_rotation = true
+freeze_mode = 1
+script = ExtResource("3_vvppu")
+sledPath = NodePath("../Sled")
+sledPivotPath = NodePath("../Sled/Pivot")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dog"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_7j7du")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Dog/CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_vvppu")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.75471, 0.656059, 0, -0.656059, -0.75471, -8.98629, 1.58913, 0.89306)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D2"]
+transform = Transform3D(1, 0, 0, 0, -0.322893, -0.946435, 0, 0.946435, -0.322893, 8.98629, -5.3759, -3.45594)
+
+[node name="Tree" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 2, 4.15894, 2.27067, 7.52789)
+mesh = SubResource("BoxMesh_ibex1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tree"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tree/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_if787")
+
+[node name="Area3D" parent="." instance=ExtResource("3_2eslu")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -2.83996, 0.254261, 3.63634)
+col = Color(0.847059, 0.498039, 0.666667, 1)
+
+[node name="Area3D2" parent="." instance=ExtResource("3_2eslu")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -0.375855, 0.139928, 7.05865)
+col = Color(0.847059, 0.498039, 0.666667, 1)
+
+[node name="Area3D3" parent="." instance=ExtResource("3_2eslu")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.38662, 0.258384, 3.20534)
+col = Color(0.847059, 0.498039, 0.666667, 1)
+
+[node name="Area3D4" parent="." instance=ExtResource("3_2eslu")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.91115, 0.302485, 1.98842)
+col = Color(0.847059, 0.498039, 0.666667, 1)
+
+[node name="RhythmManager" type="Node3D" parent="." node_paths=PackedStringArray("gauge", "dog", "soundtrack")]
+script = ExtResource("4_aynyx")
+bpm = 60
+timeCushion = 30.0
+playerCount = 1
+gauge = NodePath("../PowerupGauge")
+dog = NodePath("../Dog")
+version = 2
+soundtrack = NodePath("Soundtrack")
+
+[node name="CenterPrompt" type="Control" parent="RhythmManager"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RhythmManager/CenterPrompt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -30.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.533333, 0.321569, 1)
+
+[node name="SideBar" type="Control" parent="RhythmManager"]
+visible = false
+layout_mode = 3
+anchor_left = 0.953
+anchor_top = 0.5
+anchor_right = 0.953
+anchor_bottom = 0.5
+offset_left = -1.79114
+offset_top = 3.01999
+offset_right = -1.79114
+offset_bottom = 3.01999
+
+[node name="ColorRect" type="ColorRect" parent="RhythmManager/SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.263
+anchor_top = 0.5
+anchor_right = 13.263
+anchor_bottom = 0.5
+offset_left = -5.52002
+offset_top = -276.0
+offset_right = 13.48
+offset_bottom = 274.0
+color = Color(1, 0.533333, 0.321569, 1)
+
+[node name="CenterCircle" parent="RhythmManager" instance=ExtResource("5_r088k")]
+visible = false
+
+[node name="Soundtrack" type="AudioStreamPlayer3D" parent="RhythmManager"]
+stream = ExtResource("6_ycvf0")
+script = ExtResource("6_l402j")
+bpm = 75
+
+[node name="PowerupGauge" type="ProgressBar" parent="." node_paths=PackedStringArray("rm")]
+offset_right = 216.0
+offset_bottom = 53.0
+script = ExtResource("5_lo0g4")
+rm = NodePath("../RhythmManager")
+
+[node name="Boost" type="Node3D" parent="."]
+script = ExtResource("6_lo0g4")
+
+[node name="Boost2" type="Node3D" parent="."]
+script = ExtResource("8_4st6b")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.998794, -3.41011e-09, -0.049094, -0.0241101, 0.871103, 0.490509, 0.0427659, 0.491101, -0.870052, 0, 3.96467, -8.89235)

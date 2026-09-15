@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://co2bn3n1elhc6"]
+
+[ext_resource type="PackedScene" uid="uid://w0ceg63blrs4" path="res://assets/3D Assets - Production/Prefabs/Crate.tscn" id="1_62vr4"]
+
+[node name="Crate" type="Node3D" unique_id=626532160]
+
+[node name="Crate" parent="." unique_id=607968958 instance=ExtResource("1_62vr4")]
+collision_mask = 0

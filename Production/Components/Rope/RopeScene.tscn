@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://clb2l43ge4205"]
+
+[ext_resource type="Script" uid="uid://wsy4rjml7d1u" path="res://Production/Components/Rope/lib/RopeNode.cs" id="1_6eu1n"]
+
+[node name="RopeScene" type="Node3D" unique_id=1787821984]
+script = ExtResource("1_6eu1n")

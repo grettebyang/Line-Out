@@ -1,0 +1,356 @@
+[gd_scene format=3 uid="uid://s2q4prr6g7oy"]
+
+[ext_resource type="Script" uid="uid://cddpt1f0nhkv3" path="res://Production/Components/UI/Prefabs/Buttons/SliderButton.cs" id="1_s5pxm"]
+[ext_resource type="AudioStream" uid="uid://d2l4hbauhk4lw" path="res://Production/Components/UI/Prefabs/Sounds/switch10.ogg" id="2_i6kbw"]
+[ext_resource type="AudioStream" uid="uid://roy43cagutq6" path="res://Production/Components/UI/Prefabs/Sounds/switch11.ogg" id="3_jpp3v"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="4_qxr7p"]
+[ext_resource type="Texture2D" uid="uid://crua663en3pck" path="res://Production/Components/UI/HUD/Icons/IconPepparKakor.png" id="5_i6kbw"]
+[ext_resource type="Texture2D" uid="uid://4xhlnr2uhhv6" path="res://Production/Components/UI/Generics/SpritePrimitives/Circle.png" id="6_jpp3v"]
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="7_jy2bn"]
+[ext_resource type="StyleBox" uid="uid://bowi78qdi4ayn" path="res://Production/Components/UI/Prefabs/Themes/ButtonHovered.tres" id="8_wgm1c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tle1k"]
+size = Vector2(199, 92)
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_tle1k"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qxr7p"]
+load_path = "res://.godot/imported/Circle.png-3988b2bea56722ff5ccc32242e6da5a4.s3tc.ctex"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_segd5"]
+bg_color = Color(0.231044, 0.367424, 0.620847, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0x1v"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 91.0
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqpq1"]
+bg_color = Color(0.521569, 0.431373, 0.337255, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2t20"]
+bg_color = Color(0.831232, 0.825765, 0.765553, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vor4x"]
+bg_color = Color(0.717647, 0.705882, 0.627451, 1)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8iccg"]
+bg_color = Color(0.71883, 0.708066, 0.627172, 1)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="Theme" id="Theme_jvk5v"]
+default_font = ExtResource("7_jy2bn")
+AcceptDialog/fonts/title_font = ExtResource("7_jy2bn")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_segd5")
+Button/colors/character_icon_hover_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+Button/colors/font_color = Color(0.235294, 0.368627, 0.709804, 1)
+Button/colors/font_disabled_color = Color(0.44982108, 0.40889364, 0.35042578, 1)
+Button/colors/font_focus_color = Color(0.835294, 0.639216, 0.321569, 1)
+Button/colors/font_hover_color = Color(0.835294, 0.639216, 0.321569, 1)
+Button/colors/icon_hover_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+Button/font_sizes/font_size = 40
+Button/styles/focus = ExtResource("8_wgm1c")
+Button/styles/hover = ExtResource("8_wgm1c")
+Button/styles/normal = SubResource("StyleBoxFlat_y0x1v")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_iqpq1")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/fonts/font = ExtResource("7_jy2bn")
+LineEdit/colors/font_color = Color(0.521569, 0.431373, 0.337255, 1)
+LineEdit/colors/font_placeholder_color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+LineEdit/font_sizes/font_size = 30
+LineEdit/styles/focus = SubResource("StyleBoxFlat_m2t20")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_vor4x")
+TextEdit/font_sizes/font_size = 30
+TextEdit/styles/normal = SubResource("StyleBoxFlat_8iccg")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7o6if"]
+load_path = "res://.godot/imported/IconPepparKakor.png-5c9845ddd0e7a2fba2f85c2baa8faab9.ctex"
+
+[node name="SliderButton" type="Control" unique_id=271175958 node_paths=PackedStringArray("_slider", "_valueBar", "_bar", "_hoverBar", "_audioPlayer", "_hover", "_collisionShape", "_texture", "_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 299.0
+offset_bottom = 70.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_s5pxm")
+_slider = NodePath("ValueBar/Slider")
+_valueBar = NodePath("ValueBar")
+_bar = NodePath("Bar")
+_hoverBar = NodePath("HoverBar")
+_audioPlayer = NodePath("SoundPlayer")
+_soundFocus = ExtResource("2_i6kbw")
+_soundClick = ExtResource("3_jpp3v")
+_hover = NodePath("ValueBar/Slider/Hover")
+_collisionShape = NodePath("Area2D/CollisionShape2D")
+_texture = NodePath("Card")
+_text = NodePath("Text")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1415885389]
+visible = false
+position = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=138778056]
+shape = SubResource("RectangleShape2D_tle1k")
+
+[node name="Card" type="TextureRect" parent="." unique_id=1049578636]
+visible = false
+z_index = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Outline" type="ColorRect" parent="." unique_id=120799130]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0.443137, 0.317647, 0.176471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="." unique_id=418465982]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_right = 0.93600005
+anchor_bottom = 1.0
+offset_left = 0.007499695
+offset_top = -5.000002
+offset_right = -0.007507324
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_qxr7p")
+theme_override_colors/font_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+theme_override_font_sizes/font_size = 32
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=323350086]
+stream = SubResource("AudioStreamWAV_tle1k")
+bus = &"SFX"
+
+[node name="HoverBar" type="ColorRect" parent="." unique_id=2114768940]
+visible = false
+modulate = Color(0.44313726, 0.32156864, 0.1764706, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -12.0
+offset_right = -25.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_qxr7p")
+
+[node name="CircleLeft2" type="TextureRect" parent="HoverBar" unique_id=135392481]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("6_jpp3v")
+expand_mode = 1
+
+[node name="CircleRight2" type="TextureRect" parent="HoverBar" unique_id=1816510862]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_qxr7p")
+expand_mode = 1
+
+[node name="Bar" type="ColorRect" parent="." unique_id=621356771]
+modulate = Color(0.67058825, 0.6862745, 0.7137255, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -6.0
+offset_right = -25.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_qxr7p")
+
+[node name="CircleLeft2" type="TextureRect" parent="Bar" unique_id=442457024]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("6_jpp3v")
+expand_mode = 1
+
+[node name="CircleRight2" type="TextureRect" parent="Bar" unique_id=575964205]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_qxr7p")
+expand_mode = 1
+
+[node name="ValueBar" type="ColorRect" parent="." unique_id=696052916]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -6.0
+offset_right = 25.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_qxr7p")
+color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+
+[node name="CircleLeft2" type="TextureRect" parent="ValueBar" unique_id=61197285]
+modulate = Color(0.23529412, 0.36862746, 0.70980394, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("6_jpp3v")
+expand_mode = 1
+
+[node name="CircleRight2" type="TextureRect" parent="ValueBar" unique_id=274592177]
+modulate = Color(0.23529412, 0.36862746, 0.70980394, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_qxr7p")
+expand_mode = 1
+
+[node name="Slider" type="TextureRect" parent="ValueBar" unique_id=1145625738]
+modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_qxr7p")
+texture = ExtResource("5_i6kbw")
+expand_mode = 1
+
+[node name="Hover" type="ColorRect" parent="ValueBar/Slider" unique_id=2084409731]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_qxr7p")
+color = Color(1, 1, 1, 0)
+
+[node name="HoverCoookie" type="TextureRect" parent="ValueBar/Slider/Hover" unique_id=1153556728]
+modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_bottom = 35.0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_jvk5v")
+texture = SubResource("CompressedTexture2D_7o6if")
+expand_mode = 1
+
+[connection signal="item_rect_changed" from="." to="." method="ResizeCollisionShape"]
+[connection signal="resized" from="." to="." method="ResizeCollisionShape"]
+[connection signal="body_entered" from="Area2D" to="." method="OnFocus"]
+[connection signal="body_exited" from="Area2D" to="." method="ExitFocus"]

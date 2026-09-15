@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=3 uid="uid://jgy5x62bf5yk"]
+
+[ext_resource type="PackedScene" uid="uid://bc7tnuo2k0fe4" path="res://Production/Components/Rhythm/PowerUps/SmokeHover.tscn" id="1_d6arw"]
+
+[sub_resource type="Gradient" id="Gradient_njguw"]
+offsets = PackedFloat32Array(0.336634, 0.669967)
+colors = PackedColorArray(0.9, 0.9, 0.9, 1, 0.584314, 0.584314, 0.584314, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p28oi"]
+gradient = SubResource("Gradient_njguw")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35pu6"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.831373)
+albedo_texture = SubResource("GradientTexture2D_p28oi")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="Gradient" id="Gradient_p28oi"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.151203, 0.635739)
+colors = PackedColorArray(1, 1, 1, 0.784314, 1, 1, 1, 0.392157, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p28oi"]
+gradient = SubResource("Gradient_p28oi")
+
+[sub_resource type="Curve" id="Curve_35pu6"]
+_limits = [1.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gvn5n"]
+curve = SubResource("Curve_35pu6")
+
+[sub_resource type="Curve" id="Curve_p28oi"]
+_data = [Vector2(0, 0.807143), 0.0, 0.0, 0, 0, Vector2(1, 0.521429), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ikd5d"]
+curve = SubResource("Curve_p28oi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k6wos"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(1, -10, 0)
+gravity = Vector3(0, -3, 0)
+scale_min = 0.0
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_ikd5d")
+color = Color(1, 1, 1, 0.588235)
+color_ramp = SubResource("GradientTexture1D_p28oi")
+emission_curve = SubResource("CurveTexture_gvn5n")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_njguw"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_gvn5n"]
+material = SubResource("StandardMaterial3D_njguw")
+
+[node name="BoostEffect" type="GPUParticles3D"]
+material_overlay = SubResource("StandardMaterial3D_35pu6")
+amount = 64
+lifetime = 2.5
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_k6wos")
+draw_pass_1 = SubResource("QuadMesh_gvn5n")
+
+[node name="SmokeHover" parent="." instance=ExtResource("1_d6arw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.426639, 0)
+amount = 200

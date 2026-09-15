@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpn1vgmhbooaq"]
+
+[ext_resource type="Script" uid="uid://b7gurlohw1tk5" path="res://Production/Components/UI/HUD/Tags/NPCTagsHUD.cs" id="1_4lxyf"]
+[ext_resource type="Texture2D" uid="uid://cltbaeocd4j1e" path="res://Production/Components/UI/HUD/Icons/HostileIcon.png" id="2_khby5"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="3_mdnaq"]
+
+[node name="NPCTagsHud" type="Control" node_paths=PackedStringArray("_NPCTag", "_lblNPCTagDistance")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4lxyf")
+_NPCTag = NodePath("Tag")
+_lblNPCTagDistance = NodePath("Tag/Distance")
+_tagLimitPadding = Vector2(100, 100)
+
+[node name="Tag" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -23.5
+offset_right = 20.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(20, 40)
+
+[node name="Icon" type="TextureRect" parent="Tag"]
+self_modulate = Color(0.862745, 0.415686, 0.415686, 1)
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_khby5")
+expand_mode = 1
+
+[node name="Icon" type="TextureRect" parent="Tag/Icon"]
+self_modulate = Color(0, 0.12549, 0.85098, 0.501961)
+z_index = -1
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 25.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_khby5")
+expand_mode = 1
+
+[node name="Distance" type="Label" parent="Tag"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.862745, 0.415686, 0.415686, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.12549, 0.85098, 0.501961)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_mdnaq")
+theme_override_font_sizes/font_size = 14
+text = "100m"
+horizontal_alignment = 1

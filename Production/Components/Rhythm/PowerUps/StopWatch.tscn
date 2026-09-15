@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://pm8ag053h8ck"]
+
+[ext_resource type="PackedScene" uid="uid://bxscq01fjeivv" path="res://assets/Meshes/PowerUps/stopwatch.glb" id="1_2xlug"]
+[ext_resource type="Material" uid="uid://dxolp7qhnlx45" path="res://assets/Materials/ClockMat.tres" id="2_tmhft"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yudxn"]
+albedo_color = Color(0.464957, 0.493497, 0.499615, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4223v"]
+albedo_color = Color(0.526423, 0.526423, 0.526423, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v7jbc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqrcg"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+albedo_color = Color(0.215686, 0.215686, 0.215686, 0.282353)
+roughness = 0.0
+rim_texture = SubResource("NoiseTexture2D_v7jbc")
+clearcoat_enabled = true
+
+[node name="StopWatchh" type="Node3D"]
+
+[node name="stopwatch" parent="." instance=ExtResource("1_2xlug")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Torus" parent="stopwatch" index="0"]
+material_override = ExtResource("2_tmhft")
+
+[node name="Torus_001" parent="stopwatch" index="1"]
+material_override = ExtResource("2_tmhft")
+
+[node name="hand" parent="stopwatch" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yudxn")
+
+[node name="hand_001" parent="stopwatch" index="3"]
+transform = Transform3D(-0.661116, 5.33851e-08, -0.661116, -0.661116, 5.33851e-08, 0.661116, 7.05875e-08, 1, 4.46014e-15, 0, 0, -0.259971)
+surface_material_override/0 = SubResource("StandardMaterial3D_4223v")
+
+[node name="glass" parent="stopwatch" index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yqrcg")
+
+[editable path="stopwatch"]

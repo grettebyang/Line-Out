@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://ggjyr3miuebv"]
+
+[ext_resource type="Script" uid="uid://bc7e7blwt8vsg" path="res://Production/Components/Databases/Scripts/DBLevels.cs" id="1_sdvk1"]
+[ext_resource type="PackedScene" uid="uid://dkcvtitsxvp74" path="res://Production/ArchivedLevels/LevelA.tscn" id="2_4t1tu"]
+[ext_resource type="Script" uid="uid://ctl0bldy8ufks" path="res://Production/Components/Databases/Scripts/ResourceTypes/LevelResource.cs" id="2_s4r5k"]
+[ext_resource type="PackedScene" uid="uid://db25wfngxxc6a" path="res://Production/ArchivedLevels/LevelB.tscn" id="4_qo1b2"]
+[ext_resource type="PackedScene" uid="uid://c6p4eu67y3inc" path="res://prototype/JWProt/TestLevels/PrototypeRace.tscn" id="5_148wd"]
+[ext_resource type="PackedScene" uid="uid://di0ibupiakvks" path="res://Production/NewLevels/PolishedLevels/TutorialLevelScene.tscn" id="6_w6je8"]
+[ext_resource type="PackedScene" uid="uid://th2owxbamgxj" path="res://Production/NewLevels/PolishedLevels/UnusualEncounter.tscn" id="7_8np0u"]
+[ext_resource type="PackedScene" uid="uid://bex0si2atolvs" path="res://Production/NewLevels/Blockouts/LapplandCruisers/LapplandCruisers.tscn" id="8_8np0u"]
+
+[sub_resource type="Resource" id="Resource_4t1tu"]
+resource_name = "LevelA"
+script = ExtResource("2_s4r5k")
+IdName = "LevelA"
+_level = ExtResource("2_4t1tu")
+TimesToRating = PackedFloat32Array(240, 180, 130)
+metadata/_custom_type_script = "uid://ctl0bldy8ufks"
+
+[sub_resource type="Resource" id="Resource_qo1b2"]
+resource_name = "LevelB"
+script = ExtResource("2_s4r5k")
+IdName = "LevelB"
+_level = ExtResource("4_qo1b2")
+TimesToRating = PackedFloat32Array(260, 240, 210)
+metadata/_custom_type_script = "uid://ctl0bldy8ufks"
+
+[sub_resource type="Resource" id="Resource_148wd"]
+resource_name = "Experimental_19_9"
+script = ExtResource("2_s4r5k")
+IdName = "Experimental_19_9"
+_level = ExtResource("5_148wd")
+DisplayName = "Experimental"
+TimesToRating = PackedFloat32Array(90, 70, 55)
+metadata/_custom_type_script = "uid://ctl0bldy8ufks"
+
+[sub_resource type="Resource" id="Resource_ffho1"]
+resource_name = "Tutorial"
+script = ExtResource("2_s4r5k")
+IdName = "Tutorial"
+_level = ExtResource("6_w6je8")
+DisplayName = "Tutorial"
+TimesToRating = PackedFloat32Array(340, 200, 120)
+metadata/_custom_type_script = "uid://ctl0bldy8ufks"
+
+[sub_resource type="Resource" id="Resource_qom7o"]
+resource_name = "An Unusual Encounter"
+script = ExtResource("2_s4r5k")
+IdName = "An Unusual Encounter"
+_level = ExtResource("7_8np0u")
+DisplayName = "An Unusual Encounter"
+TimesToRating = PackedFloat32Array(420, 360, 180)
+metadata/_custom_type_script = "uid://ctl0bldy8ufks"
+
+[sub_resource type="Resource" id="Resource_tiu7q"]
+resource_name = "Lappland Cruisers"
+script = ExtResource("2_s4r5k")
+IdName = "Lappland Cruisers"
+_level = ExtResource("8_8np0u")
+DisplayName = "Lappland Cruisers"
+TimesToRating = PackedFloat32Array(450, 390, 330)
+metadata/_custom_type_script = "uid://ctl0bldy8ufks"
+
+[node name="DatabaseRoot" type="Node" unique_id=2037150267]
+
+[node name="Levels" type="Node" parent="." unique_id=1270310339]
+script = ExtResource("1_sdvk1")
+levels = Array[Object]([SubResource("Resource_4t1tu"), SubResource("Resource_qo1b2"), SubResource("Resource_148wd"), SubResource("Resource_ffho1"), SubResource("Resource_qom7o"), SubResource("Resource_tiu7q")])

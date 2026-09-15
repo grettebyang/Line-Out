@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://kd3cyw1err1"]
+
+[ext_resource type="Script" uid="uid://cbbwp0u5857mb" path="res://Production/Components/Rhythm/PowerUps/UnderShadow.cs" id="1_hg2kh"]
+
+[sub_resource type="Gradient" id="Gradient_vt3aa"]
+offsets = PackedFloat32Array(0.6122112, 1)
+colors = PackedColorArray(0, 0, 0, 0.6039216, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pthqb"]
+gradient = SubResource("Gradient_vt3aa")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5965812, 0.20683761)
+
+[node name="Shadow" type="Decal" unique_id=663439416]
+size = Vector3(1, 1, 1)
+texture_albedo = SubResource("GradientTexture2D_pthqb")
+script = ExtResource("1_hg2kh")

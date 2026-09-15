@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bai3dwhp2u8qe"]
+
+[ext_resource type="PackedScene" uid="uid://bt744k5h2hlc1" path="res://Production/Components/UI/Prefabs/Buttons/CursorButton.tscn" id="1_e15ew"]
+[ext_resource type="Script" uid="uid://15s7fxlytqd6" path="res://Production/Components/UI/MainMenu/Scenes/Settings/Scripts/SettingsLeftRightOption.cs" id="1_xkf0i"]
+[ext_resource type="Texture2D" uid="uid://cp3g4qvwmmdpy" path="res://Production/Components/UI/Generics/SpritePrimitives/Triangle.png" id="2_kkp7j"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="3_kkp7j"]
+
+[node name="SettingsLeftRightOption" type="Control" unique_id=1892225640 node_paths=PackedStringArray("_leftButton", "_rightButton", "_optionLabel")]
+custom_minimum_size = Vector2(215, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1705.0
+offset_bottom = -994.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xkf0i")
+_leftButton = NodePath("LeftButton")
+_rightButton = NodePath("RightButton")
+_optionLabel = NodePath("Label")
+_optionsCount = 5
+
+[node name="LeftButton" parent="." unique_id=271175958 instance=ExtResource("1_e15ew")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -27.0
+offset_right = 54.0
+offset_bottom = 27.0
+
+[node name="Card" parent="LeftButton" index="1" unique_id=1049578636]
+self_modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+texture = ExtResource("2_kkp7j")
+
+[node name="Hover" parent="LeftButton/Card" index="0" unique_id=2084409731]
+modulate = Color(0.23529412, 0.36862746, 0.70980394, 1)
+color = Color(0.23529412, 0.36862746, 0.70980394, 0)
+
+[node name="TextureRect" type="TextureRect" parent="LeftButton/Card/Hover" index="0" unique_id=1052835662]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kkp7j")
+expand_mode = 1
+
+[node name="Text" parent="LeftButton" index="3" unique_id=418465982]
+visible = false
+
+[node name="RightButton" parent="." unique_id=575926066 instance=ExtResource("1_e15ew")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -27.0
+offset_right = 0.0
+offset_bottom = 27.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Card" parent="RightButton" index="1" unique_id=1049578636]
+self_modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+texture = ExtResource("2_kkp7j")
+flip_h = true
+
+[node name="Hover" parent="RightButton/Card" index="0" unique_id=2084409731]
+modulate = Color(0.23529412, 0.36862746, 0.70980394, 1)
+color = Color(0.23529412, 0.36862746, 0.70980394, 0)
+
+[node name="TextureRect" type="TextureRect" parent="RightButton/Card/Hover" index="0" unique_id=793450785]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kkp7j")
+expand_mode = 1
+flip_h = true
+
+[node name="Text" parent="RightButton" index="3" unique_id=418465982]
+visible = false
+
+[node name="Label" type="Label" parent="." unique_id=303906813]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.07700001
+anchor_right = 1.0
+anchor_bottom = 0.92300004
+offset_top = 0.032999516
+offset_bottom = -0.03300476
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_kkp7j")
+theme_override_colors/font_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+theme_override_font_sizes/font_size = 32
+text = "Option"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="Pressed" from="LeftButton" to="." method="OnLeftPressed"]
+[connection signal="Pressed" from="RightButton" to="." method="OnRightPressed"]
+
+[editable path="LeftButton"]
+[editable path="RightButton"]

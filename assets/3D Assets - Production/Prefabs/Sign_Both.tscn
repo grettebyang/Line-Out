@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bxbvi64uj2i4r"]
+
+[ext_resource type="Material" uid="uid://dv767r16njdva" path="res://assets/3D Assets - Production/Imports/Sign_Direction/Materials/M_Sign_Direction.tres" id="1_8f4jk"]
+[ext_resource type="ArrayMesh" uid="uid://by0eyufqyy8yb" path="res://assets/3D Assets - Production/Imports/Sign_Direction/Meshes/Sign_Stick.obj" id="3_5xdh1"]
+[ext_resource type="ArrayMesh" uid="uid://dht83oq55s2gj" path="res://assets/3D Assets - Production/Imports/Sign_Direction/Meshes/Sign_Arrow.obj" id="3_8f4jk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_psau6"]
+radius = 0.22949219
+height = 5.2644043
+
+[node name="Sign_Right" type="StaticBody3D" unique_id=136821792]
+
+[node name="Sign_Right_Collision" type="CollisionShape3D" parent="." unique_id=761213491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1329346, 0)
+shape = SubResource("CapsuleShape3D_psau6")
+
+[node name="SignStick" type="MeshInstance3D" parent="." unique_id=768312271]
+material_override = ExtResource("1_8f4jk")
+mesh = ExtResource("3_5xdh1")
+
+[node name="SignArrow_Right" type="MeshInstance3D" parent="." unique_id=1896064675]
+transform = Transform3D(0.95536226, 0.2089824, 0.20882814, -0.20959595, 0.97759455, -0.019441739, -0.20821229, -0.02519564, 0.977759, -0.0061855316, 3.243078, 0.15498042)
+material_override = ExtResource("1_8f4jk")
+mesh = ExtResource("3_8f4jk")
+
+[node name="SignArrow_Left" type="MeshInstance3D" parent="." unique_id=1554615135]
+transform = Transform3D(-0.98293316, 0.11672114, -0.14219218, -0.12052095, -0.9925404, 0.018380197, -0.13898616, 0.035203643, 0.98966825, -0.0061855316, 3.9575226, 0.18056202)
+material_override = ExtResource("1_8f4jk")
+mesh = ExtResource("3_8f4jk")

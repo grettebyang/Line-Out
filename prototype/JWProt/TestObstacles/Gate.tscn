@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://dl4b7f2pv4oy0"]
+
+[ext_resource type="Script" uid="uid://de7b8a82onhlx" path="res://prototype/JWProt/TestObstacles/Gate.cs" id="1_lixld"]
+[ext_resource type="Script" uid="uid://3kat7won2u50" path="res://prototype/JWProt/TestObstacles/MovingMechanism.cs" id="2_b55qg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5vnd"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lixld"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_b55qg"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Curve" id="Curve_lixld"]
+_data = [Vector2(0, 0), 0.0, 3.37532, 0, 0, Vector2(0.522727, 0.690675), 0.727694, 0.727694, 0, 0, Vector2(1, 1), 1.77617, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei75d"]
+albedo_color = Color(0.713205, 0.418107, 0.281513, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b55qg"]
+size = Vector3(3.87324, 4.40671, 0.750488)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4k384"]
+size = Vector3(3.20776, 4.26239, 2.07593)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lixld"]
+size = Vector3(11.9342, 4.64166, 22.8779)
+
+[node name="Gate" type="Node3D" node_paths=PackedStringArray("_barkArea", "_door", "_doorArea")]
+script = ExtResource("1_lixld")
+_barkArea = NodePath("BarkArea")
+_minTarget = 4.0
+_door = NodePath("Door")
+_doorArea = NodePath("Door/DoorArea")
+
+[node name="StaticModel" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticModel"]
+transform = Transform3D(1, 0, 0, 0, 3.92984, 0, 0, 0, 1, -1.99177, 1.985, 0)
+mesh = SubResource("BoxMesh_i5vnd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticModel"]
+transform = Transform3D(1, 0, 0, 0, 3.92984, 0, 0, 0, 1, 2.00532, 1.985, 0)
+mesh = SubResource("BoxMesh_i5vnd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticModel/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticModel/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_lixld")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="StaticModel"]
+transform = Transform3D(4.9983, 0, 0, 0, 0.918332, 0, 0, 0, 1, 0, 4.37249, 0)
+mesh = SubResource("BoxMesh_i5vnd")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="StaticModel/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticModel/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_b55qg")
+
+[node name="Door" type="Node3D" parent="."]
+script = ExtResource("2_b55qg")
+timeScale = 0.5
+targetPosition = Vector3(0, 4, 0)
+moveCurve = SubResource("Curve_lixld")
+
+[node name="Model" type="MeshInstance3D" parent="Door"]
+transform = Transform3D(3.24948, 0, 0, 0, 4.32608, 0, 0, 0, 0.468645, 0, 2.03348, 0)
+mesh = SubResource("BoxMesh_i5vnd")
+surface_material_override/0 = SubResource("StandardMaterial3D_ei75d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00580215, 2.0876, 0.124756)
+shape = SubResource("BoxShape3D_b55qg")
+
+[node name="DoorArea" type="Area3D" parent="Door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84779, 0)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/DoorArea"]
+shape = SubResource("BoxShape3D_4k384")
+
+[node name="BarkArea" type="Area3D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BarkArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0187755, 1.82083, 10.939)
+shape = SubResource("BoxShape3D_lixld")

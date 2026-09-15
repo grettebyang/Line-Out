@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ckvx7rx1nlgwa"
+path="res://.godot/imported/SaffronBun.obj-953ad9e79904f49d2f400c58c4da0cad.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SaffronBun.obj-953ad9e79904f49d2f400c58c4da0cad.mesh"]
+
+source_file="res://assets/3D Assets - Production/Imports/Pickups/Meshes/SaffronBun.obj"
+dest_files=["res://.godot/imported/SaffronBun.obj-953ad9e79904f49d2f400c58c4da0cad.mesh", "res://.godot/imported/SaffronBun.obj-953ad9e79904f49d2f400c58c4da0cad.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

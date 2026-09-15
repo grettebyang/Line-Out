@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://df02h27rjpy12"]
+
+[ext_resource type="Material" uid="uid://b1iq1joku2dcb" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineTrunk.tres" id="1_k5tjx"]
+[ext_resource type="Script" uid="uid://owf1xyu0u8tk" path="res://Production/Components/Rhythm/Obstacle.cs" id="1_xu3hy"]
+[ext_resource type="ArrayMesh" uid="uid://7gu32wp1ltni" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineTrunk.obj" id="2_xu3hy"]
+[ext_resource type="Material" uid="uid://dav8cpowc8u01" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineFoliage.tres" id="3_1h50f"]
+[ext_resource type="ArrayMesh" uid="uid://lgbvpcf15doa" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineFoliage.obj" id="4_rmmoc"]
+[ext_resource type="Material" uid="uid://bkgujo0jsjyiu" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_Pine_Snow.tres" id="5_xlyvh"]
+[ext_resource type="ArrayMesh" uid="uid://ck2deu6c14ube" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/Pine_Snow.obj" id="6_ow380"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5w00n"]
+radius = 1.0429688
+height = 5.9801173
+
+[node name="PineFatSnow" type="Node3D" unique_id=1406452365]
+
+[node name="CrashPivot" type="Node3D" parent="." unique_id=466455411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="Pine_Fat_Snow" type="StaticBody3D" parent="CrashPivot" unique_id=593924608 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
+script = ExtResource("1_xu3hy")
+_collider = NodePath("PineCollision")
+_crashPivot = NodePath("..")
+
+[node name="PineCollision" type="CollisionShape3D" parent="CrashPivot/Pine_Fat_Snow" unique_id=733685823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22929668, 2.5813866, 0)
+shape = SubResource("CapsuleShape3D_5w00n")
+
+[node name="PineTrunkMesh" type="MeshInstance3D" parent="CrashPivot/Pine_Fat_Snow" unique_id=1076090265]
+transform = Transform3D(1.38, 0, 0, 0, 1.38, 0, 0, 0, 1.38, 0, 0, 0)
+material_override = ExtResource("1_k5tjx")
+mesh = ExtResource("2_xu3hy")
+
+[node name="PineFoliageMesh" type="MeshInstance3D" parent="CrashPivot/Pine_Fat_Snow/PineTrunkMesh" unique_id=1151124597]
+transform = Transform3D(1, 0, 0, 0, 0.82, 0, 0, 0, 1, 0, 0, 0)
+material_override = ExtResource("3_1h50f")
+mesh = ExtResource("4_rmmoc")
+skeleton = NodePath("../..")
+
+[node name="PineSnow" type="MeshInstance3D" parent="CrashPivot/Pine_Fat_Snow/PineTrunkMesh/PineFoliageMesh" unique_id=1985811146]
+transform = Transform3D(0.9992056, 0, 0.039852764, 0, 1, 0, -0.039852764, 0, 0.9992056, -0.018465161, 0.029557943, 0)
+material_override = ExtResource("5_xlyvh")
+mesh = ExtResource("6_ow380")
+skeleton = NodePath("../../..")

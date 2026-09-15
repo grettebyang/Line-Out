@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cuo5khkseci6p"]
+
+[ext_resource type="Script" uid="uid://clign4r3podb" path="res://prototype/Adam/Fantrap/FanTrap.cs" id="1_rubns"]
+[ext_resource type="PackedScene" uid="uid://d0vsov2o8t0ao" path="res://assets/Meshes/Characters/Penguin.glb" id="2_bcrm5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qy5bb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrbvw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u6c30"]
+size = Vector3(1, 4.9928, 1)
+
+[node name="FanTrap" type="Node3D" unique_id=2137936947 node_paths=PackedStringArray("_rotationPivot")]
+script = ExtResource("1_rubns")
+_rotationPivot = NodePath("RotationPivot")
+_fanForce = 1000.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=752160000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.37069, 0)
+
+[node name="Fanbody" type="MeshInstance3D" parent="StaticBody3D" unique_id=429599800]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_qy5bb")
+skeleton = NodePath("../..")
+
+[node name="FanHead" type="MeshInstance3D" parent="StaticBody3D/Fanbody" unique_id=1480036032]
+transform = Transform3D(1.35371, 0, 0, 0, 0.289642, 0, 0, 0, 1.47669, -0.0757904, 0.630179, 0)
+mesh = SubResource("BoxMesh_qrbvw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=92747042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000671387, 0)
+shape = SubResource("BoxShape3D_u6c30")
+
+[node name="RotationPivot" type="Node3D" parent="." unique_id=1221015541]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.126553, 5.59477, -1.09594)
+
+[node name="Penguin" parent="RotationPivot" unique_id=1256190459 instance=ExtResource("2_bcrm5")]
+transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 3, 0.0855134, -0.0290351, 0.0215856)
+
+[node name="Penguin2" parent="RotationPivot" unique_id=1788160375 instance=ExtResource("2_bcrm5")]
+transform = Transform3D(-1.31134e-07, -4, 0, 3, -1.74846e-07, 0, 0, 0, 3, 0.0855134, -0.0290351, 0.0215856)
+
+[node name="Penguin3" parent="RotationPivot" unique_id=449867763 instance=ExtResource("2_bcrm5")]
+transform = Transform3D(-1.31134e-07, 4, 0, -3, -1.74846e-07, 0, 0, 0, 3, 0.0855134, -0.0290351, 0.0215856)
+
+[node name="Penguin4" parent="RotationPivot" unique_id=1773400846 instance=ExtResource("2_bcrm5")]
+transform = Transform3D(-3, 3.49691e-07, 0, -2.62268e-07, -4, 0, 0, 0, 3, 0.0855134, -0.0290351, 0.0215856)

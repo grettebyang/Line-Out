@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ctyaosk3tk4qw"]
+
+[ext_resource type="Material" uid="uid://pif5wuhdlkv4" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Materials/M_MudMushrooms.tres" id="1_d3thd"]
+[ext_resource type="ArrayMesh" uid="uid://bosh2vaj1mp2x" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Meshes/Mushroom_Tall.obj" id="4_g3gwc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j416l"]
+radius = 0.2705078
+height = 1.2460938
+
+[node name="MushroomTall" type="StaticBody3D" unique_id=667541730]
+
+[node name="MushroomTall_Mesh" type="MeshInstance3D" parent="." unique_id=1010132258]
+material_override = ExtResource("1_d3thd")
+mesh = ExtResource("4_g3gwc")
+
+[node name="MushroomTallCollision" type="CollisionShape3D" parent="." unique_id=944262882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5605469, 0)
+shape = SubResource("CapsuleShape3D_j416l")

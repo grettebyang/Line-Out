@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cl8objvypd3y6"]
+
+[ext_resource type="Shader" uid="uid://pkrx2f7wtxms" path="res://Production/Components/Dog/lib/DogOutLine/OutlineShader.gdshader" id="1_gtued"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gtued"]
+transparency = 4
+blend_mode = 1
+no_depth_test = true
+albedo_color = Color(1, 1, 1, 0.784314)
+
+[resource]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_gtued")
+shader = ExtResource("1_gtued")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_width = 0.5

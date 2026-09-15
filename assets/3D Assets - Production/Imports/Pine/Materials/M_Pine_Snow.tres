@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bkgujo0jsjyiu"]
+
+[ext_resource type="Texture2D" uid="uid://bau6ksx32u0rw" path="res://assets/3D Assets - Production/Imports/Pine/Materials/Textures/Pine_Snow/Pine_Snow_LOW_lambert2_BaseColor.png" id="1_m8ryn"]
+[ext_resource type="Texture2D" uid="uid://clncqa75sim8o" path="res://assets/3D Assets - Production/Imports/Pine/Materials/Textures/Pine_Snow/Pine_Snow_LOW_lambert2_Normal.png" id="2_mvcai"]
+
+[resource]
+albedo_texture = ExtResource("1_m8ryn")
+normal_enabled = true
+normal_texture = ExtResource("2_mvcai")

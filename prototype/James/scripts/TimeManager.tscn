@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw7fusfedmi6p"]
+
+[ext_resource type="Script" uid="uid://cq5mobhamvqm7" path="res://prototype/James/scripts/BasicTimeManager.cs" id="1_pos7t"]
+
+[sub_resource type="Curve" id="Curve_jxx6d"]
+_limits = [0.0, 16.8076, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 52.8293, 0, 0, Vector2(0.999104, 16.8076), 1.69317, 0.0, 0, 0]
+point_count = 2
+
+[node name="TimeManager" type="Node"]
+script = ExtResource("1_pos7t")
+SpeedInterpolation = SubResource("Curve_jxx6d")

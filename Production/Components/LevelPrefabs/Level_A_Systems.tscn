@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://du137ntbc4ptp"]
+
+[ext_resource type="Script" uid="uid://b7cflb54pbxyi" path="res://Production/Components/UI/PlayersColoring/PlayersColoring.cs" id="2_pgs82"]
+[ext_resource type="PackedScene" uid="uid://35feky2e4ule" path="res://Production/Components/UI/ControllersActivator/Layouts/ControllerActivatorUI.tscn" id="3_rsrxu"]
+[ext_resource type="PackedScene" uid="uid://b0sspgdxim522" path="res://Production/Components/UI/HUD/Scenes/TrackHUD.tscn" id="4_tp4qe"]
+[ext_resource type="PackedScene" uid="uid://4xtdsvvidhmk" path="res://Production/Components/Checkpoints/Scenes/CheckpointManager.tscn" id="7_3xi7u"]
+[ext_resource type="AudioStream" uid="uid://c4g6x3df61odc" path="res://assets/AudioAssets/Music/TheWaddleAnthem.wav" id="8_3lgsm"]
+[ext_resource type="PackedScene" uid="uid://lkmyugda37bi" path="res://Production/Components/Checkpoints/Scenes/Checkpoint.tscn" id="8_uvboo"]
+[ext_resource type="PackedScene" uid="uid://c6ah4combeejr" path="res://Production/Components/NPC/Penguin/Penguin.tscn" id="13_t6gf4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eahnv"]
+size = Vector3(52.0162, 28.4301, 13.0273)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_am2fd"]
+albedo_color = Color(0.937401, 0.356066, 0.382049, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5kdp4"]
+material = SubResource("StandardMaterial3D_am2fd")
+
+[node name="LevelSystemsBaseA" type="Node3D"]
+
+[node name="Systems" type="Node" parent="."]
+
+[node name="Coloring" type="Node" parent="Systems"]
+script = ExtResource("2_pgs82")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerActivatorUI" parent="UI" instance=ExtResource("3_rsrxu")]
+layout_mode = 1
+
+[node name="TrackHud" parent="UI" instance=ExtResource("4_tp4qe")]
+
+[node name="TrackSystems" type="Node3D" parent="."]
+
+[node name="EndGoal" type="Area3D" parent="TrackSystems"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.7211, -27.2982, 392.274)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrackSystems/EndGoal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.898, 3.97626, -6.01367)
+shape = SubResource("BoxShape3D_eahnv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TrackSystems/EndGoal"]
+transform = Transform3D(4.22323, 0, 0, 0, 6.68541, 0, 0, 0, 4.22323, -4.52921, 7.88107, -15.4291)
+mesh = SubResource("CylinderMesh_5kdp4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TrackSystems/EndGoal"]
+transform = Transform3D(4.22323, 0, 0, 0, 6.68541, 0, 0, 0, 4.22323, 22.8013, 11.6288, -15.4291)
+mesh = SubResource("CylinderMesh_5kdp4")
+
+[node name="CheckpointManager" parent="TrackSystems" node_paths=PackedStringArray("InitialCheckpoint") instance=ExtResource("7_3xi7u")]
+InitialCheckpoint = NodePath("Checkpoint")
+
+[node name="Checkpoint3" parent="TrackSystems/CheckpointManager" instance=ExtResource("8_uvboo")]
+transform = Transform3D(-0.246399, 0.114486, -0.962382, 0.0283961, 0.993425, 0.110909, 0.968752, 6.06816e-09, -0.24803, 4.11283, -3.66635, 125.873)
+
+[node name="Tower2" parent="TrackSystems/CheckpointManager/Checkpoint3/Models" index="0"]
+visible = true
+
+[node name="Tower" parent="TrackSystems/CheckpointManager/Checkpoint3/Models" index="1"]
+visible = true
+
+[node name="Pole" parent="TrackSystems/CheckpointManager/Checkpoint3/Models" index="2"]
+transform = Transform3D(-0.06, 0, 0, 0, 2.2, 0, 0, 0, -0.06, 0, 1.20498, -3.49634)
+
+[node name="PassedEffects" parent="TrackSystems/CheckpointManager/Checkpoint3/Models" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="RespawnPoint" parent="TrackSystems/CheckpointManager/Checkpoint3" index="2"]
+transform = Transform3D(-0.552575, -0.108212, -0.826409, -0.301579, 0.950309, 0.0772135, 0.776988, 0.291894, -0.557752, -8.56409, 2.27431, 0.184006)
+
+[node name="Checkpoint" parent="TrackSystems/CheckpointManager" instance=ExtResource("8_uvboo")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.33146, 11.3467, 45.5268)
+
+[node name="Tower2" parent="TrackSystems/CheckpointManager/Checkpoint/Models" index="0"]
+visible = true
+
+[node name="Tower" parent="TrackSystems/CheckpointManager/Checkpoint/Models" index="1"]
+visible = true
+
+[node name="Pole" parent="TrackSystems/CheckpointManager/Checkpoint/Models" index="2"]
+transform = Transform3D(-0.06, 0, 0, 0, 2.2, 0, 0, 0, -0.06, 0, 1.20498, -3.49634)
+
+[node name="PassedEffects" parent="TrackSystems/CheckpointManager/Checkpoint/Models" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Checkpoint2" parent="TrackSystems/CheckpointManager" instance=ExtResource("8_uvboo")]
+transform = Transform3D(0.317404, 0, -0.94829, 0, 1, 0, 0.94829, 0, 0.317404, -37.545, -19.8553, 243.063)
+
+[node name="Tower2" parent="TrackSystems/CheckpointManager/Checkpoint2/Models" index="0"]
+visible = true
+
+[node name="Tower" parent="TrackSystems/CheckpointManager/Checkpoint2/Models" index="1"]
+visible = true
+
+[node name="Pole" parent="TrackSystems/CheckpointManager/Checkpoint2/Models" index="2"]
+transform = Transform3D(-0.06, 0, 0, 0, 2.2, 0, 0, 0, -0.06, 0, 1.20498, -3.49634)
+
+[node name="PassedEffects" parent="TrackSystems/CheckpointManager/Checkpoint2/Models" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="RespawnPoint" parent="TrackSystems/CheckpointManager/Checkpoint2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.99998, 1.15046, -7.62939e-06)
+
+[node name="Penguins" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.7557, -2.95662, 131.858)
+
+[node name="Penguin" parent="Penguins" instance=ExtResource("13_t6gf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.71565, -2.09608, 12.4159)
+
+[node name="PenguinSong" type="AudioStreamPlayer3D" parent="Penguins"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.59517, 0, 13.4173)
+stream = ExtResource("8_3lgsm")
+autoplay = true
+
+[node name="PenguinPath" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -15.7557, -2.95662, 131.858)
+
+[node name="Point1" type="Node3D" parent="PenguinPath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.86473, -2.05143, 12.8508)
+
+[node name="Point2" type="Node3D" parent="PenguinPath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.465755, -1.05693, 8.78368)
+
+[node name="Point3" type="Node3D" parent="PenguinPath"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.22284, -0.488146, 2.08831)
+
+[connection signal="body_entered" from="TrackSystems/EndGoal" to="." method="OnEndGoalEntered"]
+
+[editable path="TrackSystems/CheckpointManager/Checkpoint3"]
+[editable path="TrackSystems/CheckpointManager/Checkpoint"]
+[editable path="TrackSystems/CheckpointManager/Checkpoint2"]

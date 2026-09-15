@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dkfxy8jl31dxk"]
+
+[ext_resource type="Script" uid="uid://b0ctfirafedbg" path="res://assets/3D Assets - Production/Prefabs/RigidbodyObstacle.cs" id="1_xh4l6"]
+[ext_resource type="Material" uid="uid://bk21ibyr707ce" path="res://assets/3D Assets - Production/Imports/Crate/Materials/M_Crate.tres" id="2_7l1nu"]
+[ext_resource type="ArrayMesh" uid="uid://pm8y15cl3vua" path="res://assets/3D Assets - Production/Imports/Crate/Meshes/Crate_LOW.obj" id="3_nkqo1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xh4l6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hwt0"]
+size = Vector3(2.7302246, 1.4617767, 1.6054688)
+
+[node name="Crate" type="Node3D" unique_id=1022080447]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1131976052 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mass = 35.025
+physics_material_override = SubResource("PhysicsMaterial_xh4l6")
+can_sleep = false
+script = ExtResource("1_xh4l6")
+_collider = NodePath("Crate_Collision")
+_crashPivot = NodePath(".")
+
+[node name="Crate_Mesh" type="MeshInstance3D" parent="RigidBody3D" unique_id=1400090059]
+transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, 0, -0.5, 0)
+material_override = ExtResource("2_7l1nu")
+mesh = ExtResource("3_nkqo1")
+skeleton = NodePath("")
+
+[node name="Crate_Collision" type="CollisionShape3D" parent="RigidBody3D" unique_id=1852110290]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.0043796375, 0.036321163, 0.015625)
+shape = SubResource("BoxShape3D_0hwt0")

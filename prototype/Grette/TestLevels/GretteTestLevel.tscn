@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://k7ydyvykaock"]
+
+[ext_resource type="Script" uid="uid://rj52ikio8yi4" path="res://Production/Components/LevelManager/LevelManager.cs" id="1_332l3"]
+[ext_resource type="PackedScene" uid="uid://bp34hqpmuhrxq" path="res://Production/Components/Sled/lib/HurtEffect.tscn" id="2_oljcr"]
+[ext_resource type="PackedScene" uid="uid://35feky2e4ule" path="res://Production/Components/UI/ControllersActivator/Layouts/ControllerActivatorUI.tscn" id="3_n5e87"]
+[ext_resource type="PackedScene" uid="uid://b0sspgdxim522" path="res://Production/Components/UI/HUD/Scenes/TrackHUD.tscn" id="4_cwji8"]
+[ext_resource type="PackedScene" uid="uid://3hry2327s1cv" path="res://Production/Components/Sled/lib/Sled.tscn" id="5_8ims7"]
+[ext_resource type="PackedScene" uid="uid://4xtdsvvidhmk" path="res://Production/Components/Checkpoints/Scenes/CheckpointManager.tscn" id="6_l517n"]
+[ext_resource type="PackedScene" uid="uid://lkmyugda37bi" path="res://Production/Components/Checkpoints/Scenes/Checkpoint.tscn" id="7_0ocnx"]
+[ext_resource type="PackedScene" uid="uid://domulxk3mp2wy" path="res://prototype/Adam/TreeFall/TreeFall.tscn" id="8_r700c"]
+[ext_resource type="PackedScene" uid="uid://o578868np83h" path="res://Production/Components/Rhythm/PowerUps/Collectable.tscn" id="9_ngqrk"]
+[ext_resource type="PackedScene" uid="uid://cv1kvyqv0k418" path="res://assets/Meshes/Props/Vegetation/TreeSingle.tscn" id="10_r5m47"]
+[ext_resource type="PackedScene" uid="uid://qxkqgxo6c1bb" path="res://prototype/JWProt/TestObstacles/RollingSnowball.tscn" id="12_kr8px"]
+[ext_resource type="PackedScene" uid="uid://dcynvq2bo8khs" path="res://Production/Components/LevelPrefabs/crate_cluster.tscn" id="13_sckrq"]
+[ext_resource type="PackedScene" uid="uid://chqbrqidppt5b" path="res://prototype/JWProt/TestObstacles/MudPuddle.tscn" id="13_wt5lr"]
+[ext_resource type="PackedScene" uid="uid://bmmyjwdq47vrn" path="res://Production/Components/Traps/Mushroom Patch/MushroomPatch.tscn" id="14_wt5lr"]
+[ext_resource type="PackedScene" uid="uid://cw4kly7vp7hvd" path="res://Production/Components/Traps/BearTrap.tscn" id="15_5w1lo"]
+[ext_resource type="PackedScene" uid="uid://bcy6uod5pcajg" path="res://prototype/Adam/Icicle/Icicle.tscn" id="16_fudnw"]
+[ext_resource type="PackedScene" uid="uid://bxx32lqfcgjpk" path="res://Production/Components/LevelPrefabs/Snowman.tscn" id="17_ap4vu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2wm7c"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2wm7c"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wm7c"]
+albedo_color = Color(0.452695, 0.242717, 9.62615e-08, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_slwix"]
+radius = 0.05
+height = 0.1
+
+[node name="TestingPlayground" type="Node3D" unique_id=1436689681 node_paths=PackedStringArray("_sled", "Collectables", "_checkpointManager")]
+script = ExtResource("1_332l3")
+_sled = NodePath("Sled")
+Collectables = NodePath("Node3D")
+DamageEffectScene = ExtResource("2_oljcr")
+Soundtrack = 5
+_checkpointManager = NodePath("CheckpointManager")
+
+[node name="UI" type="Control" parent="." unique_id=446280341]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerActivatorUI" parent="UI" unique_id=1043305775 instance=ExtResource("3_n5e87")]
+layout_mode = 1
+
+[node name="TrackHud" parent="UI" unique_id=1066380451 instance=ExtResource("4_cwji8")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=51226713]
+transform = Transform3D(38.9927, 0, 0, 0, 38.9927, 0, 0, 0, 38.9927, 0, 0, 0)
+mesh = SubResource("PlaneMesh_2wm7c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=589855861]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=471874480]
+shape = SubResource("ConcavePolygonShape3D_2wm7c")
+
+[node name="Sled" parent="." unique_id=1704293177 instance=ExtResource("5_8ims7")]
+transform = Transform3D(-0.13467816, 0, -0.99088943, 0, 1, 0, 0.99089044, 0, -0.13467845, -25.475435, 2.5435977, -12.762683)
+_dmgPerSpeed = 12.0
+_dmgCap = 30.0
+
+[node name="MainCam" parent="Sled" index="3" unique_id=1963084598]
+_shakeMultiplayer = 4.0
+_shakeSpeed = 1.2
+
+[node name="LeftCollision" parent="Sled" index="6" unique_id=752580054]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.3, 0.2, -0.5)
+
+[node name="RightCollision" parent="Sled" index="7" unique_id=1602187532]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.3, 0.2, -0.5)
+
+[node name="SledHitThingParticles" parent="Sled/VFX" parent_id_path=PackedInt32Array(1704293177, 504676395) index="4" unique_id=2135288165]
+material_override = SubResource("StandardMaterial3D_2wm7c")
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+draw_pass_1 = SubResource("SphereMesh_slwix")
+
+[node name="SledHitThingParticles2" parent="Sled/VFX" parent_id_path=PackedInt32Array(1704293177, 504676395) index="5" unique_id=327293242]
+amount = 6
+
+[node name="FikaPackage" parent="Sled/FikaPackages" parent_id_path=PackedInt32Array(1704293177, 1074052668) index="3" unique_id=492474789]
+mass = 0.001
+
+[node name="CheckpointManager" parent="." unique_id=1084256533 node_paths=PackedStringArray("InitialCheckpoint") instance=ExtResource("6_l517n")]
+InitialCheckpoint = NodePath("Checkpoint")
+
+[node name="Checkpoint" parent="CheckpointManager" unique_id=1474657491 instance=ExtResource("7_0ocnx")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=694527944]
+transform = Transform3D(1, 0, 0, 0, 0.323356, 0.946277, 0, -0.946277, 0.323356, 0, 0, 0)
+
+[node name="TreeFall" parent="." unique_id=709610825 instance=ExtResource("8_r700c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.597187, 0.4380291, 20.274487)
+
+[node name="TreeFall4" parent="." unique_id=2000015161 instance=ExtResource("8_r700c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.58839, 0.4380291, 15.800076)
+
+[node name="TreeFall5" parent="." unique_id=2079515953 instance=ExtResource("8_r700c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.803314, 0.4380291, -5.350914)
+
+[node name="TreeFall6" parent="." unique_id=364323687 instance=ExtResource("8_r700c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.7009373, 0.43802816, -18.134544)
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1088654688]
+
+[node name="Collectable" parent="Node3D" unique_id=975097025 instance=ExtResource("9_ngqrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5553417, 0.5, 18.444265)
+PuType = 2
+
+[node name="Collectable2" parent="Node3D" unique_id=1115579963 instance=ExtResource("9_ngqrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.843431, 0.50000095, -11.437397)
+PuType = 2
+
+[node name="Collectable3" parent="Node3D" unique_id=668729994 instance=ExtResource("9_ngqrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.569811, 0.50000095, 16.577)
+PuType = 2
+
+[node name="Collectable4" parent="Node3D" unique_id=536290462 instance=ExtResource("9_ngqrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.023628, 0.5, 16.69754)
+PuType = 2
+
+[node name="Collectable5" parent="Node3D" unique_id=1925269340 instance=ExtResource("9_ngqrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.520502, 0.50000095, 13.737444)
+PuType = 2
+
+[node name="Collectable6" parent="Node3D" unique_id=226515051 instance=ExtResource("9_ngqrk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6717339, 0.49999905, 16.800638)
+PuType = 2
+
+[node name="Node3d" parent="." unique_id=921991443 instance=ExtResource("10_r5m47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.92471, 0.4380291, 22.930891)
+
+[node name="Node3d2" parent="." unique_id=943042669 instance=ExtResource("10_r5m47")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6124344, 0.4380291, 23.588074)
+
+[node name="CrateCluster" parent="." unique_id=106663272 instance=ExtResource("13_sckrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.987328, 0.042083647, 19.266056)
+
+[node name="CrateCluster2" parent="." unique_id=824382057 instance=ExtResource("13_sckrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.987328, 0.042083647, 7.354151)
+
+[node name="CrateCluster3" parent="." unique_id=1411834568 instance=ExtResource("13_sckrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4154415, 0.042083647, 7.354151)
+
+[node name="MudPuddle" parent="." unique_id=1484955980 instance=ExtResource("13_wt5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.945168, 0.0693575, 0.8010764)
+
+[node name="MudPuddle2" parent="." unique_id=712600367 instance=ExtResource("13_wt5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.982954, 0.0693575, 1.6565623)
+
+[node name="MudPuddle3" parent="." unique_id=1344678111 instance=ExtResource("13_wt5lr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.55959, 0.06935941, -3.3221846)
+
+[node name="BearTrap" parent="." unique_id=368087271 instance=ExtResource("15_5w1lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3614902, 0.00018690526, -7.4605618)
+
+[node name="BearTrap2" parent="." unique_id=1261831576 instance=ExtResource("15_5w1lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.105957, 0.00018690526, -11.914936)
+
+[node name="BearTrap3" parent="." unique_id=153116721 instance=ExtResource("15_5w1lo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4853134, 0.00018690526, 10.965864)
+
+[node name="Icicle" parent="." unique_id=658951074 instance=ExtResource("16_fudnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6082249, 9.536743e-07, -13.321125)
+
+[node name="Icicle2" parent="." unique_id=130777047 instance=ExtResource("16_fudnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.199459, 0, -23.494953)
+
+[node name="Icicle3" parent="." unique_id=737284398 instance=ExtResource("16_fudnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.486982, 0, -32.185795)
+
+[node name="Icicle4" parent="." unique_id=1387153983 instance=ExtResource("16_fudnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.204779, 0, -26.945766)
+
+[node name="Icicle5" parent="." unique_id=101918884 instance=ExtResource("16_fudnw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.150167, 0, -16.652273)
+
+[node name="RollingSnowball" parent="." unique_id=1476694593 instance=ExtResource("12_kr8px")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 2, 7)
+
+[node name="MushroomPatch" parent="." unique_id=931227658 instance=ExtResource("14_wt5lr")]
+transform = Transform3D(-0.2706508, 0, 0.9626776, 0, 1, 0, -0.9626776, 0, -0.2706508, 12.11925, -0.010903418, -9.946886)
+
+[node name="MushroomPatch2" parent="." unique_id=1810358846 instance=ExtResource("14_wt5lr")]
+transform = Transform3D(-0.12573153, 0, 0.9920643, 0, 1, 0, -0.9920643, 0, -0.12573153, 17.447395, 0.16124451, -12.269475)
+
+[node name="Snowman" parent="." unique_id=37107634 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9989204, 1.0215484, -18.122362)
+
+[node name="Snowman2" parent="." unique_id=1873035767 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.655905, 1.0215484, -18.156784)
+
+[node name="Snowman3" parent="." unique_id=1265998296 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.299819, 1.0215489, -15.036369)
+
+[node name="Snowman4" parent="." unique_id=2136688510 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.475377, 1.0215484, -20.937128)
+
+[node name="Snowman5" parent="." unique_id=1480929489 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.881159, 1.0215484, -20.567324)
+
+[node name="Snowman6" parent="." unique_id=465482325 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.181267, 1.0215484, -20.625479)
+
+[node name="Snowman7" parent="." unique_id=438018895 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.930648, 1.0215493, -23.715681)
+
+[node name="Snowman8" parent="." unique_id=571972011 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.637089, 1.0215484, -23.731388)
+
+[node name="Snowman9" parent="." unique_id=1516759213 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0026455, 1.0215484, -23.63134)
+
+[node name="Snowman10" parent="." unique_id=505878951 instance=ExtResource("17_ap4vu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.617893, 1.0215493, -23.492186)
+
+[editable path="Sled"]
+[editable path="Sled/MainCam"]
+[editable path="CheckpointManager/Checkpoint"]

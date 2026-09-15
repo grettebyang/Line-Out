@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bsrxyi67gxlhn"]
+
+[ext_resource type="Script" uid="uid://diwjipgvjgwjj" path="res://Production/Components/GameManagers/Scripts/GameManager.cs" id="1_72ckg"]
+[ext_resource type="PackedScene" uid="uid://bwgqiivrhmd4m" path="res://Production/Components/GameManagers/GameDebugTool.tscn" id="2_0vic3"]
+[ext_resource type="Script" uid="uid://barfvya2px88c" path="res://Production/Components/GameManagers/Scripts/SaveManager.cs" id="3_ewe3b"]
+[ext_resource type="Script" uid="uid://6kd47yueyon3" path="res://Production/Components/GameManagers/Scripts/TempScoreboard.cs" id="4_k5bi4"]
+
+[node name="GameManager" type="Node" unique_id=1611835193 node_paths=PackedStringArray("DebugTool", "_saveManager", "TempScoreboard")]
+script = ExtResource("1_72ckg")
+DebugTool = NodePath("GameDebugTool")
+_saveManager = NodePath("SaveManager")
+TempScoreboard = NodePath("TempScoreboard")
+PlayerCharacters = PackedInt32Array(-1, -1, -1, -1)
+
+[node name="GameDebugTool" parent="." unique_id=2033284177 instance=ExtResource("2_0vic3")]
+
+[node name="SaveManager" type="Node" parent="." unique_id=281041350]
+script = ExtResource("3_ewe3b")
+
+[node name="TempScoreboard" type="Node" parent="." unique_id=658702618]
+script = ExtResource("4_k5bi4")

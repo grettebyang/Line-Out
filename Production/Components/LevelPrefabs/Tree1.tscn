@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dyasm86d2lmi0"]
+
+[ext_resource type="PackedScene" uid="uid://cv1kvyqv0k418" path="res://assets/Meshes/Props/Vegetation/TreeSingle.tscn" id="1_oqtnx"]
+
+[node name="Tree" type="Node3D" unique_id=2090555510]
+
+[node name="TreeSingle" parent="." unique_id=850042007 instance=ExtResource("1_oqtnx")]

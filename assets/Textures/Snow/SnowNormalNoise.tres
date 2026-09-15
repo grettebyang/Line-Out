@@ -1,0 +1,9 @@
+[gd_resource type="FastNoiseLite" format=3 uid="uid://blynrkl3l08m6"]
+
+[resource]
+noise_type = 2
+seed = -270
+frequency = 0.0041
+cellular_distance_function = 1
+cellular_return_type = 2
+metadata/_preview_in_3d_space_ = true

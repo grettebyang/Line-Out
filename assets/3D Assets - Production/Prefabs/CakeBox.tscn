@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://da7k4sggc6ry4"]
+
+[ext_resource type="ArrayMesh" uid="uid://bxqpelupoy42p" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Meshes/CakeBox.obj" id="1_iwftc"]
+[ext_resource type="Material" uid="uid://bytnyvj24ms4k" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Materials/M_FikaBoxes.tres" id="2_lr2ms"]
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="3_era8t"]
+[ext_resource type="Material" uid="uid://ceq7cmequj4mh" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Materials/M_FikaBoxes_Transparent.tres" id="6_fpt33"]
+[ext_resource type="ArrayMesh" uid="uid://durw2xa564t48" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/CinnamonBun.obj" id="7_m513s"]
+[ext_resource type="ArrayMesh" uid="uid://ckvx7rx1nlgwa" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/SaffronBun.obj" id="8_tjksb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_era8t"]
+size = Vector3(1.0180883, 0.81654394, 0.93433106)
+
+[node name="CakeBox" type="StaticBody3D" unique_id=1475850526]
+
+[node name="CakeBox_Mesh" type="MeshInstance3D" parent="." unique_id=1331774920]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+mesh = ExtResource("1_iwftc")
+surface_material_override/0 = ExtResource("6_fpt33")
+surface_material_override/1 = ExtResource("2_lr2ms")
+
+[node name="CinnamonBun_Mesh" type="MeshInstance3D" parent="CakeBox_Mesh" unique_id=62267619]
+transform = Transform3D(1.0666667, 0, 0, 0, 1.0666667, 0, 0, 0, 1.0666667, -0.5650853, 0.024482675, 0.6054628)
+material_override = ExtResource("3_era8t")
+mesh = ExtResource("7_m513s")
+skeleton = NodePath("")
+
+[node name="CinnamonBun_Mesh2" type="MeshInstance3D" parent="CakeBox_Mesh" unique_id=604351681]
+transform = Transform3D(1.0666667, 0, 0, 0, 1.0666667, 0, 0, 0, 1.0666667, 0.4634015, 0.024482675, 0.6054628)
+material_override = ExtResource("3_era8t")
+mesh = ExtResource("7_m513s")
+skeleton = NodePath("")
+
+[node name="SaffronBun_Mesh" type="MeshInstance3D" parent="CakeBox_Mesh" unique_id=2006596047]
+transform = Transform3D(0.7983925, 0, -0.70735234, 0, 1.0666667, 0, 0.70735234, 0, 0.7983925, -0.46827105, 0.024482675, -0.5395279)
+material_override = ExtResource("3_era8t")
+mesh = ExtResource("8_tjksb")
+skeleton = NodePath("")
+
+[node name="SaffronBun_Mesh2" type="MeshInstance3D" parent="CakeBox_Mesh" unique_id=1625660170]
+transform = Transform3D(0.6178088, 0, -0.86953443, 0, 1.0666667, 0, 0.86953443, 0, 0.6178088, 0.5064643, 0.024482675, -0.47953397)
+material_override = ExtResource("3_era8t")
+mesh = ExtResource("8_tjksb")
+skeleton = NodePath("")
+
+[node name="CakeBox_Collision" type="CollisionShape3D" parent="." unique_id=428453133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22621118, 0)
+shape = SubResource("BoxShape3D_era8t")
+disabled = true

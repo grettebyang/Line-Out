@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://qge4kbxvrcgu"]
+
+[ext_resource type="PackedScene" uid="uid://duapcsgotvd7w" path="res://Production/Components/LevelPrefabs/Tree1Background.tscn" id="1_3oyg8"]
+[ext_resource type="PackedScene" uid="uid://iiku2r4vwn8r" path="res://assets/Meshes/Props/Vegetation/snowtree.glb" id="2_2elee"]
+
+[node name="TreeCluster1" type="Node3D"]
+
+[node name="Tree" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(0.971977, 0.235074, 1.11759e-08, -0.232097, 0.959669, 0.158641, 0.0372923, -0.154195, 0.987337, 4.19327, 0.944134, -4.31204)
+
+[node name="Tree2" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1.22932, 0.136019, 0.000440615, -0.13412, 1.21282, -0.202025, -0.0226496, 0.200752, 1.22021, 4.79651, -3.57368e-08, 3.57368e-08)
+
+[node name="Tree3" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1, -2.23517e-08, 9.31323e-09, -7.45058e-09, 1, -3.57628e-07, 7.45058e-09, 2.98023e-07, 1, 6.6197e-08, -2.54197e-06, 7.10785)
+
+[node name="snowtree" parent="Tree3" instance=ExtResource("2_2elee")]
+
+[node name="Tree4" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1.23682, -2.76452e-08, 1.15188e-08, -9.21506e-09, 1.23682, -4.42323e-07, 9.21506e-09, 3.68602e-07, 1.23682, -8.30009, 6.18405e-08, -6.18405e-08)
+
+[node name="snowtree" parent="Tree4" instance=ExtResource("2_2elee")]
+
+[node name="Tree5" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1.07271, 0.0508568, 0.368679, 0.0608108, 1.08571, -0.326702, -0.367169, 0.328398, 1.02301, -13.3958, -0.7594, 4.58517)
+
+[node name="Tree6" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1.32675, -0.0842244, 0.452538, 0.0752123, 1.40173, 0.0403774, -0.454123, -0.01391, 1.3288, -1.93271, 0.211569, -7.5771)
+
+[node name="snowtree" parent="Tree6" instance=ExtResource("2_2elee")]
+
+[node name="Tree7" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1.06166, 0.161762, 0.368679, -0.116576, 1.11872, -0.155156, -0.385359, 0.107222, 1.06264, -6.14279, -0.716023, 7.62544)
+
+[node name="Tree8" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1.32675, 0.0629009, 0.455992, 1.22935e-07, 1.39116, -0.191901, -0.460309, 0.1813, 1.3143, 0, 0, 0)
+
+[node name="snowtree" parent="Tree8" instance=ExtResource("2_2elee")]
+
+[node name="Tree9" parent="." instance=ExtResource("1_3oyg8")]
+transform = Transform3D(1.32675, 0.0629009, 0.455992, 1.22935e-07, 1.39116, -0.191901, -0.460309, 0.1813, 1.3143, 5.57712, -0.879261, 6.57759)
+
+[node name="snowtree" parent="Tree9" instance=ExtResource("2_2elee")]

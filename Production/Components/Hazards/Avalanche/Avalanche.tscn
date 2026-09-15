@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dwqpnb7je1md8"]
+
+[ext_resource type="Script" uid="uid://cp65xhoucdhr5" path="res://Production/Components/Hazards/Avalanche/Avalanche.cs" id="1_5xhkx"]
+[ext_resource type="Material" uid="uid://bb7bn8ync2asf" path="res://Production/Components/Hazards/Avalanche/AvalancheParticle.tres" id="2_6wbil"]
+[ext_resource type="Material" uid="uid://xsmyirmxid4v" path="res://Production/Components/Hazards/Avalanche/AvalancheMaterial.tres" id="3_ime2p"]
+[ext_resource type="PackedScene" uid="uid://gyf6e0rcyptm" path="res://Production/Components/Traps/DeathZone.tscn" id="4_1vpel"]
+[ext_resource type="AudioStream" uid="uid://ccxkik1kogy58" path="res://assets/AudioAssets/Traps/Avalanche/AvalancheSFX.wav" id="5_iquh8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ime2p"]
+material = ExtResource("3_ime2p")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iquh8"]
+size = Vector3(24.8342, 63.736935, 34.53231)
+
+[node name="Avalanche" type="Node3D" unique_id=1017415923 node_paths=PackedStringArray("_particles", "_avalancheRumble")]
+script = ExtResource("1_5xhkx")
+_particles = NodePath("Particles")
+_avalancheRumble = NodePath("AvalancheRumble")
+
+[node name="Particles" type="GPUParticles3D" parent="." unique_id=1846734105]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 4, 0, 0, 0)
+amount = 650
+lifetime = 2.0
+speed_scale = 1.4
+process_material = ExtResource("2_6wbil")
+draw_pass_1 = SubResource("SphereMesh_ime2p")
+
+[node name="DeathZone" parent="." unique_id=1041118989 instance=ExtResource("4_1vpel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.196069, 0)
+collision_mask = 259
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone" unique_id=587680592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10743785, -1.5105467, 0.15043163)
+shape = SubResource("BoxShape3D_iquh8")
+
+[node name="AvalancheRumble" type="AudioStreamPlayer3D" parent="." unique_id=1501028207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3867235, 21.865479, -27.832932)
+stream = ExtResource("5_iquh8")
+bus = &"SFX"

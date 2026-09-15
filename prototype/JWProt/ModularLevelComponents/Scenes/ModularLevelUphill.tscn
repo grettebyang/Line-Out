@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=4 uid="uid://d2jjp7tj8x0j8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gan0"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qmcw1"]
+_surfaces = [{
+"aabb": AABB(-6.05638, -1.9286, -3.52097, 12.1128, 3.85721, 7.04193),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAALyE//8AAAAA//8AAAAAAAAAAP//AAD//7yE//8AAAAAQnsAAAAA//9CewAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kvyef"]
+resource_name = "ModularLevelUphill_Cube"
+_surfaces = [{
+"aabb": AABB(-6.05638, -1.9286, -3.52097, 12.1128, 3.85721, 7.04193),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//P/9f/z//nwAA/5//P/9fAAD/X////5//v/+f////X/+//x//f/9f/z//X/9//x//P/9f/3//n/8//5//f/9f/z//X/+//5//f/+f/7//X/9/"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_2gan0"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA//8AALyE/////wAA//8AAP////+8hP///////wAA////vwAAvIT///+///+8hP///78AAAAA////vwAAAAD//1TVAAD//wAAVNUAALyE//9U1QAAQnsAAFTVAABCewAAgMr//wAA//+Ayv//QnsAAIDKAAAAAP//gMr//0J7AABU1f//vIT//1TV/////wAAVNX//wAA//9U1QAAQnsAAP///////wAA//8AAP//AAD/////QnsAAP///3+zt/9/s7f/f7O3/3+zt/////////////////////9U1VTVVNVU1VTVVNVU1VTVAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qmcw1")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kvyef"]
+data = PackedVector3Array(6.0564, 1.9286, -3.521, -6.0564, 0.0714, 3.521, -6.0564, 1.9286, -3.521, 6.0564, 1.9286, -3.521, 6.0564, 0.0714, 3.521, -6.0564, 0.0714, 3.521, 6.0564, -1.9286, 3.521, -6.0564, 0.0714, 3.521, 6.0564, 0.0714, 3.521, 6.0564, -1.9286, 3.521, -6.0564, -1.9286, 3.521, -6.0564, 0.0714, 3.521, -6.0564, -1.9286, 3.521, -6.0564, 1.9286, -3.521, -6.0564, 0.0714, 3.521, -6.0564, -1.9286, 3.521, -6.0564, -0.0714, -3.521, -6.0564, 1.9286, -3.521, -6.0564, -0.0714, -3.521, 6.0564, -1.9286, 3.521, 6.0564, -0.0714, -3.521, -6.0564, -0.0714, -3.521, -6.0564, -1.9286, 3.521, 6.0564, -1.9286, 3.521, 6.0564, -0.0714, -3.521, 6.0564, 0.0714, 3.521, 6.0564, 1.9286, -3.521, 6.0564, -0.0714, -3.521, 6.0564, -1.9286, 3.521, 6.0564, 0.0714, 3.521, -6.0564, -0.0714, -3.521, 6.0564, 1.9286, -3.521, -6.0564, 1.9286, -3.521, -6.0564, -0.0714, -3.521, 6.0564, -0.0714, -3.521, 6.0564, 1.9286, -3.521)
+
+[node name="ModularLevelUphill" type="Node3D"]
+
+[node name="Uphill" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_kvyef")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Uphill"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Uphill/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kvyef")

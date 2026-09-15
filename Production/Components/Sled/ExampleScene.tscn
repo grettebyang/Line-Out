@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://crogy7plcnhvc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ocjag"]
+friction = 0.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bvvjs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v20on"]
+
+[node name="ExampleScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.979258, 0.202616, 0, -0.202616, 0.979258, 0, 1.34544, 3.74589)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.981178, 0.193104, 0, -0.193104, -0.981178, 0, 0, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(7.33273, 0.0626027, -0.0302543, -0.459492, 0.998024, 0.0153742, 0.0888996, -0.00522332, 2.57494, -0.763318, -0.243666, 0)
+mass = 500.0
+physics_material_override = SubResource("PhysicsMaterial_ocjag")
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_bvvjs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_v20on")

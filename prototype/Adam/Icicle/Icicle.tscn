@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://bcy6uod5pcajg"]
+
+[ext_resource type="Script" uid="uid://cd8t310pp34te" path="res://prototype/Adam/Icicle/Icicle.cs" id="1_j7qsr"]
+[ext_resource type="Script" uid="uid://b0ctfirafedbg" path="res://assets/3D Assets - Production/Prefabs/RigidbodyObstacle.cs" id="2_sgyv8"]
+[ext_resource type="Material" uid="uid://b3hiipwo7ut55" path="res://assets/3D Assets - Production/Imports/SnowIce/Materials/M_SnowIce.tres" id="3_xcivb"]
+[ext_resource type="ArrayMesh" uid="uid://2i237scfmfsp" path="res://assets/3D Assets - Production/Imports/SnowIce/Meshes/Icicle.obj" id="4_sgyv8"]
+[ext_resource type="AudioStream" uid="uid://cqp64a2j7ehgx" path="res://assets/AudioAssets/Traps/Icicle/IcicleShatterPitchedDown.wav" id="5_sgyv8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xcivb"]
+radius = 43.626698
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hc3gn"]
+radius = 0.43164063
+height = 3.4719849
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7qsr"]
+transparency = 1
+albedo_color = Color(0.0392157, 0.0588235, 0.0666667, 0.372549)
+
+[node name="Icicle" type="Node3D" unique_id=658951074 node_paths=PackedStringArray("treeRB", "timer", "_shadowIndicatorMesh", "_shatterSound")]
+script = ExtResource("1_j7qsr")
+treeRB = NodePath("Icicle")
+timer = NodePath("Area3D/Timer")
+_shadowIndicatorMesh = NodePath("Indicator")
+_shatterSound = NodePath("Icicle/Shatter")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1159741197]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1975841617]
+shape = SubResource("SphereShape3D_xcivb")
+
+[node name="Timer" type="Timer" parent="Area3D" unique_id=1987667561]
+one_shot = true
+
+[node name="Indicator" type="RigidBody3D" parent="." unique_id=781996010 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.918, 0)
+mass = 10.0
+script = ExtResource("2_sgyv8")
+_collider = NodePath("CollisionShape3D")
+_crashPivot = NodePath(".")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Indicator" unique_id=1214134569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6645813, 0)
+shape = SubResource("CapsuleShape3D_hc3gn")
+
+[node name="Shatter" type="AudioStreamPlayer3D" parent="Indicator" unique_id=2007529538]
+stream = ExtResource("5_sgyv8")
+unit_size = 40.0
+bus = &"SFX"
+
+[node name="IndicatorMesh" type="MeshInstance3D" parent="Indicator" unique_id=320526573]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.41918945, 0)
+material_override = SubResource("StandardMaterial3D_j7qsr")
+mesh = ExtResource("4_sgyv8")
+skeleton = NodePath("../..")
+
+[node name="Icicle" type="RigidBody3D" parent="." unique_id=853946414 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.918, 0)
+mass = 10.0
+script = ExtResource("2_sgyv8")
+_collider = NodePath("CollisionShape3D")
+_crashPivot = NodePath(".")
+
+[node name="Icicle_Mesh" type="MeshInstance3D" parent="Icicle" unique_id=64055115]
+transform = Transform3D(1.46, 0, 0, 0, 1.46, 0, 0, 0, 1.46, 0, 0, 0)
+material_override = ExtResource("3_xcivb")
+mesh = ExtResource("4_sgyv8")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Icicle" unique_id=649154689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6645813, 0)
+shape = SubResource("CapsuleShape3D_hc3gn")
+
+[node name="Shatter" type="AudioStreamPlayer3D" parent="Icicle" unique_id=1958261042]
+stream = ExtResource("5_sgyv8")
+unit_size = 40.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area3D" to="." method="BodyEntered"]
+[connection signal="timeout" from="Area3D/Timer" to="." method="timeOut"]

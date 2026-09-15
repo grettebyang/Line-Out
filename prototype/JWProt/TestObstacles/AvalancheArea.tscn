@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://s0iycm3knoxr"]
+
+[ext_resource type="Script" uid="uid://dgupvdk58555e" path="res://prototype/JWProt/TestObstacles/AvalancheArea.cs" id="1_3mbxp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ye0c"]
+size = Vector3(3.21918, 1, 4.07336)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3mbxp"]
+size = Vector3(6.83539, 1, 5.08044)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8ye0c"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ye0c"]
+emission_shape_scale = Vector3(1, 1, 0)
+emission_shape = 1
+emission_sphere_radius = 2.94
+direction = Vector3(0, 0, 1)
+spread = 0.0
+initial_velocity_min = 8.0
+initial_velocity_max = 8.0
+gravity = Vector3(0, -1.5, 0)
+linear_accel_min = -3.0
+linear_accel_max = -3.0
+scale_max = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_3mbxp"]
+height = 0.524
+
+[node name="Avalanche" type="Node3D" node_paths=PackedStringArray("_anticipationFx", "_trigger", "_trapArea", "_snow")]
+script = ExtResource("1_3mbxp")
+_trapDelay = 3.0
+_anticipationFx = NodePath("AnticipationFX")
+_trigger = NodePath("TriggerArea")
+_trapArea = NodePath("TrapArea")
+_snow = NodePath("Snow")
+
+[node name="TriggerArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33923, -0.745379, -0.0372427)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerArea"]
+shape = SubResource("BoxShape3D_8ye0c")
+
+[node name="TrapArea" type="Area3D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrapArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112946, 0, -0.0360718)
+shape = SubResource("BoxShape3D_3mbxp")
+
+[node name="Snow" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.72983, 0, 0, 0, 1, 0, 0, 0, 6.72983, 0, 0, 0)
+mesh = SubResource("SphereMesh_8ye0c")
+
+[node name="AnticipationFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94989, -9.92988)
+amount = 80
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_8ye0c")
+draw_pass_1 = SubResource("SphereMesh_3mbxp")

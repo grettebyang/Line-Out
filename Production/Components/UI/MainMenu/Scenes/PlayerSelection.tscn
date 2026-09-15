@@ -1,0 +1,266 @@
+[gd_scene format=3 uid="uid://c11xxodetkpjy"]
+
+[ext_resource type="Script" uid="uid://bkmf6oslflxfg" path="res://Production/Components/UI/MainMenu/Scripts/PlayerSelectionSubmenu.cs" id="1_ibqj3"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="3_hi3q2"]
+[ext_resource type="PackedScene" uid="uid://c43alwbpup2ce" path="res://Production/Components/UI/Prefabs/Buttons/CharacterButton.tscn" id="3_ibqj3"]
+[ext_resource type="Texture2D" uid="uid://b21vqvck7cjsa" path="res://Production/Components/UI/DogPortraits/LightGrey.png" id="4_hi3q2"]
+[ext_resource type="Texture2D" uid="uid://bmnlgp0icx72i" path="res://Production/Components/UI/DogPortraits/Brown.png" id="5_livkq"]
+[ext_resource type="Texture2D" uid="uid://c42efw0bwj4x0" path="res://Production/Components/UI/DogPortraits/Beige.png" id="6_bdor2"]
+[ext_resource type="PackedScene" uid="uid://dsme3p8klgtmb" path="res://Production/Components/UI/Prefabs/Buttons/HintButton.tscn" id="8_livkq"]
+
+[sub_resource type="Gradient" id="Gradient_d04cp"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.705882, 0.701961, 0.572549, 1, 0.811885, 0.809214, 0.734769, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_da365"]
+gradient = SubResource("Gradient_d04cp")
+width = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="PlayerSelection" type="Control" unique_id=1271759769 node_paths=PackedStringArray("_confirmationBanner", "_characterTiles", "_mainButtonsContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_ibqj3")
+_confirmationBanner = NodePath("ConfirmationBanner")
+_characterTiles = NodePath("Card/CharacterTiles")
+_mainButtonsContainer = NodePath("Card/CharacterTiles")
+_showControllerActivator = true
+metadata/_edit_horizontal_guides_ = [27.0]
+
+[node name="Card" type="TextureRect" parent="." unique_id=1625096511]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -567.25
+offset_top = -160.5
+offset_right = 567.25
+offset_bottom = 160.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_da365")
+
+[node name="Outline" type="ColorRect" parent="Card" unique_id=1535958391]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 504.0
+grow_vertical = 2
+color = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="Label" type="Label" parent="Card" unique_id=1629764911]
+visible = false
+layout_mode = 1
+offset_left = 92.0
+offset_top = 220.0
+offset_right = 500.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_hi3q2")
+theme_override_font_sizes/font_size = 80
+text = "Levels"
+
+[node name="Line" type="ColorRect" parent="Card" unique_id=1638985762]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -180.0
+offset_right = 59.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="CharacterTiles" type="GridContainer" parent="Card" unique_id=200730406]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+columns = 4
+
+[node name="CursorButton" parent="Card/CharacterTiles" unique_id=271175958 instance=ExtResource("3_ibqj3")]
+layout_mode = 2
+
+[node name="Text" parent="Card/CharacterTiles/CursorButton" index="3" unique_id=418465982]
+text = "Patches"
+
+[node name="CursorButton2" parent="Card/CharacterTiles" unique_id=178431251 instance=ExtResource("3_ibqj3")]
+layout_mode = 2
+_buttonId = 1
+
+[node name="Portrait" parent="Card/CharacterTiles/CursorButton2/Card" parent_id_path=PackedInt32Array(178431251, 1049578636) index="1" unique_id=1961575890]
+texture = ExtResource("4_hi3q2")
+
+[node name="Text" parent="Card/CharacterTiles/CursorButton2" index="3" unique_id=418465982]
+text = "Lois"
+
+[node name="CursorButton3" parent="Card/CharacterTiles" unique_id=620118301 instance=ExtResource("3_ibqj3")]
+layout_mode = 2
+_buttonId = 2
+
+[node name="Portrait" parent="Card/CharacterTiles/CursorButton3/Card" parent_id_path=PackedInt32Array(620118301, 1049578636) index="1" unique_id=1961575890]
+texture = ExtResource("5_livkq")
+
+[node name="Text" parent="Card/CharacterTiles/CursorButton3" index="3" unique_id=418465982]
+text = "Neli"
+
+[node name="CursorButton4" parent="Card/CharacterTiles" unique_id=959899512 instance=ExtResource("3_ibqj3")]
+layout_mode = 2
+_buttonId = 3
+
+[node name="Portrait" parent="Card/CharacterTiles/CursorButton4/Card" parent_id_path=PackedInt32Array(959899512, 1049578636) index="1" unique_id=1961575890]
+texture = ExtResource("6_bdor2")
+
+[node name="Text" parent="Card/CharacterTiles/CursorButton4" index="3" unique_id=418465982]
+text = "Igor"
+
+[node name="ConfirmationBanner" type="TextureRect" parent="." unique_id=1266598817]
+visible = false
+z_index = 4
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1124.5056
+offset_top = -65.60611
+offset_right = 1096.823
+offset_bottom = 65.42932
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.054105207
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_da365")
+
+[node name="Outline" type="ColorRect" parent="ConfirmationBanner" unique_id=757596230]
+modulate = Color(1, 1, 1, 0.78039217)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2221.3286
+offset_bottom = 6.0
+grow_vertical = 2
+color = Color(0.42745098, 0.31764707, 0.1764706, 1)
+
+[node name="Label" type="Label" parent="ConfirmationBanner" unique_id=2055991310]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.49994
+offset_top = -55.500015
+offset_right = 211.5
+offset_bottom = 55.499985
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("3_hi3q2")
+theme_override_font_sizes/font_size = 80
+text = "Ready? (A)"
+
+[node name="Line" type="ColorRect" parent="ConfirmationBanner" unique_id=1720102553]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -180.0
+offset_right = 59.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="HintButtons" type="Control" parent="." unique_id=406593697]
+z_index = 10
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HintButtons" unique_id=1543776690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -123.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="HAccept2" type="HBoxContainer" parent="HintButtons/MarginContainer" unique_id=1453549534]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HintButtons/MarginContainer/HAccept2" unique_id=1362159205]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_hi3q2")
+theme_override_font_sizes/font_size = 24
+text = "Deselect"
+
+[node name="MarginContainer" type="MarginContainer" parent="HintButtons/MarginContainer/HAccept2" unique_id=1349641854]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="HintButtonAccept" parent="HintButtons/MarginContainer/HAccept2" unique_id=1660043989 instance=ExtResource("8_livkq")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "B"
+
+[connection signal="Pressed" from="Card/CharacterTiles/CursorButton" to="." method="SelectCharacter"]
+[connection signal="UnPressed" from="Card/CharacterTiles/CursorButton" to="." method="DeselectCharacter"]
+[connection signal="Pressed" from="Card/CharacterTiles/CursorButton2" to="." method="SelectCharacter"]
+[connection signal="UnPressed" from="Card/CharacterTiles/CursorButton2" to="." method="DeselectCharacter"]
+[connection signal="Pressed" from="Card/CharacterTiles/CursorButton3" to="." method="SelectCharacter"]
+[connection signal="UnPressed" from="Card/CharacterTiles/CursorButton3" to="." method="DeselectCharacter"]
+[connection signal="Pressed" from="Card/CharacterTiles/CursorButton4" to="." method="SelectCharacter"]
+[connection signal="UnPressed" from="Card/CharacterTiles/CursorButton4" to="." method="DeselectCharacter"]
+
+[editable path="Card/CharacterTiles/CursorButton"]
+[editable path="Card/CharacterTiles/CursorButton2"]
+[editable path="Card/CharacterTiles/CursorButton3"]
+[editable path="Card/CharacterTiles/CursorButton4"]

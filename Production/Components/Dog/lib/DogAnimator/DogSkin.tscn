@@ -1,0 +1,226 @@
+[gd_scene load_steps=12 format=3 uid="uid://dsojsiwn3wiic"]
+
+[ext_resource type="Script" uid="uid://b7ukmbltn2w0l" path="res://Production/Components/Dog/lib/DogAnimator/DogAnimator.cs" id="1_rtrwj"]
+[ext_resource type="PackedScene" uid="uid://c0ybyqivvxwcj" path="res://prototype/JWProt/TestDog/Husky_test_rigged.fbx" id="2_ph0so"]
+[ext_resource type="Script" uid="uid://ovmxt7plgqtb" path="res://Production/Components/Dog/lib/DogAnimator/ProcAnimation.cs" id="4_7jw3a"]
+[ext_resource type="Script" uid="uid://fio00qaptou4" path="res://Production/Components/Dog/lib/DogAnimator/StartIK.cs" id="4_ph0so"]
+[ext_resource type="Script" uid="uid://cqdqeoqw3ci1u" path="res://Production/Components/Dog/lib/DogAnimator/TransformAnimator.cs" id="5_u56ny"]
+[ext_resource type="Script" uid="uid://dv3i2mse6d6v2" path="res://Production/Components/Dog/lib/DogAnimator/IKTarget.cs" id="6_glf66"]
+[ext_resource type="Script" uid="uid://mrwcyh0lfetc" path="res://Production/Components/Dog/lib/DogAnimator/StepRay.cs" id="7_m1oi3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtrwj"]
+albedo_color = Color(0.29607, 0.22579, 0.162137, 1)
+metallic_specular = 0.1
+
+[sub_resource type="Curve" id="Curve_rtrwj"]
+_data = [Vector2(0, 0.530192), 0.0, 0.0, 0, 0, Vector2(0.294258, 1), 0.0, 0.0, 0, 0, Vector2(0.753588, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.512351), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_4d1lu"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.0212578), 0.0, 0.0, 0, 0, Vector2(0.251196, 1), 0.0, 0.0, 0, 0, Vector2(0.751196, -1), 0.0, 0.0, 0, 0, Vector2(1, 0.0603843), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_ph0so"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.0722781), 0.0, 0.0, 0, 0, Vector2(0.358852, -0.926807), 0.0, 0.0, 0, 0, Vector2(0.686603, 0.714547), 0.0, 0.0, 0, 0, Vector2(1, -0.0109789), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="DogSkin" type="Node3D" node_paths=PackedStringArray("_idleAnimation", "_moveAnimation", "_frontLeftIKTarget", "_frontRightIKTarget", "_backLeftIKTarget", "_backRightIKTarget")]
+script = ExtResource("1_rtrwj")
+_idleAnimation = NodePath("Animations/IdleAnimation")
+_moveAnimation = NodePath("Animations/MoveAnimation")
+_frontLeftIKTarget = NodePath("Husky_test_rigged/FrontLeftIKTarget")
+_frontRightIKTarget = NodePath("Husky_test_rigged/FrontRightIKTarget")
+_backLeftIKTarget = NodePath("Husky_test_rigged/BackLeftIKTarget")
+_backRightIKTarget = NodePath("Husky_test_rigged/BackRightIKTarget")
+
+[node name="Husky_test_rigged" parent="." instance=ExtResource("2_ph0so")]
+transform = Transform3D(0.295882, 0, 0, 0, 0.295882, 0, 0, 0, 0.295882, 0, -1, 0)
+
+[node name="Skeleton3D" parent="Husky_test_rigged" index="0"]
+bones/13/rotation = Quaternion(0.826124, -0.563489, 1.15571e-16, 4.71176e-18)
+
+[node name="Husky" parent="Husky_test_rigged/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rtrwj")
+
+[node name="FrontLeftIK" type="SkeletonIK3D" parent="Husky_test_rigged/Skeleton3D" index="1"]
+root_bone = &"l_leg_front_elbow1_jnt"
+tip_bone = &"l_leg_front_foot_jnt"
+target_node = NodePath("../../FrontLeftIKTarget")
+script = ExtResource("4_ph0so")
+
+[node name="FronRightIK" type="SkeletonIK3D" parent="Husky_test_rigged/Skeleton3D" index="2"]
+root_bone = &"r_leg_front_shoulder_jnt"
+tip_bone = &"r_leg_front_foot_jnt"
+target_node = NodePath("../../FrontRightIKTarget")
+script = ExtResource("4_ph0so")
+
+[node name="BackLeftIK" type="SkeletonIK3D" parent="Husky_test_rigged/Skeleton3D" index="3"]
+root_bone = &"l_leg_back_hip_jnt"
+tip_bone = &"l_leg_back_foot_jnt"
+target_node = NodePath("../../BackLeftIKTarget")
+script = ExtResource("4_ph0so")
+
+[node name="BackRightIK" type="SkeletonIK3D" parent="Husky_test_rigged/Skeleton3D" index="4"]
+root_bone = &"r_leg_back_hip_jnt"
+tip_bone = &"r_leg_back_foot_jnt"
+target_node = NodePath("../../BackRightIKTarget")
+script = ExtResource("4_ph0so")
+
+[node name="BodyIK" type="SkeletonIK3D" parent="Husky_test_rigged/Skeleton3D" index="5"]
+root_bone = &"neck_jnt"
+tip_bone = &"snout_jnt"
+target_node = NodePath("../../HeadIKTarget")
+script = ExtResource("4_ph0so")
+
+[node name="TailIK" type="SkeletonIK3D" parent="Husky_test_rigged/Skeleton3D" index="6"]
+root_bone = &"tail_base_jnt"
+tip_bone = &"tail_end_jnt"
+target_node = NodePath("../../TailIKTarget")
+script = ExtResource("4_ph0so")
+
+[node name="BackIK" type="SkeletonIK3D" parent="Husky_test_rigged/Skeleton3D" index="7"]
+target_node = NodePath("../../TailIKTarget")
+script = ExtResource("4_ph0so")
+
+[node name="FrontLeftIKTarget" type="Marker3D" parent="Husky_test_rigged" node_paths=PackedStringArray("_stepTarget", "_adjacentLeg", "_originalPosNode")]
+transform = Transform3D(1.63154, 0, 0, 0, 1.63154, 0, 0, 0, 1.63154, 0.229595, -0.959402, 0.481194)
+top_level = true
+script = ExtResource("6_glf66")
+_stepTarget = NodePath("../StepTargetContainer/FrontLeftRay/FrontLeftStepTarget")
+_stepLenght = 0.75
+_adjacentLeg = NodePath("../FrontRightIKTarget")
+_originalPosNode = NodePath("../LegOriginalPositions/FrontLeftIKOrigin")
+
+[node name="FrontRightIKTarget" type="Marker3D" parent="Husky_test_rigged" node_paths=PackedStringArray("_stepTarget", "_adjacentLeg", "_originalPosNode")]
+transform = Transform3D(1.63154, 0, 0, 0, 1.63154, 0, 0, 0, 1.63154, -0.262309, -0.928313, 0.478214)
+top_level = true
+script = ExtResource("6_glf66")
+_stepTarget = NodePath("../StepTargetContainer/FrontRightRay/FrontRightStepTarget")
+_stepLenght = 0.75
+_adjacentLeg = NodePath("../FrontLeftIKTarget")
+_originalPosNode = NodePath("../LegOriginalPositions/FrontRightIKOrigin")
+
+[node name="BackLeftIKTarget" type="Marker3D" parent="Husky_test_rigged" node_paths=PackedStringArray("_stepTarget", "_adjacentLeg", "_originalPosNode")]
+transform = Transform3D(1.63154, 0, 0, 0, 1.63154, 0, 0, 0, 1.63154, 0.263955, -0.986455, -0.457522)
+top_level = true
+script = ExtResource("6_glf66")
+_stepTarget = NodePath("../StepTargetContainer/BackLeftRay/BackLeftStepTarget")
+_stepLenght = 0.75
+_adjacentLeg = NodePath("../BackRightIKTarget")
+_originalPosNode = NodePath("../LegOriginalPositions/BackLeftIKOrigin")
+
+[node name="BackRightIKTarget" type="Marker3D" parent="Husky_test_rigged" node_paths=PackedStringArray("_stepTarget", "_adjacentLeg", "_originalPosNode")]
+transform = Transform3D(1.63154, 0, 0, 0, 1.63154, 0, 0, 0, 1.63154, -0.267324, -0.97037, -0.454952)
+top_level = true
+script = ExtResource("6_glf66")
+_stepTarget = NodePath("../StepTargetContainer/BackRightRay/BackRightStepTarget")
+_stepLenght = 0.75
+_adjacentLeg = NodePath("../BackLeftIKTarget")
+_originalPosNode = NodePath("../LegOriginalPositions/BackRightIKOrigin")
+
+[node name="HeadIKTarget" type="Marker3D" parent="Husky_test_rigged"]
+transform = Transform3D(0.999996, 0, 0, 0, 0.821305, -0.570482, 0, 0.570482, 0.821305, 0, 3.84508, 3.11189)
+
+[node name="TailIKTarget" type="Marker3D" parent="Husky_test_rigged"]
+transform = Transform3D(0.999996, 0, 0, 0, 0.821305, -0.570482, 0, 0.570482, 0.821305, 0, 3.90305, -4.08128)
+
+[node name="StepTargetContainer" type="Node3D" parent="Husky_test_rigged"]
+
+[node name="FrontLeftRay" type="RayCast3D" parent="Husky_test_rigged/StepTargetContainer" node_paths=PackedStringArray("_stepTarget")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.929473, 0.368887, 0, -0.368887, 0.929473, 0.934253, 1.04741, 2.97433)
+target_position = Vector3(0, -5, 0)
+script = ExtResource("7_m1oi3")
+_stepTarget = NodePath("FrontLeftStepTarget")
+
+[node name="FrontLeftStepTarget" type="Marker3D" parent="Husky_test_rigged/StepTargetContainer/FrontLeftRay"]
+transform = Transform3D(1, 0, 0, 0, 0.980853, -0.194748, 0, 0.194748, 0.980853, 0, -1.0958, 0.0128874)
+
+[node name="FrontRightRay" type="RayCast3D" parent="Husky_test_rigged/StepTargetContainer" node_paths=PackedStringArray("_stepTarget")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.929473, 0.368887, 0, -0.368887, 0.929473, -0.937859, 1.05716, 2.97216)
+target_position = Vector3(0, -5, 0)
+script = ExtResource("7_m1oi3")
+_stepTarget = NodePath("FrontRightStepTarget")
+
+[node name="FrontRightStepTarget" type="Marker3D" parent="Husky_test_rigged/StepTargetContainer/FrontRightRay"]
+transform = Transform3D(1, 0, 0, 0, 0.980853, -0.194748, 0, 0.194748, 0.980853, 0, -1.09629, 0.0147778)
+
+[node name="BackLeftRay" type="RayCast3D" parent="Husky_test_rigged/StepTargetContainer" node_paths=PackedStringArray("_stepTarget")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.980852, 0.194748, 0, -0.194748, 0.980852, 0.938497, 0.965026, 0.225523)
+target_position = Vector3(0, -5, 0)
+script = ExtResource("7_m1oi3")
+_stepTarget = NodePath("BackLeftStepTarget")
+
+[node name="BackLeftStepTarget" type="Marker3D" parent="Husky_test_rigged/StepTargetContainer/BackLeftRay"]
+transform = Transform3D(1, 0, 0, 0, 0.980853, -0.194748, 0, 0.194748, 0.980853, 7.45058e-09, -0.932873, 0.00291884)
+
+[node name="BackRightRay" type="RayCast3D" parent="Husky_test_rigged/StepTargetContainer" node_paths=PackedStringArray("_stepTarget")]
+transform = Transform3D(0.999999, 0, 0, 0, 0.980852, 0.194748, 0, -0.194748, 0.980852, -0.915357, 0.975005, 0.225147)
+target_position = Vector3(0, -5, 0)
+script = ExtResource("7_m1oi3")
+_stepTarget = NodePath("BackRightStepTarget")
+
+[node name="BackRightStepTarget" type="Marker3D" parent="Husky_test_rigged/StepTargetContainer/BackRightRay"]
+transform = Transform3D(1, 0, 0, 0, 0.980853, -0.194748, 0, 0.194748, 0.980853, 0, -0.933368, 0.0048089)
+
+[node name="LegOriginalPositions" type="Node3D" parent="Husky_test_rigged"]
+
+[node name="FrontLeftIKOrigin" type="Marker3D" parent="Husky_test_rigged/LegOriginalPositions"]
+transform = Transform3D(5.51416, 0, 0, 0, 5.51416, 0, 0, 0, 5.51416, 0.775968, 0.13721, 1.6263)
+
+[node name="FrontRightIKOrigin" type="Marker3D" parent="Husky_test_rigged/LegOriginalPositions"]
+transform = Transform3D(5.51416, 0, 0, 0, 5.51416, 0, 0, 0, 5.51416, -0.886533, 0.242282, 1.61623)
+
+[node name="BackLeftIKOrigin" type="Marker3D" parent="Husky_test_rigged/LegOriginalPositions"]
+transform = Transform3D(5.51416, 0, 0, 0, 5.51416, 0, 0, 0, 5.51416, 0.892096, 0.0457783, -1.5463)
+
+[node name="BackRightIKOrigin" type="Marker3D" parent="Husky_test_rigged/LegOriginalPositions"]
+transform = Transform3D(5.51416, 0, 0, 0, 5.51416, 0, 0, 0, 5.51416, -0.903482, 0.100141, -1.53761)
+
+[node name="Animations" type="Node3D" parent="."]
+
+[node name="IdleAnimation" type="Node3D" parent="Animations"]
+script = ExtResource("4_7jw3a")
+Tag = "Move"
+_transitionTime = 0.25
+
+[node name="BodyRotation" type="Node3D" parent="Animations/IdleAnimation" node_paths=PackedStringArray("_target")]
+script = ExtResource("5_u56ny")
+_target = NodePath("../../../Husky_test_rigged")
+_targetPosition = Vector3(0, 1, 0)
+_targetRotation = Vector3(2, 0, 0)
+_rotationCurve = SubResource("Curve_rtrwj")
+
+[node name="Tailwhip" type="Node3D" parent="Animations/IdleAnimation" node_paths=PackedStringArray("_target")]
+script = ExtResource("5_u56ny")
+_target = NodePath("../../../Husky_test_rigged/TailIKTarget")
+_targetPosition = Vector3(5, 0, 0)
+_positionCurve = SubResource("Curve_4d1lu")
+
+[node name="MoveAnimation" type="Node3D" parent="Animations"]
+script = ExtResource("4_7jw3a")
+Tag = "Move"
+_transitionTime = 0.25
+
+[node name="Headbob" type="Node3D" parent="Animations/MoveAnimation" node_paths=PackedStringArray("_target")]
+script = ExtResource("5_u56ny")
+_target = NodePath("../../../Husky_test_rigged/HeadIKTarget")
+_targetPosition = Vector3(0, 0.2, 0)
+_positionCurve = SubResource("Curve_ph0so")
+
+[node name="BodyRotation" type="Node3D" parent="Animations/MoveAnimation" node_paths=PackedStringArray("_target")]
+script = ExtResource("5_u56ny")
+_target = NodePath("../../../Husky_test_rigged")
+_targetPosition = Vector3(0, 1, 0)
+_targetRotation = Vector3(10, 0, 0)
+_rotationCurve = SubResource("Curve_rtrwj")
+
+[node name="Tailwhip" type="Node3D" parent="Animations/MoveAnimation" node_paths=PackedStringArray("_target")]
+script = ExtResource("5_u56ny")
+_target = NodePath("../../../Husky_test_rigged/TailIKTarget")
+_targetPosition = Vector3(4, 0, 0)
+_positionCurve = SubResource("Curve_4d1lu")
+_playbackSpeedCap = 0.002
+
+[editable path="Husky_test_rigged"]

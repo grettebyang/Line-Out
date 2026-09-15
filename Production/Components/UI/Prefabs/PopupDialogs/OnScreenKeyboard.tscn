@@ -1,0 +1,624 @@
+[gd_scene format=3 uid="uid://be2ae280tcba"]
+
+[ext_resource type="Script" uid="uid://fjp7yeh7gj3u" path="res://Production/Components/UI/Prefabs/PopupDialogs/OnScreenKeyboard.cs" id="1_7cfxo"]
+[ext_resource type="PackedScene" uid="uid://bt744k5h2hlc1" path="res://Production/Components/UI/Prefabs/Buttons/CursorButton.tscn" id="2_slexv"]
+
+[sub_resource type="Gradient" id="Gradient_fdsoe"]
+offsets = PackedFloat32Array(0, 0.141956, 1)
+colors = PackedColorArray(0.796078, 0.796078, 0.627451, 1, 0.894148, 0.894148, 0.776441, 1, 1, 1, 0.937255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_giivi"]
+gradient = SubResource("Gradient_fdsoe")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="OnScreenKeyboard" type="Control" unique_id=1972223529 node_paths=PackedStringArray("_row1", "_row2", "_row3")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7cfxo")
+_row1 = NodePath("VBoxContainer/Row1")
+_row2 = NodePath("VBoxContainer/Row2")
+_row3 = NodePath("VBoxContainer/Row3")
+
+[node name="Background" type="TextureRect" parent="." unique_id=462832748]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.49400002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.52001953
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("GradientTexture2D_giivi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=76153103]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.49400002
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.52001953
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Numbers" type="HBoxContainer" parent="VBoxContainer" unique_id=1828568913]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="1" parent="VBoxContainer/Numbers" unique_id=271175958 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 49
+
+[node name="Area2D" parent="VBoxContainer/Numbers/1" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/1" index="3" unique_id=418465982]
+text = "1"
+
+[node name="2" parent="VBoxContainer/Numbers" unique_id=1193843218 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 50
+
+[node name="Area2D" parent="VBoxContainer/Numbers/2" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/2" index="3" unique_id=418465982]
+text = "2"
+
+[node name="3" parent="VBoxContainer/Numbers" unique_id=1589255184 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 51
+
+[node name="Area2D" parent="VBoxContainer/Numbers/3" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/3" index="3" unique_id=418465982]
+text = "3"
+
+[node name="4" parent="VBoxContainer/Numbers" unique_id=711238216 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 52
+
+[node name="Area2D" parent="VBoxContainer/Numbers/4" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/4" index="3" unique_id=418465982]
+text = "4"
+
+[node name="5" parent="VBoxContainer/Numbers" unique_id=435809353 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 53
+
+[node name="Area2D" parent="VBoxContainer/Numbers/5" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/5" index="3" unique_id=418465982]
+text = "5"
+
+[node name="6" parent="VBoxContainer/Numbers" unique_id=1233140871 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 54
+
+[node name="Area2D" parent="VBoxContainer/Numbers/6" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/6" index="3" unique_id=418465982]
+text = "6"
+
+[node name="7" parent="VBoxContainer/Numbers" unique_id=794602346 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 55
+
+[node name="Area2D" parent="VBoxContainer/Numbers/7" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/7" index="3" unique_id=418465982]
+text = "7"
+
+[node name="8" parent="VBoxContainer/Numbers" unique_id=72720028 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 56
+
+[node name="Area2D" parent="VBoxContainer/Numbers/8" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/8" index="3" unique_id=418465982]
+text = "8"
+
+[node name="9" parent="VBoxContainer/Numbers" unique_id=1633752266 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 57
+
+[node name="Area2D" parent="VBoxContainer/Numbers/9" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/9" index="3" unique_id=418465982]
+text = "9"
+
+[node name="0" parent="VBoxContainer/Numbers" unique_id=2134755480 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 48
+
+[node name="Area2D" parent="VBoxContainer/Numbers/0" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/0" index="3" unique_id=418465982]
+text = "0"
+
+[node name="Backspace" parent="VBoxContainer/Numbers" unique_id=2114742604 instance=ExtResource("2_slexv")]
+custom_minimum_size = Vector2(315, 0)
+layout_mode = 2
+_buttonId = 8
+
+[node name="Area2D" parent="VBoxContainer/Numbers/Backspace" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Numbers/Backspace" index="3" unique_id=418465982]
+text = "Backspace"
+
+[node name="Row1" type="HBoxContainer" parent="VBoxContainer" unique_id=1256202489]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="q" parent="VBoxContainer/Row1" unique_id=507886849 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 113
+
+[node name="Area2D" parent="VBoxContainer/Row1/q" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/q" index="3" unique_id=418465982]
+text = "q"
+
+[node name="w" parent="VBoxContainer/Row1" unique_id=855183974 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 119
+
+[node name="Area2D" parent="VBoxContainer/Row1/w" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/w" index="3" unique_id=418465982]
+text = "w"
+
+[node name="e" parent="VBoxContainer/Row1" unique_id=2024238657 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 101
+
+[node name="Area2D" parent="VBoxContainer/Row1/e" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/e" index="3" unique_id=418465982]
+text = "e"
+
+[node name="r" parent="VBoxContainer/Row1" unique_id=1629600059 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 114
+
+[node name="Area2D" parent="VBoxContainer/Row1/r" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/r" index="3" unique_id=418465982]
+text = "r"
+
+[node name="t" parent="VBoxContainer/Row1" unique_id=2005022663 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 116
+
+[node name="Area2D" parent="VBoxContainer/Row1/t" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/t" index="3" unique_id=418465982]
+text = "t"
+
+[node name="y" parent="VBoxContainer/Row1" unique_id=2036170817 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 121
+
+[node name="Area2D" parent="VBoxContainer/Row1/y" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/y" index="3" unique_id=418465982]
+text = "y"
+
+[node name="u" parent="VBoxContainer/Row1" unique_id=721454534 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 117
+
+[node name="Area2D" parent="VBoxContainer/Row1/u" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/u" index="3" unique_id=418465982]
+text = "u"
+
+[node name="i" parent="VBoxContainer/Row1" unique_id=1338043836 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 105
+
+[node name="Area2D" parent="VBoxContainer/Row1/i" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/i" index="3" unique_id=418465982]
+text = "i"
+
+[node name="o" parent="VBoxContainer/Row1" unique_id=1605066565 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 111
+
+[node name="Area2D" parent="VBoxContainer/Row1/o" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/o" index="3" unique_id=418465982]
+text = "o"
+
+[node name="p" parent="VBoxContainer/Row1" unique_id=421281589 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 112
+
+[node name="Area2D" parent="VBoxContainer/Row1/p" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/p" index="3" unique_id=418465982]
+text = "p"
+
+[node name="å" parent="VBoxContainer/Row1" unique_id=1114070491 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 229
+
+[node name="Area2D" parent="VBoxContainer/Row1/å" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row1/å" index="3" unique_id=418465982]
+text = "å"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Row1" unique_id=1739497788]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Row2" type="HBoxContainer" parent="VBoxContainer" unique_id=719787105]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Row2" unique_id=780619824]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+
+[node name="a" parent="VBoxContainer/Row2" unique_id=1954318016 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 97
+
+[node name="Area2D" parent="VBoxContainer/Row2/a" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/a" index="3" unique_id=418465982]
+text = "a"
+
+[node name="s" parent="VBoxContainer/Row2" unique_id=1156259013 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 115
+
+[node name="Area2D" parent="VBoxContainer/Row2/s" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/s" index="3" unique_id=418465982]
+text = "s"
+
+[node name="d" parent="VBoxContainer/Row2" unique_id=1725589373 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 100
+
+[node name="Area2D" parent="VBoxContainer/Row2/d" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/d" index="3" unique_id=418465982]
+text = "d"
+
+[node name="f" parent="VBoxContainer/Row2" unique_id=2130716023 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 102
+
+[node name="Area2D" parent="VBoxContainer/Row2/f" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/f" index="3" unique_id=418465982]
+text = "f"
+
+[node name="g" parent="VBoxContainer/Row2" unique_id=1926771115 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 103
+
+[node name="Area2D" parent="VBoxContainer/Row2/g" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/g" index="3" unique_id=418465982]
+text = "g"
+
+[node name="h" parent="VBoxContainer/Row2" unique_id=1557012038 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 104
+
+[node name="Area2D" parent="VBoxContainer/Row2/h" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/h" index="3" unique_id=418465982]
+text = "h"
+
+[node name="j" parent="VBoxContainer/Row2" unique_id=528602929 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 106
+
+[node name="Area2D" parent="VBoxContainer/Row2/j" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/j" index="3" unique_id=418465982]
+text = "j"
+
+[node name="k" parent="VBoxContainer/Row2" unique_id=1862142572 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 107
+
+[node name="Area2D" parent="VBoxContainer/Row2/k" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/k" index="3" unique_id=418465982]
+text = "k"
+
+[node name="l" parent="VBoxContainer/Row2" unique_id=607592126 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 108
+
+[node name="Area2D" parent="VBoxContainer/Row2/l" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/l" index="3" unique_id=418465982]
+text = "l"
+
+[node name="ö" parent="VBoxContainer/Row2" unique_id=1361388100 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 246
+
+[node name="Area2D" parent="VBoxContainer/Row2/ö" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/ö" index="3" unique_id=418465982]
+text = "ö"
+
+[node name="ä" parent="VBoxContainer/Row2" unique_id=233707365 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 228
+
+[node name="Area2D" parent="VBoxContainer/Row2/ä" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row2/ä" index="3" unique_id=418465982]
+text = "ä"
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Row2" unique_id=1660566786]
+custom_minimum_size = Vector2(78, 0)
+layout_mode = 2
+
+[node name="Row3" type="HBoxContainer" parent="VBoxContainer" unique_id=1436528711]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Row3" unique_id=135777006]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="z" parent="VBoxContainer/Row3" unique_id=1083423817 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 122
+
+[node name="Area2D" parent="VBoxContainer/Row3/z" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row3/z" index="3" unique_id=418465982]
+text = "z"
+
+[node name="x" parent="VBoxContainer/Row3" unique_id=141715963 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 120
+
+[node name="Area2D" parent="VBoxContainer/Row3/x" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row3/x" index="3" unique_id=418465982]
+text = "x"
+
+[node name="c" parent="VBoxContainer/Row3" unique_id=1117015451 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 99
+
+[node name="Area2D" parent="VBoxContainer/Row3/c" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row3/c" index="3" unique_id=418465982]
+text = "c"
+
+[node name="v" parent="VBoxContainer/Row3" unique_id=1816747024 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 118
+
+[node name="Area2D" parent="VBoxContainer/Row3/v" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row3/v" index="3" unique_id=418465982]
+text = "v"
+
+[node name="b" parent="VBoxContainer/Row3" unique_id=2084498286 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 98
+
+[node name="Area2D" parent="VBoxContainer/Row3/b" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row3/b" index="3" unique_id=418465982]
+text = "b"
+
+[node name="n" parent="VBoxContainer/Row3" unique_id=839001671 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 110
+
+[node name="Area2D" parent="VBoxContainer/Row3/n" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row3/n" index="3" unique_id=418465982]
+text = "n"
+
+[node name="m" parent="VBoxContainer/Row3" unique_id=1647923732 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 109
+
+[node name="Area2D" parent="VBoxContainer/Row3/m" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row3/m" index="3" unique_id=418465982]
+text = "m"
+
+[node name="MarginContainer4" type="MarginContainer" parent="VBoxContainer/Row3" unique_id=2077700821]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/Row3" unique_id=436141174]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer6" type="MarginContainer" parent="VBoxContainer/Row3" unique_id=528684497]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer7" type="MarginContainer" parent="VBoxContainer/Row3" unique_id=1680314379]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Row4" type="HBoxContainer" parent="VBoxContainer" unique_id=1707028940]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Caps" parent="VBoxContainer/Row4" unique_id=988893081 instance=ExtResource("2_slexv")]
+custom_minimum_size = Vector2(274.43, 0)
+layout_mode = 2
+size_flags_horizontal = 1
+_staySelected = true
+_canDeselect = true
+
+[node name="Area2D" parent="VBoxContainer/Row4/Caps" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row4/Caps" index="3" unique_id=418465982]
+text = "Caps"
+
+[node name="Space" parent="VBoxContainer/Row4" unique_id=2004180275 instance=ExtResource("2_slexv")]
+layout_mode = 2
+_buttonId = 32
+
+[node name="Area2D" parent="VBoxContainer/Row4/Space" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="Text" parent="VBoxContainer/Row4/Space" index="3" unique_id=418465982]
+text = "Space"
+
+[node name="MarginContainer5" type="MarginContainer" parent="VBoxContainer/Row4" unique_id=2145991723]
+custom_minimum_size = Vector2(394, 0)
+layout_mode = 2
+
+[connection signal="Pressed" from="VBoxContainer/Numbers/1" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/2" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/3" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/4" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/5" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/6" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/7" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/8" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/9" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/0" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Numbers/Backspace" to="." method="OnBackspacePressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/q" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/w" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/e" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/r" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/t" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/y" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/u" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/i" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/o" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/p" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row1/å" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/a" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/s" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/d" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/f" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/g" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/h" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/j" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/k" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/l" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/ö" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row2/ä" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row3/z" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row3/x" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row3/c" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row3/v" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row3/b" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row3/n" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row3/m" to="." method="OnKeyPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row4/Caps" to="." method="OnCapsPressed"]
+[connection signal="Pressed" from="VBoxContainer/Row4/Space" to="." method="OnKeyPressed"]
+
+[editable path="VBoxContainer/Numbers/1"]
+[editable path="VBoxContainer/Numbers/2"]
+[editable path="VBoxContainer/Numbers/3"]
+[editable path="VBoxContainer/Numbers/4"]
+[editable path="VBoxContainer/Numbers/5"]
+[editable path="VBoxContainer/Numbers/6"]
+[editable path="VBoxContainer/Numbers/7"]
+[editable path="VBoxContainer/Numbers/8"]
+[editable path="VBoxContainer/Numbers/9"]
+[editable path="VBoxContainer/Numbers/0"]
+[editable path="VBoxContainer/Numbers/Backspace"]
+[editable path="VBoxContainer/Row1/q"]
+[editable path="VBoxContainer/Row1/w"]
+[editable path="VBoxContainer/Row1/e"]
+[editable path="VBoxContainer/Row1/r"]
+[editable path="VBoxContainer/Row1/t"]
+[editable path="VBoxContainer/Row1/y"]
+[editable path="VBoxContainer/Row1/u"]
+[editable path="VBoxContainer/Row1/i"]
+[editable path="VBoxContainer/Row1/o"]
+[editable path="VBoxContainer/Row1/p"]
+[editable path="VBoxContainer/Row1/å"]
+[editable path="VBoxContainer/Row2/a"]
+[editable path="VBoxContainer/Row2/s"]
+[editable path="VBoxContainer/Row2/d"]
+[editable path="VBoxContainer/Row2/f"]
+[editable path="VBoxContainer/Row2/g"]
+[editable path="VBoxContainer/Row2/h"]
+[editable path="VBoxContainer/Row2/j"]
+[editable path="VBoxContainer/Row2/k"]
+[editable path="VBoxContainer/Row2/l"]
+[editable path="VBoxContainer/Row2/ö"]
+[editable path="VBoxContainer/Row2/ä"]
+[editable path="VBoxContainer/Row3/z"]
+[editable path="VBoxContainer/Row3/x"]
+[editable path="VBoxContainer/Row3/c"]
+[editable path="VBoxContainer/Row3/v"]
+[editable path="VBoxContainer/Row3/b"]
+[editable path="VBoxContainer/Row3/n"]
+[editable path="VBoxContainer/Row3/m"]
+[editable path="VBoxContainer/Row4/Caps"]
+[editable path="VBoxContainer/Row4/Space"]

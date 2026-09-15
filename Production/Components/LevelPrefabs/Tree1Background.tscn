@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://duapcsgotvd7w"]
+
+[ext_resource type="PackedScene" uid="uid://c3bski1ubp1lg" path="res://assets/Meshes/Props/Vegetation/tree.glb" id="1_hjhyv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hjhyv"]
+height = 8.357178
+
+[node name="Tree" type="Node3D" unique_id=982943064]
+
+[node name="tree" parent="." unique_id=665695922 instance=ExtResource("1_hjhyv")]
+
+[node name="Trunk" parent="tree" index="1" unique_id=1486638135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tree/Trunk" index="0" unique_id=1316841505]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree/Trunk/StaticBody3D" unique_id=1572948381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.004687, 0)
+shape = SubResource("CylinderShape3D_hjhyv")
+
+[editable path="tree"]

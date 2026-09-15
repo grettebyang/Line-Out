@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxx32lqfcgjpk"]
+
+[ext_resource type="PackedScene" uid="uid://di7exgxdrshlt" path="res://assets/3D Assets - Production/Prefabs/Snowman.tscn" id="1_0xcch"]
+[ext_resource type="Script" uid="uid://cqofprq1powsy" path="res://assets/3D Assets - Production/Prefabs/Snowman.cs" id="2_lpaxa"]
+[ext_resource type="AudioStream" uid="uid://df22pijoh5qrh" path="res://assets/AudioAssets/Snowman/Snowman.wav" id="3_lpaxa"]
+
+[node name="Snowman" type="Node3D" unique_id=37107634]
+
+[node name="Snowman" parent="." unique_id=1850164651 node_paths=PackedStringArray("_audioPlayer", "_collider", "_crashPivot") instance=ExtResource("1_0xcch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0014005, 0)
+script = ExtResource("2_lpaxa")
+_audioPlayer = NodePath("../AudioStreamPlayer3D")
+_collider = NodePath("Snowman_Collision")
+_crashPivot = NodePath("..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=151984104]
+stream = ExtResource("3_lpaxa")
+bus = &"SFX"
+
+[editable path="Snowman"]

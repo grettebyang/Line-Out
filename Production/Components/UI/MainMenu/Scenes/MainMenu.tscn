@@ -1,0 +1,308 @@
+[gd_scene format=3 uid="uid://hic4uwagu2f7"]
+
+[ext_resource type="Script" uid="uid://nx0mnoebxq1r" path="res://Production/Components/UI/MainMenu/Scripts/MainMenu.cs" id="1_7o6y6"]
+[ext_resource type="Texture2D" uid="uid://p22jy5fkra5o" path="res://Production/Components/UI/MainMenu/Sprites/MenuBackground2.png" id="2_1bgoh"]
+[ext_resource type="Script" uid="uid://c1o4338v3shvh" path="res://Production/Components/UI/MainMenu/Scripts/SubmenuBase.cs" id="2_r4toe"]
+[ext_resource type="AudioStream" uid="uid://8megbbrtgif4" path="res://assets/AudioAssets/Music/Lapland'sFikaDeliveryDogs.wav" id="3_1bgoh"]
+[ext_resource type="PackedScene" uid="uid://cuijp8417algr" path="res://Production/Components/UI/MainMenu/Scenes/ListMenuBase.tscn" id="3_7o4l0"]
+[ext_resource type="PackedScene" uid="uid://b0dcnv5vvt8s6" path="res://Production/Components/UI/MainMenu/Scenes/LevelSelection.tscn" id="4_r2kke"]
+[ext_resource type="PackedScene" uid="uid://d4bk5s6xdpftm" path="res://Production/Components/UI/Prefabs/Buttons/ListMenuButton.tscn" id="5_7o4l0"]
+[ext_resource type="PackedScene" uid="uid://cley1231oy5y0" path="res://Production/Components/UI/Prefabs/Buttons/CursorMenuButton.tscn" id="7_85tlh"]
+[ext_resource type="FontFile" uid="uid://cel42owa3483s" path="res://Production/Fonts/Onest/Onest-VariableFont_wght.ttf" id="7_n8cad"]
+[ext_resource type="PackedScene" uid="uid://cw55il1thuco0" path="res://Production/Components/UI/MainMenu/Scenes/CreditsMenu.tscn" id="9_1bgoh"]
+[ext_resource type="PackedScene" uid="uid://c11xxodetkpjy" path="res://Production/Components/UI/MainMenu/Scenes/PlayerSelection.tscn" id="9_16ft3"]
+[ext_resource type="PackedScene" uid="uid://blvw2ykuscvj5" path="res://Production/Components/UI/TempScoreboard/TempScoreboardUI.tscn" id="9_ccnx6"]
+[ext_resource type="PackedScene" uid="uid://deecxmywcm1w3" path="res://Production/Components/UI/MainMenu/Scenes/MultiplayerMenu.tscn" id="9_kb8fo"]
+[ext_resource type="PackedScene" uid="uid://bvy28lnokmuy2" path="res://Production/Components/UI/MainMenu/Scenes/HintButtonLine.tscn" id="10_1nd7t"]
+[ext_resource type="PackedScene" uid="uid://3stbk02mu7bc" path="res://Production/Components/UI/MainMenu/Scenes/SettingsMenu.tscn" id="10_ccnx6"]
+[ext_resource type="PackedScene" uid="uid://3mjt88p37ss7" path="res://Production/Components/UI/MainMenu/Scenes/RhythmCalibration.tscn" id="11_16ft3"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="17_23q3w"]
+[ext_resource type="PackedScene" uid="uid://pnva2tyrect8" path="res://Production/Components/UI/MainMenu/Scenes/h_back_hold.tscn" id="18_nwa24"]
+[ext_resource type="PackedScene" uid="uid://cytls676n6wk4" path="res://Production/Components/UI/ControllersActivator/Layouts/MenuControllerActivatorUI.tscn" id="19_85tlh"]
+
+[sub_resource type="Gradient" id="Gradient_d04cp"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.705882, 0.701961, 0.572549, 1, 0.811885, 0.809214, 0.734769, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_da365"]
+gradient = SubResource("Gradient_d04cp")
+width = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="MainMenu" type="Control" unique_id=510131092 node_paths=PackedStringArray("_levelsMenu", "_scoreboard", "_multiplayerMenu", "_settingsMenu", "_creditsMenu", "_playerSelectionMenu", "_rhythmCalibrationMenu", "_controllersActivatorUI", "_mainSelection", "_backButton", "_backButtonHold", "_confirmButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7o6y6")
+_levelsMenu = NodePath("LevelSelection")
+_scoreboard = NodePath("Scoreboard")
+_multiplayerMenu = NodePath("MultiplayerMenu")
+_settingsMenu = NodePath("SettingsMenu")
+_creditsMenu = NodePath("CreditsMenu")
+_playerSelectionMenu = NodePath("PlayerSelection")
+_rhythmCalibrationMenu = NodePath("RhythmCalibration")
+_controllersActivatorUI = NodePath("ControllerActivatorUI")
+_mainSelection = NodePath("MainSelection")
+_backButton = NodePath("HintButtons/MarginContainer/HBack")
+_backButtonHold = NodePath("HintButtons/MarginContainer/HBackHold")
+_confirmButton = NodePath("HintButtons/MarginContainer/HAccept")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1481006458]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1bgoh")
+
+[node name="SountrackPlayer" type="AudioStreamPlayer" parent="." unique_id=116864660]
+stream = ExtResource("3_1bgoh")
+
+[node name="MainSelection" parent="." unique_id=1403307164 node_paths=PackedStringArray("_mainButtonsContainer") instance=ExtResource("3_7o4l0")]
+layout_mode = 1
+offset_right = 500.0
+texture = SubResource("GradientTexture2D_da365")
+script = ExtResource("2_r4toe")
+_mainButtonsContainer = NodePath("MainSelection")
+_confirmHintButtonVisible = true
+_showControllerActivator = true
+
+[node name="Label" parent="MainSelection" index="1"]
+offset_top = 194.0
+offset_bottom = 305.0
+
+[node name="MainSelection" parent="MainSelection" index="3"]
+process_mode = 4
+visible = false
+
+[node name="BtnLevels" parent="MainSelection/MainSelection" index="0" unique_id=1016668488 instance=ExtResource("5_7o4l0")]
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+text = "Levels"
+
+[node name="BtnPlayerSelection" parent="MainSelection/MainSelection" index="1" unique_id=222677675 instance=ExtResource("5_7o4l0")]
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+text = "Join Players"
+
+[node name="BtnScoreboard" parent="MainSelection/MainSelection" index="2" unique_id=194250401 instance=ExtResource("5_7o4l0")]
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+text = "Leaderboard"
+
+[node name="BtnRhythmCalibration" parent="MainSelection/MainSelection" index="3" unique_id=1352489041 instance=ExtResource("5_7o4l0")]
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+text = "Rhythm Calibration"
+
+[node name="BtnMultiplayer" parent="MainSelection/MainSelection" index="4" unique_id=1813564207 instance=ExtResource("5_7o4l0")]
+visible = false
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+text = "Multiplayer"
+
+[node name="BtnSettings" parent="MainSelection/MainSelection" index="5" unique_id=1044007785 instance=ExtResource("5_7o4l0")]
+visible = false
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+text = "Settings"
+
+[node name="BtnCredits" parent="MainSelection/MainSelection" index="6" unique_id=1275981349 instance=ExtResource("5_7o4l0")]
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+text = "Credits"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainSelection/MainSelection" index="7" unique_id=848659260]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="BtnQuit" parent="MainSelection/MainSelection" index="8" unique_id=72627113 instance=ExtResource("5_7o4l0")]
+layout_mode = 2
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+text = "Quit"
+
+[node name="MainSelectionCursor" type="VBoxContainer" parent="MainSelection" unique_id=921973211]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -136.0
+offset_bottom = 483.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="Levels" parent="MainSelection/MainSelectionCursor" unique_id=271175958 instance=ExtResource("7_85tlh")]
+layout_mode = 2
+
+[node name="Text" parent="MainSelection/MainSelectionCursor/Levels" index="3" unique_id=418465982]
+text = "Levels"
+
+[node name="CharacterSelection" parent="MainSelection/MainSelectionCursor" unique_id=1651537453 instance=ExtResource("7_85tlh")]
+layout_mode = 2
+
+[node name="Text" parent="MainSelection/MainSelectionCursor/CharacterSelection" index="3" unique_id=418465982]
+text = "Character Selection"
+
+[node name="Leaderboard" parent="MainSelection/MainSelectionCursor" unique_id=1791675583 instance=ExtResource("7_85tlh")]
+layout_mode = 2
+
+[node name="Text" parent="MainSelection/MainSelectionCursor/Leaderboard" index="3" unique_id=418465982]
+text = "Leaderboard"
+
+[node name="RhythmCalibration" parent="MainSelection/MainSelectionCursor" unique_id=1352573367 instance=ExtResource("7_85tlh")]
+layout_mode = 2
+
+[node name="Text" parent="MainSelection/MainSelectionCursor/RhythmCalibration" index="3" unique_id=418465982]
+text = "Rhythm Calibration"
+
+[node name="Settings" parent="MainSelection/MainSelectionCursor" unique_id=1869423442 instance=ExtResource("7_85tlh")]
+layout_mode = 2
+
+[node name="Text" parent="MainSelection/MainSelectionCursor/Settings" index="3" unique_id=418465982]
+text = "Settings"
+
+[node name="Credits" parent="MainSelection/MainSelectionCursor" unique_id=2127798750 instance=ExtResource("7_85tlh")]
+layout_mode = 2
+
+[node name="Text" parent="MainSelection/MainSelectionCursor/Credits" index="3" unique_id=418465982]
+text = "Kitchen Staff"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainSelection/MainSelectionCursor" unique_id=1848606924]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="Quit" parent="MainSelection/MainSelectionCursor" unique_id=1916161759 instance=ExtResource("7_85tlh")]
+layout_mode = 2
+
+[node name="Text" parent="MainSelection/MainSelectionCursor/Quit" index="3" unique_id=418465982]
+text = "Quit"
+
+[node name="Subtitle" type="Label" parent="MainSelection" unique_id=1594740516]
+layout_mode = 1
+offset_top = 283.0
+offset_right = 500.0
+offset_bottom = 394.0
+theme_override_colors/font_color = Color(0.443137, 0.321569, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("7_n8cad")
+theme_override_font_sizes/font_size = 36
+text = "Fika Delivery"
+horizontal_alignment = 1
+
+[node name="Clickables" type="Control" parent="MainSelection" unique_id=28888548]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelSelection" parent="." unique_id=530655983 instance=ExtResource("4_r2kke")]
+process_mode = 4
+visible = false
+layout_mode = 1
+_confirmHintButtonVisible = true
+_showControllerActivator = true
+
+[node name="PlayerSelection" parent="." unique_id=101207034 instance=ExtResource("9_16ft3")]
+process_mode = 4
+visible = false
+layout_mode = 1
+_holdToGoBack = true
+_confirmHintButtonVisible = true
+
+[node name="Scoreboard" parent="." unique_id=1387884128 instance=ExtResource("9_ccnx6")]
+process_mode = 4
+visible = false
+layout_mode = 1
+
+[node name="RhythmCalibration" parent="." unique_id=1271759769 instance=ExtResource("11_16ft3")]
+process_mode = 4
+visible = false
+layout_mode = 1
+_holdToGoBack = true
+
+[node name="MultiplayerMenu" parent="." unique_id=710394517 instance=ExtResource("9_kb8fo")]
+process_mode = 4
+visible = false
+layout_mode = 1
+_confirmHintButtonVisible = true
+
+[node name="SettingsMenu" parent="." unique_id=1232435645 instance=ExtResource("10_ccnx6")]
+process_mode = 4
+visible = false
+layout_mode = 1
+_confirmHintButtonVisible = true
+
+[node name="CreditsMenu" parent="." unique_id=1240602348 instance=ExtResource("9_1bgoh")]
+process_mode = 4
+visible = false
+layout_mode = 1
+
+[node name="HintButtons" parent="." unique_id=1639835601 instance=ExtResource("10_1nd7t")]
+z_index = 10
+layout_mode = 1
+
+[node name="MarginContainer" parent="HintButtons" index="0"]
+offset_top = -23.0
+offset_bottom = -23.0
+
+[node name="HBack" parent="HintButtons/MarginContainer" index="0"]
+visible = false
+
+[node name="Label" parent="HintButtons/MarginContainer/HBack" index="2"]
+theme = ExtResource("17_23q3w")
+theme_override_colors/font_outline_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_constants/outline_size = 8
+
+[node name="HBackHold" parent="HintButtons/MarginContainer" index="1" unique_id=2037745341 instance=ExtResource("18_nwa24")]
+visible = false
+layout_mode = 2
+
+[node name="Label" parent="HintButtons/MarginContainer/HAccept" index="0"]
+theme_override_colors/font_outline_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_constants/outline_size = 8
+
+[node name="ControllerActivatorUI" parent="." unique_id=32748181 instance=ExtResource("19_85tlh")]
+layout_mode = 1
+
+[connection signal="pressed" from="MainSelection/MainSelection/BtnLevels" to="." method="OnLevelsPressed"]
+[connection signal="pressed" from="MainSelection/MainSelection/BtnPlayerSelection" to="." method="OnPlayerSelectionPressed"]
+[connection signal="pressed" from="MainSelection/MainSelection/BtnScoreboard" to="." method="OnScoreboardPressed"]
+[connection signal="pressed" from="MainSelection/MainSelection/BtnRhythmCalibration" to="." method="OnRhythmCalibrationPressed"]
+[connection signal="pressed" from="MainSelection/MainSelection/BtnMultiplayer" to="." method="OnMultiplayerPressed"]
+[connection signal="pressed" from="MainSelection/MainSelection/BtnSettings" to="." method="OnSettingsPressed"]
+[connection signal="pressed" from="MainSelection/MainSelection/BtnCredits" to="." method="OnCreditsPressed"]
+[connection signal="pressed" from="MainSelection/MainSelection/BtnQuit" to="." method="OnQuitPressed"]
+[connection signal="Pressed" from="MainSelection/MainSelectionCursor/Levels" to="." method="OnLevelsPressed"]
+[connection signal="Pressed" from="MainSelection/MainSelectionCursor/CharacterSelection" to="." method="OnPlayerSelectionPressed"]
+[connection signal="Pressed" from="MainSelection/MainSelectionCursor/Leaderboard" to="." method="OnScoreboardPressed"]
+[connection signal="Pressed" from="MainSelection/MainSelectionCursor/RhythmCalibration" to="." method="OnRhythmCalibrationPressed"]
+[connection signal="Pressed" from="MainSelection/MainSelectionCursor/Settings" to="." method="OnSettingsPressed"]
+[connection signal="Pressed" from="MainSelection/MainSelectionCursor/Credits" to="." method="OnCreditsPressed"]
+[connection signal="Pressed" from="MainSelection/MainSelectionCursor/Quit" to="." method="OnQuitPressed"]
+
+[editable path="MainSelection"]
+[editable path="MainSelection/MainSelectionCursor/Levels"]
+[editable path="MainSelection/MainSelectionCursor/CharacterSelection"]
+[editable path="MainSelection/MainSelectionCursor/Leaderboard"]
+[editable path="MainSelection/MainSelectionCursor/RhythmCalibration"]
+[editable path="MainSelection/MainSelectionCursor/Settings"]
+[editable path="MainSelection/MainSelectionCursor/Credits"]
+[editable path="MainSelection/MainSelectionCursor/Quit"]
+[editable path="PlayerSelection"]
+[editable path="PlayerSelection/Card/CharacterTiles/CursorButton"]
+[editable path="PlayerSelection/Card/CharacterTiles/CursorButton2"]
+[editable path="PlayerSelection/Card/CharacterTiles/CursorButton3"]
+[editable path="PlayerSelection/Card/CharacterTiles/CursorButton4"]
+[editable path="HintButtons"]

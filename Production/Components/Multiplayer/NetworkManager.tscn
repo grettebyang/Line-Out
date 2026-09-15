@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://chjqkj65nu2b1"]
+
+[ext_resource type="Script" uid="uid://ua53ehnlu4cf" path="res://Production/Components/Multiplayer/NetworkManager.cs" id="1_yceyv"]
+[ext_resource type="Script" uid="uid://dionicytvjhtt" path="res://Production/Components/Multiplayer/MultiplayerCore.gd" id="2_ymta8"]
+[ext_resource type="Script" uid="uid://dcdpkm0bkvq7j" path="res://Production/Components/Multiplayer/MockUIDebug.cs" id="3_ymta8"]
+
+[node name="NetworkManager" type="Node" node_paths=PackedStringArray("_core")]
+script = ExtResource("1_yceyv")
+_core = NodePath("MultiplayerCore")
+
+[node name="MultiplayerCore" type="Node" parent="."]
+script = ExtResource("2_ymta8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("host", "join")]
+script = ExtResource("3_ymta8")
+host = NodePath("Host")
+join = NodePath("Join")
+
+[node name="Host" type="Button" parent="CanvasLayer"]
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 151.0
+offset_bottom = 97.0
+text = "Host"
+
+[node name="Join" type="Button" parent="CanvasLayer"]
+offset_left = 198.0
+offset_top = 35.0
+offset_right = 316.0
+offset_bottom = 99.0
+text = "Join"
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 91.0
+offset_top = 107.0
+offset_right = 257.0
+offset_bottom = 138.0
+
+[connection signal="pressed" from="CanvasLayer/Host" to="." method="CreateHostedLobby"]
+[connection signal="pressed" from="CanvasLayer/Host" to="CanvasLayer" method="_create_host_lobby"]
+[connection signal="pressed" from="CanvasLayer/Join" to="." method="joinLobby"]
+[connection signal="pressed" from="CanvasLayer/Join" to="." method="JoinLobby"]
+[connection signal="text_changed" from="CanvasLayer/LineEdit" to="." method="OnLineEdit"]

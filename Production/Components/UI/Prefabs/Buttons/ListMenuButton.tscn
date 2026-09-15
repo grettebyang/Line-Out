@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://d4bk5s6xdpftm"]
+
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="1_ip76q"]
+[ext_resource type="StyleBox" uid="uid://b6tfrfdvqivn3" path="res://Production/Components/UI/Prefabs/Themes/ButtonListHovered.tres" id="2_uycmk"]
+[ext_resource type="StyleBox" uid="uid://brn4srf1daw8d" path="res://Production/Components/UI/Prefabs/Themes/ButtonList.tres" id="3_ucjm3"]
+[ext_resource type="Texture2D" uid="uid://crua663en3pck" path="res://Production/Components/UI/HUD/Icons/IconPepparKakor.png" id="4_pjt50"]
+[ext_resource type="Script" uid="uid://n4vtngcbpv2t" path="res://Production/Components/UI/Prefabs/Buttons/ScriptedButton.cs" id="4_txuvh"]
+[ext_resource type="AudioStream" uid="uid://d2l4hbauhk4lw" path="res://Production/Components/UI/Prefabs/Sounds/switch10.ogg" id="5_ifw0q"]
+[ext_resource type="Script" uid="uid://cah2302cvgfsu" path="res://Production/Components/UI/Prefabs/Buttons/ButtonDecoration.cs" id="5_txuvh"]
+[ext_resource type="AudioStream" uid="uid://roy43cagutq6" path="res://Production/Components/UI/Prefabs/Sounds/switch11.ogg" id="6_s4jqo"]
+
+[node name="Button" type="Button" unique_id=1352489041 node_paths=PackedStringArray("_audioPlayer")]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.08
+offset_top = -28.5
+offset_right = 2.07996
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme = ExtResource("1_ip76q")
+theme_override_styles/normal = ExtResource("3_ucjm3")
+theme_override_styles/pressed = ExtResource("2_uycmk")
+theme_override_styles/hover = ExtResource("2_uycmk")
+theme_override_styles/hover_pressed = ExtResource("2_uycmk")
+theme_override_styles/focus = ExtResource("2_uycmk")
+text = "Button"
+alignment = 0
+script = ExtResource("4_txuvh")
+_audioPlayer = NodePath("AudioStreamPlayer")
+_soundFocus = ExtResource("5_ifw0q")
+_soundClick = ExtResource("6_s4jqo")
+
+[node name="Decoration" type="TextureRect" parent="." unique_id=277187549]
+self_modulate = Color(0.835294, 0.639216, 0.321569, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_pjt50")
+expand_mode = 1
+script = ExtResource("5_txuvh")
+
+[node name="Shadow" type="TextureRect" parent="Decoration" unique_id=1751422959]
+self_modulate = Color(0.454902, 0.282353, 0, 0.745098)
+z_index = -1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.08
+offset_top = -17.5
+offset_right = -0.0799561
+offset_bottom = 22.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_pjt50")
+expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=744083398]
+bus = &"SFX"
+
+[connection signal="focus_entered" from="." to="Decoration" method="OnFocus"]
+[connection signal="focus_exited" from="." to="Decoration" method="OnFocusLeave"]

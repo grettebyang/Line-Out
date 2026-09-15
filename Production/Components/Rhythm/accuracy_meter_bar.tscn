@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg1hjm6vi5cmn"]
+
+[ext_resource type="Texture2D" uid="uid://b173eg7at81ea" path="res://Production/Components/UI/Prefabs/RhythmUI/RhythmBarSplit.png" id="1_52wrr"]
+
+[node name="AccuracyMeterBar" type="ColorRect"]
+offset_left = -4.0
+offset_right = 4.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.0745098, 0.0588235, 0.0313726, 0.501961)
+layout_mode = 0
+offset_top = -3.0
+offset_right = 7.0
+offset_bottom = 21.0
+texture = ExtResource("1_52wrr")
+expand_mode = 1

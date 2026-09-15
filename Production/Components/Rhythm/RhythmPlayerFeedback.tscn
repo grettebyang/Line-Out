@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cudwq3s7ywb10"]
+
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="1_r8gfm"]
+[ext_resource type="Script" uid="uid://bbgdskwiyt48j" path="res://Production/Components/Rhythm/FeedbackText.cs" id="1_yb821"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bvsef"]
+font = ExtResource("1_r8gfm")
+font_size = 32
+shadow_size = 2
+shadow_color = Color(0, 0.0823529, 0.54902, 0.501961)
+shadow_offset = Vector2(0, 2)
+
+[node name="RhythmPlayerFeedback" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FeedbackText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -46.5
+offset_right = 126.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_bvsef")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_yb821")

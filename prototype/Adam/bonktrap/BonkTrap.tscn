@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c8pafp0c6w6nr"]
+
+[ext_resource type="Script" uid="uid://bs8x7eb21ti1i" path="res://prototype/Adam/bonktrap/BonkTrap.cs" id="1_ixuii"]
+[ext_resource type="AudioStream" uid="uid://d026j00aup7b3" path="res://prototype/Adam/bonktrap/BonkSoundEffect.mp3" id="2_svmry"]
+
+[sub_resource type="Curve" id="Curve_ixuii"]
+_data = [Vector2(1e-05, 0.024644), -0.5098, -0.5098, 0, 0, Vector2(0.136872, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 2.91285, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_svmry"]
+_data = [Vector2(0, 0), 0.0, 2.67965, 0, 0, Vector2(0.382682, 0.88609), 0.493305, 0.493305, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="BoxMesh" id="BoxMesh_cc4ws"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ixuii"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_svmry"]
+
+[node name="BonkTrap" type="Node3D" unique_id=688008662 node_paths=PackedStringArray("bonkerCurrent", "bonkerStarting", "bonkerEnding", "bonkerCurrentCollisionDetection")]
+script = ExtResource("1_ixuii")
+bonkerCurrent = NodePath("BonkerCurrent")
+bonkerStarting = NodePath("BonkerStarting")
+bonkerEnding = NodePath("BonkerEnding")
+pushSpeedCurve = SubResource("Curve_ixuii")
+pullSpeedCurve = SubResource("Curve_svmry")
+bonkerCurrentCollisionDetection = NodePath("BonkerCurrent/Area3D")
+pushSpeed = 20.0
+pullSpeed = 0.6
+cooldownTimer = 1.0
+bumpSound = ExtResource("2_svmry")
+
+[node name="Pillar1" type="MeshInstance3D" parent="." unique_id=401489102]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, 3)
+mesh = SubResource("BoxMesh_cc4ws")
+
+[node name="Pillar2" type="MeshInstance3D" parent="." unique_id=288879883]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2.5, -3)
+mesh = SubResource("BoxMesh_cc4ws")
+skeleton = NodePath("../Pillar1")
+
+[node name="Pillar3" type="MeshInstance3D" parent="." unique_id=1577098911]
+transform = Transform3D(1, 0, 0, 0, -3.07671e-07, -1.8356, 0, 7.0387, -8.02367e-08, 0, 4.77961, -0.00805057)
+mesh = SubResource("BoxMesh_cc4ws")
+skeleton = NodePath("../Pillar1")
+
+[node name="AesteticUpperBonk2" type="MeshInstance3D" parent="." unique_id=56145290]
+transform = Transform3D(3, 0, 0, 0, 0.83357, 0, 0, 0, 3, 0.00419712, 4.64149, 0.0154338)
+mesh = SubResource("CylinderMesh_ixuii")
+skeleton = NodePath("../BonkerCurrent")
+
+[node name="BonkerCurrent" type="MeshInstance3D" parent="." unique_id=1544782981]
+transform = Transform3D(3, 0, 0, 0, 0.4, 0, 0, 0, 3, 0, 3.86658, 0.0178912)
+mesh = SubResource("CylinderMesh_ixuii")
+
+[node name="Area3D" type="Area3D" parent="BonkerCurrent" unique_id=1936262505]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonkerCurrent/Area3D" unique_id=1886014372]
+shape = SubResource("CylinderShape3D_svmry")
+
+[node name="BonkerStarting" type="MeshInstance3D" parent="." unique_id=1216065315]
+transform = Transform3D(3, 0, 0, 0, 0.4, 0, 0, 0, 3, 0, 3.86658, 0.0178912)
+visible = false
+mesh = SubResource("CylinderMesh_ixuii")
+
+[node name="BonkerEnding" type="MeshInstance3D" parent="." unique_id=865727252]
+transform = Transform3D(3, 0, 0, 0, 1.77097, 0, 0, 0, 3, 0, 1.97324, 0)
+visible = false
+mesh = SubResource("CylinderMesh_ixuii")

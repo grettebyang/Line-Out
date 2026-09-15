@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://blvw2ykuscvj5"]
+
+[ext_resource type="Script" uid="uid://c1o4338v3shvh" path="res://Production/Components/UI/MainMenu/Scripts/SubmenuBase.cs" id="1_e4yxi"]
+[ext_resource type="Script" uid="uid://bl01lfwwmc0wh" path="res://Production/Components/UI/TempScoreboard/TempScoreboardUI.cs" id="1_xoqr0"]
+[ext_resource type="PackedScene" uid="uid://cuijp8417algr" path="res://Production/Components/UI/MainMenu/Scenes/ListMenuBase.tscn" id="2_4sap0"]
+[ext_resource type="PackedScene" uid="uid://dnf1028xer0g6" path="res://Production/Components/UI/TempScoreboard/ScoreboardRecord.tscn" id="4_65iqx"]
+[ext_resource type="Texture2D" uid="uid://cp3g4qvwmmdpy" path="res://Production/Components/UI/Generics/SpritePrimitives/Triangle.png" id="5_6unfj"]
+[ext_resource type="PackedScene" uid="uid://hllnjosojgq3" path="res://Production/Components/UI/Prefabs/Texts/CreditsName.tscn" id="6_exnuk"]
+[ext_resource type="PackedScene" uid="uid://bai3dwhp2u8qe" path="res://Production/Components/UI/Prefabs/Buttons/SettingsLeftRightOption.tscn" id="7_exnuk"]
+
+[node name="Scoreboard" type="Control" unique_id=107111958 node_paths=PackedStringArray("_recordsHolder", "_txtPages")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_xoqr0")
+_maxDisplayedRecords = 12
+_recordUI = ExtResource("4_65iqx")
+_recordsHolder = NodePath("Card/RecordsList")
+_txtPages = NodePath("Card/SettingsLeftRightOption/Label")
+
+[node name="Card" parent="." unique_id=1576906570 instance=ExtResource("2_4sap0")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -476.0
+offset_right = 500.0
+offset_bottom = 464.0
+grow_horizontal = 2
+
+[node name="Outline" parent="Card" index="0"]
+visible = false
+offset_right = 1004.0
+
+[node name="Label" parent="Card" index="1"]
+offset_top = 82.0
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 44
+text = "Leaderboard"
+
+[node name="Line" parent="Card" index="2"]
+offset_left = -391.0
+offset_top = -318.0
+offset_right = -191.0
+offset_bottom = -315.0
+
+[node name="RecordsList" type="VBoxContainer" parent="Card" unique_id=1101867660 node_paths=PackedStringArray("_mainButtonsContainer")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 193.0
+offset_right = -60.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4yxi")
+_mainButtonsContainer = NodePath(".")
+
+[node name="Paging" type="HBoxContainer" parent="Card" unique_id=929427210]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = -113.0
+offset_right = 172.0
+offset_bottom = -60.0
+grow_vertical = 0
+
+[node name="Left" type="TextureRect" parent="Card/Paging" unique_id=593556014]
+modulate = Color(0.521569, 0.431373, 0.337255, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_6unfj")
+expand_mode = 2
+
+[node name="Pages" parent="Card/Paging" unique_id=1429845053 instance=ExtResource("6_exnuk")]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 28
+text = "1/1"
+
+[node name="Right" type="TextureRect" parent="Card/Paging" unique_id=1894990036]
+modulate = Color(0.521569, 0.431373, 0.337255, 1)
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_6unfj")
+expand_mode = 2
+flip_h = true
+
+[node name="SettingsLeftRightOption" parent="Card" unique_id=1892225640 instance=ExtResource("7_exnuk")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -107.5
+offset_top = -152.0
+offset_right = 107.5
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="Label" parent="Card/SettingsLeftRightOption" index="2" unique_id=303906813]
+text = "1/1"
+
+[connection signal="OnOptionChanged" from="Card/SettingsLeftRightOption" to="." method="TurnPage"]
+
+[editable path="Card"]
+[editable path="Card/SettingsLeftRightOption"]
+[editable path="Card/SettingsLeftRightOption/LeftButton"]
+[editable path="Card/SettingsLeftRightOption/RightButton"]

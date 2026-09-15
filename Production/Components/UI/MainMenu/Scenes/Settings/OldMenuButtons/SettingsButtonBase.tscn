@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bpolru6rakpe5"]
+
+[ext_resource type="PackedScene" uid="uid://d4bk5s6xdpftm" path="res://Production/Components/UI/Prefabs/Buttons/ListMenuButton.tscn" id="1_rhj4c"]
+
+[node name="Button" unique_id=113825817 instance=ExtResource("1_rhj4c")]
+
+[node name="AudioStreamPlayer" parent="." index="1" unique_id=744083398]
+bus = &"SFX"
+
+[node name="ValueHolder" type="Control" parent="." index="2" unique_id=204143271]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -20.0
+offset_right = -100.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 1

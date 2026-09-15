@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hjr7akq6w14d"]
+
+[ext_resource type="Texture2D" uid="uid://caupt5h083s1e" path="res://assets/3D Assets - Production/Imports/House_Small/Materials/Textures/House_Small_LOW_lambert1SG_Red.png" id="1_euhe8"]
+[ext_resource type="Texture2D" uid="uid://dgumbmi8qe5p" path="res://assets/3D Assets - Production/Imports/House_Small/Materials/Textures/House_Small_LOW_lambert1SG_Normal.png" id="2_pyaxg"]
+
+[resource]
+albedo_texture = ExtResource("1_euhe8")
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource("2_pyaxg")

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dsme3p8klgtmb"]
+
+[ext_resource type="Texture2D" uid="uid://4xhlnr2uhhv6" path="res://Production/Components/UI/Generics/SpritePrimitives/Circle.png" id="1_eh2rm"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="1_fiy11"]
+
+[node name="HintButton" type="Button" unique_id=1660043989]
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0.443137, 0.317647, 0.176471, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_fiy11")
+theme_override_font_sizes/font_size = 42
+text = "A"
+flat = true
+
+[node name="Outline" type="TextureRect" parent="." unique_id=1686463851]
+self_modulate = Color(0.443137, 0.317647, 0.176471, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -37.0
+offset_right = 37.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eh2rm")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1957147793]
+self_modulate = Color(0.235294, 0.368627, 0.709804, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eh2rm")

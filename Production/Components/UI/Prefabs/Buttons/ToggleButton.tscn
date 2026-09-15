@@ -1,0 +1,295 @@
+[gd_scene format=3 uid="uid://chfn18hxws3wk"]
+
+[ext_resource type="Script" uid="uid://8m3nkfovoi1o" path="res://Production/Components/UI/Prefabs/Buttons/ToggleButton.cs" id="1_mfe8x"]
+[ext_resource type="AudioStream" uid="uid://d2l4hbauhk4lw" path="res://Production/Components/UI/Prefabs/Sounds/switch10.ogg" id="2_cr2x7"]
+[ext_resource type="AudioStream" uid="uid://roy43cagutq6" path="res://Production/Components/UI/Prefabs/Sounds/switch11.ogg" id="3_vbe2v"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="4_lysix"]
+[ext_resource type="Texture2D" uid="uid://4xhlnr2uhhv6" path="res://Production/Components/UI/Generics/SpritePrimitives/Circle.png" id="5_cr2x7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tle1k"]
+size = Vector2(199, 92)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vbe2v"]
+load_path = "res://.godot/imported/Circle.png-3988b2bea56722ff5ccc32242e6da5a4.s3tc.ctex"
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_tle1k"]
+
+[node name="ToggleButton" type="Control" unique_id=271175958 node_paths=PackedStringArray("_switchedLeft", "_switchedRight", "_audioPlayer", "_hover", "_collisionShape", "_texture", "_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 121.0
+offset_bottom = 54.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_mfe8x")
+_switchedLeft = NodePath("Card/SwitchedLeft")
+_switchedRight = NodePath("Card/SwitchedRight")
+_audioPlayer = NodePath("SoundPlayer")
+_soundFocus = ExtResource("2_cr2x7")
+_soundClick = ExtResource("3_vbe2v")
+_hover = NodePath("Hover")
+_collisionShape = NodePath("Area2D/CollisionShape2D")
+_texture = NodePath("Card")
+_text = NodePath("Text")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1415885389]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=138778056]
+shape = SubResource("RectangleShape2D_tle1k")
+
+[node name="Card" type="TextureRect" parent="." unique_id=1049578636]
+z_index = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SwitchedLeft" type="ColorRect" parent="Card" unique_id=1519569219]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -27.0
+offset_right = -27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_lysix")
+color = Color(0.8352941, 0.6392157, 0.32156864, 1)
+
+[node name="CircleLeft2" type="TextureRect" parent="Card/SwitchedLeft" unique_id=358189722]
+modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("5_cr2x7")
+expand_mode = 5
+
+[node name="CircleRight2" type="TextureRect" parent="Card/SwitchedLeft" unique_id=1179737879]
+modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 0
+texture = SubResource("CompressedTexture2D_vbe2v")
+expand_mode = 5
+
+[node name="ToggleCircleLeft" type="TextureRect" parent="Card/SwitchedLeft" unique_id=2072039476]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("5_cr2x7")
+expand_mode = 5
+
+[node name="ToggleCircle2" type="TextureRect" parent="Card/SwitchedLeft/ToggleCircleLeft" unique_id=193192086]
+modulate = Color(0.41568628, 0.5411765, 0.8627451, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.695, 0.695)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_cr2x7")
+expand_mode = 1
+
+[node name="SwitchedRight" type="ColorRect" parent="Card" unique_id=1132551430]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -27.0
+offset_right = -27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_lysix")
+color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+
+[node name="CircleLeft2" type="TextureRect" parent="Card/SwitchedRight" unique_id=1946178049]
+modulate = Color(0.23529412, 0.36862746, 0.70980394, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+texture = ExtResource("5_cr2x7")
+expand_mode = 5
+
+[node name="CircleRight2" type="TextureRect" parent="Card/SwitchedRight" unique_id=1362402850]
+modulate = Color(0.23529412, 0.36862746, 0.70980394, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 0
+texture = SubResource("CompressedTexture2D_vbe2v")
+expand_mode = 5
+
+[node name="ToggleCircleRight" type="TextureRect" parent="Card/SwitchedRight" unique_id=845963360]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 0
+texture = SubResource("CompressedTexture2D_vbe2v")
+expand_mode = 5
+
+[node name="ToggleCircle2" type="TextureRect" parent="Card/SwitchedRight/ToggleCircleRight" unique_id=1909979785]
+modulate = Color(0.41568628, 0.5411765, 0.8627451, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 27.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.695, 0.695)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_cr2x7")
+expand_mode = 1
+
+[node name="Outline" type="ColorRect" parent="." unique_id=120799130]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0.443137, 0.317647, 0.176471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="." unique_id=418465982]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_right = 0.93600005
+anchor_bottom = 1.0
+offset_left = 0.007499695
+offset_top = -5.000002
+offset_right = -0.007507324
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_lysix")
+theme_override_colors/font_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+theme_override_font_sizes/font_size = 32
+text = "Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=323350086]
+stream = SubResource("AudioStreamWAV_tle1k")
+bus = &"SFX"
+
+[node name="Hover" type="ColorRect" parent="." unique_id=2084409731]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -32.0
+offset_right = -27.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_lysix")
+color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+
+[node name="CircleLeft2" type="TextureRect" parent="Hover" unique_id=1787215051]
+modulate = Color(0.44313726, 0.32156864, 0.1764706, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("5_cr2x7")
+expand_mode = 1
+
+[node name="CircleRight2" type="TextureRect" parent="Hover" unique_id=355341495]
+modulate = Color(0.44313726, 0.32156864, 0.1764706, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 0
+texture = SubResource("CompressedTexture2D_vbe2v")
+expand_mode = 1
+
+[connection signal="item_rect_changed" from="." to="." method="ResizeCollisionShape"]
+[connection signal="resized" from="." to="." method="ResizeCollisionShape"]
+[connection signal="body_entered" from="Area2D" to="." method="OnFocus"]
+[connection signal="body_exited" from="Area2D" to="." method="ExitFocus"]

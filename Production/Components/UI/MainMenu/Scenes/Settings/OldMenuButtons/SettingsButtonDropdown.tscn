@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://docup6g8acljm"]
+
+[ext_resource type="PackedScene" uid="uid://bpolru6rakpe5" path="res://Production/Components/UI/MainMenu/Scenes/Settings/OldMenuButtons/SettingsButtonBase.tscn" id="1_70uvl"]
+
+[node name="Button" unique_id=5756207 instance=ExtResource("1_70uvl")]
+
+[node name="ItemList" type="OptionButton" parent="ValueHolder" parent_id_path=PackedInt32Array(204143271) index="0" unique_id=674919257]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1

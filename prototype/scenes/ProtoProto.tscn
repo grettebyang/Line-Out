@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c5fci1qq7u3cq"]
+
+[ext_resource type="PackedScene" uid="uid://3hry2327s1cv" path="res://Production/Components/Sled/lib/Sled.tscn" id="1_6hkl3"]
+[ext_resource type="PackedScene" uid="uid://d1mhjuts0uokm" path="res://Production/Components/Traps/Geyser1.tscn" id="2_c53k2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c53k2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jrn8"]
+albedo_color = Color(0, 0.482423, 0.483975, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mxh2q"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="ProtoProto" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(25, 0, 0, 0, 5, 0, 0, 0, 25, 0, 0, 0)
+mesh = SubResource("PlaneMesh_c53k2")
+surface_material_override/0 = SubResource("StandardMaterial3D_1jrn8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mxh2q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.89061, 0.454768, 0, -0.454768, -0.89061, 0.153912, 0, 2.12433)
+
+[node name="Sled" parent="." instance=ExtResource("1_6hkl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0333433, 0.839999, -0.958696)
+collision_mask = 33
+
+[node name="SlidingAudio" parent="Sled" index="10"]
+Volume = 0.0
+
+[node name="Geyzer" parent="." instance=ExtResource("2_c53k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0885248, -0.173255, 13.0185)
+
+[editable path="Sled"]
+[editable path="Sled/MainCam"]

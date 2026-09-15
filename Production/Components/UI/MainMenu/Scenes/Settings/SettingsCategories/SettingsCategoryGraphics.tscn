@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bvb62gkiysq1u"]
+
+[ext_resource type="Script" uid="uid://0rpcayw3juac" path="res://Production/Components/UI/MainMenu/Scripts/Settings/SettingsUIGraphics.cs" id="1_75hks"]
+[ext_resource type="PackedScene" uid="uid://dxuacg3l44m8j" path="res://Production/Components/UI/MainMenu/Scenes/Settings/CursorButtons/SettingMultipleOptions.tscn" id="3_3vl4d"]
+[ext_resource type="PackedScene" uid="uid://bkw5j280ptjqc" path="res://Production/Components/UI/MainMenu/Scenes/Settings/CursorButtons/Setting.tscn" id="3_75hks"]
+[ext_resource type="PackedScene" uid="uid://bt744k5h2hlc1" path="res://Production/Components/UI/Prefabs/Buttons/CursorButton.tscn" id="4_ls3up"]
+
+[node name="CategoryGraphics" type="VBoxContainer" unique_id=1084204982 node_paths=PackedStringArray("_resolutions", "_windowModeToggle", "_mainButtonsContainer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75hks")
+_resolutions = NodePath("Buttons/Resolution/SettingsLeftRightOption")
+_windowModeToggle = NodePath("Buttons/WindowMode/ToggleButton")
+_mainButtonsContainer = NodePath("Buttons")
+
+[node name="Header" type="Label" parent="." unique_id=457700708]
+visible = false
+layout_mode = 2
+text = "Graphics"
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=719286949]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=1466202739]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="WindowMode" parent="Buttons" unique_id=1195790478 instance=ExtResource("3_75hks")]
+layout_mode = 2
+
+[node name="Description" parent="Buttons/WindowMode" index="0" unique_id=1100555297]
+text = "Window Mode"
+
+[node name="Resolution" parent="Buttons" unique_id=541185699 instance=ExtResource("3_3vl4d")]
+layout_mode = 2
+
+[node name="Description" parent="Buttons/Resolution" index="0" unique_id=1100555297]
+text = "Resolution"
+
+[node name="SettingsLeftRightOption" parent="Buttons/Resolution" index="1" unique_id=1892225640]
+offset_left = -356.76013
+
+[node name="Apply" parent="Buttons" unique_id=271175958 instance=ExtResource("4_ls3up")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Text" parent="Buttons/Apply" index="3" unique_id=418465982]
+text = "Apply"
+
+[node name="Revert" parent="Buttons" unique_id=1978814892 instance=ExtResource("4_ls3up")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Text" parent="Buttons/Revert" index="3" unique_id=418465982]
+text = "Revert"
+
+[connection signal="Toggled" from="Buttons/WindowMode/ToggleButton" to="." method="ToggleWindowMode"]
+[connection signal="OnOptionChanged" from="Buttons/Resolution/SettingsLeftRightOption" to="." method="OnResultionSelected"]
+[connection signal="Pressed" from="Buttons/Apply" to="." method="ApplyResolution"]
+[connection signal="Pressed" from="Buttons/Revert" to="." method="RevertResolution"]
+
+[editable path="Buttons/WindowMode"]
+[editable path="Buttons/Resolution"]
+[editable path="Buttons/Apply"]
+[editable path="Buttons/Revert"]

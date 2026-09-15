@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b3hiipwo7ut55"]
+
+[ext_resource type="Texture2D" uid="uid://dpb1wminojtm1" path="res://assets/3D Assets - Production/Imports/SnowIce/Materials/Textures/SnowIce_LOW_initialShadingGroup_BaseColor.png" id="1_40lbs"]
+[ext_resource type="Texture2D" uid="uid://bm7adso8c0t4f" path="res://assets/3D Assets - Production/Imports/SnowIce/Materials/Textures/SnowIce_LOW_initialShadingGroup_Normal.png" id="2_jqxby"]
+[ext_resource type="Texture2D" uid="uid://bjcc32tqhuqyk" path="res://assets/3D Assets - Production/Imports/SnowIce/Materials/Textures/SnowIce_LOW_initialShadingGroup_Roughness.png" id="3_76mbc"]
+
+[resource]
+albedo_texture = ExtResource("1_40lbs")
+roughness_texture = ExtResource("3_76mbc")
+normal_enabled = true
+normal_texture = ExtResource("2_jqxby")

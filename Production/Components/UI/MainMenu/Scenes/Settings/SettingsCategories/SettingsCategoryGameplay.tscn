@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://ca61l2l3br05m"]
+
+[ext_resource type="Script" uid="uid://dwypt6jole56b" path="res://Production/Components/UI/MainMenu/Scripts/Settings/SettingsUIGameplay.cs" id="1_s3o50"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="2_drkh3"]
+[ext_resource type="PackedScene" uid="uid://bkw5j280ptjqc" path="res://Production/Components/UI/MainMenu/Scenes/Settings/CursorButtons/Setting.tscn" id="3_j2coo"]
+[ext_resource type="PackedScene" uid="uid://dxuacg3l44m8j" path="res://Production/Components/UI/MainMenu/Scenes/Settings/CursorButtons/SettingMultipleOptions.tscn" id="4_4mvmb"]
+
+[node name="CategoryGameplay" type="VBoxContainer" unique_id=1940222407 node_paths=PackedStringArray("_restrictCameraControlsToggle", "_restrictMenuNavToggle", "_enableKeyboardToggle", "_controlSchemes", "_mainButtonsContainer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s3o50")
+_restrictCameraControlsToggle = NodePath("Buttons/Camera/ToggleButton")
+_restrictMenuNavToggle = NodePath("Buttons/MenuNavigation/ToggleButton")
+_enableKeyboardToggle = NodePath("Buttons/EnableKeyboard/ToggleButton")
+_controlSchemes = NodePath("Buttons/ControlScheme/SettingsLeftRightOption")
+_mainButtonsContainer = NodePath("Buttons")
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1759976470]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=2057559677]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Camera" parent="Buttons" unique_id=845889204 instance=ExtResource("3_j2coo")]
+layout_mode = 2
+
+[node name="Description" parent="Buttons/Camera" index="0" unique_id=1100555297]
+theme_override_font_sizes/font_size = 30
+text = "Restrict camera movement to Player 1"
+
+[node name="MenuNavigation" parent="Buttons" unique_id=862823346 instance=ExtResource("3_j2coo")]
+layout_mode = 2
+
+[node name="Description" parent="Buttons/MenuNavigation" index="0" unique_id=1100555297]
+theme_override_font_sizes/font_size = 30
+text = "Restrict menu navigation to Player 1"
+
+[node name="Header" type="Label" parent="Buttons" unique_id=1738089376]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("2_drkh3")
+theme_override_colors/font_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_font_sizes/font_size = 40
+text = "          Controls"
+vertical_alignment = 1
+
+[node name="EnableKeyboard" parent="Buttons" unique_id=467428102 instance=ExtResource("3_j2coo")]
+visible = false
+layout_mode = 2
+
+[node name="Description" parent="Buttons/EnableKeyboard" index="0" unique_id=1100555297]
+text = "Enable Keyboard"
+
+[node name="ControlScheme" parent="Buttons" unique_id=467875327 instance=ExtResource("4_4mvmb")]
+visible = false
+layout_mode = 2
+
+[node name="Description" parent="Buttons/ControlScheme" index="0" unique_id=1100555297]
+text = "Display controls"
+
+[node name="SettingsLeftRightOption" parent="Buttons/ControlScheme" index="1" unique_id=1892225640]
+offset_left = -376.76013
+
+[connection signal="Toggled" from="Buttons/Camera/ToggleButton" to="." method="ToggleRestrictCameraControls"]
+[connection signal="Toggled" from="Buttons/MenuNavigation/ToggleButton" to="." method="ToggleRestrictMenuNavigation"]
+[connection signal="Toggled" from="Buttons/EnableKeyboard/ToggleButton" to="." method="ToggleEnableKeyboard"]
+[connection signal="OnOptionChanged" from="Buttons/ControlScheme/SettingsLeftRightOption" to="." method="OnControlSchemeSelected"]
+
+[editable path="Buttons/Camera"]
+[editable path="Buttons/MenuNavigation"]
+[editable path="Buttons/EnableKeyboard"]
+[editable path="Buttons/ControlScheme"]

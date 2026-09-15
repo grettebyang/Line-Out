@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://b11wqatia3sas"]
+
+[ext_resource type="PackedScene" uid="uid://ceslx78qtyi4t" path="res://assets/3D Assets - Production/Prefabs/Boulder.tscn" id="1_f1r8c"]
+[ext_resource type="PackedScene" uid="uid://cmfecchgth3ul" path="res://assets/3D Assets - Production/Prefabs/Pine.tscn" id="2_0h8u3"]
+[ext_resource type="PackedScene" uid="uid://fgt70tk6hoaf" path="res://assets/3D Assets - Production/Prefabs/Boulder_Snow.tscn" id="2_fmaab"]
+[ext_resource type="PackedScene" uid="uid://dlpar0qfw2ntr" path="res://assets/3D Assets - Production/Prefabs/Rock1.tscn" id="3_p6pup"]
+[ext_resource type="PackedScene" uid="uid://byotdf6egl3c7" path="res://assets/3D Assets - Production/Prefabs/Pine_Tall_Snow.tscn" id="4_3cvef"]
+[ext_resource type="PackedScene" uid="uid://dgogbs16py2qe" path="res://assets/3D Assets - Production/Prefabs/Rock2.tscn" id="4_s0n8o"]
+[ext_resource type="PackedScene" uid="uid://ct3qnmxo6wo48" path="res://assets/3D Assets - Production/Prefabs/Rock3.tscn" id="5_plhm6"]
+[ext_resource type="PackedScene" uid="uid://d218dllm8eneh" path="res://assets/3D Assets - Production/Prefabs/Rock4.tscn" id="6_meaug"]
+[ext_resource type="PackedScene" uid="uid://dyvropxhali06" path="res://assets/3D Assets - Production/Prefabs/Rock1_Snow.tscn" id="6_wjcvk"]
+[ext_resource type="PackedScene" uid="uid://v4tcexdptiw5" path="res://assets/3D Assets - Production/Prefabs/Stump.tscn" id="7_tqfqj"]
+[ext_resource type="PackedScene" uid="uid://c48i435d6y2b0" path="res://assets/3D Assets - Production/Prefabs/Trunk.tscn" id="8_ihaly"]
+[ext_resource type="PackedScene" uid="uid://drlc1xrm73xfl" path="res://assets/3D Assets - Production/Prefabs/Rock2_Snow.tscn" id="8_saqmk"]
+[ext_resource type="PackedScene" uid="uid://bxoqcuh6ohby1" path="res://assets/3D Assets - Production/Prefabs/Rock3_Snow.tscn" id="10_ucgfy"]
+[ext_resource type="PackedScene" uid="uid://b1rmd3b2ifprp" path="res://assets/3D Assets - Production/Prefabs/Rock4_Snow.tscn" id="12_38fof"]
+[ext_resource type="PackedScene" uid="uid://1dtllgry1c0a" path="res://assets/3D Assets - Production/Prefabs/Stump_Snow.tscn" id="14_hi203"]
+[ext_resource type="PackedScene" uid="uid://dykamowla40y8" path="res://assets/3D Assets - Production/Prefabs/Pine_Snow.tscn" id="16_ucgfy"]
+[ext_resource type="PackedScene" uid="uid://dre4jlotpbtak" path="res://assets/3D Assets - Production/Prefabs/Trunk_Snow.tscn" id="16_vr50q"]
+[ext_resource type="PackedScene" uid="uid://cbs7gf0yk8oqg" path="res://assets/3D Assets - Production/Prefabs/Pine_Fat.tscn" id="17_38fof"]
+[ext_resource type="PackedScene" uid="uid://df02h27rjpy12" path="res://assets/3D Assets - Production/Prefabs/Pine_Fat_Snow.tscn" id="18_hi203"]
+[ext_resource type="PackedScene" uid="uid://ce2lmus8q3c72" path="res://assets/3D Assets - Production/Prefabs/Pine_Tall.tscn" id="19_vr50q"]
+[ext_resource type="PackedScene" uid="uid://c5v3wx2qcg32h" path="res://assets/3D Assets - Production/Prefabs/Geyser_Base1.tscn" id="21_hi203"]
+[ext_resource type="PackedScene" uid="uid://dv50in6e5lt8q" path="res://assets/3D Assets - Production/Prefabs/Geyser_Base2.tscn" id="22_vr50q"]
+[ext_resource type="PackedScene" uid="uid://okfrndb4w0cs" path="res://assets/3D Assets - Production/Prefabs/House_Small_Red.tscn" id="23_vr50q"]
+[ext_resource type="PackedScene" uid="uid://dye4wicbsviq" path="res://assets/3D Assets - Production/Prefabs/House_Small_Brown.tscn" id="24_tu4jy"]
+[ext_resource type="PackedScene" uid="uid://bxbvi64uj2i4r" path="res://assets/3D Assets - Production/Prefabs/Sign_Both.tscn" id="25_b7pji"]
+[ext_resource type="PackedScene" uid="uid://bmmh32mdopesj" path="res://assets/3D Assets - Production/Prefabs/Sign_Left.tscn" id="26_57obw"]
+[ext_resource type="PackedScene" uid="uid://3srkcjt7pabi" path="res://assets/3D Assets - Production/Prefabs/Sign_Right.tscn" id="27_g1xil"]
+[ext_resource type="PackedScene" uid="uid://w0ceg63blrs4" path="res://assets/3D Assets - Production/Prefabs/Crate.tscn" id="28_57obw"]
+[ext_resource type="PackedScene" uid="uid://dvw115q8dtu1d" path="res://assets/3D Assets - Production/Prefabs/FlagPost_Goal.tscn" id="29_u64pp"]
+[ext_resource type="PackedScene" uid="uid://cq66w6xe03nil" path="res://assets/3D Assets - Production/Prefabs/FlagPost_CheckPoint.tscn" id="30_wkjvk"]
+[ext_resource type="PackedScene" uid="uid://bspkva4dlsim0" path="res://assets/3D Assets - Production/Prefabs/CinnamonBun.tscn" id="31_wkjvk"]
+[ext_resource type="PackedScene" uid="uid://ctfw7cfk8ptm1" path="res://assets/3D Assets - Production/Prefabs/Coffee.tscn" id="32_syhm1"]
+[ext_resource type="PackedScene" uid="uid://dcmmg50cs77tw" path="res://assets/3D Assets - Production/Prefabs/Meat.tscn" id="33_nt27a"]
+[ext_resource type="PackedScene" uid="uid://ckbq48ax864w" path="res://assets/3D Assets - Production/Prefabs/SaffronBun.tscn" id="34_ncp7b"]
+[ext_resource type="PackedScene" uid="uid://w2fabjufbi22" path="res://assets/3D Assets - Production/Prefabs/Sled.tscn" id="35_nt27a"]
+[ext_resource type="PackedScene" uid="uid://da7k4sggc6ry4" path="res://assets/3D Assets - Production/Prefabs/CakeBox.tscn" id="36_c4ojv"]
+[ext_resource type="PackedScene" uid="uid://cj14dsqe0rjyv" path="res://assets/3D Assets - Production/Prefabs/CoffeeBox.tscn" id="37_gcb70"]
+[ext_resource type="PackedScene" uid="uid://di7exgxdrshlt" path="res://assets/3D Assets - Production/Prefabs/Snowman.tscn" id="38_68yhr"]
+[ext_resource type="PackedScene" uid="uid://mey1odpldy2m" path="res://assets/3D Assets - Production/Prefabs/Snowball_Large.tscn" id="39_biyfm"]
+[ext_resource type="PackedScene" uid="uid://d0a1qkykaq0gx" path="res://assets/3D Assets - Production/Prefabs/Snowball_Small.tscn" id="40_02yei"]
+[ext_resource type="PackedScene" uid="uid://lhr3tcyc4qj2" path="res://assets/3D Assets - Production/Prefabs/Icicle.tscn" id="41_biyfm"]
+[ext_resource type="PackedScene" uid="uid://dlnubs3qot0lu" path="res://assets/3D Assets - Production/Prefabs/Mushroom.tscn" id="42_om0u6"]
+[ext_resource type="PackedScene" uid="uid://ctyaosk3tk4qw" path="res://assets/3D Assets - Production/Prefabs/MushroomTall.tscn" id="43_6gv5o"]
+[ext_resource type="PackedScene" uid="uid://batb5tr5njipr" path="res://assets/3D Assets - Production/Prefabs/Mud.tscn" id="44_w5kbl"]
+[ext_resource type="PackedScene" uid="uid://bvpwk84b6fb3l" path="res://assets/3D Assets - Production/Prefabs/DogTEMP_Beige.tscn" id="45_0sa37"]
+[ext_resource type="PackedScene" uid="uid://be78jnc0ffc2s" path="res://assets/3D Assets - Production/Prefabs/DogTEMP_Brown.tscn" id="46_msvom"]
+[ext_resource type="PackedScene" uid="uid://bo3n0w4ryx3v3" path="res://assets/3D Assets - Production/Prefabs/DogTEMP_DarkGrey.tscn" id="47_yms0j"]
+[ext_resource type="PackedScene" uid="uid://cnw0bdrec5byw" path="res://assets/3D Assets - Production/Prefabs/DogTEMP_LightGrey.tscn" id="48_4nbxo"]
+
+[node name="AssetViewScene" type="Node3D" unique_id=2059309677]
+
+[node name="Boulder" parent="." unique_id=1087145151 instance=ExtResource("1_f1r8c")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.753659, 0, 13.270647)
+
+[node name="Boulder_Snow" parent="." unique_id=489727060 instance=ExtResource("2_fmaab")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.753659, 0, 8.378544)
+
+[node name="Stump" parent="." unique_id=1434279815 instance=ExtResource("7_tqfqj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2046547, 0, 4.9531384)
+
+[node name="Stump_Snow" parent="." unique_id=1946232828 instance=ExtResource("14_hi203")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2046547, 0, 3.011002)
+
+[node name="Trunk" parent="." unique_id=1400975741 instance=ExtResource("8_ihaly")]
+transform = Transform3D(0.78501433, 0, 0.6194776, 0, 1, 0, -0.6194776, 0, 0.78501433, -4.785201, 0, -0.69425845)
+
+[node name="Trunk_Snow" parent="." unique_id=1003959013 instance=ExtResource("16_vr50q")]
+transform = Transform3D(0.78501433, 0, 0.6194776, 0, 1, 0, -0.6194776, 0, 0.78501433, -4.785201, 0, -3.154441)
+
+[node name="Rock1" parent="." unique_id=979625915 instance=ExtResource("3_p6pup")]
+transform = Transform3D(0.8919475, 0, 0.45213896, 0, 1, 0, -0.45213896, 0, 0.8919475, -2.9695666, 0, 4.232881)
+
+[node name="Rock1_Snow" parent="." unique_id=1469077951 instance=ExtResource("6_wjcvk")]
+transform = Transform3D(0.8919475, 0, 0.45213896, 0, 1, 0, -0.45213896, 0, 0.8919475, -3.6332147, 0, 2.9236827)
+
+[node name="Rock2" parent="." unique_id=1984891092 instance=ExtResource("4_s0n8o")]
+transform = Transform3D(0.961545, 0, 0.27464736, 0, 1, 0, -0.27464736, 0, 0.961545, -1.9943907, 0, 0.9955037)
+
+[node name="Rock2_Snow" parent="." unique_id=1507783681 instance=ExtResource("8_saqmk")]
+transform = Transform3D(0.961545, 0, 0.27464736, 0, 1, 0, -0.27464736, 0, 0.961545, -2.4002445, 0, -0.42539674)
+
+[node name="Rock3" parent="." unique_id=550607435 instance=ExtResource("5_plhm6")]
+transform = Transform3D(-0.26271126, 0, 0.96487445, 0, 1, 0, -0.96487445, 0, -0.26271126, -2.421522, 0, 8.503485)
+
+[node name="Rock3_Snow" parent="." unique_id=1352204784 instance=ExtResource("10_ucgfy")]
+transform = Transform3D(-0.26271126, 0, 0.96487445, 0, 1, 0, -0.96487445, 0, -0.26271126, -2.9766123, 0, 6.7494764)
+
+[node name="Rock4" parent="." unique_id=729481181 instance=ExtResource("6_meaug")]
+transform = Transform3D(-0.38886675, 0, -0.921294, 0, 1, 0, 0.921294, 0, -0.38886675, -1.9320745, 0, 14.376772)
+
+[node name="Rock4_Snow" parent="." unique_id=602007865 instance=ExtResource("12_38fof")]
+transform = Transform3D(-0.38886675, 0, -0.921294, 0, 1, 0, 0.921294, 0, -0.38886675, -2.9308484, 0, 11.901238)
+
+[node name="Pine" parent="." unique_id=593924608 instance=ExtResource("2_0h8u3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.152403, 0, 3.3381188)
+
+[node name="Pine_Snow" parent="." unique_id=315748355 instance=ExtResource("16_ucgfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.152506, 0, 0.33671892)
+
+[node name="Pine_Fat" parent="." unique_id=343184000 instance=ExtResource("17_38fof")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.360086, 0, -4.111742)
+
+[node name="Pine_Fat_Snow2" parent="." unique_id=1582065615 instance=ExtResource("18_hi203")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.360086, 0, -8.253353)
+
+[node name="Pine_Tall" parent="." unique_id=1417963911 instance=ExtResource("19_vr50q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.183639, 0, 1.8815851)
+
+[node name="Pine_Tall_Snow" parent="." unique_id=96278686 instance=ExtResource("4_3cvef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.183639, 0, -1.22717)
+
+[node name="Geyser_Base1" parent="." unique_id=1355619458 instance=ExtResource("21_hi203")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.772254, 0, -7.0309677)
+
+[node name="Geyser_Base2" parent="." unique_id=2033131328 instance=ExtResource("22_vr50q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.772254, 0, -11.199577)
+
+[node name="House_Small_Red" parent="." unique_id=690832385 instance=ExtResource("23_vr50q")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -17.183167, 0, -14.543985)
+
+[node name="House_Small_Brown" parent="." unique_id=1407783123 instance=ExtResource("24_tu4jy")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -17.019077, 0, -4.7036905)
+
+[node name="Sign_Right" parent="." unique_id=136821792 instance=ExtResource("25_b7pji")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -10, 0, -11.599224)
+
+[node name="Sign_Right2" parent="." unique_id=957579623 instance=ExtResource("26_57obw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -14.221657)
+
+[node name="Sign_Right3" parent="." unique_id=776273804 instance=ExtResource("27_g1xil")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 0, -15.713789)
+
+[node name="Crate" parent="." unique_id=607968958 instance=ExtResource("28_57obw")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.658429, 0, -12.6348)
+
+[node name="FlagPost_Goal" parent="." unique_id=569694916 instance=ExtResource("29_u64pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.001055, 0, -22.244137)
+
+[node name="FlagPost_CheckPoint" parent="." unique_id=1583686095 instance=ExtResource("30_wkjvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.359245, 0, -26.362)
+
+[node name="CinnamonBun" parent="." unique_id=1124401289 instance=ExtResource("31_wkjvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.923766, 0, -15.935753)
+
+[node name="CinnamonBun2" parent="." unique_id=345520679 instance=ExtResource("32_syhm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.867269, 0, -15.084205)
+
+[node name="CinnamonBun3" parent="." unique_id=2088570862 instance=ExtResource("33_nt27a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9189663, 0, -15.661329)
+
+[node name="CinnamonBun4" parent="." unique_id=1587030979 instance=ExtResource("34_ncp7b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3664274, 0, -16.606659)
+
+[node name="Sled" parent="." unique_id=1523469162 instance=ExtResource("35_nt27a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.059123, 0, -21.160652)
+
+[node name="CakeBox" parent="." unique_id=1475850526 instance=ExtResource("36_c4ojv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0944195, 0.44251823, -20.781675)
+
+[node name="CoffeeBox" parent="." unique_id=1635217220 instance=ExtResource("37_gcb70")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.998203, 0.46524692, -19.740505)
+
+[node name="Snowman" parent="." unique_id=1850164651 instance=ExtResource("38_68yhr")]
+transform = Transform3D(0.28807923, 0, 0.95760655, 0, 1, 0, -0.95760655, 0, 0.28807923, -5.0454264, 0, -14.455221)
+
+[node name="SnowballLarge" parent="." unique_id=1490689630 instance=ExtResource("39_biyfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.912987, 0, -30.893887)
+
+[node name="SnowballSmall" parent="." unique_id=1072277597 instance=ExtResource("40_02yei")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.341606, 0, -13.462746)
+
+[node name="Icicle" parent="." unique_id=989758262 instance=ExtResource("41_biyfm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.928364, 0, -28.805708)
+
+[node name="Mushroom" parent="." unique_id=667541730 instance=ExtResource("42_om0u6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2984354, 0, -3.1649032)
+
+[node name="MushroomTall" parent="." unique_id=1717048341 instance=ExtResource("43_6gv5o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7069952, 0, -3.9844604)
+
+[node name="Mud" parent="." unique_id=1572001104 instance=ExtResource("44_w5kbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.204668, 0, -20.222927)
+
+[node name="DogTEMP_Beige" parent="." unique_id=1950071410 instance=ExtResource("45_0sa37")]
+transform = Transform3D(-0.9902899, 0, -0.13901758, 0, 1, 0, 0.13901758, 0, -0.9902899, -12.371133, 0, -25.21322)
+
+[node name="DogTEMP_Brown" parent="." unique_id=2102163038 instance=ExtResource("46_msvom")]
+transform = Transform3D(-0.9981391, 0, -0.060978856, 0, 1, 0, 0.060978856, 0, -0.9981391, -11.544412, 0, -28.215616)
+
+[node name="DogTEMP_DarkGrey" parent="." unique_id=733129031 instance=ExtResource("47_yms0j")]
+transform = Transform3D(-0.9769451, 0, 0.21349074, 0, 1, 0, -0.21349074, 0, -0.9769451, -9.280105, 0, -25.05)
+
+[node name="DogTEMP_LightGrey" parent="." unique_id=2109950053 instance=ExtResource("48_4nbxo")]
+transform = Transform3D(-0.9994883, 0, 0.031986415, 0, 1, 0, -0.031986415, 0, -0.9994883, -9.713736, 0, -28.68021)

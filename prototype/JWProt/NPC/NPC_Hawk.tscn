@@ -1,0 +1,346 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjcicq2ltjm6k"]
+
+[ext_resource type="Script" uid="uid://bpcdy8uw0dvpn" path="res://prototype/JWProt/NPC/NPCHawk.cs" id="1_rt04m"]
+[ext_resource type="AudioStream" uid="uid://bcsjcn1eahpt8" path="res://assets/AudioAssets/Hawk/HawkScream.mp3" id="2_03ad6"]
+[ext_resource type="PackedScene" uid="uid://cye275rxcicy" path="res://assets/Meshes/Placeholders/Hawk/Hawk.glb" id="2_6a4aa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3yfmh"]
+radius = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6a4aa"]
+albedo_color = Color(0.304885, 0.191905, 0.0524057, 1)
+
+[sub_resource type="Animation" id="Animation_cf6yu"]
+resource_name = "Attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/Hawk/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.698132, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Hawk/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.466667, 0.66, 0.84, 0.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.872665, 0, 0), Vector3(0.872665, 0, 0), Vector3(0.0767945, 0, 0), Vector3(0.872665, 0, 0), Vector3(0.0767945, 0, 0), Vector3(0.872665, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Model/Hawk/Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.466667, 0.66, 0.85, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.013, 0.691, 0.388), Vector3(0.013, 0.691, 0.388), Vector3(0.013, 0.691, 0.048), Vector3(0.013, 0.691, 0.388), Vector3(0.013, 0.691, 0.048), Vector3(0.013, 0.691, 0.388)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Model/Hawk/WingL:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.052, 0.644, 0.164)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Model/Hawk/WingL_001:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.051, 0.639, 0.254)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.466667, 0.85),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"DamageSled"
+}, {
+"args": [],
+"method": &"DamageSled"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6a4aa"]
+resource_name = "Fly"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/Hawk/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Hawk/WingL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.07592, -0.301079, -2.2127)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Model/Hawk/WingL_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.8657, -2.94875, 1.16572)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Model/Hawk/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.872665, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Model/Hawk/Body:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Model/Hawk/WingL:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.052, 0.644, -0.196)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Model/Hawk/WingL_001:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.051, 0.639, -0.156)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Model/Hawk/Head:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.013, 0.691, -0.217)]
+}
+
+[sub_resource type="Animation" id="Animation_cnq76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/Hawk/Body:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Hawk/WingL:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Model/Hawk/WingL_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Model/Hawk/Head:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Model/Hawk/Head:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.013247, 0.850857, -0.19181)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Model/Hawk/WingL:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.20204, 0.744012, -0.21088)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Model/Hawk/WingL_001:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.20109, 0.744012, -0.21088)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Model/Hawk/Body:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hop8j"]
+_data = {
+&"Attack": SubResource("Animation_cf6yu"),
+&"Fly": SubResource("Animation_6a4aa"),
+&"RESET": SubResource("Animation_cnq76")
+}
+
+[node name="Hawk" type="StaticBody3D" node_paths=PackedStringArray("model", "_sfxScream", "_animator")]
+script = ExtResource("1_rt04m")
+TriggerRadius = 10.0
+Speed = 8.0
+StopDistanceY = 1.0
+AttackDelay = 0.5
+DespawnDelay = 2.0
+MovementAnticipation = 4.0
+HitDistance = 1.1
+Damage = 2
+model = NodePath("Model")
+_sfxScream = NodePath("SFxScream")
+_animator = NodePath("AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3yfmh")
+
+[node name="Model" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.202305, 0)
+
+[node name="Hawk" parent="Model" instance=ExtResource("2_6a4aa")]
+transform = Transform3D(0.806778, 0, 0, 0, 0.405546, 0.697441, 0, -0.697441, 0.405546, 0, -0.133671, 0.271598)
+
+[node name="Body" parent="Model/Hawk" index="0"]
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_6a4aa")
+
+[node name="WingL" parent="Model/Hawk" index="1"]
+transform = Transform3D(0.695448, 0, 0, 0, 0.695448, 0, 0, 0, 0.695448, -0.20204, 0.744012, -0.21088)
+surface_material_override/0 = SubResource("StandardMaterial3D_6a4aa")
+
+[node name="Head" parent="Model/Hawk" index="2"]
+transform = Transform3D(0.425955, 0, 0, 0, 0.425955, 0, 0, 0, 0.425955, 0.013247, 0.850857, -0.19181)
+surface_material_override/0 = SubResource("StandardMaterial3D_6a4aa")
+
+[node name="WingL_001" parent="Model/Hawk" index="3"]
+transform = Transform3D(-0.718139, 0, 0, 0, -0.701056, 0, 0, 0, -0.695715, 0.20109, 0.744012, -0.21088)
+surface_material_override/0 = SubResource("StandardMaterial3D_6a4aa")
+
+[node name="SFxScream" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_03ad6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hop8j")
+}
+
+[editable path="Model/Hawk"]

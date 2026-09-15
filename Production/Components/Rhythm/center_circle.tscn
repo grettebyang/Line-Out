@@ -1,0 +1,228 @@
+[gd_scene format=3 uid="uid://bov2cjp5glup2"]
+
+[ext_resource type="Texture2D" uid="uid://crua663en3pck" path="res://Production/Components/UI/HUD/Icons/IconPepparKakor.png" id="1_g5f3y"]
+[ext_resource type="Texture2D" uid="uid://iqv36hflhhd3" path="res://Production/Components/UI/MainMenu/Sprites/JoinRing.png" id="1_hxjpd"]
+[ext_resource type="Script" uid="uid://c7sdxhlojoqb8" path="res://Production/Components/Rhythm/AccuracyMeter.cs" id="2_nt23t"]
+[ext_resource type="Texture2D" uid="uid://dy8jm3pgawlpw" path="res://Production/Components/UI/Prefabs/RhythmUI/RhythmCircleFull.png" id="3_wtgo8"]
+[ext_resource type="Texture2D" uid="uid://ctlvrcmnoo0yr" path="res://Production/Components/UI/Prefabs/RhythmUI/RhythmCircleRing.png" id="4_hxjpd"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="4_nt23t"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="5_hxjpd"]
+
+[sub_resource type="Shader" id="Shader_ejw3p"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable.mono's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix,unshaded;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}	UV /= vec2(h_frames, v_frames);
+	UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_15ov2"]
+shader = SubResource("Shader_ejw3p")
+shader_parameter/particles_anim_h_frames = 1
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = false
+
+[sub_resource type="Shader" id="Shader_2nbe1"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable.mono's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix,unshaded;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}	UV /= vec2(h_frames, v_frames);
+	UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtgo8"]
+shader = SubResource("Shader_2nbe1")
+shader_parameter/particles_anim_h_frames = 1
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = false
+
+[sub_resource type="Shader" id="Shader_g5f3y"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable.mono's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix,unshaded;
+uniform int particles_anim_h_frames;
+uniform int particles_anim_v_frames;
+uniform bool particles_anim_loop;
+
+void vertex() {
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	VERTEX.xy /= vec2(h_frames, v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}	UV /= vec2(h_frames, v_frames);
+	UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nbe1"]
+shader = SubResource("Shader_g5f3y")
+shader_parameter/particles_anim_h_frames = 1
+shader_parameter/particles_anim_v_frames = 1
+shader_parameter/particles_anim_loop = false
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wtgo8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ejw3p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y6fxc"]
+font = ExtResource("5_hxjpd")
+font_size = 481
+outline_size = 35
+outline_color = Color(0.411765, 0.313726, 0.203922, 1)
+
+[node name="CenterCircle" type="Control" unique_id=529237014]
+z_index = 12
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+
+[node name="BackgroundCue" type="Sprite2D" parent="." unique_id=1192449575]
+modulate = Color(1, 1, 1, 0)
+show_behind_parent = true
+z_index = -2
+material = SubResource("ShaderMaterial_15ov2")
+scale = Vector2(25.444996, 25.444996)
+texture = ExtResource("1_g5f3y")
+
+[node name="OuterRingCircle" type="Sprite2D" parent="." unique_id=511422046]
+modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+show_behind_parent = true
+material = SubResource("ShaderMaterial_wtgo8")
+scale = Vector2(7, 7)
+texture = ExtResource("1_hxjpd")
+
+[node name="InnerCircle" type="Sprite2D" parent="." unique_id=1397980963]
+self_modulate = Color(0.22745098, 0.36862746, 0.70980394, 1)
+show_behind_parent = true
+z_index = 14
+z_as_relative = false
+material = SubResource("ShaderMaterial_wtgo8")
+scale = Vector2(6.9999986, 6.9999986)
+texture = ExtResource("1_hxjpd")
+
+[node name="AccuracyMeter" type="TextureProgressBar" parent="InnerCircle" unique_id=507347954]
+z_index = 14
+z_as_relative = false
+offset_left = -55.99994
+offset_top = -55.99994
+offset_right = 56.00006
+offset_bottom = 56.00006
+pivot_offset_ratio = Vector2(0.5, 0.5)
+fill_mode = 3
+texture_progress = ExtResource("1_hxjpd")
+script = ExtResource("2_nt23t")
+
+[node name="Cover" type="Sprite2D" parent="InnerCircle" unique_id=112517882]
+self_modulate = Color(0.11372549, 0.20392157, 0.43137255, 0.8235294)
+z_index = 13
+z_as_relative = false
+material = SubResource("ShaderMaterial_wtgo8")
+texture = ExtResource("1_hxjpd")
+
+[node name="BeatCue" type="Control" parent="InnerCircle" unique_id=1494692723]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -56.0
+offset_right = -56.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+
+[node name="BeatCue" type="Sprite2D" parent="InnerCircle/BeatCue" unique_id=803721079]
+show_behind_parent = true
+z_index = 1
+material = SubResource("ShaderMaterial_2nbe1")
+scale = Vector2(0.659, 0.659)
+texture = ExtResource("1_g5f3y")
+
+[node name="CircleFilled" type="Sprite2D" parent="." unique_id=1979329275]
+visible = false
+modulate = Color(1, 1, 1, 0.901961)
+show_behind_parent = true
+z_index = 10
+material = SubResource("ShaderMaterial_wtgo8")
+position = Vector2(-2.50017, -9.99991)
+scale = Vector2(0.933076, 0.939511)
+texture = ExtResource("3_wtgo8")
+
+[node name="CircleOutline" type="Sprite2D" parent="." unique_id=1335683667]
+visible = false
+modulate = Color(1, 1, 1, 0.784314)
+show_behind_parent = true
+z_index = 10
+material = SubResource("CanvasItemMaterial_wtgo8")
+texture = ExtResource("4_hxjpd")
+region_rect = Rect2(4.06, 4.07, 0, 0)
+
+[node name="Label" type="Label" parent="." unique_id=2076829010]
+visible = false
+z_index = 11
+material = SubResource("CanvasItemMaterial_ejw3p")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -328.0
+offset_right = 159.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_nt23t")
+text = "A"
+label_settings = SubResource("LabelSettings_y6fxc")
+horizontal_alignment = 1
+vertical_alignment = 1

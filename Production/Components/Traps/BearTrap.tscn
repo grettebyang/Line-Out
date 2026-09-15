@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cw4kly7vp7hvd"]
+
+[ext_resource type="Script" uid="uid://dsoix2cjxtgs8" path="res://Production/Components/Traps/lib/beartrap/BearTrap.cs" id="1_hkokl"]
+[ext_resource type="Curve" uid="uid://n7s1el2clat6" path="res://Production/Components/Traps/lib/beartrap/BearTrapSnap.tres" id="2_h8d0e"]
+[ext_resource type="Curve" uid="uid://by7kfyfnifd5" path="res://Production/Components/Traps/lib/beartrap/BearTrapOpening.tres" id="3_2g4ro"]
+[ext_resource type="PackedScene" uid="uid://b1bjso5fxkhul" path="res://assets/Meshes/Traps/beartrap.glb" id="4_gk1xo"]
+[ext_resource type="AudioStream" uid="uid://d1frld2saopl0" path="res://assets/AudioAssets/Traps/BearTrap/BearTrapClose.wav" id="5_g4ay1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lle4i"]
+radius = 0.697594
+
+[node name="BearTrap" type="Node3D" unique_id=368087271]
+
+[node name="Area" type="Area3D" parent="." unique_id=1348358890 node_paths=PackedStringArray("_rightPivot", "_leftPivot", "_stuckPos", "_collider")]
+transform = Transform3D(0.0778327, 0, -0.996966, 0, 1, 0, 0.996966, 0, 0.0778327, 0, 0, 0)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_hkokl")
+_rightPivot = NodePath("beartrap/firsthalf")
+_leftPivot = NodePath("beartrap/secondhalf")
+_stuckPos = NodePath("..")
+_bearTrapSnap = ExtResource("2_h8d0e")
+_bearTrapShut = ExtResource("3_2g4ro")
+_collider = NodePath("CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area" unique_id=1988972924]
+shape = SubResource("SphereShape3D_lle4i")
+
+[node name="beartrap" parent="Area" unique_id=743031065 instance=ExtResource("4_gk1xo")]
+transform = Transform3D(0.768908, 0, -0.0600283, 0, 0.771247, 0, 0.0600283, 0, 0.768908, 0, 0, 0)
+
+[node name="BearTrapClose" type="AudioStreamPlayer3D" parent="Area" unique_id=1507038226]
+stream = ExtResource("5_g4ay1")
+bus = &"SFX"
+
+[editable path="Area/beartrap"]

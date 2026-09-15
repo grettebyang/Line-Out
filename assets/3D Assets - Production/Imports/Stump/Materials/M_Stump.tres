@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cya5o58jgheat"]
+
+[ext_resource type="Texture2D" uid="uid://cdmbu3xf5xrqu" path="res://assets/3D Assets - Production/Imports/Stump/Materials/Textures/Stump_lambert1_BaseColor.png" id="1_calq0"]
+[ext_resource type="Texture2D" uid="uid://b3myjjggltfet" path="res://assets/3D Assets - Production/Imports/Stump/Materials/Textures/Stump_lambert1_Normal.png" id="2_13ukw"]
+
+[resource]
+albedo_texture = ExtResource("1_calq0")
+normal_enabled = true
+normal_texture = ExtResource("2_13ukw")

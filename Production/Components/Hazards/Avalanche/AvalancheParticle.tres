@@ -1,0 +1,17 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://bb7bn8ync2asf"]
+
+[resource]
+lifetime_randomness = 0.2
+emission_shape_scale = Vector3(1, 0.5, 4)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 0.0
+gravity = Vector3(0, -2, 0)
+linear_accel_min = 0.999998
+linear_accel_max = 2.0
+scale_min = 0.099999994
+scale_max = 4.0
+scale_over_velocity_max = 2.0
+collision_mode = 1
+collision_friction = 0.5
+collision_bounce = 0.3

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://tg5vmv4nyp3"]
+
+[ext_resource type="Script" uid="uid://b8l801d4t4mc7" path="res://Production/Components/UI/HUD/Tags/PlayerTagsHUD.cs" id="1_iu706"]
+[ext_resource type="PackedScene" uid="uid://g3bl2agwwfos" path="res://Production/Components/UI/HUD/Tags/DogTag.tscn" id="2_o7nx0"]
+
+[node name="PlayerTagsHud" type="Control" unique_id=1299080909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iu706")
+_tagScene = ExtResource("2_o7nx0")

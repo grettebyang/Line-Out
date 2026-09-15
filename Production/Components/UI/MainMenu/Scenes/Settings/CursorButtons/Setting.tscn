@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bkw5j280ptjqc"]
+
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="1_u0wct"]
+[ext_resource type="PackedScene" uid="uid://chfn18hxws3wk" path="res://Production/Components/UI/Prefabs/Buttons/ToggleButton.tscn" id="2_yocti"]
+
+[node name="Setting" type="Control" unique_id=845889204]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.59300005
+offset_bottom = -0.44006348
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0, 0.5)
+
+[node name="Description" type="Label" parent="." unique_id=1100555297]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.047000002
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_right = 892.76
+theme = ExtResource("1_u0wct")
+theme_override_colors/font_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+theme_override_font_sizes/font_size = 40
+text = "Setting"
+vertical_alignment = 1
+
+[node name="ToggleButton" parent="." unique_id=271175958 instance=ExtResource("2_yocti")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -217.19495
+offset_top = 23.0
+offset_right = -96.19495
+offset_bottom = -23.0
+grow_horizontal = 0
+grow_vertical = 2

@@ -1,0 +1,115 @@
+[gd_resource type="Resource" script_class="InputSystemPreset" format=3 uid="uid://c6k63bylvh2mh"]
+
+[ext_resource type="Script" uid="uid://cotbjx0fa0owr" path="res://Production/Components/InputSystem/Scripts/InputSystemPreset.cs" id="1_ejlfv"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ejlfv"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_ingr0"]
+device = -1
+keycode = 81
+unicode = 113
+
+[sub_resource type="InputEventKey" id="InputEventKey_brx46"]
+resource_name = "confirm"
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_pl7nt"]
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_j7ymw"]
+resource_name = "back"
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_v0bdw"]
+resource_name = "left"
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_wl32o"]
+resource_name = "right"
+device = -1
+keycode = 82
+unicode = 114
+
+[sub_resource type="InputEventKey" id="InputEventKey_mbn45"]
+resource_name = "back"
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_6i2xy"]
+resource_name = "front"
+device = -1
+keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_w4mgj"]
+resource_name = "back"
+device = -1
+keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_lpumc"]
+resource_name = "left"
+device = -1
+keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_p6qrd"]
+resource_name = "right"
+device = -1
+keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_k8a0h"]
+resource_name = "jump"
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_o8pia"]
+resource_name = "trigger"
+device = -1
+keycode = 70
+unicode = 102
+
+[sub_resource type="InputEventKey" id="InputEventKey_8ewbc"]
+resource_name = "confirm"
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_2uf7r"]
+resource_name = "A"
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_teyn2"]
+resource_name = "Y"
+
+[sub_resource type="InputEventKey" id="InputEventKey_vweqn"]
+resource_name = "pause"
+device = -1
+keycode = 80
+unicode = 112
+
+[resource]
+resource_name = "front"
+script = ExtResource("1_ejlfv")
+_eventActivate = SubResource("InputEventKey_ejlfv")
+_eventDeactivate = SubResource("InputEventKey_ingr0")
+_inputsPlayerMovemenet = Array[InputEvent]([SubResource("InputEventKey_6i2xy"), SubResource("InputEventKey_w4mgj"), SubResource("InputEventKey_lpumc"), SubResource("InputEventKey_p6qrd"), SubResource("InputEventKey_k8a0h"), SubResource("InputEventKey_o8pia"), SubResource("InputEventKey_8ewbc")])
+_inputsRythmEvent = Array[InputEvent]([SubResource("InputEventKey_2uf7r"), SubResource("InputEventKey_teyn2")])
+_inputsMenu = Array[InputEvent]([SubResource("InputEventKey_brx46"), SubResource("InputEventKey_pl7nt"), SubResource("InputEventKey_j7ymw"), SubResource("InputEventKey_v0bdw"), SubResource("InputEventKey_wl32o"), SubResource("InputEventKey_mbn45")])
+_inputsUniversal = Array[InputEvent]([SubResource("InputEventKey_vweqn")])
+metadata/_custom_type_script = "uid://cotbjx0fa0owr"

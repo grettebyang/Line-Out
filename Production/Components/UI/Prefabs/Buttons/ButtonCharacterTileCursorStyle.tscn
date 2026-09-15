@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://qua12xse0j0p"]
+
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="1_7itae"]
+[ext_resource type="Script" uid="uid://dekxutvwa0q62" path="res://Production/Components/UI/Prefabs/Buttons/CharacterTile.cs" id="1_tle1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tle1k"]
+size = Vector2(120, 97)
+
+[sub_resource type="Gradient" id="Gradient_d04cp"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.705882, 0.701961, 0.572549, 1, 0.811885, 0.809214, 0.734769, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5juns"]
+gradient = SubResource("Gradient_d04cp")
+width = 120
+height = 97
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_tle1k"]
+
+[node name="CharacterTile" type="Control" unique_id=271175958]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharacterTile" type="StaticBody2D" parent="." unique_id=155319871 node_paths=PackedStringArray("_collisionArea", "_hover", "_nametag", "_selectSound")]
+scale = Vector2(2.425, 2.425)
+script = ExtResource("1_tle1k")
+_collisionArea = NodePath("Area2D")
+_hover = NodePath("Area2D/Card/Hover")
+_nametag = NodePath("Area2D/Card/Name")
+_selectSound = NodePath("../SelectionSoundPlayer")
+
+[node name="Area2D" type="Area2D" parent="CharacterTile" unique_id=1415885389]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterTile/Area2D" unique_id=138778056]
+position = Vector2(60, 48)
+shape = SubResource("RectangleShape2D_tle1k")
+
+[node name="Card" type="TextureRect" parent="CharacterTile/Area2D" unique_id=1049578636]
+z_index = 2
+offset_right = 120.0
+offset_bottom = 97.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_5juns")
+
+[node name="Hover" type="ColorRect" parent="CharacterTile/Area2D/Card" unique_id=2084409731]
+visible = false
+modulate = Color(1, 1, 1, 0.61960787)
+layout_mode = 0
+offset_right = 120.82475
+offset_bottom = 96.90722
+color = Color(0, 0, 0, 1)
+
+[node name="Outline" type="ColorRect" parent="CharacterTile/Area2D/Card" unique_id=120799130]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -48.5
+offset_right = 61.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="Name" type="Label" parent="CharacterTile/Area2D/Card" unique_id=418465982]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.279999
+offset_right = 95.905
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/font = ExtResource("1_7itae")
+theme_override_font_sizes/font_size = 19
+text = "Dog "
+
+[node name="SelectionSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=323350086]
+stream = SubResource("AudioStreamWAV_tle1k")
+bus = &"SFX"
+
+[connection signal="area_entered" from="CharacterTile/Area2D" to="CharacterTile" method="OnAreaEntered"]
+[connection signal="area_exited" from="CharacterTile/Area2D" to="CharacterTile" method="OnAreaExited"]

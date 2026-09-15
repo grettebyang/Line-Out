@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3725spk5hua7"]
+
+[ext_resource type="Script" uid="uid://cl6i6xr05dkpo" path="res://Production/Components/LevelPrefabs/PathTrackingSystem.cs" id="1_pbhyw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sckow"]
+albedo_color = Color(0.92032, 0.958353, 1.54018e-06, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_i8dgu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wrpyy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blbp8"]
+albedo_color = Color(0.215902, 0.215902, 0.215902, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_1cie6"]
+size = Vector3(1, 1.905, 1)
+
+[node name="Path Tracking System" type="Node3D" node_paths=PackedStringArray("_placeHolderCompass", "_smoothCompass")]
+transform = Transform3D(1, 0, 0, 0, 1, -8.74224e-08, 0, 8.74224e-08, 1, 0, 0, 0)
+script = ExtResource("1_pbhyw")
+_offset = 15.0
+_distToDelete = 6.0
+_distToIgnore = 22.0
+_rotationFactor = 0.52
+_placeHolderCompass = NodePath("Compass")
+_smoothCompass = NodePath("Compass2")
+_ignoreY = true
+_enabled = true
+
+[node name="Compass" type="Node3D" parent="."]
+transform = Transform3D(-0.901041, 0, 0.433629, 0, 0.999969, 0, -0.433635, 0, -0.901029, 0, 0, 0)
+top_level = true
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Compass"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.2, 0, -1, -8.74228e-09, 0, 0, -2)
+visible = false
+material_override = SubResource("StandardMaterial3D_sckow")
+mesh = SubResource("PrismMesh_i8dgu")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Compass/MeshInstance3D"]
+transform = Transform3D(0.290729, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.889226, 1.42109e-14)
+mesh = SubResource("BoxMesh_wrpyy")
+
+[node name="Compass2" type="Node3D" parent="."]
+transform = Transform3D(0.999957, 0, 0, 0, 0.999969, 0, 0, 0, 0.999944, 0, 0, 0)
+top_level = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Compass2"]
+transform = Transform3D(-1, -1.50996e-07, 6.60024e-16, 0, -4.37114e-08, -0.1, 1.50996e-07, -1, 4.37114e-09, 0, 4.37114e-08, -1)
+material_override = SubResource("StandardMaterial3D_blbp8")
+mesh = SubResource("PrismMesh_1cie6")
+skeleton = NodePath("../..")

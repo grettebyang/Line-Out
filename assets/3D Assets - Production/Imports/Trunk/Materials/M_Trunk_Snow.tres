@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cr7tqpuhfup5i"]
+
+[ext_resource type="Texture2D" uid="uid://cx2b5u86n6n1w" path="res://assets/3D Assets - Production/Imports/Trunk/Materials/Textures/Trunk_Snow/Trunk_Snow_LOW_lambert2_BaseColor.png" id="1_hiyim"]
+[ext_resource type="Texture2D" uid="uid://mesrftoge1kb" path="res://assets/3D Assets - Production/Imports/Trunk/Materials/Textures/Trunk_Snow/Trunk_Snow_LOW_lambert2_Normal.png" id="2_ttvow"]
+
+[resource]
+albedo_texture = ExtResource("1_hiyim")
+normal_enabled = true
+normal_texture = ExtResource("2_ttvow")

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bjjphl4yb0yue"]
+
+[ext_resource type="Texture2D" uid="uid://bka1rjkwiaekf" path="res://assets/3D Assets - Production/Imports/Dog_TEMP/Materials/Textures/DOg_Temp_initialShadingGroup_Licorice.png" id="1_lve75"]
+
+[resource]
+albedo_texture = ExtResource("1_lve75")
+normal_enabled = true

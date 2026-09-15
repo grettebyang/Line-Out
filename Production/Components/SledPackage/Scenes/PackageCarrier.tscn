@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b2l82qrqaekog"]
+
+[ext_resource type="Script" uid="uid://dnxvnnx718c35" path="res://Production/Components/SledPackage/Scripts/PackageCarrier.cs" id="1_h3huc"]
+[ext_resource type="Script" uid="uid://fymuc4ooncge" path="res://Production/Components/PropertyComponents/HealthComponent.cs" id="2_71b2g"]
+[ext_resource type="AudioStream" uid="uid://c4sg66wwqdgnx" path="res://assets/AudioAssets/MiscFeedback/FailSound.wav" id="3_awh4x"]
+
+[node name="PackageCarrier" type="Node3D" unique_id=117498501 node_paths=PackedStringArray("_health", "_failSound")]
+script = ExtResource("1_h3huc")
+_health = NodePath("Health")
+_failSound = NodePath("FailSound")
+
+[node name="Health" type="Area3D" parent="." unique_id=93300471]
+script = ExtResource("2_71b2g")
+_health = 0
+_maxHealth = 0
+_lowHealthTreshold = 0
+
+[node name="FailSound" type="AudioStreamPlayer3D" parent="." unique_id=1745481412]
+stream = ExtResource("3_awh4x")
+bus = &"SFX"

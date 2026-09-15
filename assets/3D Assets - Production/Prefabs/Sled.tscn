@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://w2fabjufbi22"]
+
+[ext_resource type="Material" uid="uid://dcxm1abeuykrn" path="res://assets/3D Assets - Production/Imports/Sled/Materials/M_Sled.tres" id="1_5uy2s"]
+[ext_resource type="ArrayMesh" uid="uid://bl64jq84ipfj1" path="res://assets/3D Assets - Production/Imports/Sled/Meshes/Sled_LOW.obj" id="2_ygaof"]
+
+[node name="Sled" type="Node3D" unique_id=1885831638]
+
+[node name="Sled_Mesh" type="MeshInstance3D" parent="." unique_id=1323799370]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.1943649, 0)
+material_override = ExtResource("1_5uy2s")
+mesh = ExtResource("2_ygaof")

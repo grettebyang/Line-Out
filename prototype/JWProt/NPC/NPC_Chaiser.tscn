@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://5fbbery3vp3g"]
+
+[ext_resource type="Script" uid="uid://dfdovrsup1vjr" path="res://prototype/JWProt/NPC/NPCChaiser.cs" id="1_xsky3"]
+[ext_resource type="Script" uid="uid://fymuc4ooncge" path="res://Production/Components/PropertyComponents/HealthComponent.cs" id="2_wpa58"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsky3"]
+albedo_color = Color(0.667908, 0.249096, 0.250513, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ad3p"]
+material = SubResource("StandardMaterial3D_xsky3")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0ad3p"]
+radius = 0.581271
+height = 1.39497
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xsky3"]
+radius = 10.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4vrpa"]
+radius = 0.635366
+
+[node name="NPCChaiser" type="CharacterBody3D" node_paths=PackedStringArray("_health", "_triggerChaiseArea", "_obstacleRay")]
+script = ExtResource("1_xsky3")
+_health = NodePath("HP")
+_moveSpeed = 200.0
+_fastMoveSpeed = 200.0
+_triggerChaiseArea = NodePath("TriggerChaiseArea")
+_obstacleRay = NodePath("RayCast3D")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -0.6623, 0, 0.623372, 0, 1, 0, -2.89501e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_0ad3p")
+
+[node name="Head" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(0.393445, 0, 0, 0, 0.623372, 0, 0, 0, 0.549017, -0.496434, 0.750989, 0)
+mesh = SubResource("BoxMesh_0ad3p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27804, 0)
+shape = SubResource("CapsuleShape3D_0ad3p")
+
+[node name="TriggerChaiseArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerChaiseArea"]
+visible = false
+shape = SubResource("SphereShape3D_xsky3")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -3)
+
+[node name="HP" type="Area3D" parent="."]
+script = ExtResource("2_wpa58")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HP"]
+shape = SubResource("SphereShape3D_4vrpa")
+
+[connection signal="body_entered" from="TriggerChaiseArea" to="." method="OnTriggerChaiseAreaBodyEntered"]
+[connection signal="body_exited" from="TriggerChaiseArea" to="." method="OnTriggerChaiseAreaBodyExited"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://deecxmywcm1w3"]
+
+[ext_resource type="PackedScene" uid="uid://cuijp8417algr" path="res://Production/Components/UI/MainMenu/Scenes/ListMenuBase.tscn" id="1_h7d34"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="2_7khtl"]
+[ext_resource type="Script" uid="uid://61jd05mdjcuf" path="res://Production/Components/UI/MainMenu/Scripts/MultiplayerSubmenu.cs" id="2_536lj"]
+[ext_resource type="PackedScene" uid="uid://d4bk5s6xdpftm" path="res://Production/Components/UI/Prefabs/Buttons/ListMenuButton.tscn" id="4_3huno"]
+[ext_resource type="PackedScene" uid="uid://dk8apbhigm17n" path="res://Production/Components/UI/Prefabs/Holders/BaseHolder.tscn" id="5_3huno"]
+
+[node name="MultiplayerMenu" type="Control" node_paths=PackedStringArray("_lobbyIdEdit", "_lblHostedLobbyId", "_mainButtonsContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_536lj")
+_lobbyIdEdit = NodePath("Card/MainSelection/EditLobbyId")
+_lblHostedLobbyId = NodePath("Description/MarginContainer/LblLobbyId")
+_mainButtonsContainer = NodePath("Card/MainSelection")
+
+[node name="Card" parent="." instance=ExtResource("1_h7d34")]
+z_index = 2
+layout_mode = 1
+offset_right = 500.0
+
+[node name="Label" parent="Card" index="1"]
+theme_override_font_sizes/font_size = 64
+text = "Multiplayer"
+
+[node name="EditLobbyId" type="LineEdit" parent="Card/MainSelection" index="0"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+theme = ExtResource("2_7khtl")
+placeholder_text = "Join code"
+alignment = 1
+virtual_keyboard_type = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Card/MainSelection" index="1"]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="BtnJoin" parent="Card/MainSelection" index="2" instance=ExtResource("4_3huno")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+text = "Join"
+
+[node name="BtnHost" parent="Card/MainSelection" index="3" instance=ExtResource("4_3huno")]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+text = "Host"
+
+[node name="Description" parent="." instance=ExtResource("5_3huno")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -210.0
+offset_right = 203.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.00938855
+
+[node name="MarginContainer" type="MarginContainer" parent="Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 40
+
+[node name="LblLobbyId" type="Label" parent="Description/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_7khtl")
+theme_override_font_sizes/font_size = 32
+text = "Host info..."
+
+[editable path="Card"]

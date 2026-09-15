@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk8apbhigm17n"]
+
+[sub_resource type="Gradient" id="Gradient_p3wqc"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.705882, 0.701961, 0.572549, 1, 0.811765, 0.807843, 0.733333, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_udmhe"]
+gradient = SubResource("Gradient_p3wqc")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_udmhe"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.156863, 0.141176, 0.584314, 0, 0.156863, 0.141176, 0.584314, 0.25098, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_augk2"]
+gradient = SubResource("Gradient_udmhe")
+fill = 1
+fill_from = Vector2(0.16, 3.26)
+fill_to = Vector2(1.71, -2.49)
+
+[node name="BaseHolder" type="TextureRect"]
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("GradientTexture2D_udmhe")
+
+[node name="Shadow" type="TextureRect" parent="."]
+physics_interpolation_mode = 1
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_augk2")

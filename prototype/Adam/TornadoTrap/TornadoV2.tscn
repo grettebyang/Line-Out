@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://lttm102lnb0k"]
+
+[ext_resource type="Script" uid="uid://dqh43snhnv01e" path="res://prototype/Adam/TornadoTrap/TornadoV2.cs" id="1_e1bw0"]
+[ext_resource type="Shader" uid="uid://ciprq0dy7gmbg" path="res://prototype/Adam/TornadoTrap/TornadoShader.tres" id="2_cp7u7"]
+[ext_resource type="Texture2D" uid="uid://c5qpw6vflwc1i" path="res://prototype/Adam/TornadoTrap/T_Noise_HU85k.png" id="3_1e5gk"]
+[ext_resource type="ArrayMesh" uid="uid://47kb2xfkw4jn" path="res://prototype/Adam/TornadoTrap/Tornado7.obj" id="4_l5pxb"]
+[ext_resource type="AudioStream" uid="uid://c70gvfve6y73" path="res://assets/AudioAssets/Traps/Tornado/TornadoWindSFX.wav" id="5_1e5gk"]
+[ext_resource type="AudioStream" uid="uid://u2fnoy165n34" path="res://assets/AudioAssets/Traps/Tornado/TornadoSwirlingSFX.wav" id="6_gvus4"]
+[ext_resource type="PackedScene" uid="uid://kd3cyw1err1" path="res://Production/Components/Rhythm/PowerUps/under_shadow.tscn" id="7_hrl0m"]
+
+[sub_resource type="Gradient" id="Gradient_1e5gk"]
+offsets = PackedFloat32Array(0, 0.02255639, 0.3809524, 0.566416, 1)
+colors = PackedColorArray(0.7372549, 0.81960785, 0.8745098, 0, 0.80784315, 0.98039216, 0.99215686, 0.05882353, 1, 1, 1, 1, 0.7921569, 0.92156863, 1, 0.62352943, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gvus4"]
+gradient = SubResource("Gradient_1e5gk")
+
+[sub_resource type="Gradient" id="Gradient_hrl0m"]
+offsets = PackedFloat32Array(0, 0.1453634, 0.5413534, 0.8596491, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0.83889705, 0.83889705, 0.838897, 1, 0, 0, 0, 1, 0.96836215, 0.96836215, 0.96836215, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dhpts"]
+gradient = SubResource("Gradient_hrl0m")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1e5gk"]
+render_priority = 0
+shader = ExtResource("2_cp7u7")
+shader_parameter/SpeedXY = Vector2(0.5, 1)
+shader_parameter/BaseTexture = ExtResource("3_1e5gk")
+shader_parameter/SubtractionTexture = SubResource("GradientTexture2D_dhpts")
+shader_parameter/Color1DGradient = SubResource("GradientTexture1D_gvus4")
+
+[node name="Tornado" type="Node3D" unique_id=1713758612 node_paths=PackedStringArray("tornadoSwirlingSFX")]
+script = ExtResource("1_e1bw0")
+tornadoSwirlingSFX = NodePath("TornadoSwirling")
+
+[node name="BaseMesh" type="MeshInstance3D" parent="." unique_id=1928292335]
+transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 4, 0, -2, 0)
+material_override = SubResource("ShaderMaterial_1e5gk")
+cast_shadow = 0
+mesh = ExtResource("4_l5pxb")
+
+[node name="AmbientWind" type="AudioStreamPlayer3D" parent="." unique_id=1127793854]
+stream = ExtResource("5_1e5gk")
+volume_db = 8.044
+autoplay = true
+bus = &"SFX"
+
+[node name="TornadoSwirling" type="AudioStreamPlayer3D" parent="." unique_id=1032570394]
+stream = ExtResource("6_gvus4")
+bus = &"SFX"
+
+[node name="Shadow" parent="." unique_id=663439416 instance=ExtResource("7_hrl0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2778931, -1.2587891)
+size = Vector3(16, 20, 16)

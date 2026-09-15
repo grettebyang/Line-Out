@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://pm8y15cl3vua"
+path="res://.godot/imported/Crate_LOW.obj-5c1ac49cdcd0adf08030d9bb04ec2d67.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Crate_LOW.obj-5c1ac49cdcd0adf08030d9bb04ec2d67.mesh"]
+
+source_file="res://assets/3D Assets - Production/Imports/Crate/Meshes/Crate_LOW.obj"
+dest_files=["res://.godot/imported/Crate_LOW.obj-5c1ac49cdcd0adf08030d9bb04ec2d67.mesh", "res://.godot/imported/Crate_LOW.obj-5c1ac49cdcd0adf08030d9bb04ec2d67.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

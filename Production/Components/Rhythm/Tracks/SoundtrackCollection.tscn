@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ccwv5l3foj52t"]
+
+[ext_resource type="Script" uid="uid://iieatykbp4bj" path="res://Production/Components/Rhythm/Tracks/SoundtrackCollection.cs" id="1_me5ry"]
+[ext_resource type="PackedScene" uid="uid://dknjaqlqy25lt" path="res://Production/Components/Rhythm/Tracks/ClickTrack.tscn" id="2_qgyrv"]
+[ext_resource type="PackedScene" uid="uid://d0omch43q6bot" path="res://Production/Components/Rhythm/Tracks/YourDrivewayisaDisaster.tscn" id="3_a0qln"]
+[ext_resource type="PackedScene" uid="uid://cqsnn3o2p8v28" path="res://Production/Components/Rhythm/Tracks/NotTooSweet.tscn" id="4_d47dj"]
+[ext_resource type="PackedScene" uid="uid://cbc0eo8r6bvqs" path="res://Production/Components/Rhythm/Tracks/HouseBlend.tscn" id="5_t86ho"]
+[ext_resource type="PackedScene" uid="uid://namcpxwj6x0e" path="res://Production/Components/Rhythm/Tracks/DankRoast.tscn" id="6_daygy"]
+[ext_resource type="PackedScene" uid="uid://1ti66mib33in" path="res://Production/Components/Rhythm/Tracks/Lapland'sFikaDeliveryDogs.tscn" id="7_qgyrv"]
+
+[node name="SoundtrackCollection" type="Node" unique_id=1188081523]
+script = ExtResource("1_me5ry")
+
+[node name="Lapland\'sFikaDeliveryDogs" parent="." unique_id=512394520 instance=ExtResource("7_qgyrv")]
+
+[node name="CalibrationTrack" parent="." unique_id=363635608 instance=ExtResource("2_qgyrv")]
+
+[node name="YourDrivewayisaDisaster" parent="." unique_id=790640376 instance=ExtResource("3_a0qln")]
+
+[node name="NotTooSweet" parent="." unique_id=222607091 instance=ExtResource("4_d47dj")]
+
+[node name="HouseBlend" parent="." unique_id=7029672 instance=ExtResource("5_t86ho")]
+
+[node name="DankRoast" parent="." unique_id=464631435 instance=ExtResource("6_daygy")]

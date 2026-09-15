@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cj14dsqe0rjyv"]
+
+[ext_resource type="Material" uid="uid://bytnyvj24ms4k" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Materials/M_FikaBoxes.tres" id="1_wxrmb"]
+[ext_resource type="ArrayMesh" uid="uid://d0w4bxyhb6hvg" path="res://assets/3D Assets - Production/Imports/FikaBoxes/Meshes/CoffeeBox.obj" id="2_0jcbg"]
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="3_q04uj"]
+[ext_resource type="ArrayMesh" uid="uid://dnbcdieeq551g" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/Coffee.obj" id="4_p53v3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_era8t"]
+size = Vector3(1.0180883, 0.81654394, 0.93433106)
+
+[node name="CoffeeBox" type="StaticBody3D" unique_id=1475850526]
+
+[node name="CoffeeBox_Mesh" type="MeshInstance3D" parent="." unique_id=846448916]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, 0)
+material_override = ExtResource("1_wxrmb")
+mesh = ExtResource("2_0jcbg")
+
+[node name="Coffee_Mesh" type="MeshInstance3D" parent="CoffeeBox_Mesh" unique_id=910497310]
+transform = Transform3D(0.50454634, 0, 0.939793, 0, 1.0666667, 0, -0.939793, 0, 0.50454634, -0.6085785, -0.04727377, 0.5228052)
+material_override = ExtResource("3_q04uj")
+mesh = ExtResource("4_p53v3")
+skeleton = NodePath("")
+
+[node name="Coffee_Mesh2" type="MeshInstance3D" parent="CoffeeBox_Mesh" unique_id=332766431]
+transform = Transform3D(-0.45879185, 0, 0.96295786, 0, 1.0666667, 0, -0.96295786, 0, -0.45879185, 0.51087165, -0.04727377, 0.53891873)
+material_override = ExtResource("3_q04uj")
+mesh = ExtResource("4_p53v3")
+skeleton = NodePath("")
+
+[node name="Coffee_Mesh3" type="MeshInstance3D" parent="CoffeeBox_Mesh" unique_id=2120451775]
+transform = Transform3D(-1.015114, 0, 0.3275992, 0, 1.0666667, 0, -0.3275992, 0, -1.015114, -0.48797327, -0.04727377, -0.5304309)
+material_override = ExtResource("3_q04uj")
+mesh = ExtResource("4_p53v3")
+skeleton = NodePath("")
+
+[node name="Coffee_Mesh4" type="MeshInstance3D" parent="CoffeeBox_Mesh" unique_id=342375879]
+transform = Transform3D(0.940988, 0, -0.5023142, 0, 1.0666667, 0, 0.5023142, 0, 0.940988, 0.6314769, -0.04727377, -0.5367526)
+material_override = ExtResource("3_q04uj")
+mesh = ExtResource("4_p53v3")
+skeleton = NodePath("")
+
+[node name="CoffeeBox_Collision" type="CollisionShape3D" parent="." unique_id=75225498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018200278, 0.40692848, -0.0015844703)
+shape = SubResource("BoxShape3D_era8t")
+disabled = true

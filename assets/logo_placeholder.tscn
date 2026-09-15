@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://4p74m18un4em"]
+
+[ext_resource type="Texture2D" uid="uid://2aduoxva6lbf" path="res://Production/Components/UI/HUD/Icons/CupIcon.png" id="1_gm05f"]
+[ext_resource type="Texture2D" uid="uid://cu1qw8jd74oln" path="res://Production/Components/UI/HUD/Icons/CupIconFillTilted.png" id="2_3km3a"]
+
+[node name="PackageHP" type="TextureRect"]
+self_modulate = Color(0.235294, 0.368627, 0.709804, 1)
+offset_left = 45.0
+offset_top = 10.0
+offset_right = 208.0
+offset_bottom = 213.0
+rotation = 0.261799
+scale = Vector2(0.648359, 0.648359)
+texture = ExtResource("1_gm05f")
+
+[node name="PackageHPBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 30.1207
+offset_top = 101.373
+offset_right = 106.121
+offset_bottom = 197.373
+rotation = -0.279253
+scale = Vector2(1.26561, 1.06881)
+value = 50.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("2_3km3a")
+texture_over = ExtResource("2_3km3a")
+texture_progress = ExtResource("2_3km3a")
+tint_under = Color(0.443137, 0.317647, 0.176471, 0.25098)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(0.443137, 0.317647, 0.176471, 1)

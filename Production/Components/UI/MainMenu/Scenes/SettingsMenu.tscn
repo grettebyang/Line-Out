@@ -1,0 +1,110 @@
+[gd_scene format=3 uid="uid://3stbk02mu7bc"]
+
+[ext_resource type="Script" uid="uid://bcrpdh8ywsym0" path="res://Production/Components/UI/MainMenu/Scripts/SettingsSubmenu.cs" id="1_ewyxj"]
+[ext_resource type="PackedScene" uid="uid://bt744k5h2hlc1" path="res://Production/Components/UI/Prefabs/Buttons/CursorButton.tscn" id="4_uucv4"]
+[ext_resource type="PackedScene" uid="uid://ccmwlnoqvxxh0" path="res://Production/Components/UI/Prefabs/OptionsHeader/OptionsHeader.tscn" id="5_1ouge"]
+[ext_resource type="PackedScene" uid="uid://dk8apbhigm17n" path="res://Production/Components/UI/Prefabs/Holders/BaseHolder.tscn" id="5_bjkeu"]
+[ext_resource type="PackedScene" uid="uid://ca61l2l3br05m" path="res://Production/Components/UI/MainMenu/Scenes/Settings/SettingsCategories/SettingsCategoryGameplay.tscn" id="6_t4weh"]
+[ext_resource type="PackedScene" uid="uid://bvb62gkiysq1u" path="res://Production/Components/UI/MainMenu/Scenes/Settings/SettingsCategories/SettingsCategoryGraphics.tscn" id="6_uucv4"]
+[ext_resource type="PackedScene" uid="uid://dnn5e5y8m3a1x" path="res://Production/Components/UI/MainMenu/Scenes/Settings/SettingsCategories/SettingsCategoryAudio.tscn" id="7_kq8kn"]
+
+[node name="SettingsMenu" type="Control" unique_id=1537478190 node_paths=PackedStringArray("_categories", "_header", "_mainButtonsContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ewyxj")
+_categories = [NodePath("SettingsCard/MarginContainer/VBoxContainer/CategoryGameplay"), NodePath("SettingsCard/MarginContainer/VBoxContainer/CategoryGraphics"), NodePath("SettingsCard/MarginContainer/VBoxContainer/CategoryAudio")]
+_header = NodePath("SettingsCard/MarginContainer/VBoxContainer/Header")
+_mainButtonsContainer = NodePath("SettingsCard/MarginContainer/VBoxContainer/Header")
+
+[node name="SettingsCard" parent="." unique_id=1321272270 instance=ExtResource("5_bjkeu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -513.0
+offset_top = -421.5
+offset_right = 513.0
+offset_bottom = 421.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsCard" unique_id=798998287]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsCard/MarginContainer" unique_id=1608149529]
+layout_mode = 2
+
+[node name="Header" parent="SettingsCard/MarginContainer/VBoxContainer" unique_id=444508499 instance=ExtResource("5_1ouge")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Gameplay" parent="SettingsCard/MarginContainer/VBoxContainer/Header" unique_id=271175958 instance=ExtResource("4_uucv4")]
+layout_mode = 2
+_staySelected = true
+
+[node name="Text" parent="SettingsCard/MarginContainer/VBoxContainer/Header/Gameplay" index="3" unique_id=418465982]
+theme_override_font_sizes/font_size = 48
+text = "Gameplay"
+
+[node name="Graphics" parent="SettingsCard/MarginContainer/VBoxContainer/Header" unique_id=1172250936 instance=ExtResource("4_uucv4")]
+layout_mode = 2
+_buttonId = 1
+_staySelected = true
+
+[node name="Text" parent="SettingsCard/MarginContainer/VBoxContainer/Header/Graphics" index="3" unique_id=418465982]
+theme_override_font_sizes/font_size = 48
+text = "Graphics"
+
+[node name="Audio" parent="SettingsCard/MarginContainer/VBoxContainer/Header" unique_id=691789324 instance=ExtResource("4_uucv4")]
+layout_mode = 2
+_buttonId = 2
+_staySelected = true
+
+[node name="Text" parent="SettingsCard/MarginContainer/VBoxContainer/Header/Audio" index="3" unique_id=418465982]
+theme_override_font_sizes/font_size = 48
+text = "Audio"
+
+[node name="CategoryGameplay" parent="SettingsCard/MarginContainer/VBoxContainer" unique_id=1777856641 node_paths=PackedStringArray("_settingsMenu") instance=ExtResource("6_t4weh")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+_settingsMenu = NodePath("../../../..")
+
+[node name="CategoryGraphics" parent="SettingsCard/MarginContainer/VBoxContainer" unique_id=1308610377 node_paths=PackedStringArray("_settingsMenu") instance=ExtResource("6_uucv4")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+_settingsMenu = NodePath("../../../..")
+
+[node name="CategoryAudio" parent="SettingsCard/MarginContainer/VBoxContainer" unique_id=519885278 node_paths=PackedStringArray("_settingsMenu") instance=ExtResource("7_kq8kn")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+_settingsMenu = NodePath("../../../..")
+_confirmHintButtonVisible = true
+
+[connection signal="Pressed" from="SettingsCard/MarginContainer/VBoxContainer/Header/Gameplay" to="SettingsCard/MarginContainer/VBoxContainer/Header" method="Select"]
+[connection signal="Pressed" from="SettingsCard/MarginContainer/VBoxContainer/Header/Graphics" to="SettingsCard/MarginContainer/VBoxContainer/Header" method="Select"]
+[connection signal="Pressed" from="SettingsCard/MarginContainer/VBoxContainer/Header/Audio" to="SettingsCard/MarginContainer/VBoxContainer/Header" method="Select"]
+
+[editable path="SettingsCard/MarginContainer/VBoxContainer/Header/Gameplay"]
+[editable path="SettingsCard/MarginContainer/VBoxContainer/Header/Graphics"]
+[editable path="SettingsCard/MarginContainer/VBoxContainer/Header/Audio"]

@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://3mjt88p37ss7"]
+
+[ext_resource type="Script" uid="uid://c8865hxujdvls" path="res://Production/Components/UI/MainMenu/Scripts/RhythmCalibrationSubmenu.cs" id="1_wn5pn"]
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="3_c87op"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="3_r83kf"]
+[ext_resource type="PackedScene" uid="uid://dsme3p8klgtmb" path="res://Production/Components/UI/Prefabs/Buttons/HintButton.tscn" id="4_vr681"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h2kld"]
+font = ExtResource("3_c87op")
+font_size = 36
+font_color = Color(0.443137, 0.317647, 0.176471, 1)
+shadow_size = 2
+shadow_color = Color(0, 0.0823529, 0.54902, 0.501961)
+shadow_offset = Vector2(0, 2)
+
+[node name="RhythmCalibration" type="Control" unique_id=1271759769 node_paths=PackedStringArray("_hintText", "_latencyDisplayText", "_skipHint")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_wn5pn")
+_hintText = NodePath("Hint Text")
+_latencyDisplayText = NodePath("Latency Text")
+_skipHint = NodePath("HintButtons/MarginContainer/HSkip")
+metadata/_edit_horizontal_guides_ = [27.0]
+
+[node name="Background" type="ColorRect" parent="." unique_id=2030507401]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Hint Text" type="Label" parent="." unique_id=1758989458]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -269.0
+offset_right = 291.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volume Up!
+Listen... Press B on the beat"
+label_settings = SubResource("LabelSettings_h2kld")
+horizontal_alignment = 1
+
+[node name="Latency Text" type="Label" parent="." unique_id=778826664]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -63.5
+offset_right = 291.0
+offset_bottom = 73.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_h2kld")
+horizontal_alignment = 1
+
+[node name="Skip Text" type="Label" parent="." unique_id=825572199]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = 102.0
+offset_right = 291.0
+offset_bottom = 239.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Skip (X)"
+label_settings = SubResource("LabelSettings_h2kld")
+horizontal_alignment = 1
+
+[node name="HintButtons" type="Control" parent="." unique_id=1300753802]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HintButtons" unique_id=797773615]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="HSkip" type="HBoxContainer" parent="HintButtons/MarginContainer" unique_id=2015768336]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HintButtons/MarginContainer/HSkip" unique_id=1925055352]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_r83kf")
+theme_override_font_sizes/font_size = 24
+text = "Skip"
+
+[node name="MarginContainer" type="MarginContainer" parent="HintButtons/MarginContainer/HSkip" unique_id=182875247]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="HintButtonAccept" parent="HintButtons/MarginContainer/HSkip" unique_id=1660043989 instance=ExtResource("4_vr681")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Y"

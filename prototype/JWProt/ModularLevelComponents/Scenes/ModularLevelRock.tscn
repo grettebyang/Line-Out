@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=4 uid="uid://5g3r7yec5uh1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0en6"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qheig"]
+_surfaces = [{
+"aabb": AABB(-2.44706, -1, -3.22141, 5.66846, 6.67273, 6.44282),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAQAEAAIAAgAFAAAAAgAEAAUAAQAGAAQAAwAGAAEAAAAHAAMAAwAHAAYAAAAFAAcACAAEAAYACQAHAAUACgAFAAQACgAJAAUACAAKAAQACQALAAcACwAGAAcACgALAAkACwAIAAYACgAIAAsA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("7qX//z1PAAAXN///wbAAABc3//89TwAA7qX//8GwAABxGCrrRjQAAJTEKutGNAAAcRgq67jLAACUxCrruMsAAAAAAAD//wAA//8AAAAAAAAAAAAAAAAAAP//AAD//wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_073gt"]
+resource_name = "ModularLevelRock_Cube_009"
+_surfaces = [{
+"aabb": AABB(-2.44706, -1, -3.22141, 5.66846, 6.67273, 6.44282),
+"attribute_data": PackedByteArray("+6kDdgPW+0kD1gN2+6n7Sf9f/38Gnv8/Bp7/f/9f/z//X///Bp7/vwae////X/+//x//f/9f/z//X/9//x//P/9f/78Gnv9/Bp7/v/9f/38D1vtJ/9//fwPWA3b/3/8/A9YDdv+f/3/7qQN2/9//f/upA3YGnv8/+6n7SQae/3/7qftJ/9//PwPW+0n/n/8//1//PwaeAAAGnv8//18AAA=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_c0en6"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("7qX//z1P//8XN///wbD//xc3//89T///7qX//8Gw/////wAAAADq2JTEKuu4y3HalMQq60Y0w9///wAA//9v1QAAAAD//+bRcRgq60Y0NdNxGCrruMtE2AAAAAAAALDOAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///78AAAAAAAA8+pTEKutGNA/6cRgq60Y0p/n//wAAAACS+hc3///BsNnqcRgq60Y0sO4XN///PU+r8HEYKuu4yw/qFzf//z1P//+UxCrrRjT//+6l//89T///cRgq60Y0///upf//PU+m7pTEKuu4y8/q7qX//8Gw3uiUxCrrRjRz7+6l///BsP//cRgq67jL//8XN///wbD//5TEKuu4y/////8AAP//HMFxGCrruMtKw5TEKuu4y8vIAAAAAP//+7z/f/+//3//v/9//7//f/+/QS/PI5ot0iREKBYoTDNWIcfUntOA1tTSl9wM0DDQttUAAP9/AAD/fwAA/38AAP9/crnHvz67J76Hv0i6Lra7wn5u57dPawC1wGmTsy1vhrj/f3LW/39y1v9/ctb/f3LWCDWnFPA3dxF+OcMPczRKFf9/i6n/f4up/3+Lqf9/i6nH9AkLuvSACpv0Pwnh9B0M")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qheig")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de84g"]
+albedo_color = Color(0.555686, 0.474299, 0.438725, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_de84g"]
+data = PackedVector3Array(1.2271, 5.6727, -1.2272, -1.2272, 5.6727, 1.2271, -1.2272, 5.6727, -1.2272, 1.2271, 5.6727, -1.2272, 1.2271, 5.6727, 1.2271, -1.2272, 5.6727, 1.2271, 3.2214, -1, -3.2214, 1.9057, 5.1297, 1.9057, 1.9057, 5.1297, -1.9058, 3.2214, -1, -3.2214, 3.2214, -1, 3.2214, 1.9057, 5.1297, 1.9057, -2.4471, -1, 3.2214, -1.9059, 5.1297, -1.9058, -1.9059, 5.1297, 1.9057, -2.4471, -1, 3.2214, -2.4471, -1, -3.2214, -1.9059, 5.1297, -1.9058, -2.4471, -1, -3.2214, 3.2214, -1, 3.2214, 3.2214, -1, -3.2214, -2.4471, -1, -3.2214, -2.4471, -1, 3.2214, 3.2214, -1, 3.2214, -2.4471, -1, -3.2214, 1.9057, 5.1297, -1.9058, -1.9059, 5.1297, -1.9058, -2.4471, -1, -3.2214, 3.2214, -1, -3.2214, 1.9057, 5.1297, -1.9058, -1.2272, 5.6727, 1.2271, -1.9059, 5.1297, -1.9058, -1.2272, 5.6727, -1.2272, -1.2272, 5.6727, 1.2271, -1.9059, 5.1297, 1.9057, -1.9059, 5.1297, -1.9058, -1.2272, 5.6727, -1.2272, 1.9057, 5.1297, -1.9058, 1.2271, 5.6727, -1.2272, -1.2272, 5.6727, -1.2272, -1.9059, 5.1297, -1.9058, 1.9057, 5.1297, -1.9058, 1.2271, 5.6727, -1.2272, 1.9057, 5.1297, 1.9057, 1.2271, 5.6727, 1.2271, 1.2271, 5.6727, -1.2272, 1.9057, 5.1297, -1.9058, 1.9057, 5.1297, 1.9057, 1.2271, 5.6727, 1.2271, -1.9059, 5.1297, 1.9057, -1.2272, 5.6727, 1.2271, 1.2271, 5.6727, 1.2271, 1.9057, 5.1297, 1.9057, -1.9059, 5.1297, 1.9057, 3.2214, -1, 3.2214, -1.9059, 5.1297, 1.9057, 1.9057, 5.1297, 1.9057, 3.2214, -1, 3.2214, -2.4471, -1, 3.2214, -1.9059, 5.1297, 1.9057)
+
+[node name="ModularLevelRock" type="Node3D"]
+
+[node name="Rock" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_073gt")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_de84g")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Rock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rock/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_de84g")

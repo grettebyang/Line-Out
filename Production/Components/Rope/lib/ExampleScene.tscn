@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://v3ftbyqpron2"]
+
+[ext_resource type="Script" uid="uid://0lakx5ilww1l" path="res://Production/Components/Rope/lib/RopeManagerExample.cs" id="1_qodf7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ju4de"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_txdgb"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_txdgb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lgkei"]
+
+[node name="RopeNodeExample" type="Node3D" node_paths=PackedStringArray("_point1", "_point2")]
+script = ExtResource("1_qodf7")
+_point1 = NodePath("Player1")
+_point2 = NodePath("Player2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999999, -0.000752534, -0.00101871, 0.000879547, 0.991375, 0.131051, 0.000911303, -0.131052, 0.991375, 0, 1.25221, 3.12472)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(15, 0, 0, 0, 0.1, 0, 0, 0, 15, 0, 0, 0)
+mesh = SubResource("BoxMesh_ju4de")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_txdgb")
+
+[node name="Player1" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.09591, 1.03598, -0.14193)
+gravity_scale = 0.25
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_txdgb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player1"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_lgkei")
+
+[node name="ep1" type="Node3D" parent="Player1"]
+
+[node name="Player2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96969, 0.401757, 0.177276)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_txdgb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_lgkei")
+
+[node name="ep2" type="Node3D" parent="Player2"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Player2"]
+transform = Transform3D(1, 0, 0, 0, -0.89955, 0.436817, 0, -0.436817, -0.89955, 0, 0, 0)

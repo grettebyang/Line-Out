@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dcynvq2bo8khs"]
+
+[ext_resource type="PackedScene" uid="uid://dkfxy8jl31dxk" path="res://assets/3D Assets - Production/Prefabs/CrateRigidbody.tscn" id="1_qk41e"]
+
+[node name="CrateCluster" type="Node3D" unique_id=106663272]
+
+[node name="Crate2" parent="." unique_id=1022080447 instance=ExtResource("1_qk41e")]
+transform = Transform3D(-0.2192673, 0, 0.9756648, 0, 1, 0, -0.9756648, 0, -0.2192673, 1.2926809, 1.2777799, 1.156153)
+
+[node name="Crate5" parent="." unique_id=1428264366 instance=ExtResource("1_qk41e")]
+transform = Transform3D(0.30115515, 0, 0.95357513, 0, 1, 0, -0.95357513, 0, 0.30115515, -0.72394395, 1.3728507, 0.8013315)
+
+[node name="Crate" parent="." unique_id=1950780888 instance=ExtResource("1_qk41e")]
+transform = Transform3D(-0.40293837, 0, -0.9152271, 0, 1, 0, 0.9152271, 0, -0.40293837, -0.97708225, 0, 2.0862415)
+
+[node name="Crate3" parent="." unique_id=561341565 instance=ExtResource("1_qk41e")]
+transform = Transform3D(0.9955685, 0, 0.094038814, 0, 1, 0, -0.094038814, 0, 0.9955685, 1.2337055, 0, 1.7316697)
+
+[node name="Crate4" parent="." unique_id=1622147150 instance=ExtResource("1_qk41e")]
+transform = Transform3D(0.7910527, 0, -0.611748, 0, 1, 0, 0.611748, 0, 0.7910527, 0, 0, 0)

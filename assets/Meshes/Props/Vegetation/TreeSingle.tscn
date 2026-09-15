@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cv1kvyqv0k418"]
+
+[ext_resource type="PackedScene" uid="uid://byotdf6egl3c7" path="res://assets/3D Assets - Production/Prefabs/Pine_Tall_Snow.tscn" id="1_vykpk"]
+
+[node name="PineTreeTallSnow" type="Node3D" unique_id=921991443]
+
+[node name="CrashPivot" type="Node3D" parent="." unique_id=1633002848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Pine_Tall_Snow" parent="CrashPivot" unique_id=593924608 node_paths=PackedStringArray("_crashPivot") instance=ExtResource("1_vykpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+_crashPivot = NodePath("..")
+
+[editable path="CrashPivot/Pine_Tall_Snow"]

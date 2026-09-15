@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dt5j4ksxhr6mn"]
+
+[ext_resource type="Script" uid="uid://dwco6eaptrgcx" path="res://assets/AudioAssets/AudioScripts/LoopingCrossfade.cs" id="1_2gk88"]
+[ext_resource type="AudioStream" uid="uid://dfh26180bfx04" path="res://assets/AudioAssets/Sled/SledSlide.wav" id="2_t7dg4"]
+
+[node name="SlidingAudio" type="Node3D" unique_id=93050701]
+script = ExtResource("1_2gk88")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=611062223]
+stream = ExtResource("2_t7dg4")
+bus = &"SFX"
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=617266582]
+stream = ExtResource("2_t7dg4")
+bus = &"SFX"

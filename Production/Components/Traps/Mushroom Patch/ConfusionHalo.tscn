@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://o2pvql6pdxh7"]
+
+[ext_resource type="Script" uid="uid://bgoptk554w0j3" path="res://Production/Components/Traps/Mushroom Patch/ConfusionHalo.cs" id="1_eqice"]
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="2_b4xuk"]
+[ext_resource type="ArrayMesh" uid="uid://durw2xa564t48" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/CinnamonBun.obj" id="3_loyur"]
+[ext_resource type="FontFile" uid="uid://ispactr51tam" path="res://Production/Fonts/Mallanna/Mallanna-Regular.ttf" id="4_32eov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqubu"]
+shading_mode = 0
+albedo_color = Color(0.83137256, 0, 1, 1)
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="TextMesh" id="TextMesh_sommm"]
+material = SubResource("StandardMaterial3D_hqubu")
+text = "?"
+font = ExtResource("4_32eov")
+font_size = 127
+depth = 0.0
+
+[node name="ConfusionHalo" type="Node3D" unique_id=513936758]
+script = ExtResource("1_eqice")
+
+[node name="CinnamonBun_Mesh" type="MeshInstance3D" parent="." unique_id=62267619]
+transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, -0.15, 0, 0.26)
+material_override = ExtResource("2_b4xuk")
+cast_shadow = 0
+mesh = ExtResource("3_loyur")
+skeleton = NodePath("")
+
+[node name="CinnamonBun_Mesh2" type="MeshInstance3D" parent="." unique_id=427066512]
+transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, 0.3, 0, 0)
+material_override = ExtResource("2_b4xuk")
+cast_shadow = 0
+mesh = ExtResource("3_loyur")
+skeleton = NodePath("")
+
+[node name="CinnamonBun_Mesh3" type="MeshInstance3D" parent="." unique_id=1233975958]
+transform = Transform3D(0.29, 0, 0, 0, 0.29, 0, 0, 0, 0.29, -0.15, 0, -0.26)
+material_override = ExtResource("2_b4xuk")
+cast_shadow = 0
+mesh = ExtResource("3_loyur")
+skeleton = NodePath("")
+
+[node name="?" type="MeshInstance3D" parent="." unique_id=1703098118]
+transform = Transform3D(0.5248433, 0, 0.0128268935, 0, 0.525, 0, -0.0128268935, 0, 0.5248433, -0.3001664, 0.353, 0.00035959482)
+cast_shadow = 0
+mesh = SubResource("TextMesh_sommm")
+skeleton = NodePath("")
+
+[node name="?2" type="MeshInstance3D" parent="." unique_id=1126546951]
+transform = Transform3D(0.5248432, 0, 0.01282692, 0, 0.525, 0, -0.01282692, 0, 0.5248432, 0.15, 0.353, -0.26)
+cast_shadow = 0
+mesh = SubResource("TextMesh_sommm")
+skeleton = NodePath("")
+
+[node name="?3" type="MeshInstance3D" parent="." unique_id=110298383]
+transform = Transform3D(0.5248432, 0, 0.01282692, 0, 0.525, 0, -0.01282692, 0, 0.5248432, 0.15, 0.353, 0.26)
+cast_shadow = 0
+mesh = SubResource("TextMesh_sommm")
+skeleton = NodePath("")

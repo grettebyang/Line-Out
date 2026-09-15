@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://cley1231oy5y0"]
+
+[ext_resource type="Script" uid="uid://bpi4vf3ger8tb" path="res://Production/Components/UI/Prefabs/Buttons/CursorButton.cs" id="1_ky21u"]
+[ext_resource type="AudioStream" uid="uid://d2l4hbauhk4lw" path="res://Production/Components/UI/Prefabs/Sounds/switch10.ogg" id="2_e2ow1"]
+[ext_resource type="AudioStream" uid="uid://roy43cagutq6" path="res://Production/Components/UI/Prefabs/Sounds/switch11.ogg" id="3_p3mbp"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="4_rjtr6"]
+[ext_resource type="Texture2D" uid="uid://crua663en3pck" path="res://Production/Components/UI/HUD/Icons/IconPepparKakor.png" id="5_tdpbs"]
+[ext_resource type="Script" uid="uid://cah2302cvgfsu" path="res://Production/Components/UI/Prefabs/Buttons/ButtonDecoration.cs" id="6_vp10h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tle1k"]
+size = Vector2(199, 92)
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_tle1k"]
+
+[node name="CursorButton" type="Control" unique_id=271175958 node_paths=PackedStringArray("_audioPlayer", "_hover", "_collisionShape", "_texture", "_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 466.0
+offset_bottom = 85.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_rjtr6")
+script = ExtResource("1_ky21u")
+_audioPlayer = NodePath("SoundPlayer")
+_soundFocus = ExtResource("2_e2ow1")
+_soundClick = ExtResource("3_p3mbp")
+_hover = NodePath("Card/Hover")
+_collisionShape = NodePath("Area2D/CollisionShape2D")
+_texture = NodePath("Card")
+_text = NodePath("Text")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1415885389]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=138778056]
+shape = SubResource("RectangleShape2D_tle1k")
+
+[node name="Card" type="TextureRect" parent="." unique_id=1049578636]
+z_index = 2
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Hover" type="ColorRect" parent="Card" unique_id=2084409731]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_rjtr6")
+color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+
+[node name="Decoration" type="TextureRect" parent="Card/Hover" unique_id=1601563699]
+self_modulate = Color(0.835294, 0.639216, 0.321569, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_tdpbs")
+expand_mode = 1
+script = ExtResource("6_vp10h")
+
+[node name="Shadow" type="TextureRect" parent="Card/Hover/Decoration" unique_id=1829955158]
+self_modulate = Color(0.454902, 0.282353, 0, 0.745098)
+z_index = -1
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.08
+offset_top = -17.5
+offset_right = -0.0799561
+offset_bottom = 22.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_tdpbs")
+expand_mode = 1
+
+[node name="Outline" type="ColorRect" parent="." unique_id=120799130]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0.443137, 0.317647, 0.176471, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Text" type="Label" parent="." unique_id=418465982]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.029235335
+anchor_right = 1.0
+anchor_bottom = 0.94100004
+offset_left = 97.27721
+offset_top = 7.4849997
+offset_right = -80.0
+offset_bottom = 0.01499939
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("4_rjtr6")
+theme_override_colors/font_color = Color(0.23529412, 0.36862746, 0.70980394, 1)
+theme_override_font_sizes/font_size = 40
+text = "Button"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=323350086]
+stream = SubResource("AudioStreamWAV_tle1k")
+bus = &"SFX"
+
+[connection signal="item_rect_changed" from="." to="." method="ResizeCollisionShape"]
+[connection signal="resized" from="." to="." method="ResizeCollisionShape"]
+[connection signal="body_entered" from="Area2D" to="." method="OnFocus"]
+[connection signal="body_exited" from="Area2D" to="." method="ExitFocus"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgrx8gyjanyab"]
+
+[ext_resource type="Script" uid="uid://hukmgdm5xvm5" path="res://Production/Components/Camera/lib/Camera.cs" id="1_k54p2"]
+[ext_resource type="Curve" uid="uid://b04ogwoy0o1sq" path="res://Production/Components/Camera/lib/CameraBackupCurve.tres" id="2_lcyg0"]
+[ext_resource type="Script" uid="uid://trcumja882y4" path="res://Production/Components/Camera/CameraClamp.cs" id="3_je1wr"]
+
+[sub_resource type="Curve" id="Curve_lcyg0"]
+_limits = [0.0, 1.0, 0.0, 2.85]
+_data = [Vector2(0, 1), 0.0, -1.09125, 0, 0, Vector2(2.53682, 0.0285496), -0.196857, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_je1wr"]
+_data = [Vector2(0, 0), 0.0, 1.21593, 0, 0, Vector2(1, 0.577358), 0.0455564, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="PrismMesh" id="PrismMesh_k54p2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_je1wr"]
+
+[node name="MainCam" type="Node3D" node_paths=PackedStringArray("_followPoint", "_leftRightPivot", "_upDownPivot", "_minPos", "_maxPos", "_lookTarget", "_helper")]
+script = ExtResource("1_k54p2")
+_followPoint = NodePath("HelperNode")
+_leftRightPivot = NodePath("LeftRightPivot")
+_upDownPivot = NodePath("LeftRightPivot/UpDownPivot")
+_minPos = NodePath("LeftRightPivot/UpDownPivot/MinPos")
+_maxPos = NodePath("LeftRightPivot/UpDownPivot/MaxPos")
+_lookTarget = NodePath("LookTarget")
+_helper = NodePath("HelperNode")
+_backMovement = ExtResource("2_lcyg0")
+_rotationLerp = SubResource("Curve_lcyg0")
+_behindLerp = SubResource("Curve_je1wr")
+_shakeMultiplayer = 4.0
+_shakeSpeed = 1.2
+_shakeDecrease = 10.0
+
+[node name="LookTarget" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LookTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.156439, 0, 0, 0)
+visible = false
+mesh = SubResource("PrismMesh_k54p2")
+
+[node name="LeftRightPivot" type="Node3D" parent="."]
+
+[node name="UpDownPivot" type="Node3D" parent="LeftRightPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.898901, 0.438152, 0, -0.438152, 0.898901, 0, 0, 0)
+
+[node name="MinPos" type="Node3D" parent="LeftRightPivot/UpDownPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 2.38418e-07, -0.181841, 2.75634)
+
+[node name="MaxPos" type="Node3D" parent="LeftRightPivot/UpDownPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, -0.269713, 5.39574)
+
+[node name="SledCamera" type="Camera3D" parent="LeftRightPivot/UpDownPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, -0.0598907, -0.0468586, 3.76772)
+fov = 82.0
+
+[node name="Camera Clamp" type="Node3D" parent="LeftRightPivot" node_paths=PackedStringArray("_left", "_right")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.239896, 1.34301, 2.15217)
+visible = false
+script = ExtResource("3_je1wr")
+_clampAngle = 38.885
+_left = NodePath("Max Left")
+_right = NodePath("Max Right")
+disabled = true
+
+[node name="Max Left" type="Node3D" parent="LeftRightPivot/Camera Clamp"]
+transform = Transform3D(0.332861, 0, -0.942976, 0, 1, 0, 0.942976, 0, 0.332861, 0, 0, 0)
+visible = false
+
+[node name="Max Right" type="Node3D" parent="LeftRightPivot/Camera Clamp"]
+transform = Transform3D(-0.332861, 0, -0.942976, 0, 1, 0, 0.942976, 0, -0.332861, 0, 0, 0)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftRightPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.93792, 0, 0, 1.42888)
+visible = false
+mesh = SubResource("BoxMesh_je1wr")
+
+[node name="HelperNode" type="Node3D" parent="."]

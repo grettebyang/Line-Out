@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://2j5w12rujmrf"]
+
+[ext_resource type="PackedScene" uid="uid://bcdtily5wp6rf" path="res://assets/Meshes/LevelGeo/IcePart.glb" id="1_um1nw"]
+[ext_resource type="Material" uid="uid://c462x152eyhpo" path="res://Production/Components/LevelPrefabs/IceRefraction.tres" id="2_ca6cy"]
+[ext_resource type="PackedScene" uid="uid://to5mrix8jecf" path="res://assets/HDRI/TutorialLevelSky.tscn" id="2_y7sdx"]
+[ext_resource type="PackedScene" uid="uid://ddmsq3i7donj3" path="res://assets/Meshes/LevelGeo/med_v2_scene.tscn" id="3_vrlf7"]
+
+[node name="Level_A_base" type="Node3D"]
+transform = Transform3D(2.40227, 0, 0, 0, 2.40227, 0, 0, 0, 2.40227, 0, 0, 0)
+
+[node name="IcePart" parent="." instance=ExtResource("1_um1nw")]
+
+[node name="IcePath" parent="IcePart" index="0"]
+visible = false
+material_override = ExtResource("2_ca6cy")
+transparency = 0.8
+
+[node name="InnerIce" parent="IcePart" index="1"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.88719, -2.25517, 12.1341)
+
+[node name="med_v2" parent="." instance=ExtResource("3_vrlf7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0752992, 3.17591e-06, -0.0130466)
+
+[node name="Sky" parent="." instance=ExtResource("2_y7sdx")]
+transform = Transform3D(18667.2, 0, 0, 0, 18667.1, 0, 0, 0, 18667.1, -11.5516, 26.4877, -23.8878)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[editable path="IcePart"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://x75e6m3ear7n"]
+
+[ext_resource type="PackedScene" uid="uid://boqp3sdwn5se6" path="res://assets/3D Assets - Production/Prefabs/dog_temp_mesh_lightgray.tscn" id="1_14acy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7pa5u"]
+radius = 0.5600586
+height = 1.9543457
+
+[node name="DogTEMP_LightGrey" type="StaticBody3D" unique_id=1950071410]
+
+[node name="DogTEMP_Mesh" parent="." unique_id=1695680500 instance=ExtResource("1_14acy")]
+
+[node name="DogTEMP_Collision" type="CollisionShape3D" parent="." unique_id=1665238005]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.941499, 0.07200855)
+shape = SubResource("CapsuleShape3D_7pa5u")

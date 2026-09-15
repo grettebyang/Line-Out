@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://kdhscvdvbpx3"]
+
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="1_88mi0"]
+[ext_resource type="Script" uid="uid://n4vtngcbpv2t" path="res://Production/Components/UI/Prefabs/Buttons/ScriptedButton.cs" id="2_y8fxj"]
+[ext_resource type="AudioStream" uid="uid://d2l4hbauhk4lw" path="res://Production/Components/UI/Prefabs/Sounds/switch10.ogg" id="3_nqc1l"]
+[ext_resource type="AudioStream" uid="uid://roy43cagutq6" path="res://Production/Components/UI/Prefabs/Sounds/switch11.ogg" id="4_mkow5"]
+
+[node name="ButtonBase" type="Button" unique_id=787384011 node_paths=PackedStringArray("_audioPlayer")]
+custom_minimum_size = Vector2(200, 0)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_88mi0")
+text = "Button"
+script = ExtResource("2_y8fxj")
+_audioPlayer = NodePath("AudioStreamPlayer")
+_soundFocus = ExtResource("3_nqc1l")
+_soundClick = ExtResource("4_mkow5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=932554098]
+bus = &"SFX"

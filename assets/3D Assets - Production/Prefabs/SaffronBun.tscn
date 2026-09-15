@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ckbq48ax864w"]
+
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="1_x45wj"]
+[ext_resource type="ArrayMesh" uid="uid://ckvx7rx1nlgwa" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/SaffronBun.obj" id="5_dfa2e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkal5"]
+size = Vector3(0.25634766, 0.7989502, 0.49926758)
+
+[node name="SaffronBun" type="StaticBody3D" unique_id=1124401289]
+
+[node name="SaffronBun_Collision" type="CollisionShape3D" parent="." unique_id=1749792215]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.00079345715, 0.097569466, -0.0008544922)
+shape = SubResource("BoxShape3D_rkal5")
+
+[node name="SaffronBun_Mesh" type="MeshInstance3D" parent="." unique_id=2006596047]
+transform = Transform3D(0.59, 0, 0, 0, 0.59, 0, 0, 0, 0.59, 0, 0, 0)
+material_override = ExtResource("1_x45wj")
+mesh = ExtResource("5_dfa2e")

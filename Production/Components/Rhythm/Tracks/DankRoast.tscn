@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://namcpxwj6x0e"]
+
+[ext_resource type="AudioStream" uid="uid://d2dfl4rmxt2nn" path="res://assets/AudioAssets/Music/DankRoastMIDI.wav" id="1_ks5hu"]
+[ext_resource type="Script" uid="uid://bujs1blav5c8n" path="res://Production/Components/Rhythm/Soundtrack.cs" id="1_xhmqv"]
+[ext_resource type="Script" uid="uid://cnkxvk206jsar" path="res://Production/Components/Rhythm/TimeSignatureChange.cs" id="3_df6x0"]
+[ext_resource type="Resource" uid="uid://x7ltu687ef5r" path="res://Production/Components/Rhythm/Sequences/Dank Roast/DankRoastSequence2.tres" id="5_jjiws"]
+[ext_resource type="Resource" uid="uid://uhkbl3fo8urn" path="res://Production/Components/Rhythm/Sequences/Dank Roast/DankRoastSequence3.tres" id="6_0toaj"]
+[ext_resource type="Resource" uid="uid://j8h4b88lsewl" path="res://Production/Components/Rhythm/Sequences/Dank Roast/DankRoastSequence1.tres" id="6_t8wh8"]
+[ext_resource type="Resource" uid="uid://xfbcea37gghu" path="res://Production/Components/Rhythm/Sequences/Dank Roast/DankRoastSequence4.tres" id="7_fmxlv"]
+[ext_resource type="Resource" uid="uid://ck60lcg783q7j" path="res://Production/Components/Rhythm/Sequences/Dank Roast/DankRoastSequence5.tres" id="8_4prc7"]
+[ext_resource type="Resource" uid="uid://do5bcaqlftyyp" path="res://Production/Components/Rhythm/Sequences/Dank Roast/DankRoastSequence6.tres" id="9_0hsv2"]
+
+[sub_resource type="Resource" id="Resource_bjl1d"]
+script = ExtResource("3_df6x0")
+top = 7
+bottom = 8
+bars = 16
+onBeat = 4
+metadata/_custom_type_script = "uid://cnkxvk206jsar"
+
+[sub_resource type="Resource" id="Resource_x26ka"]
+script = ExtResource("3_df6x0")
+top = 6
+bottom = 8
+bars = 1
+onBeat = 3
+metadata/_custom_type_script = "uid://cnkxvk206jsar"
+
+[sub_resource type="Resource" id="Resource_t8wh8"]
+script = ExtResource("3_df6x0")
+top = 6
+bottom = 8
+bars = 8
+onBeat = 2
+metadata/_custom_type_script = "uid://cnkxvk206jsar"
+
+[sub_resource type="Resource" id="Resource_o6tpn"]
+script = ExtResource("3_df6x0")
+top = 8
+bottom = 8
+bars = 8
+onBeat = 4
+metadata/_custom_type_script = "uid://cnkxvk206jsar"
+
+[sub_resource type="Resource" id="Resource_vbl5f"]
+script = ExtResource("3_df6x0")
+top = 7
+bottom = 8
+bars = 5
+onBeat = 3
+metadata/_custom_type_script = "uid://cnkxvk206jsar"
+
+[sub_resource type="Resource" id="Resource_ix6h1"]
+script = ExtResource("3_df6x0")
+top = 10
+bottom = 8
+bars = 4
+onBeat = 2
+metadata/_custom_type_script = "uid://cnkxvk206jsar"
+
+[node name="DankRoast" type="AudioStreamPlayer" unique_id=464631435]
+stream = ExtResource("1_ks5hu")
+bus = &"Music"
+script = ExtResource("1_xhmqv")
+bpm = 360
+_anyTSChanges = true
+_tsTop = 7
+_totalBars = 42
+_TimeSignatureChanges = Array[Object]([SubResource("Resource_bjl1d"), SubResource("Resource_x26ka"), SubResource("Resource_t8wh8"), SubResource("Resource_o6tpn"), SubResource("Resource_vbl5f"), SubResource("Resource_ix6h1")])
+_SequenceChanges = Array[Object]([ExtResource("5_jjiws"), ExtResource("6_0toaj"), ExtResource("6_t8wh8"), ExtResource("7_fmxlv"), ExtResource("8_4prc7"), ExtResource("9_0hsv2")])

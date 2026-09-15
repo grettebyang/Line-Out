@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://va3unjubfovv"]
+
+[ext_resource type="Texture2D" uid="uid://byhkcq2c27lk8" path="res://assets/3D Assets - Production/Imports/FlagPost/Materials/Textures/FlagPost_LOW_lambert1SG_BaseColor.png" id="1_o5vj4"]
+[ext_resource type="Texture2D" uid="uid://d021c5qi2q6b1" path="res://assets/3D Assets - Production/Imports/FlagPost/Materials/Textures/FlagPost_LOW_lambert1SG_Normal.png" id="2_dtjdg"]
+[ext_resource type="Texture2D" uid="uid://fj1spr3k42b6" path="res://assets/3D Assets - Production/Imports/FlagPost/Materials/Textures/FlagPost_LOW_lambert1SG_Roughness.png" id="3_ooion"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_o5vj4")
+roughness_texture = ExtResource("3_ooion")
+normal_enabled = true
+normal_texture = ExtResource("2_dtjdg")

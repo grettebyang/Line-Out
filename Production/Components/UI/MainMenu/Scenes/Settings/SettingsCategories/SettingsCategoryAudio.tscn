@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dnn5e5y8m3a1x"]
+
+[ext_resource type="Script" uid="uid://cbhd0vsgmv3q0" path="res://Production/Components/UI/MainMenu/Scripts/Settings/SettingsUIAudio.cs" id="1_xsgdl"]
+[ext_resource type="PackedScene" uid="uid://ct52ijqkrgerj" path="res://Production/Components/UI/MainMenu/Scenes/Settings/CursorButtons/SettingSlider.tscn" id="3_53xow"]
+
+[node name="CategoryAudio" type="VBoxContainer" unique_id=1028216827 node_paths=PackedStringArray("_masterVolumeSlider", "_musicVolumeSlider", "_sfxVolumeSlider", "_mainButtonsContainer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xsgdl")
+_masterVolumeSlider = NodePath("Buttons/MasterVolume/SliderButton")
+_musicVolumeSlider = NodePath("Buttons/MusicVolume/SliderButton")
+_sfxVolumeSlider = NodePath("Buttons/SFXVolume/SliderButton")
+_mainButtonsContainer = NodePath("Buttons")
+
+[node name="Header" type="Label" parent="." unique_id=936060115]
+visible = false
+layout_mode = 2
+text = "Audio"
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=165986100]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=937185458]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="MasterVolume" parent="Buttons" unique_id=845889204 instance=ExtResource("3_53xow")]
+layout_mode = 2
+
+[node name="Description" parent="Buttons/MasterVolume" index="0" unique_id=1100555297]
+text = "Master Volume"
+
+[node name="SliderButton" parent="Buttons/MasterVolume" index="1" unique_id=271175958]
+MaxValue = 1.0
+
+[node name="MusicVolume" parent="Buttons" unique_id=1520725663 instance=ExtResource("3_53xow")]
+layout_mode = 2
+
+[node name="Description" parent="Buttons/MusicVolume" index="0" unique_id=1100555297]
+text = "Music"
+
+[node name="SliderButton" parent="Buttons/MusicVolume" index="1" unique_id=271175958]
+MaxValue = 1.0
+
+[node name="SFXVolume" parent="Buttons" unique_id=2020188988 instance=ExtResource("3_53xow")]
+layout_mode = 2
+
+[node name="Description" parent="Buttons/SFXVolume" index="0" unique_id=1100555297]
+text = "SFX"
+
+[node name="SliderButton" parent="Buttons/SFXVolume" index="1" unique_id=271175958]
+MaxValue = 1.0
+
+[connection signal="OnValueChanged" from="Buttons/MasterVolume/SliderButton" to="." method="OnMasterVolumeChange"]
+[connection signal="OnValueChanged" from="Buttons/MusicVolume/SliderButton" to="." method="OnMusicVolumeChange"]
+[connection signal="OnValueChanged" from="Buttons/SFXVolume/SliderButton" to="." method="OnSFXVolumeChange"]
+
+[editable path="Buttons/MasterVolume"]
+[editable path="Buttons/MusicVolume"]
+[editable path="Buttons/SFXVolume"]

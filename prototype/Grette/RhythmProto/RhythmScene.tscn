@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://dckka51yjhfxw"]
+
+[ext_resource type="Script" uid="uid://bc65mv4vqrrpt" path="res://Production/Components/Rhythm/RhythmManager.cs" id="1_odx5r"]
+[ext_resource type="PackedScene" uid="uid://bov2cjp5glup2" path="res://Production/Components/Rhythm/center_circle.tscn" id="2_mkogf"]
+[ext_resource type="AudioStream" uid="uid://cj0wjwb64xpoc" path="res://assets/AudioAssets/Music/Old Music/MainMenuOldWithDrum.wav" id="3_kfsww"]
+[ext_resource type="Script" uid="uid://bujs1blav5c8n" path="res://Production/Components/Rhythm/Soundtrack.cs" id="4_gdvei"]
+[ext_resource type="Script" uid="uid://c6p3lppyo6jyc" path="res://Production/Components/Rhythm/PowerupGauge.cs" id="5_e5wfc"]
+[ext_resource type="Script" path="res://Production/Components/Rhythm/Boost.cs" id="6_i53ty"]
+[ext_resource type="Script" uid="uid://dbplgy6ea1xm7" path="res://Production/Components/Rhythm/Boost2.cs" id="7_ii48q"]
+
+[node name="RhythmScene" type="Node3D"]
+
+[node name="RhythmManager" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00570178, 0)
+script = ExtResource("1_odx5r")
+_timeCushion = 30.0
+_version = 2
+
+[node name="CenterPrompt" type="Control" parent="RhythmManager"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="RhythmManager/CenterPrompt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -30.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.533333, 0.321569, 1)
+
+[node name="SideBar" type="Control" parent="RhythmManager"]
+visible = false
+layout_mode = 3
+anchor_left = 0.953
+anchor_top = 0.5
+anchor_right = 0.953
+anchor_bottom = 0.5
+offset_left = -1.79114
+offset_top = 3.01999
+offset_right = -1.79114
+offset_bottom = 3.01999
+
+[node name="ColorRect" type="ColorRect" parent="RhythmManager/SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.263
+anchor_top = 0.5
+anchor_right = 13.263
+anchor_bottom = 0.5
+offset_left = -5.52002
+offset_top = -276.0
+offset_right = 13.48
+offset_bottom = 274.0
+color = Color(1, 0.533333, 0.321569, 1)
+
+[node name="CenterCircle" parent="RhythmManager" instance=ExtResource("2_mkogf")]
+visible = false
+
+[node name="Soundtrack" type="AudioStreamPlayer3D" parent="RhythmManager"]
+stream = ExtResource("3_kfsww")
+script = ExtResource("4_gdvei")
+bpm = 75
+
+[node name="PowerupGauge" type="ProgressBar" parent="."]
+offset_right = 216.0
+offset_bottom = 53.0
+value = 100.0
+script = ExtResource("5_e5wfc")
+
+[node name="Boost" type="Node3D" parent="."]
+script = ExtResource("6_i53ty")
+
+[node name="Boost2" type="Node3D" parent="."]
+script = ExtResource("7_ii48q")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.998794, -3.41011e-09, -0.049094, -0.0241101, 0.871103, 0.490509, 0.0427659, 0.491101, -0.870052, 0, 3.96467, -8.89235)

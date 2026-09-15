@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://0g6h1qjj7f51"]
+
+[ext_resource type="Texture2D" uid="uid://dih4vrw6rmv6q" path="res://assets/HDRI/stierberg_sunrise_2k.exr" id="1_ha22y"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6hjbj"]
+panorama = ExtResource("1_ha22y")
+
+[sub_resource type="Sky" id="Sky_qcpxa"]
+sky_material = SubResource("PanoramaSkyMaterial_6hjbj")
+
+[sub_resource type="Environment" id="Environment_byy6s"]
+background_mode = 2
+background_energy_multiplier = 0.31
+sky = SubResource("Sky_qcpxa")
+ambient_light_source = 3
+ambient_light_color = Color(0.398909, 0.555472, 0.807678, 1)
+ambient_light_sky_contribution = 0.61
+ambient_light_energy = 2.35
+reflected_light_source = 2
+tonemap_mode = 1
+tonemap_white = 1.88
+ssr_enabled = true
+ssao_enabled = true
+ssao_intensity = 0.49
+glow_enabled = true
+glow_levels/3 = 0.4
+glow_levels/5 = 0.2
+volumetric_fog_density = 0.0206
+
+[node name="DefaultSky" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.292625, -0.884113, 0.364301, 0.547715, 0.157318, 0.821742, -0.783824, 0.439995, 0.438207, -2, 0, 0)
+light_color = Color(1, 0.999343, 0.904617, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="DirectionalLight3D"]
+environment = SubResource("Environment_byy6s")

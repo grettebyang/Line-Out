@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://pnva2tyrect8"]
+
+[ext_resource type="Script" uid="uid://dlkc5rbeqmq1h" path="res://Production/Components/UI/MainMenu/Scenes/HBackHold.cs" id="1_vbfuf"]
+[ext_resource type="PackedScene" uid="uid://dsme3p8klgtmb" path="res://Production/Components/UI/Prefabs/Buttons/HintButton.tscn" id="1_w1e1o"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="2_c4g8g"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="3_vbfuf"]
+[ext_resource type="Texture2D" uid="uid://crua663en3pck" path="res://Production/Components/UI/HUD/Icons/IconPepparKakor.png" id="4_vbfuf"]
+
+[node name="HBackHold" type="HBoxContainer" unique_id=2037745341 node_paths=PackedStringArray("_holdTimePie", "_buttonSymbol")]
+size_flags_horizontal = 0
+size_flags_vertical = 4
+script = ExtResource("1_vbfuf")
+_holdTimePie = NodePath("HintButtonBack/TextureProgressBar")
+_buttonSymbol = NodePath("HintButtonBack")
+
+[node name="HintButtonBack" parent="." unique_id=1463382247 instance=ExtResource("1_w1e1o")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "B"
+
+[node name="Background" parent="HintButtonBack" index="1" unique_id=1957147793]
+theme = ExtResource("2_c4g8g")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HintButtonBack" unique_id=2031526991]
+z_index = -2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -27.7
+offset_right = 26.0
+offset_bottom = 24.3
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.915, 1.915)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = ExtResource("2_c4g8g")
+max_value = 1.0
+step = 0.001
+fill_mode = 4
+texture_progress = ExtResource("4_vbfuf")
+tint_progress = Color(0.8352941, 0.6392157, 0.32156864, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1167578847]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="." unique_id=1575988196]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_c4g8g")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_colors/font_outline_color = Color(0.44313726, 0.32156864, 0.1764706, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_vbfuf")
+theme_override_font_sizes/font_size = 24
+text = "  Back (hold)"
+
+[editable path="HintButtonBack"]

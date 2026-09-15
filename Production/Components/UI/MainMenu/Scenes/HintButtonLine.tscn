@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvy28lnokmuy2"]
+
+[ext_resource type="PackedScene" uid="uid://dsme3p8klgtmb" path="res://Production/Components/UI/Prefabs/Buttons/HintButton.tscn" id="1_7tpme"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="2_i7u02"]
+
+[node name="HintButtons" type="Control"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_right = 60
+
+[node name="HBack" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="HintButtonBack" parent="MarginContainer/HBack" instance=ExtResource("1_7tpme")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "B"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBack"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="Label" type="Label" parent="MarginContainer/HBack"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_i7u02")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[node name="HAccept" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="MarginContainer/HAccept"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_i7u02")
+theme_override_font_sizes/font_size = 24
+text = "Select"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HAccept"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="HintButtonAccept" parent="MarginContainer/HAccept" instance=ExtResource("1_7tpme")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4

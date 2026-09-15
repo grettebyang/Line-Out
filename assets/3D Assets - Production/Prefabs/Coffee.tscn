@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ctfw7cfk8ptm1"]
+
+[ext_resource type="Material" uid="uid://cuw40rjq3sest" path="res://assets/3D Assets - Production/Imports/Pickups/Materials/M_Pickups.tres" id="1_c7bfk"]
+[ext_resource type="ArrayMesh" uid="uid://dnbcdieeq551g" path="res://assets/3D Assets - Production/Imports/Pickups/Meshes/Coffee.obj" id="3_hd7rf"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_besae"]
+height = 0.84220123
+radius = 0.22949219
+
+[node name="Coffee" type="StaticBody3D" unique_id=1124401289]
+
+[node name="Coffee_Collision" type="CollisionShape3D" parent="." unique_id=1749792215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40905136, 0)
+shape = SubResource("CylinderShape3D_besae")
+
+[node name="Coffee_Mesh" type="MeshInstance3D" parent="." unique_id=910497310]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 0, -0.021273196, 0)
+material_override = ExtResource("1_c7bfk")
+mesh = ExtResource("3_hd7rf")

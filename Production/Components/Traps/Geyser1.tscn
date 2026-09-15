@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://d1mhjuts0uokm"]
+
+[ext_resource type="Script" uid="uid://bdvrcibxdoseg" path="res://Production/Components/Traps/lib/Geyzer/Geyzer.cs" id="1_n412s"]
+[ext_resource type="Texture2D" uid="uid://ebem2jy24k8r" path="res://assets/Textures/waterdrop.png" id="3_67y7a"]
+[ext_resource type="AudioStream" uid="uid://bnsnlmnyd3dgj" path="res://assets/AudioAssets/Traps/Geyser/Geyser.wav" id="4_1hxwk"]
+[ext_resource type="PackedScene" uid="uid://c5v3wx2qcg32h" path="res://assets/3D Assets - Production/Prefabs/Geyser_Base1.tscn" id="4_qgg65"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y3hub"]
+height = 12.159407
+radius = 1.25439
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0ly8f"]
+flip_faces = true
+top_radius = 1.792
+bottom_radius = 1.331
+height = 3.939
+cap_top = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1hxwk"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 1, 0)
+spread = 7.0
+initial_velocity_min = 5.0
+initial_velocity_max = 13.17
+gravity = Vector3(0, -3, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1hxwk"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.845935, 0.873745, 0.896811, 1)
+albedo_texture = ExtResource("3_67y7a")
+billboard_mode = 1
+grow_amount = 0.855
+
+[sub_resource type="QuadMesh" id="QuadMesh_qgg65"]
+lightmap_size_hint = Vector2i(7, 7)
+material = SubResource("StandardMaterial3D_1hxwk")
+
+[node name="Geyzer" type="Node3D" unique_id=533301672]
+
+[node name="MainThreat" type="Area3D" parent="." unique_id=1909923420 node_paths=PackedStringArray("_geyserVFX", "_steamSound")]
+transform = Transform3D(1, 4.06513e-05, -7.51933e-05, -4.06513e-05, 1, -0.000110404, 7.51933e-05, 0.000110404, 1, 0, 0, 0)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_n412s")
+_geyserVFX = NodePath("../GeyserWater")
+_steamSound = NodePath("../AudioStreamPlayer3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MainThreat" unique_id=1370753502]
+transform = Transform3D(1, -7.2297723e-13, 0, 2.6645353e-15, 1, 0, 0, 0, 1, -4.0659637e-05, 6.4605684, -0.00011040113)
+shape = SubResource("CylinderShape3D_y3hub")
+
+[node name="Visual" type="Node3D" parent="." unique_id=529149411]
+
+[node name="WaterScaler" type="Node3D" parent="Visual" unique_id=310527635]
+transform = Transform3D(0.777235, 4.0868e-05, -5.44982e-05, -3.15956e-05, 1.00533, -8.00181e-05, 5.84429e-05, 0.000110992, 0.724775, 0, 0, 0)
+
+[node name="BigWater" type="MeshInstance3D" parent="Visual/WaterScaler" unique_id=1038292931]
+transform = Transform3D(1, 8.88178e-12, -2.18279e-11, 9.00169e-13, 1, -1.45519e-11, 0, 2.91038e-11, 1, -0.000104626, 1.9894, -0.000304649)
+visible = false
+transparency = 0.11
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_0ly8f")
+
+[node name="GeyserWater" type="GPUParticles3D" parent="." unique_id=239144115]
+emitting = false
+amount = 200
+lifetime = 1.5
+one_shot = true
+speed_scale = 2.5
+fixed_fps = 0
+process_material = SubResource("ParticleProcessMaterial_1hxwk")
+draw_pass_1 = SubResource("QuadMesh_qgg65")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=103177360]
+stream = ExtResource("4_1hxwk")
+volume_db = -3.0
+unit_size = 15.0
+max_distance = 120.0
+bus = &"SFX"
+
+[node name="Geyser_Base1" parent="." unique_id=1355619458 instance=ExtResource("4_qgg65")]

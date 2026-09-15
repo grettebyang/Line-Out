@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuijp8417algr"]
+
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="1_da365"]
+
+[sub_resource type="Gradient" id="Gradient_d04cp"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.705882, 0.701961, 0.572549, 1, 0.811885, 0.809214, 0.734769, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_da365"]
+gradient = SubResource("Gradient_d04cp")
+width = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="Card" type="TextureRect"]
+z_index = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_da365")
+
+[node name="Outline" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 504.0
+grow_vertical = 2
+color = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 92.0
+offset_top = 220.0
+offset_right = 500.0
+offset_bottom = 331.0
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("1_da365")
+theme_override_font_sizes/font_size = 80
+text = "Line Out"
+
+[node name="Line" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -180.0
+offset_right = 59.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="MainSelection" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_bottom = 900.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")

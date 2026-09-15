@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://toklwrldirc0"]
+
+[ext_resource type="PackedScene" uid="uid://byuxt5rhor6kj" path="res://Production/Components/Dog/lib/DogVisuals.tscn" id="1_nldro"]
+[ext_resource type="Script" uid="uid://e3bow7wh2h2r" path="res://Production/Components/NPC/RacingNPC/RacingNpc.cs" id="1_xa350"]
+[ext_resource type="Script" uid="uid://bcvtyn8c307rn" path="res://Production/Components/Dog/lib/RopePivot.cs" id="2_3lasm"]
+
+[sub_resource type="Curve" id="Curve_xa350"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2gi5g"]
+radius = 0.1085
+height = 0.64187
+
+[node name="DogNpc" type="CharacterBody3D"]
+collision_layer = 8
+collision_mask = 47
+script = ExtResource("1_xa350")
+SmoothstepCurve = SubResource("Curve_xa350")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0.000235037, 0.000252509, 0.000252776, -0.00115383, -0.999999, -0.000234749, 0.999999, -0.00115388, 0.00126648, 0.00386047, 0.000312805)
+shape = SubResource("CapsuleShape3D_2gi5g")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0.000235037, 0.000252509, 0.000252776, -0.00115383, -0.999999, -0.000234749, 0.999999, -0.00115388, 0.00126648, 0.20386, 0.000312805)
+shape = SubResource("CapsuleShape3D_2gi5g")
+
+[node name="ropePivot" type="Node3D" parent="CollisionShape3D2"]
+transform = Transform3D(1, 0.00025278, -0.000234746, 0.000235041, -0.00115382, 1, 0.000252505, -1, -0.00115389, -0.0011098, -0.260718, -0.377796)
+
+[node name="shitdog" parent="." instance=ExtResource("1_nldro")]
+transform = Transform3D(-0.4, 0, -6.03983e-08, 0, 0.4, 0, 6.03983e-08, 0, -0.4, 0, 0, 0)
+
+[node name="Node" parent="shitdog" index="8" node_paths=PackedStringArray("_dog")]
+_dog = NodePath("../..")
+
+[node name="ropePivot" type="Node3D" parent="."]
+transform = Transform3D(1, -1.74623e-10, -3.58426e-10, 5.82077e-11, 1, -4.65661e-10, 4.19959e-10, 1.86265e-09, 1, 0.00110969, 0.382161, -0.260251)
+script = ExtResource("2_3lasm")
+metadata/isPivot = true
+
+[editable path="shitdog"]

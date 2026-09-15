@@ -1,0 +1,502 @@
+[gd_scene format=3 uid="uid://cw55il1thuco0"]
+
+[ext_resource type="Script" uid="uid://c4wou1ccj1cgx" path="res://Production/Components/UI/MainMenu/Scenes/CreditsMenu.cs" id="1_dhb5q"]
+[ext_resource type="FontFile" uid="uid://cj38x86kftm5q" path="res://Production/Fonts/Onest/static/Onest-Bold.ttf" id="2_ntolo"]
+[ext_resource type="PackedScene" uid="uid://hllnjosojgq3" path="res://Production/Components/UI/Prefabs/Texts/CreditsName.tscn" id="3_ntolo"]
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="4_o6yaf"]
+[ext_resource type="Texture2D" uid="uid://crua663en3pck" path="res://Production/Components/UI/HUD/Icons/IconPepparKakor.png" id="5_jbo3w"]
+[ext_resource type="Script" uid="uid://cah2302cvgfsu" path="res://Production/Components/UI/Prefabs/Buttons/ButtonDecoration.cs" id="6_r7uen"]
+
+[sub_resource type="Gradient" id="Gradient_d04cp"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.705882, 0.701961, 0.572549, 1, 0.811885, 0.809214, 0.734769, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_da365"]
+gradient = SubResource("Gradient_d04cp")
+width = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="CreditsMenu" type="Control" unique_id=506313811 node_paths=PackedStringArray("_mainButtonsContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_dhb5q")
+_rollSpeed = 100.0
+_rollSpeedMax = 850.0
+_mainButtonsContainer = NodePath("Card/Credits")
+
+[node name="Card" type="TextureRect" parent="." unique_id=1774475669]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.24000001
+anchor_right = 0.76000005
+anchor_bottom = 1.0
+offset_left = 0.70010376
+offset_right = -0.7001953
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_da365")
+
+[node name="Outline" type="ColorRect" parent="Card" unique_id=480440788]
+z_index = -1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1004.0
+grow_vertical = 2
+color = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="Credits" type="VBoxContainer" parent="Card" unique_id=25921688]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 140.5
+offset_top = -387.0
+offset_right = -128.49976
+offset_bottom = 1878.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+
+[node name="CreditsHeader" type="Label" parent="Card/Credits" unique_id=2031410728]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_ntolo")
+theme_override_font_sizes/font_size = 80
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Line" type="ColorRect" parent="Card/Credits/CreditsHeader" unique_id=390658780]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = 60.51998
+offset_right = 100.0
+offset_bottom = 63.51999
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="MarginContainer11" type="MarginContainer" parent="Card/Credits" unique_id=1342579779]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="Line2" type="ColorRect" parent="Card/Credits" unique_id=1185793124]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="MarginContainer8" type="MarginContainer" parent="Card/Credits" unique_id=655513858]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="MainTeamHeader" parent="Card/Credits" unique_id=1669091298 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42773715, 0.34955186, 0.26777217, 1)
+theme_override_colors/font_outline_color = Color(0.42745098, 0.34901962, 0.26666668, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 44
+text = "Main Team"
+horizontal_alignment = 1
+
+[node name="MainTeam" type="HBoxContainer" parent="Card/Credits" unique_id=910642620]
+layout_mode = 2
+alignment = 1
+
+[node name="Names" type="VBoxContainer" parent="Card/Credits/MainTeam" unique_id=549033858]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Catja" parent="Card/Credits/MainTeam/Names" unique_id=1652316304 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Catja Larsson"
+horizontal_alignment = 2
+
+[node name="Adam" parent="Card/Credits/MainTeam/Names" unique_id=831452381 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Adam Palmkvist"
+horizontal_alignment = 2
+
+[node name="Jakub" parent="Card/Credits/MainTeam/Names" unique_id=469199688 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Jakub Werner"
+horizontal_alignment = 2
+
+[node name="Grette" parent="Card/Credits/MainTeam/Names" unique_id=1740558681 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Grette Yang"
+horizontal_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Card/Credits/MainTeam" unique_id=423647214]
+custom_minimum_size = Vector2(72.135, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 80
+
+[node name="Titles" type="VBoxContainer" parent="Card/Credits/MainTeam" unique_id=1434210583]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CatjaTitle" parent="Card/Credits/MainTeam/Titles" unique_id=1155489688 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Art"
+
+[node name="AdamTitle" parent="Card/Credits/MainTeam/Titles" unique_id=1359558429 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Programming"
+
+[node name="JakubTitle" parent="Card/Credits/MainTeam/Titles" unique_id=66592469 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Programming, UI"
+
+[node name="GretteTitle" parent="Card/Credits/MainTeam/Titles" unique_id=1981580988 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Programming, Music,
+Violin, Viola"
+
+[node name="MarginContainer6" type="MarginContainer" parent="Card/Credits/MainTeam/Titles" unique_id=1242001340]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="AdditionalContributorsHeader" parent="Card/Credits" unique_id=464264236 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42773715, 0.34955186, 0.26777217, 1)
+theme_override_colors/font_outline_color = Color(0.42745098, 0.34901962, 0.26666668, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 44
+text = "Additional Contributors"
+horizontal_alignment = 1
+
+[node name="AdditionalContributors" type="HBoxContainer" parent="Card/Credits" unique_id=233722043]
+layout_mode = 2
+alignment = 1
+
+[node name="Names" type="VBoxContainer" parent="Card/Credits/AdditionalContributors" unique_id=774356041]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Tamara" parent="Card/Credits/AdditionalContributors/Names" unique_id=1957368895 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Tamara Al-Saadi"
+horizontal_alignment = 2
+
+[node name="Sarah" parent="Card/Credits/AdditionalContributors/Names" unique_id=832364806 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Sarah Yang"
+horizontal_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Card/Credits/AdditionalContributors" unique_id=688257911]
+custom_minimum_size = Vector2(72.135, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 80
+
+[node name="Titles" type="VBoxContainer" parent="Card/Credits/AdditionalContributors" unique_id=1115919631]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TamaraTitle" parent="Card/Credits/AdditionalContributors/Titles" unique_id=1331465797 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Dog Model"
+
+[node name="SarahTitle" parent="Card/Credits/AdditionalContributors/Titles" unique_id=425963649 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Mixing, Cello,
+Bass Guitar"
+
+[node name="MarginContainer6" type="MarginContainer" parent="Card/Credits/AdditionalContributors/Titles" unique_id=1889435379]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="SpecialThanksHeader" parent="Card/Credits" unique_id=295846346 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42773715, 0.34955186, 0.26777217, 1)
+theme_override_colors/font_outline_color = Color(0.42745098, 0.34901962, 0.26666668, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 44
+text = "Special thanks to our prototyping team members"
+horizontal_alignment = 1
+
+[node name="SpecialThanks" type="HBoxContainer" parent="Card/Credits" unique_id=1392375231]
+layout_mode = 2
+alignment = 1
+
+[node name="Names" type="VBoxContainer" parent="Card/Credits/SpecialThanks" unique_id=1778934989]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Casper" parent="Card/Credits/SpecialThanks/Names" unique_id=659941255 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Casper Fahlman"
+horizontal_alignment = 2
+
+[node name="James" parent="Card/Credits/SpecialThanks/Names" unique_id=786058462 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "James Tonjes"
+horizontal_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Card/Credits/SpecialThanks" unique_id=2035170620]
+custom_minimum_size = Vector2(72.135, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 80
+
+[node name="Titles" type="VBoxContainer" parent="Card/Credits/SpecialThanks" unique_id=1787167083]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CasperTitle" parent="Card/Credits/SpecialThanks/Titles" unique_id=1765563347 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Programming"
+
+[node name="JamesTitle" parent="Card/Credits/SpecialThanks/Titles" unique_id=765442 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Programming"
+
+[node name="MarginContainer6" type="MarginContainer" parent="Card/Credits/SpecialThanks/Titles" unique_id=379685605]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="MarginContainer9" type="MarginContainer" parent="Card/Credits" unique_id=951991650]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="SectionHeader4" parent="Card/Credits" unique_id=2146289136 instance=ExtResource("3_ntolo")]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42773715, 0.34955186, 0.26777217, 1)
+theme_override_colors/font_outline_color = Color(0.42745098, 0.34901962, 0.26666668, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 44
+text = "UI"
+horizontal_alignment = 1
+
+[node name="UI" type="HBoxContainer" parent="Card/Credits" unique_id=1303135450]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Titles" type="VBoxContainer" parent="Card/Credits/UI" unique_id=785976447]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Composer" parent="Card/Credits/UI/Titles" unique_id=647624469 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Designer:"
+horizontal_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Card/Credits/UI" unique_id=1582400514]
+custom_minimum_size = Vector2(72.135, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 80
+
+[node name="Names" type="VBoxContainer" parent="Card/Credits/UI" unique_id=854130640]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CreditsName7" parent="Card/Credits/UI/Names" unique_id=731073753 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Jakub Werner"
+
+[node name="MarginContainer7" type="MarginContainer" parent="Card/Credits" unique_id=1058474970]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="SectionHeader2" parent="Card/Credits" unique_id=1265029383 instance=ExtResource("3_ntolo")]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42773715, 0.34955186, 0.26777217, 1)
+theme_override_colors/font_outline_color = Color(0.42745098, 0.34901962, 0.26666668, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 44
+text = "Art"
+horizontal_alignment = 1
+
+[node name="Art" type="HBoxContainer" parent="Card/Credits" unique_id=1445197859]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Titles" type="VBoxContainer" parent="Card/Credits/Art" unique_id=431328354]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeadArtist" parent="Card/Credits/Art/Titles" unique_id=427324246 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Lead Artist:"
+horizontal_alignment = 2
+
+[node name="Original" parent="Card/Credits/Art/Titles" unique_id=462951124 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Dog Model:"
+horizontal_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Card/Credits/Art" unique_id=1260927314]
+custom_minimum_size = Vector2(72.135, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 80
+
+[node name="Names" type="VBoxContainer" parent="Card/Credits/Art" unique_id=2031626396]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CreditsName8" parent="Card/Credits/Art/Names" unique_id=948024560 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Tamara ???"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Card/Credits" unique_id=808907210]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="SectionHeader3" parent="Card/Credits" unique_id=780001771 instance=ExtResource("3_ntolo")]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.42773715, 0.34955186, 0.26777217, 1)
+theme_override_colors/font_outline_color = Color(0.42745098, 0.34901962, 0.26666668, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 44
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Music" type="HBoxContainer" parent="Card/Credits" unique_id=1719640723]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Titles" type="VBoxContainer" parent="Card/Credits/Music" unique_id=1328696317]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Composer" parent="Card/Credits/Music/Titles" unique_id=1741864737 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Composer:"
+horizontal_alignment = 2
+
+[node name="Mixing" parent="Card/Credits/Music/Titles" unique_id=1193095536 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Mixing:"
+horizontal_alignment = 2
+
+[node name="ViolinViola" parent="Card/Credits/Music/Titles" unique_id=1521494301 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Violin/Viola:"
+horizontal_alignment = 2
+
+[node name="Cello" parent="Card/Credits/Music/Titles" unique_id=395004062 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Cello:"
+horizontal_alignment = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Card/Credits/Music" unique_id=1129145598]
+custom_minimum_size = Vector2(72.135, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_top = 80
+
+[node name="Names" type="VBoxContainer" parent="Card/Credits/Music" unique_id=1265755020]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CreditsName7" parent="Card/Credits/Music/Names" unique_id=1547618732 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Grette Yang"
+
+[node name="CreditsName8" parent="Card/Credits/Music/Names" unique_id=2141812168 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Sarah Yang"
+
+[node name="CreditsName9" parent="Card/Credits/Music/Names" unique_id=1710165076 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Grette Yang"
+
+[node name="CreditsName10" parent="Card/Credits/Music/Names" unique_id=1798469468 instance=ExtResource("3_ntolo")]
+layout_mode = 2
+text = "Sarah Yang"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Card/Credits" unique_id=1804819862]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="MarginContainer5" type="MarginContainer" parent="Card/Credits" unique_id=1552561209]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="Line" type="ColorRect" parent="Card/Credits" unique_id=1442068583]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="MarginContainer4" type="MarginContainer" parent="Card/Credits" unique_id=1529782877]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="MarginContainer6" type="MarginContainer" parent="Card/Credits" unique_id=313783999]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="Thanks" type="Label" parent="Card/Credits" unique_id=1634892712]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.415686, 0.541176, 0.862745, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("2_ntolo")
+theme_override_font_sizes/font_size = 52
+text = "Thank you for playing!"
+horizontal_alignment = 1
+
+[node name="MarginContainer10" type="MarginContainer" parent="Card/Credits" unique_id=474299507]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="Cookie" type="TextureRect" parent="Card/Credits" unique_id=370487263]
+modulate = Color(0.8352941, 0.6392157, 0.32156864, 1)
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("4_o6yaf")
+texture = ExtResource("5_jbo3w")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("6_r7uen")
+
+[node name="Shadow" type="TextureRect" parent="Card/Credits/Cookie" unique_id=938555159]
+self_modulate = Color(0.45490196, 0.28235295, 0, 0.74509805)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_right = 1.003
+anchor_bottom = 1.0
+offset_left = 0.009008542
+offset_top = 3.58
+offset_right = 0.0090065
+offset_bottom = 3.5800018
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("5_jbo3w")
+stretch_mode = 2

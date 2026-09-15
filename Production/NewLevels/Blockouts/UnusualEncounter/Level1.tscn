@@ -1,0 +1,369 @@
+[gd_scene format=3 uid="uid://digpgnhqk7m23"]
+
+[ext_resource type="Script" uid="uid://rj52ikio8yi4" path="res://Production/Components/LevelManager/LevelManager.cs" id="1_lbi87"]
+[ext_resource type="PackedScene" uid="uid://bp34hqpmuhrxq" path="res://Production/Components/Sled/lib/HurtEffect.tscn" id="2_r0xcn"]
+[ext_resource type="PackedScene" uid="uid://35feky2e4ule" path="res://Production/Components/UI/ControllersActivator/Layouts/ControllerActivatorUI.tscn" id="3_ax5hk"]
+[ext_resource type="PackedScene" uid="uid://b0sspgdxim522" path="res://Production/Components/UI/HUD/Scenes/TrackHUD.tscn" id="4_ths0l"]
+[ext_resource type="PackedScene" uid="uid://3hry2327s1cv" path="res://Production/Components/Sled/lib/Sled.tscn" id="5_o63ta"]
+[ext_resource type="PackedScene" uid="uid://d1mhjuts0uokm" path="res://Production/Components/Traps/Geyser1.tscn" id="7_kprf3"]
+[ext_resource type="PackedScene" uid="uid://domulxk3mp2wy" path="res://prototype/Adam/TreeFall/TreeFall.tscn" id="8_cupjm"]
+[ext_resource type="PackedScene" uid="uid://4xtdsvvidhmk" path="res://Production/Components/Checkpoints/Scenes/CheckpointManager.tscn" id="9_hmek4"]
+[ext_resource type="PackedScene" uid="uid://b57itw6ps0uqn" path="res://assets/Meshes/Props/shithouse.glb" id="9_m5yx8"]
+[ext_resource type="ArrayMesh" uid="uid://ddbws0yrgv85l" path="res://Production/NewLevels/Blockouts/UnusualEncounter/Level1.obj" id="9_n8yrn"]
+[ext_resource type="PackedScene" uid="uid://lttm102lnb0k" path="res://prototype/Adam/TornadoTrap/TornadoV2.tscn" id="10_pwido"]
+[ext_resource type="PackedScene" uid="uid://lkmyugda37bi" path="res://Production/Components/Checkpoints/Scenes/Checkpoint.tscn" id="10_x2l8x"]
+[ext_resource type="PackedScene" uid="uid://dcynvq2bo8khs" path="res://Production/Components/LevelPrefabs/crate_cluster.tscn" id="13_urarr"]
+[ext_resource type="PackedScene" uid="uid://cw4kly7vp7hvd" path="res://Production/Components/Traps/BearTrap.tscn" id="14_0giko"]
+[ext_resource type="PackedScene" uid="uid://d0p4mdj3hvtjm" path="res://assets/3D Assets - Production/Prefabs/Level_001.tscn" id="14_m5yx8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2wm7c"]
+albedo_color = Color(0.452695, 0.242717, 9.62615e-08, 1)
+metallic = 1.0
+metallic_specular = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_slwix"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="BoxMesh" id="BoxMesh_iomgi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8hbvv"]
+
+[node name="TestingPlayground" type="Node3D" unique_id=1429515814 node_paths=PackedStringArray("_sled", "_checkpointManager")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 112.1286, 0)
+script = ExtResource("1_lbi87")
+_sled = NodePath("Sled")
+DamageEffectScene = ExtResource("2_r0xcn")
+Soundtrack = 4
+_checkpointManager = NodePath("CheckPoints/CheckpointManager")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1537649514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0079, -83.795616, -308.8812)
+
+[node name="UI" type="Control" parent="." unique_id=1366149451]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControllerActivatorUI" parent="UI" unique_id=1528170562 instance=ExtResource("3_ax5hk")]
+layout_mode = 1
+
+[node name="TrackHud" parent="UI" unique_id=535194978 instance=ExtResource("4_ths0l")]
+
+[node name="Sled" parent="." unique_id=827351025 instance=ExtResource("5_o63ta")]
+transform = Transform3D(-0.098538265, 0, 0.9951333, 0, 1, 0, -0.9951343, 0, -0.09853779, -10.4179325, 0.13606262, 9.059425)
+SledMass = 80
+_dmgPerSpeed = 12.0
+_dmgCap = 30.0
+
+[node name="BasicSled" parent="Sled" index="1" unique_id=1184220153]
+transform = Transform3D(-0.300001, 0, -4.52988e-08, 0, 0.3, 0, 4.52988e-08, 0, -0.300001, 0, -0.0749889, 0)
+
+[node name="MainCam" parent="Sled" index="4" unique_id=1963084598]
+_shakeMultiplayer = 4.0
+_shakeSpeed = 1.2
+
+[node name="LeftCollision" parent="Sled" index="7" unique_id=752580054]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.3, 0.2, -0.5)
+
+[node name="RightCollision" parent="Sled" index="8" unique_id=1602187532]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.3, 0.2, -0.5)
+
+[node name="FikaPackage" parent="Sled" index="14" unique_id=492474789]
+mass = 0.001
+
+[node name="SledHitThingParticles" parent="Sled/VFX" parent_id_path=PackedInt32Array(827351025, 504676395) index="4" unique_id=2135288165]
+material_override = SubResource("StandardMaterial3D_2wm7c")
+amount = 32
+lifetime = 2.0
+speed_scale = 2.0
+draw_pass_1 = SubResource("SphereMesh_slwix")
+
+[node name="SledHitThingParticles2" parent="Sled/VFX" parent_id_path=PackedInt32Array(827351025, 504676395) index="5" unique_id=327293242]
+amount = 6
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=840334921]
+transform = Transform3D(0.0533991, 0.322895, 0.944927, -0.998573, 0.0172669, 0.0505304, 0, -0.946277, 0.323356, 0, 3.01267, 0)
+
+[node name="EnvironmentRelated" type="Node3D" parent="." unique_id=74815956]
+
+[node name="CheckPoints" type="Node3D" parent="." unique_id=2053710917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6176052, 0, -5.041679)
+
+[node name="CheckpointManager" parent="CheckPoints" unique_id=927916754 instance=ExtResource("9_hmek4")]
+
+[node name="Checkpoint" parent="CheckPoints" unique_id=1008127430 instance=ExtResource("10_x2l8x")]
+transform = Transform3D(-0.9397522, 0, -0.34185624, 0, 1, 0, 0.34185624, 0, -0.9397522, 2.0804644, 0.13153076, 13.64308)
+
+[node name="CollisionShape3D" parent="CheckPoints/Checkpoint/Trigger" parent_id_path=PackedInt32Array(1008127430, 1757637678) index="0" unique_id=1921083866]
+transform = Transform3D(1.0000002, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, 1.0000002, -1.8653269, 3.194275, 0.99138784)
+
+[node name="Models" parent="CheckPoints/Checkpoint" index="1" unique_id=1941511973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8626451e-09, 0, 1.9998783)
+
+[node name="Pole" parent="CheckPoints/Checkpoint/Models" index="2" unique_id=622245059]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -1.6768234, 1.20498, 6.594521)
+
+[node name="Fireplace" parent="CheckPoints/Checkpoint/Models" index="3" unique_id=1951592768]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -3.1261034, -0.105666876, 8.191652)
+
+[node name="CheckpointHut" parent="CheckPoints/Checkpoint/Models" index="5" unique_id=1728351615]
+transform = Transform3D(0.28094807, 0, 0.41360405, 0, 0.5, 0, -0.41360405, 0, 0.28094807, -1.6644238, 0, 8.32977)
+
+[node name="Roof" parent="CheckPoints/Checkpoint/Models" index="6" unique_id=1770781066]
+transform = Transform3D(1.0000002, 0, 0, 0, 1, 0, 0, 0, 1.0000002, -1.527106, -0.6092758, -9.414437)
+
+[node name="Checkpoint2" parent="CheckPoints" unique_id=1938600682 instance=ExtResource("10_x2l8x")]
+transform = Transform3D(-0.29153806, -0.059463184, -0.63361627, -0.024855241, 0.6974699, -0.05401931, 0.6359148, 0, -0.29259565, 118.23572, -27.327118, -67.55025)
+
+[node name="CollisionShape3D" parent="CheckPoints/Checkpoint2/Trigger" parent_id_path=PackedInt32Array(1938600682, 1757637678) index="0" unique_id=1921083866]
+transform = Transform3D(0.99999875, 0, -1.3411045e-06, 0, 1, 0, 1.3411045e-06, 0, 0.99999875, -7.6293945e-06, 0.6245127, 3.4214516)
+
+[node name="Models" parent="CheckPoints/Checkpoint2" index="1" unique_id=1941511973]
+transform = Transform3D(0.9558597, 0, -0.29382345, 0, 1, 0, 0.29382345, 0, 0.9558597, 1.949165, 0, 0.95540416)
+
+[node name="Pole" parent="CheckPoints/Checkpoint2/Models" index="2" unique_id=622245059]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -2.4496837, 0.08652973, 12.666519)
+
+[node name="Fireplace" parent="CheckPoints/Checkpoint2/Models" index="3" unique_id=1951592768]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -1.8811846, -2.223314, 15.008423)
+
+[node name="CheckpointHut" parent="CheckPoints/Checkpoint2/Models" index="5" unique_id=1728351615]
+transform = Transform3D(0.28094795, 0, 0.41360396, 0, 0.5, 0, -0.41360396, 0, 0.28094795, -1.2214377, -2.1290016, 13.502815)
+
+[node name="Roof" parent="CheckPoints/Checkpoint2/Models" index="6" unique_id=1770781066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2261043, -2.407951, -8.620812)
+
+[node name="Checkpoint3" parent="CheckPoints" unique_id=1521957751 instance=ExtResource("10_x2l8x")]
+transform = Transform3D(-0.00058978796, -0.054074284, -0.6979079, -0.024855241, 0.6974699, -0.05401931, 0.6995584, 0.024735458, -0.0025076568, 126.64587, -34.88951, -159.48369)
+
+[node name="CollisionShape3D" parent="CheckPoints/Checkpoint3/Trigger" parent_id_path=PackedInt32Array(1521957751, 1757637678) index="0" unique_id=1921083866]
+transform = Transform3D(0.9999987, -3.7252903e-09, -1.3362151e-06, -1.6763806e-07, 1.0000001, 7.734343e-08, 1.339009e-06, -4.5838533e-09, 0.9999987, 0, 0.6245041, 3.9703674)
+
+[node name="Models" parent="CheckPoints/Checkpoint3" index="1" unique_id=1941511973]
+transform = Transform3D(0.9558597, 0, -0.29382345, 0, 1, 0, 0.29382345, 0, 0.9558597, 1.949165, 0, 0.95540416)
+
+[node name="Pole" parent="CheckPoints/Checkpoint3/Models" index="2" unique_id=622245059]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -2.4496837, 0.08652973, 12.666519)
+
+[node name="Fireplace" parent="CheckPoints/Checkpoint3/Models" index="3" unique_id=1951592768]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -1.8811846, -2.223314, 15.008423)
+
+[node name="CheckpointHut" parent="CheckPoints/Checkpoint3/Models" index="5" unique_id=1728351615]
+transform = Transform3D(0.28094795, 0, 0.41360396, 0, 0.5, 0, -0.41360396, 0, 0.28094795, -1.2214377, -2.1290016, 13.502815)
+
+[node name="Roof" parent="CheckPoints/Checkpoint3/Models" index="6" unique_id=1770781066]
+transform = Transform3D(1, 3.7252903e-09, 2.9802322e-08, -1.1175871e-08, 1.0000004, -2.0489097e-08, -1.4901161e-07, -2.7008355e-08, 1, -4.81131, -2.355011, -4.0701675)
+
+[node name="Checkpoint4" parent="CheckPoints" unique_id=590983500 instance=ExtResource("10_x2l8x")]
+transform = Transform3D(0.6935039, 0.031662803, 0.08972052, -0.030676622, 0.69926083, -0.009654451, -0.09006245, 0.0056329668, 0.69415903, -6.3516316, -43.477325, -100.756905)
+
+[node name="CollisionShape3D" parent="CheckPoints/Checkpoint4/Trigger" parent_id_path=PackedInt32Array(590983500, 1757637678) index="0" unique_id=1921083866]
+transform = Transform3D(0.9999987, -3.7252903e-09, -1.3362151e-06, -1.6763806e-07, 1.0000001, 7.734343e-08, 1.339009e-06, -4.5838533e-09, 0.9999987, 0, 0.6245041, 3.9703674)
+
+[node name="Models" parent="CheckPoints/Checkpoint4" index="1" unique_id=1941511973]
+transform = Transform3D(0.9558597, 0, -0.29382345, 0, 1, 0, 0.29382345, 0, 0.9558597, 1.949165, 0, 0.95540416)
+
+[node name="Pole" parent="CheckPoints/Checkpoint4/Models" index="2" unique_id=622245059]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -2.4496837, 0.08652973, 12.666519)
+
+[node name="Fireplace" parent="CheckPoints/Checkpoint4/Models" index="3" unique_id=1951592768]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -1.8811846, -2.223314, 15.008423)
+
+[node name="CheckpointHut" parent="CheckPoints/Checkpoint4/Models" index="5" unique_id=1728351615]
+transform = Transform3D(0.28094795, 0, 0.41360396, 0, 0.5, 0, -0.41360396, 0, 0.28094795, -1.2214377, -2.1290016, 13.502815)
+
+[node name="Roof" parent="CheckPoints/Checkpoint4/Models" index="6" unique_id=1770781066]
+transform = Transform3D(1, 3.7252903e-09, 2.9802322e-08, -1.1175871e-08, 1.0000004, -2.0489097e-08, -1.4901161e-07, -2.7008355e-08, 1, -4.81131, -2.355011, -4.0701675)
+
+[node name="Checkpoint5" parent="CheckPoints" unique_id=631294424 instance=ExtResource("10_x2l8x")]
+transform = Transform3D(-0.66240686, -0.040845867, -0.22259562, -0.03897719, 0.69880706, -0.01224016, 0.22293048, 0.0008117035, -0.6635521, 68.689415, -71.591064, -216.59021)
+
+[node name="CollisionShape3D" parent="CheckPoints/Checkpoint5/Trigger" parent_id_path=PackedInt32Array(631294424, 1757637678) index="0" unique_id=1921083866]
+transform = Transform3D(0.9999987, -3.7252903e-09, -1.3362151e-06, -1.6763806e-07, 1.0000001, 7.734343e-08, 1.339009e-06, -4.5838533e-09, 0.9999987, 0, 0.6245041, 3.9703674)
+
+[node name="Models" parent="CheckPoints/Checkpoint5" index="1" unique_id=1941511973]
+transform = Transform3D(0.9558597, 0, -0.29382345, 0, 1, 0, 0.29382345, 0, 0.9558597, 1.949165, 0, 0.95540416)
+
+[node name="Pole" parent="CheckPoints/Checkpoint5/Models" index="2" unique_id=622245059]
+transform = Transform3D(0.0545559, 0, -0.024973, 0, 2.2, 0, 0.024973, 0, 0.0545559, -2.4496837, 0.08652973, 12.666519)
+
+[node name="Fireplace" parent="CheckPoints/Checkpoint5/Models" index="3" unique_id=1951592768]
+transform = Transform3D(-0.909265, 0, 0.416217, 0, 1, 0, -0.416217, 0, -0.909265, -1.8811846, -2.223314, 15.008423)
+
+[node name="CheckpointHut" parent="CheckPoints/Checkpoint5/Models" index="5" unique_id=1728351615]
+transform = Transform3D(0.28094795, 0, 0.41360396, 0, 0.5, 0, -0.41360396, 0, 0.28094795, -1.2214377, -2.1290016, 13.502815)
+
+[node name="Roof" parent="CheckPoints/Checkpoint5/Models" index="6" unique_id=1770781066]
+transform = Transform3D(1, 3.7252903e-09, 2.9802322e-08, -1.1175871e-08, 1.0000004, -2.0489097e-08, -1.4901161e-07, -2.7008355e-08, 1, -4.81131, -2.355011, -4.0701675)
+
+[node name="shithouse" parent="." unique_id=830350241 instance=ExtResource("9_m5yx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0079, -83.795616, -308.8812)
+
+[node name="Tornado1" type="Node3D" parent="." unique_id=712555192]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 133.96848, -55.271133, -317.9996)
+
+[node name="Tornado" parent="Tornado1" unique_id=1713758612 instance=ExtResource("10_pwido")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.981125, -26.190285, 16.806458)
+
+[node name="EndpointA" type="Node3D" parent="Tornado1" unique_id=1554333834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.369225, -24.133614, 74.26491)
+
+[node name="EndpointB" type="Node3D" parent="Tornado1" unique_id=2116928219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.369225, -24.133614, 15.335419)
+
+[node name="TreeFall" parent="Tornado1" unique_id=709610825 instance=ExtResource("8_cupjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -94.99681, 13.060898, 221.79338)
+
+[node name="FallTarget" parent="Tornado1/TreeFall" index="1" unique_id=1517538147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2326736, 0, -9.080338)
+
+[node name="Geysers" type="Node3D" parent="." unique_id=890292531]
+
+[node name="Geyzer" parent="Geysers" unique_id=533301672 instance=ExtResource("7_kprf3")]
+transform = Transform3D(0.9995121, 0.03123635, 0, -0.014123659, 0.45193395, 0.8919396, 0.027860938, -0.8915044, 0.45215458, 60.302025, -12.731384, 7.2906904)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geysers/Geyzer" unique_id=1534165459]
+transform = Transform3D(7.9926386, 0.23558265, -0.09355779, 0.23558268, 0.46174145, 2.9936957, 0.24948737, -7.9831886, 0.17039216, 0.04460907, -1.4273834, -0.17586517)
+mesh = SubResource("BoxMesh_iomgi")
+
+[node name="Geyzer2" parent="Geysers" unique_id=1362619087 instance=ExtResource("7_kprf3")]
+transform = Transform3D(-0.6871642, 0.7228559, -0.07269716, -0.05407707, 0.04889472, 0.9973389, 0.72448695, 0.68926686, 0.005491033, 87.77148, -23.798708, -53.15826)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geysers/Geyzer2" unique_id=1042877433]
+transform = Transform3D(7.9926386, 0.23558265, -0.09355779, 0.23558268, 0.46174145, 2.9936957, 0.24948737, -7.9831886, 0.17039216, 0.04460907, -1.4273834, -0.17586517)
+mesh = SubResource("BoxMesh_iomgi")
+
+[node name="Geyzer3" parent="Geysers" unique_id=492157796 instance=ExtResource("7_kprf3")]
+transform = Transform3D(-0.29859212, 0.7793944, -0.5508059, -0.054885127, 0.56215596, 0.82520795, 0.9528015, 0.2766317, -0.12507826, 107.176994, -38.830833, -136.89188)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geysers/Geyzer3" unique_id=1228890599]
+transform = Transform3D(7.9926386, 0.23558265, -0.09355779, 0.23558268, 0.46174145, 2.9936957, 0.24948737, -7.9831886, 0.17039216, 0.04460907, -1.4273834, -0.17586517)
+mesh = SubResource("BoxMesh_iomgi")
+
+[node name="Geyzer4" parent="Geysers" unique_id=1652202935 instance=ExtResource("7_kprf3")]
+transform = Transform3D(-0.15992248, 0.034676123, -0.98652023, -0.9271095, 0.33789003, 0.16216838, 0.33895892, 0.9405469, -0.021887768, 25.563606, -45.988, -115.68323)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geysers/Geyzer4" unique_id=753494335]
+transform = Transform3D(7.9926386, 0.23558265, -0.09355779, 0.23558268, 0.46174145, 2.9936957, 0.24948737, -7.9831886, 0.17039216, 0.04460907, -1.4273834, -0.17586517)
+mesh = SubResource("BoxMesh_iomgi")
+
+[node name="Geyzer5" parent="Geysers" unique_id=569329170 instance=ExtResource("7_kprf3")]
+transform = Transform3D(-0.067767665, 0.2587284, -0.9635699, -0.91729444, 0.36369267, 0.16216838, 0.39240104, 0.8948673, 0.21268329, -58.15325, -55.77602, -163.41405)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Geysers/Geyzer5" unique_id=789830567]
+transform = Transform3D(7.9926386, 0.23558265, -0.09355779, 0.23558268, 0.46174145, 2.9936957, 0.24948737, -7.9831886, 0.17039216, 0.04460907, -1.4273834, -0.17586517)
+mesh = SubResource("BoxMesh_iomgi")
+
+[node name="Mountains" type="Node3D" parent="." unique_id=1110799070]
+visible = false
+
+[node name="Mountain" type="MeshInstance3D" parent="Mountains" unique_id=1796788719]
+transform = Transform3D(114.861465, 23.36865, 4.8240614, 0, 3.9065385, -143.44444, -57.64126, 46.566605, 9.6128845, 24.298965, -103.64232, -52.317997)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain2" type="MeshInstance3D" parent="Mountains" unique_id=1377506327]
+transform = Transform3D(249.78197, -1.2997991, 4.824135, 8.778883, 3.449003, -143.44434, 5.6485085, 52.117836, 9.613031, 20.74047, -12.908559, 90.276115)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain3" type="MeshInstance3D" parent="Mountains" unique_id=2065630447]
+transform = Transform3D(-19.185022, -51.632328, 4.8240595, 7.854295, -2.2504616, -143.44438, 126.83025, -7.6708193, 9.612881, 168.06787, -56.374054, -47.023037)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain4" type="MeshInstance3D" parent="Mountains" unique_id=1731282567]
+transform = Transform3D(-28.364035, -51.632797, 8.38414, 11.612336, -2.2505178, -249.30019, 187.5117, -7.6708884, 16.707043, -165.62135, -49.203114, -97.94277)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain5" type="MeshInstance3D" parent="Mountains" unique_id=1556967892]
+transform = Transform3D(95.93277, -34.721657, 4.8240604, 8.9256, 1.4468368, -143.44435, 85.04649, 39.01431, 9.61288, -106.46147, -33.987724, 22.521444)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain6" type="MeshInstance3D" parent="Mountains" unique_id=571188765]
+transform = Transform3D(-28.364035, -51.632797, 8.38414, 11.612336, -2.2505178, -249.30019, 187.5117, -7.6708884, 16.707043, -127.2355, -187.88876, -315.63016)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain7" type="MeshInstance3D" parent="Mountains" unique_id=955140833]
+transform = Transform3D(-13.00268, -52.096046, 8.38414, 12.239345, -1.9834137, -249.30017, 189.159, -3.4527225, 16.70704, 230.84158, -163.47993, -131.09943)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain8" type="MeshInstance3D" parent="Mountains" unique_id=1420513773]
+transform = Transform3D(249.78197, -1.2997991, 4.824135, 8.778883, 3.449003, -143.44434, 5.6485085, 52.117836, 9.613031, 50.833206, -157.98827, -396.21393)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain9" type="MeshInstance3D" parent="Mountains" unique_id=1856822782]
+transform = Transform3D(74.70228, -48.00828, 8.384139, 14.181206, -0.2329813, -249.30016, 174.12196, 20.615616, 16.70704, 204.26942, -119.947334, -296.37817)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain10" type="MeshInstance3D" parent="Mountains" unique_id=760546717]
+transform = Transform3D(249.78197, -1.2997991, 8.384142, 8.778883, 3.449003, -249.30019, 5.6485085, 52.117836, 16.707043, 34.50629, -25.062979, -499.57025)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain11" type="MeshInstance3D" parent="Mountains" unique_id=2061739215]
+transform = Transform3D(-125.7856, -39.119488, 8.384141, 5.3062115, -3.623904, -249.3002, 142.30188, -34.443954, 16.707043, -171.2036, -79.71927, -435.72873)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain12" type="MeshInstance3D" parent="Mountains" unique_id=846114189]
+transform = Transform3D(314.5742, -37.31982, 8.384141, 32.036617, 1.1941106, -249.30019, 320.18234, 36.546665, 16.707043, 244.29823, 32.51825, -397.05002)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain13" type="MeshInstance3D" parent="Mountains" unique_id=1131312888]
+transform = Transform3D(-157.31584, -48.91991, 8.384146, 22.921816, -2.859875, -249.30019, 420.9825, -18.125034, 16.707039, 295.7669, 14.954586, -33.54257)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain14" type="MeshInstance3D" parent="Mountains" unique_id=1444166755]
+transform = Transform3D(69.061264, -48.64278, 8.38414, 14.146715, -0.3580062, -249.3002, 176.43811, 19.068424, 16.707043, -204.74371, -37.853783, -253.4575)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain15" type="MeshInstance3D" parent="Mountains" unique_id=1761579166]
+transform = Transform3D(71.50168, 14.618063, 4.824135, 0, 2.443741, -143.44434, -35.88189, 29.129347, 9.613031, 22.645473, -111.13593, -163.30865)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="Mountain16" type="MeshInstance3D" parent="Mountains" unique_id=596962331]
+transform = Transform3D(71.50168, 14.618063, 4.824135, 0, 2.443741, -143.44434, -35.88189, 29.129347, 9.613031, -56.838825, -147.10582, -225.92593)
+mesh = SubResource("BoxMesh_8hbvv")
+
+[node name="CrateCluster" parent="." unique_id=1690786984 instance=ExtResource("13_urarr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.52521, -73.08481, -242.30952)
+
+[node name="CrateCluster2" parent="." unique_id=2071671643 instance=ExtResource("13_urarr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.34774, -73.08481, -240.33719)
+
+[node name="BearTrap" parent="." unique_id=1840119800 instance=ExtResource("14_0giko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.05791, -43.985313, -121.69196)
+
+[node name="BearTrap2" parent="." unique_id=1355094489 instance=ExtResource("14_0giko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.664, -33.669815, -118.90033)
+
+[node name="BearTrap3" parent="." unique_id=680976955 instance=ExtResource("14_0giko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2697, -57.949677, -177.72508)
+
+[node name="TreeFall" parent="." unique_id=1690632968 instance=ExtResource("8_cupjm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5037234, -60.323677, -208.52681)
+
+[node name="BearTrap4" parent="." unique_id=1946854045 instance=ExtResource("14_0giko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107.41012, -33.669815, -125.98553)
+
+[node name="BearTrap5" parent="." unique_id=880169061 instance=ExtResource("14_0giko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.529495, -43.410927, -96.46451)
+
+[node name="BearTrap6" parent="." unique_id=1290060528 instance=ExtResource("14_0giko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.36525, -77.27537, -265.9727)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=697141797]
+transform = Transform3D(1, 0, 0, 0, 0.23286834, -0.97250825, 0, 0.97250825, 0.23286834, 0, 0, 0)
+
+[node name="Level_001" parent="." unique_id=504224556 instance=ExtResource("14_m5yx8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.485535, -164.46465, -165.62756)
+
+[editable path="Sled"]
+[editable path="Sled/MainCam"]
+[editable path="CheckPoints/Checkpoint"]
+[editable path="CheckPoints/Checkpoint2"]
+[editable path="CheckPoints/Checkpoint3"]
+[editable path="CheckPoints/Checkpoint4"]
+[editable path="CheckPoints/Checkpoint5"]
+[editable path="Tornado1/TreeFall"]
+[editable path="TreeFall"]

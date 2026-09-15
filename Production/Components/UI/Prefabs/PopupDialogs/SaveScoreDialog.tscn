@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://c3lcwaa0ejff4"]
+
+[ext_resource type="Theme" uid="uid://fn4k2utf8sjg" path="res://Production/Components/UI/Prefabs/Themes/MainUITheme.tres" id="1_nsfd2"]
+[ext_resource type="Script" uid="uid://cldirsls4hxp" path="res://Production/Components/UI/Prefabs/PopupDialogs/SaveScoreDialog.cs" id="2_nsfd2"]
+[ext_resource type="PackedScene" uid="uid://bt744k5h2hlc1" path="res://Production/Components/UI/Prefabs/Buttons/CursorButton.tscn" id="3_nsfd2"]
+[ext_resource type="AudioStream" uid="uid://c487ooy3pc56e" path="res://Production/Components/UI/Prefabs/Sounds/bookFlip3.ogg" id="4_giwqm"]
+[ext_resource type="PackedScene" uid="uid://be2ae280tcba" path="res://Production/Components/UI/Prefabs/PopupDialogs/OnScreenKeyboard.tscn" id="5_xa0u3"]
+
+[sub_resource type="Gradient" id="Gradient_fdsoe"]
+offsets = PackedFloat32Array(0, 0.141956, 1)
+colors = PackedColorArray(0.796078, 0.796078, 0.627451, 1, 0.894148, 0.894148, 0.776441, 1, 1, 1, 0.937255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_giivi"]
+gradient = SubResource("Gradient_fdsoe")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_hmy40"]
+offsets = PackedFloat32Array(0.982188, 1)
+colors = PackedColorArray(0.156863, 0.141176, 0.584314, 0.25098, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x3okx"]
+gradient = SubResource("Gradient_hmy40")
+fill_to = Vector2(0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1296038716]
+
+[node name="PopupScreen" type="Control" parent="." unique_id=654677102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Control" parent="PopupScreen" unique_id=1629349384 node_paths=PackedStringArray("_lblMessage", "_btnPositive", "_btnNegative", "_editTeamName", "_openAudioPlayer", "_osk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -501.54
+offset_right = 334.0
+offset_bottom = -41.5394
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_nsfd2")
+_lblMessage = NodePath("VBoxContainer/Message")
+_btnPositive = NodePath("HBoxContainer/ButtonPositive")
+_btnNegative = NodePath("HBoxContainer/ButtonNegative")
+_editTeamName = NodePath("VBoxContainer/EditTeamName")
+_openAudioPlayer = NodePath("OpenPlayer")
+_osk = NodePath("../OnScreenKeyboard")
+
+[node name="Background" type="TextureRect" parent="PopupScreen/Panel" unique_id=1934292075]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_giivi")
+
+[node name="Shadow" type="TextureRect" parent="PopupScreen/Panel/Background" unique_id=1653798190]
+z_index = -2
+layout_mode = 0
+offset_left = -4.0
+offset_right = 674.0
+offset_bottom = 333.0
+texture = SubResource("GradientTexture2D_x3okx")
+
+[node name="Line" type="ColorRect" parent="PopupScreen/Panel/Background" unique_id=1666802104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -19.0
+offset_right = 101.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.521569, 0.431373, 0.337255, 0.501961)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupScreen/Panel" unique_id=1464007406]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.096
+anchor_right = 0.90400004
+anchor_bottom = 0.49800003
+offset_left = -0.12799835
+offset_top = 64.0
+offset_right = 0.12799072
+offset_bottom = -5.080017
+grow_horizontal = 2
+mouse_filter = 0
+
+[node name="Message" type="Label" parent="PopupScreen/Panel/VBoxContainer" unique_id=665080357]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.521569, 0.431373, 0.337255, 1)
+theme_override_font_sizes/font_size = 28
+text = "Insert team name"
+
+[node name="EditTeamName" type="LineEdit" parent="PopupScreen/Panel/VBoxContainer" unique_id=1309872261]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+theme = ExtResource("1_nsfd2")
+placeholder_text = "Name"
+alignment = 1
+max_length = 20
+keep_editing_on_text_submit = true
+deselect_on_focus_loss_enabled = false
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupScreen/Panel/VBoxContainer" unique_id=9326015]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupScreen/Panel" unique_id=1287733068]
+z_index = 11
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.56100005
+anchor_right = 1.0
+anchor_bottom = 0.90400004
+offset_top = -0.060028076
+offset_bottom = 0.15997314
+
+[node name="ButtonPositive" parent="PopupScreen/Panel/HBoxContainer" unique_id=271175958 instance=ExtResource("3_nsfd2")]
+process_mode = 4
+layout_mode = 2
+
+[node name="Area2D" parent="PopupScreen/Panel/HBoxContainer/ButtonPositive" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="ButtonNegative" parent="PopupScreen/Panel/HBoxContainer" unique_id=707419981 instance=ExtResource("3_nsfd2")]
+layout_mode = 2
+_buttonId = 1
+
+[node name="Area2D" parent="PopupScreen/Panel/HBoxContainer/ButtonNegative" index="0" unique_id=1415885389]
+collision_mask = 4
+
+[node name="OpenPlayer" type="AudioStreamPlayer" parent="PopupScreen/Panel" unique_id=1216787205]
+stream = ExtResource("4_giwqm")
+bus = &"SFX"
+
+[node name="OnScreenKeyboard" parent="PopupScreen" unique_id=1972223529 instance=ExtResource("5_xa0u3")]
+process_mode = 4
+visible = false
+layout_mode = 1
+
+[connection signal="Hovered" from="PopupScreen/Panel/HBoxContainer/ButtonPositive" to="PopupScreen/Panel" method="OnPositiveButtonHover"]
+[connection signal="Pressed" from="PopupScreen/Panel/HBoxContainer/ButtonPositive" to="PopupScreen/Panel" method="OnPositiveButtonPressed"]
+[connection signal="Hovered" from="PopupScreen/Panel/HBoxContainer/ButtonNegative" to="PopupScreen/Panel" method="OnNegativeButtonHover"]
+[connection signal="Pressed" from="PopupScreen/Panel/HBoxContainer/ButtonNegative" to="PopupScreen/Panel" method="OnNegativeButtonPressed"]
+[connection signal="OnBackspaceEntered" from="PopupScreen/OnScreenKeyboard" to="PopupScreen/Panel" method="OnBackspaceEntered"]
+[connection signal="OnKeyEntered" from="PopupScreen/OnScreenKeyboard" to="PopupScreen/Panel" method="OnKeyboardButtonEntered"]
+
+[editable path="PopupScreen/Panel/HBoxContainer/ButtonPositive"]
+[editable path="PopupScreen/Panel/HBoxContainer/ButtonNegative"]

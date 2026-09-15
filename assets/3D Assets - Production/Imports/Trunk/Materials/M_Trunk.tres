@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://80f63gcyhes4"]
+
+[ext_resource type="Texture2D" uid="uid://bafwk5nnp63t8" path="res://assets/3D Assets - Production/Trunk/Materials/Textures/Trunk_lambert1_BaseColor.png" id="1_8gooy"]
+[ext_resource type="Texture2D" uid="uid://c1g6g0owb1v45" path="res://assets/3D Assets - Production/Trunk/Materials/Textures/Trunk_lambert1_Normal.png" id="2_prbol"]
+
+[resource]
+albedo_texture = ExtResource("1_8gooy")
+normal_enabled = true
+normal_texture = ExtResource("2_prbol")

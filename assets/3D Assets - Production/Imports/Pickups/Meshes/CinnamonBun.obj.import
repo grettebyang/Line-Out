@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://durw2xa564t48"
+path="res://.godot/imported/CinnamonBun.obj-6250be8d8ebdc2ca223095eecc0f3070.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CinnamonBun.obj-6250be8d8ebdc2ca223095eecc0f3070.mesh"]
+
+source_file="res://assets/3D Assets - Production/Imports/Pickups/Meshes/CinnamonBun.obj"
+dest_files=["res://.godot/imported/CinnamonBun.obj-6250be8d8ebdc2ca223095eecc0f3070.mesh", "res://.godot/imported/CinnamonBun.obj-6250be8d8ebdc2ca223095eecc0f3070.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

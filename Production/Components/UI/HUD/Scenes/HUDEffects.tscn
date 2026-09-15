@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://xtmbfhhxrdra"]
+
+[ext_resource type="Script" uid="uid://bskgcj5seqjta" path="res://Production/Components/UI/HUD/Scripts/HUDEffects.cs" id="1_6jndt"]
+[ext_resource type="Texture2D" uid="uid://c6hl1hplt07ii" path="res://Production/Components/UI/HUD/Sprites/Effects/SpeedHUDEffects.png" id="2_xl30m"]
+[ext_resource type="Texture2D" uid="uid://inim37qjkim8" path="res://Production/Components/UI/HUD/Sprites/Effects/Overlay_Snow.png" id="3_r3ogt"]
+[ext_resource type="Texture2D" uid="uid://pwy4viwi2bw6" path="res://Production/Components/UI/HUD/Sprites/Effects/Overlay_Mud.png" id="4_byk2h"]
+
+[sub_resource type="Curve" id="Curve_r3ogt"]
+_data = [Vector2(0.551, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.183), 0.865, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_byk2h"]
+_data = [Vector2(0, 0), 0.0, 0.461, 0, 0, Vector2(1, 1), -0.047, 0.0, 0, 0]
+point_count = 2
+
+[node name="HudEffects" type="CanvasLayer" unique_id=924238855 node_paths=PackedStringArray("_effectSpeed", "_effectRhythm", "_mudSplash")]
+layer = -2
+script = ExtResource("1_6jndt")
+_effectSpeed = NodePath("EffectSpeed")
+_speedFullDisplay = 20.0
+_speedShake = 0.25
+_speedCurve = SubResource("Curve_r3ogt")
+_effectRhythm = NodePath("EffectSlowdown")
+_rhythmLerpWeight = 1000.0
+_rhythmCurve = SubResource("Curve_byk2h")
+_mudSplash = NodePath("EffectMud")
+
+[node name="EffectSpeed" type="TextureRect" parent="." unique_id=1882097572]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("2_xl30m")
+
+[node name="EffectSlowdown" type="TextureRect" parent="." unique_id=1800680799]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("3_r3ogt")
+
+[node name="EffectMud" type="TextureRect" parent="." unique_id=2039036631]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+texture = ExtResource("4_byk2h")

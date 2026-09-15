@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cmfecchgth3ul"]
+
+[ext_resource type="Script" uid="uid://owf1xyu0u8tk" path="res://Production/Components/Rhythm/Obstacle.cs" id="1_d4u5l"]
+[ext_resource type="Material" uid="uid://b1iq1joku2dcb" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineTrunk.tres" id="1_uos1v"]
+[ext_resource type="Material" uid="uid://dav8cpowc8u01" path="res://assets/3D Assets - Production/Imports/Pine/Materials/M_PineFoliage.tres" id="3_bvx1b"]
+[ext_resource type="ArrayMesh" uid="uid://7gu32wp1ltni" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineTrunk.obj" id="3_i21dy"]
+[ext_resource type="ArrayMesh" uid="uid://lgbvpcf15doa" path="res://assets/3D Assets - Production/Imports/Pine/Meshes/PineFoliage.obj" id="4_uos1v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5w00n"]
+radius = 0.71
+height = 5.51
+
+[node name="Pine" type="Node3D" unique_id=195702614]
+
+[node name="CrashPivot" type="Node3D" parent="." unique_id=860661596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Pine" type="StaticBody3D" parent="CrashPivot" unique_id=593924608 node_paths=PackedStringArray("_collider", "_crashPivot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+script = ExtResource("1_d4u5l")
+_collider = NodePath("PineCollision")
+_crashPivot = NodePath("..")
+
+[node name="PineCollision" type="CollisionShape3D" parent="CrashPivot/Pine" unique_id=733685823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03957, 0)
+shape = SubResource("CapsuleShape3D_5w00n")
+
+[node name="PineTrunkMesh" type="MeshInstance3D" parent="CrashPivot/Pine" unique_id=1076090265]
+material_override = ExtResource("1_uos1v")
+mesh = ExtResource("3_i21dy")
+
+[node name="PineFoliageMesh" type="MeshInstance3D" parent="CrashPivot/Pine/PineTrunkMesh" unique_id=1151124597]
+material_override = ExtResource("3_bvx1b")
+mesh = ExtResource("4_uos1v")
+skeleton = NodePath("../..")

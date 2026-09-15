@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://qfxy4c1figgb"]
+
+[ext_resource type="Texture2D" uid="uid://dbix1meavyxuk" path="res://assets/3D Assets - Production/Imports/Level_Tutorial/Materials/Textures/8k/TutorialMap_LOW_Final_Low_BaseColor.png" id="1_jiyq6"]
+[ext_resource type="Texture2D" uid="uid://bdkuwert34lpo" path="res://assets/3D Assets - Production/Imports/Level_Tutorial/Materials/Textures/8k/TutorialMap_LOW_Final_Low_Normal.png" id="2_swxyy"]
+
+[resource]
+albedo_texture = ExtResource("1_jiyq6")
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("2_swxyy")

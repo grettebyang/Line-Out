@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://lkmyugda37bi"]
+
+[ext_resource type="Script" uid="uid://coajwx8kv33ba" path="res://Production/Components/Checkpoints/Scripts/Checkpoint.cs" id="1_fm4nd"]
+[ext_resource type="AudioStream" uid="uid://bi02gsmjfc6rg" path="res://assets/AudioAssets/MiscFeedback/CheckpointBell.wav" id="2_b40pq"]
+[ext_resource type="PackedScene" uid="uid://cq66w6xe03nil" path="res://assets/3D Assets - Production/Prefabs/FlagPost_CheckPoint.tscn" id="9_7k3ra"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ubrwo"]
+size = Vector3(1, 22.576675, 34.885475)
+
+[node name="Checkpoint" type="Node3D" unique_id=1521957751 node_paths=PackedStringArray("_trigger", "_respawnPoint", "_triggerSound")]
+script = ExtResource("1_fm4nd")
+_trigger = NodePath("Trigger")
+_respawnPoint = NodePath("RespawnPoint")
+_triggerSound = NodePath("Bell")
+
+[node name="Trigger" type="Area3D" parent="." unique_id=1757637678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.611582, 0)
+collision_layer = 0
+collision_mask = 12
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" unique_id=1921083866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624512, -0.524817)
+shape = SubResource("BoxShape3D_ubrwo")
+
+[node name="RespawnPoint" type="Node3D" parent="." unique_id=1638718436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, -0.011, 0)
+
+[node name="Bell" type="AudioStreamPlayer3D" parent="." unique_id=244124413]
+stream = ExtResource("2_b40pq")
+bus = &"SFX"
+
+[node name="FlagPost_CheckPoint" parent="." unique_id=569694916 instance=ExtResource("9_7k3ra")]
+
+[connection signal="body_entered" from="Trigger" to="." method="OnTriggerBodyEntered"]

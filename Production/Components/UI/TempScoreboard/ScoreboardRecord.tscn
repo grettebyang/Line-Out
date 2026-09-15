@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnf1028xer0g6"]
+
+[ext_resource type="PackedScene" uid="uid://hllnjosojgq3" path="res://Production/Components/UI/Prefabs/Texts/CreditsName.tscn" id="1_0ery7"]
+[ext_resource type="Script" uid="uid://eh2o5gpygt0h" path="res://Production/Components/UI/TempScoreboard/ScoreboardRecordUI.cs" id="1_1wnqd"]
+
+[node name="Record" type="HBoxContainer" node_paths=PackedStringArray("Left", "Right")]
+modulate = Color(0.521569, 0.431373, 0.337255, 1)
+script = ExtResource("1_1wnqd")
+Left = NodePath("LeftName")
+Right = NodePath("RightTime")
+regular = Color(0.521569, 0.431373, 0.337255, 1)
+highlight = Color(0.235294, 0.368627, 0.709804, 1)
+
+[node name="LeftName" parent="." instance=ExtResource("1_0ery7")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "1. Team 1"
+
+[node name="RightTime" parent="." instance=ExtResource("1_0ery7")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "00:00.00"

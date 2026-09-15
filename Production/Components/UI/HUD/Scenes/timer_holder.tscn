@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://dt7dj3jxjn7yw"]
+
+[ext_resource type="FontFile" uid="uid://c3nk26c4mmvxy" path="res://Production/Fonts/Onest/static/Onest-SemiBold.ttf" id="1_pf37c"]
+[ext_resource type="Texture2D" uid="uid://bqekkwch8ny4y" path="res://Production/Components/UI/HUD/Sprites/TimerOutline.png" id="2_fpfng"]
+[ext_resource type="Texture2D" uid="uid://bm7jgifh6v7in" path="res://Production/Components/UI/HUD/Sprites/TimerFill.png" id="3_l8b62"]
+[ext_resource type="Texture2D" uid="uid://c3rjgf10euv0s" path="res://Production/Components/UI/HUD/Icons/PointArrow.png" id="4_hfwjy"]
+[ext_resource type="Texture2D" uid="uid://4xhlnr2uhhv6" path="res://Production/Components/UI/Generics/SpritePrimitives/Circle.png" id="5_72p5g"]
+
+[sub_resource type="Gradient" id="Gradient_wsqid"]
+offsets = PackedFloat32Array(0, 0.2, 1)
+colors = PackedColorArray(0.796078, 0.796078, 0.627451, 1, 0.894148, 0.894148, 0.776441, 1, 1, 1, 0.937255, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j8rl6"]
+gradient = SubResource("Gradient_wsqid")
+width = 32
+height = 32
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_q50yo"]
+offsets = PackedFloat32Array(0.982188, 1)
+colors = PackedColorArray(0.156863, 0.141176, 0.584314, 0.25098, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o3aql"]
+gradient = SubResource("Gradient_q50yo")
+fill_to = Vector2(0, 1)
+
+[node name="TimerHolder" type="TextureRect" unique_id=1726549705]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -300.0
+offset_right = 99.999756
+offset_bottom = -69.9978
+grow_horizontal = 2
+pivot_offset = Vector2(100, 115)
+texture = SubResource("GradientTexture2D_j8rl6")
+
+[node name="LblTimer" type="Label" parent="." unique_id=762316133]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.5
+offset_top = -58.0
+offset_right = 90.5
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.235294, 0.368627, 0.709804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_fonts/font = ExtResource("1_pf37c")
+theme_override_font_sizes/font_size = 40
+text = "00:00.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shadow" type="TextureRect" parent="." unique_id=1315843077]
+z_index = -1
+layout_mode = 0
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 208.0
+offset_bottom = 238.0
+texture = SubResource("GradientTexture2D_o3aql")
+
+[node name="TimerProgress" type="TextureRect" parent="." unique_id=329695283]
+visible = false
+self_modulate = Color(0.235294, 0.368627, 0.709804, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -123.0
+offset_right = 100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.648359, 0.648359)
+pivot_offset = Vector2(100, 100)
+texture = ExtResource("2_fpfng")
+
+[node name="TimerProgressBar" type="TextureProgressBar" parent="TimerProgress" unique_id=1608923493]
+visible = false
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+pivot_offset = Vector2(100, 100)
+max_value = 60.0
+value = 30.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_l8b62")
+texture_over = ExtResource("3_l8b62")
+texture_progress = ExtResource("3_l8b62")
+tint_under = Color(0.443137, 0.317647, 0.176471, 0)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(0.443137, 0.317647, 0.176471, 1)
+
+[node name="TimerProgressBarSec2" type="TextureProgressBar" parent="TimerProgress" unique_id=826782618]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+pivot_offset = Vector2(100, 100)
+max_value = 60.0
+value = 30.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("3_l8b62")
+texture_over = ExtResource("3_l8b62")
+texture_progress = ExtResource("3_l8b62")
+tint_under = Color(0.443137, 0.317647, 0.176471, 0)
+tint_over = Color(0, 0, 0, 0)
+tint_progress = Color(0.235294, 0.368627, 0.709804, 1)
+
+[node name="Compass" type="Control" parent="." unique_id=1504049139]
+visible = false
+anchors_preset = 0
+offset_left = 22.0
+offset_top = 12.0
+offset_right = 180.0
+offset_bottom = 171.0
+
+[node name="DirectionArrow" type="TextureRect" parent="Compass" unique_id=966158770]
+self_modulate = Color(0.443137, 0.317647, 0.176471, 1)
+layout_mode = 0
+offset_left = 60.0
+offset_top = -19.0
+offset_right = 100.0
+offset_bottom = 133.0
+scale = Vector2(0.777452, 0.777452)
+pivot_offset = Vector2(20, 100)
+texture = ExtResource("4_hfwjy")
+
+[node name="ArrowCenter" type="TextureRect" parent="Compass" unique_id=871688180]
+self_modulate = Color(0.235294, 0.368627, 0.709804, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_72p5g")
+expand_mode = 1
+
+[node name="BestTimerHolder" type="TextureRect" parent="." unique_id=728052488]
+z_index = -1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.05788
+offset_top = -4.555435
+offset_right = 88.05711
+offset_bottom = 68.4447
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_j8rl6")
+
+[node name="LblBestTime" type="Label" parent="BestTimerHolder" unique_id=1618203883]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -68.0
+offset_right = 91.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.443137, 0.317647, 0.176471, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_fonts/font = ExtResource("1_pf37c")
+theme_override_font_sizes/font_size = 20
+text = "Best time"
+horizontal_alignment = 1
+
+[node name="LblBestTimeData" type="Label" parent="BestTimerHolder" unique_id=1086819381]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -40.0
+offset_right = 91.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.235294, 0.368627, 0.709804, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.0823529, 0.54902, 0.25098)
+theme_override_fonts/font = ExtResource("1_pf37c")
+theme_override_font_sizes/font_size = 28
+text = "00:00.00"
+horizontal_alignment = 1
+
+[node name="Shadow" type="TextureRect" parent="BestTimerHolder" unique_id=784934053]
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -38.0
+offset_right = 92.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_o3aql")

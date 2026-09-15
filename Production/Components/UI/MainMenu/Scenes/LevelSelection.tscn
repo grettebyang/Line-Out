@@ -1,0 +1,164 @@
+[gd_scene format=3 uid="uid://b0dcnv5vvt8s6"]
+
+[ext_resource type="Script" uid="uid://bm2pgfo0ehnqt" path="res://Production/Components/UI/MainMenu/Scripts/LevelSelectionSubmenu.cs" id="1_he00n"]
+[ext_resource type="PackedScene" uid="uid://di0ibupiakvks" path="res://Production/NewLevels/PolishedLevels/TutorialLevelScene.tscn" id="2_tqele"]
+[ext_resource type="PackedScene" uid="uid://th2owxbamgxj" path="res://Production/NewLevels/PolishedLevels/UnusualEncounter.tscn" id="3_lghxq"]
+[ext_resource type="PackedScene" uid="uid://dlpmsf02hh0in" path="res://Production/NewLevels/Blockouts/LapplandCruisers/LapplandCruisers.tscn" id="4_lghxq"]
+[ext_resource type="PackedScene" uid="uid://cuijp8417algr" path="res://Production/Components/UI/MainMenu/Scenes/ListMenuBase.tscn" id="5_8bdgl"]
+[ext_resource type="PackedScene" uid="uid://dk8apbhigm17n" path="res://Production/Components/UI/Prefabs/Holders/BaseHolder.tscn" id="5_jhpsy"]
+[ext_resource type="PackedScene" uid="uid://cley1231oy5y0" path="res://Production/Components/UI/Prefabs/Buttons/CursorMenuButton.tscn" id="6_lghxq"]
+[ext_resource type="PackedScene" uid="uid://gkv5dg828kft" path="res://Production/Components/UI/MainMenu/Scenes/LevelDescription.tscn" id="7_lghxq"]
+
+[node name="LevelSelection" type="Control" unique_id=1914485808 node_paths=PackedStringArray("_levelDescriptions", "_mainButtonsContainer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_he00n")
+_levels = Array[PackedScene]([ExtResource("2_tqele"), ExtResource("3_lghxq"), ExtResource("4_lghxq")])
+_levelDescriptions = [NodePath("LevelInfo/Description/MarginContainer/LevelDescription4"), NodePath("LevelInfo/Description/MarginContainer/LevelDescription5"), NodePath("LevelInfo/Description/MarginContainer/LevelDescription6"), NodePath("LevelInfo/Description/MarginContainer/LevelDescription1"), NodePath("LevelInfo/Description/MarginContainer/LevelDescription2"), NodePath("LevelInfo/Description/MarginContainer/LevelDescription3")]
+_mainButtonsContainer = NodePath("Card/MainSelection")
+
+[node name="Card" parent="." unique_id=1608758898 instance=ExtResource("5_8bdgl")]
+z_index = 2
+layout_mode = 1
+offset_right = 500.0
+
+[node name="Label" parent="Card" index="1"]
+text = "Levels"
+
+[node name="MainSelection" parent="Card" index="3"]
+offset_bottom = 223.0
+
+[node name="Tutorial" parent="Card/MainSelection" index="0" unique_id=271175958 instance=ExtResource("6_lghxq")]
+layout_mode = 2
+
+[node name="Text" parent="Card/MainSelection/Tutorial" index="3" unique_id=418465982]
+text = "Tutorial"
+
+[node name="UnsusualEncounter" parent="Card/MainSelection" index="1" unique_id=400658487 instance=ExtResource("6_lghxq")]
+layout_mode = 2
+_buttonId = 1
+
+[node name="Text" parent="Card/MainSelection/UnsusualEncounter" index="3" unique_id=418465982]
+text = "Unusual Encounter"
+
+[node name="LapplandCruisers" parent="Card/MainSelection" index="2" unique_id=185656403 instance=ExtResource("6_lghxq")]
+layout_mode = 2
+_buttonId = 2
+
+[node name="Text" parent="Card/MainSelection/LapplandCruisers" index="3" unique_id=418465982]
+text = "Lappland Cruisers"
+
+[node name="LevelInfo" type="Control" parent="." unique_id=1622077516]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -467.0
+offset_top = -844.0
+offset_right = 467.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Description" parent="LevelInfo" unique_id=1438283478 instance=ExtResource("5_jhpsy")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -367.5
+offset_top = -413.0
+offset_right = 367.5
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.00938855
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelInfo/Description" unique_id=844715625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 40
+
+[node name="LevelDescription4" parent="LevelInfo/Description/MarginContainer" unique_id=1183426402 instance=ExtResource("7_lghxq")]
+z_index = -1
+layout_mode = 2
+_name = "Tutorial"
+_decription = "Deliver the fika package into the village. It is important to deliver it while it's still fresh, otherwise the villagers might pick a different delivery service next time. Avoid hazards and destroying the package."
+_goals = " - Deliver package"
+_packageName = "Saft & Bullar"
+
+[node name="LevelDescription5" parent="LevelInfo/Description/MarginContainer" unique_id=1046202202 instance=ExtResource("7_lghxq")]
+z_index = -1
+layout_mode = 2
+_name = "Unusual Encounter"
+_decription = "Deliver the fika package into the village. It is important to deliver it while it's still fresh, otherwise the villagers might pick a different delivery service next time. Avoid hazards and destroying the package."
+_goals = " - Deliver package"
+_packageName = "Kaffe & Chokladbollar"
+
+[node name="LevelDescription6" parent="LevelInfo/Description/MarginContainer" unique_id=1668614004 instance=ExtResource("7_lghxq")]
+z_index = -1
+layout_mode = 2
+_name = "Lappland Cruisers"
+_decription = "Deliver the fika package into the village. It is important to deliver it while it's still fresh, otherwise the villagers might pick a different delivery service next time. Avoid hazards and destroying the package."
+_goals = " - Deliver package"
+_packageName = "Glögg & Lussekatter"
+
+[node name="LevelDescription1" parent="LevelInfo/Description/MarginContainer" unique_id=526026810 instance=ExtResource("7_lghxq")]
+visible = false
+z_index = -1
+layout_mode = 2
+_name = "Fika Rush"
+_decription = "Deliver the fika package into the village. It is important to deliver it while it's still fresh, otherwise the villagers might pick a different delivery service next time. Avoid hazards and destroying the package."
+_goals = " - Deliver package on time
+ - Time limit: 3:00"
+_flavorDescription = "Ursäkta röran, gejsrarna har gjort miljön svårt att navigera runt om, se upp för pingvinerna också, som gör som dom vill!"
+
+[node name="LevelDescription2" parent="LevelInfo/Description/MarginContainer" unique_id=1051446689 instance=ExtResource("7_lghxq")]
+visible = false
+z_index = -1
+layout_mode = 2
+_name = "Winner Takes It All"
+_decription = "The business is doing well, but copycats will always be trying to take you down. Get to the finish line before everyone else to maintain your reputation as the #1 Fika Delivery service!"
+_goals = "- Make it first to the finish line"
+_packageName = "Kaffe & Chokladbollar"
+_flavorDescription = "Konkuransen är hård, men vintern är hårdare. Se till så att kunden blir nöjd och låt inte ditt emperium bli övertaget!"
+
+[node name="LevelDescription3" parent="LevelInfo/Description/MarginContainer" unique_id=1300946350 instance=ExtResource("7_lghxq")]
+visible = false
+z_index = -1
+layout_mode = 2
+_name = "Experimental"
+_decription = "Testing"
+_goals = "Testing"
+_packageName = "Testing"
+_flavorDescription = "Konkuransen är hård, men vintern är hårdare. Se till så att kunden blir nöjd och låt inte ditt emperium bli övertaget!"
+
+[connection signal="Hovered" from="Card/MainSelection/Tutorial" to="." method="HoverLevel"]
+[connection signal="Pressed" from="Card/MainSelection/Tutorial" to="." method="SelectLevel"]
+[connection signal="UnHovered" from="Card/MainSelection/Tutorial" to="." method="UnHoverLevel"]
+[connection signal="Hovered" from="Card/MainSelection/UnsusualEncounter" to="." method="HoverLevel"]
+[connection signal="Pressed" from="Card/MainSelection/UnsusualEncounter" to="." method="SelectLevel"]
+[connection signal="UnHovered" from="Card/MainSelection/UnsusualEncounter" to="." method="UnHoverLevel"]
+[connection signal="Hovered" from="Card/MainSelection/LapplandCruisers" to="." method="HoverLevel"]
+[connection signal="Pressed" from="Card/MainSelection/LapplandCruisers" to="." method="SelectLevel"]
+[connection signal="UnHovered" from="Card/MainSelection/LapplandCruisers" to="." method="UnHoverLevel"]
+
+[editable path="Card"]
+[editable path="Card/MainSelection/Tutorial"]
+[editable path="Card/MainSelection/UnsusualEncounter"]
+[editable path="Card/MainSelection/LapplandCruisers"]

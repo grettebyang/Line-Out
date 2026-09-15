@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c48i435d6y2b0"]
+
+[ext_resource type="Material" uid="uid://80f63gcyhes4" path="res://assets/3D Assets - Production/Imports/Trunk/Materials/M_Trunk.tres" id="1_k03dx"]
+[ext_resource type="ArrayMesh" uid="uid://cyjymkonujga8" path="res://assets/3D Assets - Production/Imports/Trunk/Meshes/Trunk.obj" id="2_t3u5p"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hadlc"]
+height = 3.0585785
+radius = 0.45
+
+[node name="Trunk" type="StaticBody3D" unique_id=1400975741]
+
+[node name="TrunkCollision" type="CollisionShape3D" parent="." unique_id=1798125240]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.062996864, 0.37375554, 0.30252838)
+shape = SubResource("CylinderShape3D_hadlc")
+
+[node name="TrunkMesh" type="MeshInstance3D" parent="." unique_id=1573219401]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 0.12487924, 0, 0.28297973)
+material_override = ExtResource("1_k03dx")
+mesh = ExtResource("2_t3u5p")

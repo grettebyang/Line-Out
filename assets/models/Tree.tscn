@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck1xlptyk1x2u"]
+
+[ext_resource type="PackedScene" uid="uid://cv1kvyqv0k418" path="res://assets/Meshes/Props/Vegetation/TreeSingle.tscn" id="1_d18m4"]
+
+[node name="Tree" type="Node3D"]
+
+[node name="TreeSingle" parent="." instance=ExtResource("1_d18m4")]
+collision_layer = 1025
+collision_mask = 0

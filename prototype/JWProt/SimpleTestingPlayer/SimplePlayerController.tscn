@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://51b2m0xd6uh8"]
+
+[ext_resource type="Script" uid="uid://dntmurxgdnhks" path="res://prototype/JWProt/SimpleTestingPlayer/SimplePlayerController.cs" id="1_fa4n1"]
+[ext_resource type="Script" uid="uid://fymuc4ooncge" path="res://Production/Components/PropertyComponents/HealthComponent.cs" id="2_b58lb"]
+[ext_resource type="PackedScene" uid="uid://dsojsiwn3wiic" path="res://Production/Components/Dog/lib/DogAnimator/DogSkin.tscn" id="7_l852v"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ytmg5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fa4n1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b58lb"]
+
+[node name="SimplePlayerController" type="CharacterBody3D" node_paths=PackedStringArray("_health")]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_fa4n1")
+Speed = 6
+_health = NodePath("Health")
+
+[node name="DogSkin" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("7_l852v")]
+_player = NodePath("..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("CapsuleMesh_ytmg5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_fa4n1")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 2.19757, -0.0832863)
+
+[node name="Health" type="Area3D" parent="."]
+script = ExtResource("2_b58lb")
+_health = 10
+_maxHealth = 10
+_lowHealthTreshold = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Health"]
+shape = SubResource("CapsuleShape3D_b58lb")

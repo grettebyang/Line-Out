@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://mey1odpldy2m"]
+
+[ext_resource type="Material" uid="uid://b3hiipwo7ut55" path="res://assets/3D Assets - Production/Imports/SnowIce/Materials/M_SnowIce.tres" id="1_irelx"]
+[ext_resource type="ArrayMesh" uid="uid://dqt4pgibtrp7u" path="res://assets/3D Assets - Production/Imports/SnowIce/Meshes/Snowball_Large.obj" id="3_fffrm"]
+
+[node name="SnowballLarge" type="Node3D" unique_id=1881426881]
+
+[node name="SnowballLarge_Mesh" type="MeshInstance3D" parent="." unique_id=1242535536]
+transform = Transform3D(2.2, 0, 0, 0, 2.2, 0, 0, 0, 2.2, 0, 1.1920929e-07, 0)
+material_override = ExtResource("1_irelx")
+mesh = ExtResource("3_fffrm")

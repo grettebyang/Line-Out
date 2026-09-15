@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://fj3rv27vsmer"]
+
+[ext_resource type="Texture2D" uid="uid://buli084hk4wtf" path="res://Production/Components/UI/Prefabs/LoadingScreen/Vignette.png" id="1_pg1ws"]
+[ext_resource type="Script" uid="uid://bi77luyhy0ssg" path="res://Production/Components/UI/MainMenu/Scripts/LoadingScreen.cs" id="1_pyem8"]
+[ext_resource type="PackedScene" uid="uid://dsdh7aaf337uo" path="res://Production/Components/UI/Prefabs/LoadingScreen/loading_icon.tscn" id="3_pyem8"]
+[ext_resource type="Script" uid="uid://c70w5jg3x47kj" path="res://Production/Components/UI/Prefabs/LoadingScreen/LoadingIcon.cs" id="4_0rjl4"]
+
+[sub_resource type="Animation" id="Animation_s7eue"]
+resource_name = "Enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VignetteHolder/HBoxContainer/Vignette:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(2500, 2500), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1gprf"]
+resource_name = "Leave"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VignetteHolder/HBoxContainer/Vignette:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 1),
+"transitions": PackedFloat32Array(0.2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2500, 2500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_lde6h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VignetteHolder/HBoxContainer/Vignette:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(200, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v14ef"]
+_data = {
+&"Enter": SubResource("Animation_s7eue"),
+&"Leave": SubResource("Animation_1gprf"),
+&"RESET": SubResource("Animation_lde6h")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l22jq"]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1770235763 node_paths=PackedStringArray("_loadingIcon", "_animator")]
+layer = 6
+script = ExtResource("1_pyem8")
+_loadingIcon = NodePath("Control/LoadingIcon")
+_animator = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1681225919]
+libraries/ = SubResource("AnimationLibrary_v14ef")
+
+[node name="Control" type="Control" parent="." unique_id=653026592]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VignetteHolder" type="VBoxContainer" parent="Control" unique_id=1798013158]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -290.0
+offset_top = -710.0
+offset_right = 290.0
+offset_bottom = 710.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Control/VignetteHolder" unique_id=1099858323]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VignetteHolder" unique_id=1606560314]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="Control/VignetteHolder/HBoxContainer" unique_id=1897250294]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Vignette" type="TextureRect" parent="Control/VignetteHolder/HBoxContainer" unique_id=590561828]
+material = SubResource("CanvasItemMaterial_l22jq")
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("1_pg1ws")
+expand_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control/VignetteHolder/HBoxContainer" unique_id=2052256485]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/VignetteHolder" unique_id=1331002087]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="LoadingIcon" parent="Control" unique_id=1022797655 node_paths=PackedStringArray("_screen") instance=ExtResource("3_pyem8")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_right = -75.99805
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("4_0rjl4")
+_screen = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1882662375]
+layout_mode = 0
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)

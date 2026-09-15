@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dyvropxhali06"]
+
+[ext_resource type="Material" uid="uid://danbk6ul24alv" path="res://assets/3D Assets - Production/Imports/Rocks/Materials/M_Rocks.tres" id="1_qmnda"]
+[ext_resource type="ArrayMesh" uid="uid://dwnlgp3roranb" path="res://assets/3D Assets - Production/Imports/Rocks/Meshes/Rock1.obj" id="2_kmux0"]
+[ext_resource type="Material" uid="uid://dm3kii6yu6nq2" path="res://assets/3D Assets - Production/Imports/Rocks/Materials/M_Rocks_Snow.tres" id="3_8srhb"]
+[ext_resource type="ArrayMesh" uid="uid://b55yjyrqw5cqd" path="res://assets/3D Assets - Production/Imports/Rocks/Meshes/Rock3_Snow.obj" id="4_018i3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hlfwk"]
+radius = 0.486934
+height = 0.976744
+
+[node name="Rock1_Snow" type="StaticBody3D" unique_id=979625915]
+
+[node name="Rock1Collision" type="CollisionShape3D" parent="." unique_id=2102570551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0244417, 0)
+shape = SubResource("CapsuleShape3D_hlfwk")
+
+[node name="Rock1Mesh" type="MeshInstance3D" parent="." unique_id=1289377042]
+material_override = ExtResource("1_qmnda")
+mesh = ExtResource("2_kmux0")
+
+[node name="Rock3Snow" type="MeshInstance3D" parent="." unique_id=1209926879]
+material_override = ExtResource("3_8srhb")
+mesh = ExtResource("4_018i3")

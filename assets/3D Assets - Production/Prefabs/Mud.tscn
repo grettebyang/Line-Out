@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://batb5tr5njipr"]
+
+[ext_resource type="Material" uid="uid://pif5wuhdlkv4" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Materials/M_MudMushrooms.tres" id="1_s3v3n"]
+[ext_resource type="ArrayMesh" uid="uid://bgrwhush6rhye" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Meshes/Mud.obj" id="2_a5pts"]
+
+[node name="Mud" type="Node3D" unique_id=1515632823]
+
+[node name="Mud_Mesh" type="MeshInstance3D" parent="." unique_id=1766988546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.104683876)
+material_override = ExtResource("1_s3v3n")
+mesh = ExtResource("2_a5pts")

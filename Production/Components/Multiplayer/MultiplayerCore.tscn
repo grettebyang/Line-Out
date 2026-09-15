@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://754mw6qd6a7f"]
+
+[ext_resource type="Script" uid="uid://dionicytvjhtt" path="res://Production/Components/Multiplayer/MultiplayerCore.gd" id="1_cjk44"]
+
+[node name="MultiplayerCore" type="Node"]
+script = ExtResource("1_cjk44")

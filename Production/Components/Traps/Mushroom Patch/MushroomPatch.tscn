@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://bmmyjwdq47vrn"]
+
+[ext_resource type="Script" uid="uid://b13ke55q6dk7w" path="res://Production/Components/Traps/Mushroom Patch/MushroomPatch.cs" id="1_bgp1y"]
+[ext_resource type="Material" uid="uid://pif5wuhdlkv4" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Materials/M_MudMushrooms.tres" id="2_ib13t"]
+[ext_resource type="ArrayMesh" uid="uid://dgxrv7m8156g3" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Meshes/Mushroom.obj" id="3_vclgc"]
+[ext_resource type="ArrayMesh" uid="uid://bosh2vaj1mp2x" path="res://assets/3D Assets - Production/Imports/MudMushrooms/Meshes/Mushroom_Tall.obj" id="4_vclgc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u347v"]
+size = Vector3(3, 0.4, 3)
+
+[node name="MushroomPatch" type="Area3D" unique_id=931227658]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("1_bgp1y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=220004036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20042542, 0)
+shape = SubResource("BoxShape3D_u347v")
+
+[node name="Mushrooms" type="Node3D" parent="." unique_id=934562549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005657017, 0)
+
+[node name="Mushroom_Mesh2" type="MeshInstance3D" parent="Mushrooms" unique_id=501811993]
+transform = Transform3D(0.83301306, 0.025688421, 0.55265653, -0.021405855, 0.99966997, -0.01420156, -0.552839, 0, 0.8332881, 0.95859385, -0.016181767, -0.27003732)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("3_vclgc")
+skeleton = NodePath("")
+
+[node name="Mushroom_Mesh13" type="MeshInstance3D" parent="Mushrooms" unique_id=1987012602]
+transform = Transform3D(-0.8179593, -0.009343466, 0.57520014, -0.021405855, 0.99966997, -0.014201561, -0.57487756, -0.02392895, -0.8178894, 0.8603978, -0.016181767, 0.5891721)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("3_vclgc")
+skeleton = NodePath("")
+
+[node name="Mushroom_Mesh3" type="MeshInstance3D" parent="Mushrooms" unique_id=279674045]
+transform = Transform3D(-0.46472546, -0.055579036, 0.8837087, 0.02796945, 0.99660856, 0.07738825, -0.885013, 0.06068113, -0.46159482, 0.5617036, -0.016181767, -0.86806303)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("3_vclgc")
+skeleton = NodePath("")
+
+[node name="Mushroom_Mesh5" type="MeshInstance3D" parent="Mushrooms" unique_id=1343588068]
+transform = Transform3D(0.9988725, -0.030835832, 0.03609535, 0.027969442, 0.99660856, 0.07738826, -0.038359284, -0.07629141, 0.99634737, -1.0590558, -0.016181886, 0.3596499)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("3_vclgc")
+skeleton = NodePath("")
+
+[node name="Mushroom_Mesh6" type="MeshInstance3D" parent="Mushrooms" unique_id=778426575]
+transform = Transform3D(-0.21671651, -0.06953157, 0.97375524, 0.027969444, 0.99660856, 0.07738826, -0.9758339, 0.04400669, -0.21403676, -1.0923514, -0.016181648, 1.1637232)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("3_vclgc")
+skeleton = NodePath("")
+
+[node name="Mushroom_Mesh7" type="MeshInstance3D" parent="Mushrooms" unique_id=1863078840]
+transform = Transform3D(-0.9977623, 0.06682103, -0.0023685247, 0.066722214, 0.99273884, -0.10008857, -0.00433667, -0.10002263, -0.99497575, -0.22279562, -0.016181648, -0.47170544)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("3_vclgc")
+skeleton = NodePath("")
+
+[node name="Mushroom_Mesh12" type="MeshInstance3D" parent="Mushrooms" unique_id=1540947745]
+transform = Transform3D(0.8341612, 0.1717743, 0.5240884, -0.15384379, 0.985013, -0.077981904, -0.5296293, -0.015578287, 0.8480862, 1.1170917, -0.016181767, 1.2168958)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("3_vclgc")
+skeleton = NodePath("")
+
+[node name="MushroomTall_Mesh" type="MeshInstance3D" parent="Mushrooms" unique_id=1010132258]
+transform = Transform3D(0.8675642, 0.14916317, -0.47442877, -0.08581724, 0.98455215, 0.15261923, 0.48986503, -0.091692805, 0.86696285, 0.12690592, 0, 0.3207531)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("4_vclgc")
+skeleton = NodePath("")
+
+[node name="MushroomTall_Mesh3" type="MeshInstance3D" parent="Mushrooms" unique_id=1297993728]
+transform = Transform3D(-0.24516079, 0.12760657, -0.96104765, 0.00067025423, 0.9913218, 0.13145536, 0.9694821, 0.031583555, -0.24311876, 0.322605, 0, 1.2207891)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("4_vclgc")
+skeleton = NodePath("")
+
+[node name="MushroomTall_Mesh2" type="MeshInstance3D" parent="Mushrooms" unique_id=693167517]
+transform = Transform3D(0.8745607, 0.0010614514, 0.48491487, -0.020716447, 0.9991666, 0.03517569, -0.48447338, -0.040808998, 0.87385386, -0.6146248, 0, -1.0350047)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("4_vclgc")
+skeleton = NodePath("")
+
+[node name="MushroomTall_Mesh6" type="MeshInstance3D" parent="Mushrooms" unique_id=1724833855]
+transform = Transform3D(-0.056565285, -0.18458606, 0.9811872, -0.08962101, 0.979732, 0.17914568, -0.99436826, -0.077801585, -0.071961224, -1.0545104, 0, -0.4997201)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("4_vclgc")
+skeleton = NodePath("")
+
+[node name="MushroomTall_Mesh4" type="MeshInstance3D" parent="Mushrooms" unique_id=1446837921]
+transform = Transform3D(0.9336662, 0.031916715, -0.35671997, -0.02071645, 0.9991666, 0.03517569, 0.35754508, -0.025452394, 0.93354905, 1.2189183, 0, -1.0350047)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("4_vclgc")
+skeleton = NodePath("")
+
+[node name="MushroomTall_Mesh5" type="MeshInstance3D" parent="Mushrooms" unique_id=1927580244]
+transform = Transform3D(-0.43853596, -0.119128, -0.8907833, 0.059877295, 0.9851007, -0.16121922, 0.89671683, -0.12403815, -0.42486912, -0.46622777, 0, 0.8622389)
+material_override = ExtResource("2_ib13t")
+mesh = ExtResource("4_vclgc")
+skeleton = NodePath("")

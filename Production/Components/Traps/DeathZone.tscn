@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://gyf6e0rcyptm"]
+
+[ext_resource type="Script" uid="uid://btjk64k2s4so3" path="res://Production/Components/Traps/DeathZone.cs" id="1_fb7ev"]
+
+[node name="DeathZone" type="Area3D" unique_id=2134319177]
+collision_layer = 257
+collision_mask = 257
+script = ExtResource("1_fb7ev")
