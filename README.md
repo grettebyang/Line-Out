@@ -17,6 +17,7 @@ https://github.com/user-attachments/assets/bbea6f10-f22d-4e49-87dd-89b4ba140b17
 - Implemented the powerup effects that result from completing the rhythm events
 - Programmed the cursor-controlled menu UI functionality
 - Composed all the music heard in the game
+- Implemented SFX
 
 
 
