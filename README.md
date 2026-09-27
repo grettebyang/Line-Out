@@ -21,6 +21,8 @@ https://github.com/user-attachments/assets/bbea6f10-f22d-4e49-87dd-89b4ba140b17
 - Composed all the music heard in the game
 - Implemented SFX
 
+<br> Read my dev log on the making of the rhythm mechanics [here](https://grettebyang.github.io/2026/09/22/Adding-Musical-Dimension-to-a-Game-The-Making-of-Line-Out's-Rhythm-Mechanics.html)
+
 
 #### Rhythm events demonstrating rhythm mechanics and powerups:
 
